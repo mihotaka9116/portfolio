@@ -541,3 +541,22 @@ footer a {
   height: 2px; /* 線の太さ */
   background-color: #4682b4； /* 線の色 */
 }
+
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: 1px solid #4682b4;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: #4682b4;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: #4682b4;
+  color: #fff;
+  opacity: 1; /* a:hoverのopacity 0.7を上書き */
+}
