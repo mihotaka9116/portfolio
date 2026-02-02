@@ -1,5 +1,143 @@
 @charset "UTF-8";
 
+/* --- 1. 基本設定（崩れの根本を直す） --- */
+html { scroll-behavior: smooth; }
+body {
+  color: #4682b4;
+  font-family: 'Playfair Display', 'Sawarabi Mincho', serif;
+  line-height: 1.8;
+  margin: 0;
+  overflow-x: hidden; /* 横揺れ防止 */
+}
+img { 
+  max-width: 100%; 
+  height: auto; 
+  vertical-align: bottom; 
+}
+
+/* --- 2. ヘッダー（縦伸びを修正） --- */
+#header {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.site-title { 
+  width: 110px; /* ロゴの幅を固定 */
+  line-height: 1; 
+}
+#header ul { 
+  display: flex; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#header li { 
+  font-size: 1rem; 
+  margin-left: 25px; 
+}
+
+/* --- 3. メインビジュアル（巨大化を修正） --- */
+#mainvisual {
+  width: 100%;
+  height: 400px; /* 高さを400pxに固定 */
+  background-color: #f9f9f9;
+  background-image: url("https://i.imgur.com/sGTjqHM.png");
+  background-repeat: repeat;
+  background-size: 120px auto; 
+  background-position: center;
+  margin-bottom: 60px;
+}
+
+/* --- 4. 共通レイアウト --- */
+.container { 
+  max-width: 1000px; 
+  margin: 0 auto; 
+  padding: 0 20px; 
+}
+
+/* セクションタイトル（下線を復活） */
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #4682b4;
+}
+.section-title-en { 
+  display: block; 
+  font-size: 0.8rem; 
+  margin-bottom: 30px; 
+}
+
+/* --- 5. コンテンツエリア（Workなど） --- */
+.content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
+  gap: 40px;
+}
+.content .img, .content .text { width: 50%; }
+
+/* --- 6. スキル（アイコンを黒く・適切に） --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.skill-item { text-align: center; }
+.skill-item svg {
+  width: 50px;
+  height: 50px;
+  fill: #000;
+  margin-bottom: 15px;
+}
+
+/* --- 7. お問い合わせフォーム（整頓） --- */
+#contact { padding: 60px 0; text-align: center; }
+.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
+.contact-form .item { margin-bottom: 20px; }
+.contact-form label { display: block; font-weight: bold; margin-bottom: 5px; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+}
+.parsed-btn input {
+  background-color: #4682b4; color: #fff; border: none; padding: 15px 40px; cursor: pointer;
+  display: block; margin: 30px auto 0;
+}
+
+/* --- 8. フッター --- */
+#footer {
+  background-color: #4682b4;
+  color: #fff;
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 60px;
+}
+
+/* --- 9. スマホ対応 --- */
+@media screen and (max-width: 767px) {
+  #header { flex-direction: column; }
+  #header li { margin: 10px 15px; }
+  .content { flex-direction: column; }
+  .content .img, .content .text { width: 100%; }
+  #work { flex-direction: column-reverse; } /* Workのみ画像が下、文字が上 */
+}@charset "UTF-8";
+
 /* --- 1. 全体設定 --- */
 html { scroll-behavior: smooth; }
 body {
