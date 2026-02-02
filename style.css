@@ -3,15 +3,15 @@
 /* --- 1. 基本設定 --- */
 html { scroll-behavior: smooth; }
 body {
-  color: #4682b4; /* 全体の文字色（メインカラー） */
-  font-family: 'Montserrat', serif;
+  color: #4682b4;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
   margin: 0;
 }
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダーとナビゲーション（色の固定） --- */
+/* --- 2. ヘッダー --- */
 #header {
   width: 90%;
   max-width: 1000px;
@@ -24,26 +24,18 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .site-title { width: 110px; }
 #header ul { display: flex; list-style: none; padding: 0; }
 #header li { margin-left: 25px; }
-
-/* ナビの色を現在のテキスト色 #4682b4 に完全固定 */
-#header a, 
-#header a:link,
-#header a:visited, 
-#header a:active { 
-  color: #4682b4 !important; /* 他の色に変わるのを強制防止 */
+#header a, #header a:visited { 
+  color: #4682b4 !important; 
   text-decoration: none; 
   transition: 0.3s;
 }
-#header a:hover { 
-  opacity: 0.6; /* マウスを乗せた時だけ少し薄く */
-}
+#header a:hover { opacity: 0.6; }
 
 /* --- 3. メインビジュアル --- */
 #mainvisual {
   width: 100%;
   height: 400px;
   background-color: #f9f9f9;
-  /* ここを修正：urlの中はファイル名だけにします */
   background-image: url("logo.svg"); 
   background-repeat: repeat;
   background-size: 120px auto; 
@@ -51,11 +43,14 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 60px;
 }
 
-/* --- 4. セクションタイトルと下線の修正 --- */
-.text-center { text-align: center; }
+/* --- 4. タイトルと文章の完全中央揃え --- */
+/* 全てのセクションタイトルと文章を強制的に中央へ */
+.text, .text-center, .detail-text-box {
+  text-align: center !important;
+  width: 100%;
+}
 
 .section-title {
-  font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
   color: #4682b4;
@@ -65,21 +60,16 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 10px;
 }
 
-/* 下線の色と位置 */
+/* 下線の修正（ど真ん中に固定） */
 .section-title::after {
   content: "";
-  position: center;
+  position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   width: 40px;
   height: 2px;
   background-color: #4682b4;
-}
-
-/* スキルなど中央寄せタイトルの下線は中央に */
-.text-center .section-title::after {
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .section-title-en { 
@@ -89,193 +79,67 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 30px; 
 }
 
-/* --- 5. コンテンツエリア --- */
-.content { display: flex; align-items: center; margin-bottom: 80px; gap: 40px; }
-.content .img, .content .text { width: 50%; }
+/* 文章（pタグ）の中央揃え */
+p, .project-description {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 700px;
+}
 
-/* --- 6. スキル（色統一と浮かび上がるアニメーション） --- */
+/* --- 5. コンテンツエリア（PC版は左右、スマホは縦） --- */
+.content {
+  display: flex;
+  flex-direction: column; /* 文章を真ん中にするため一度縦に */
+  align-items: center;
+  margin-bottom: 80px;
+  gap: 20px;
+}
+.content .text { width: 100%; }
+
+/* --- 6. スキル --- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
-
 .skill-item {
   text-align: center;
   padding: 20px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease; /* アニメーション設定 */
+  transition: transform 0.4s ease;
   border-radius: 8px;
 }
+.skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin-bottom: 15px; }
+.skill-item:hover { transform: translateY(-10px); background-color: rgba(70, 130, 180, 0.03); }
 
-/* スキルアイコンの色を #4682b4 に統一 */
-.skill-item svg {
-  width: 60px;
-  height: 60px;
-  fill: #4682b4; 
-  margin-bottom: 15px;
-  transition: transform 0.4s ease;
-}
-
-/* マウスを重ねた時に浮き上がる演出 */
-.skill-item:hover {
-  transform: translateY(-10px); /* 上にスッと動く */
-  background-color: rgba(70, 130, 180, 0.03); /* ほんの少し背景色をつけて浮遊感を出す */
-}
-
-/* --- 7. お問合せ・フッター --- */
-#contact { padding: 60px 0; text-align: center; }
-.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form .item { margin-bottom: 20px; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
-  color: #4682b4;
-}
-.parsed-btn input {
-  background-color: #4682b4; color: #fff; border: none; padding: 15px 40px; cursor: pointer;
-  display: block; margin: 30px auto 0;
-  transition: 0.3s;
-}
-.parsed-btn input:hover { opacity: 0.8; }
-
-#footer {
+/* --- 7. ボタン・フォーム・フッター --- */
+.btn, .btn:link, .btn:visited {
+  display: inline-block;
   background-color: #4682b4;
-  color: #fff;
-  text-align: center;
-  padding: 40px 0;
-}
-
-/* --- 8. スマホ対応 --- */
-@media screen and (max-width: 767px) {
-  #header { flex-direction: column; }
-  #header li { margin: 10px 15px; }
-  .content { flex-direction: column; }
-  .content .img, .content .text { width: 100%; }
-}
-
-/* --- セクションタイトル：下線を中央に固定する設定 --- */
-.text-center .section-title {
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
-}
-
-.text-center .section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%; /* 中央に配置 */
-  transform: translateX(-50%); /* 完全にど真ん中へ */
-  width: 40px;
-  height: 2px;
-  background-color: #4682b4; /* メインカラー */
-}
-
-/* スキルアイコン：ホバーで浮き上がる */
-.skill-item {
-  transition: transform 0.3s ease;
-}
-.skill-item:hover {
-  transform: translateY(-10px); /* 10px上に浮く */
-}
-.skill-item svg {
-  fill: #4682b4; /* アイコンもメインカラーに統一 */
-}
-
-/* ナビ：クリックしても色を変えない */
-#header a, #header a:visited {
-  color: #4682b4 !important;
-}
-
-font-family: 'Montserrat', sans-serif;
-
-/* View Detailボタン：クリック後も色を固定する */
-.btn, 
-.btn:link, 
-.btn:visited {
-  display: inline-block;
-  background-color: #4682b4; /* メインカラー */
-  color: #ffffff !important;   /* 文字色は常に白 */
+  color: #ffffff !important;
   padding: 10px 30px;
   text-decoration: none;
   border-radius: 4px;
   margin-top: 20px;
   transition: 0.3s;
 }
+.btn:hover { opacity: 0.8; }
 
-/* マウスを乗せた時だけ少し透明にする（リアクション） */
-.btn:hover {
-  opacity: 0.8;
-  color: #ffffff !important;
+#contact { padding: 60px 0; text-align: center; }
+.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; color: #4682b4;
+}
+.parsed-btn input {
+  background-color: #4682b4; color: #fff; border: none; padding: 15px 40px; cursor: pointer; display: block; margin: 30px auto 0;
 }
 
-/* クリックした瞬間も色を変えない */
-.btn:active {
-  background-color: #4682b4;
-}
+#footer { background-color: #4682b4; color: #fff; text-align: center; padding: 40px 0; }
 
 /* --- 8. スマホ対応 --- */
 @media screen and (max-width: 767px) {
   #header { flex-direction: column; }
   #header li { margin: 10px 15px; }
-  
-  /* コンテンツを縦並びにして、すべてを中央に */
-  .content { 
-    flex-direction: column; 
-    text-align: center;
-  }
-  .content .img, 
-  .content .text { 
-    width: 100%; 
-  }
-}
-
-/* --- 文章（pタグ）を中央揃えにする設定 --- */
-
-/* コンテンツエリアの説明文 */
-.content .text p,
-.project-description {
-  text-align: center;      /* 文字を中央に寄せる */
-  max-width: 600px;        /* 読みやすい幅に制限 */
-  margin-left: auto;       /* 左右の余白を自動にして中央へ */
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-
-/* スマホで見た時の微調整 */
-@media screen and (max-width: 767px) {
-  .content .text p {
-    text-align: center;    /* スマホでも確実に中央寄せ */
-    padding: 0 10px;       /* 画面端に文字がくっつかないよう余白 */
-  }
-}
-
-/* --- 強制中央揃え（これを一番下に貼る） --- */
-
-/* タイトルの後の文章（pタグ）を中央にする */
-.text p, 
-.detail-text-box p, 
-.project-description {
-  text-align: center !important; /* 文字を中央へ */
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display: block;
-}
-
-/* 念のため、文字が入っているボックス自体のズレを直す */
-.content .text {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 中身を中央に集める */
-  text-align: center;
-}
-
-/* スマホの時も確実に中央 */
-@media screen and (max-width: 767px) {
-  .content .text p {
-    text-align: center !important;
-    width: 100%;
-  }
+  .section-title { font-size: 1.5rem; }
 }
