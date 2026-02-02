@@ -592,3 +592,54 @@ footer a {
     width: 100% !important;
   }
 }
+
+/* --- DETAILページ専用の強制上書き --- */
+
+/* 1. 横並びの強制 */
+.detail-flex-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 40px !important;
+  margin-top: 40px !important;
+}
+
+/* 2. 画像エリアの調整（画像の間隔を詰める） */
+.detail-image-box {
+  flex: 1.2 !important;
+  max-width: 55% !important;
+}
+
+.image-grid-sub {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px !important; /* 隙間を10pxに固定 */
+  margin-top: 10px !important;
+}
+
+/* 3. テキストエリアを中央に寄せる */
+.detail-text-box {
+  flex: 0.8 !important;
+  display: flex !important;
+  justify-content: center !important;
+  padding-left: 20px !important;
+}
+
+.detail-text-content {
+  width: 100% !important;
+  max-width: 400px !important;
+  text-align: left !important;
+}
+
+/* 4. スマホでは自動で縦にする */
+@media screen and (max-width: 767px) {
+  .detail-flex-wrapper {
+    flex-direction: column !important;
+  }
+  .detail-image-box, .detail-text-box {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+  }
+}
