@@ -68,7 +68,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 /* 下線の色と位置 */
 .section-title::after {
   content: "";
-  position: absolute;
+  position: center;
   bottom: 0;
   left: 0;
   width: 40px;
@@ -229,5 +229,25 @@ font-family: 'Montserrat', sans-serif;
   .content .img, 
   .content .text { 
     width: 100%; 
+  }
+}
+
+/* --- 文章（pタグ）を中央揃えにする設定 --- */
+
+/* コンテンツエリアの説明文 */
+.content .text p,
+.project-description {
+  text-align: center;      /* 文字を中央に寄せる */
+  max-width: 600px;        /* 読みやすい幅に制限 */
+  margin-left: auto;       /* 左右の余白を自動にして中央へ */
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+/* スマホで見た時の微調整 */
+@media screen and (max-width: 767px) {
+  .content .text p {
+    text-align: center;    /* スマホでも確実に中央寄せ */
+    padding: 0 10px;       /* 画面端に文字がくっつかないよう余白 */
   }
 }
