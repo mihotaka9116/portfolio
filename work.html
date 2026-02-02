@@ -12,7 +12,7 @@
     <style>
     /* 詳細ページ専用の調整 */
     .detail-container {
-      max-width: 800px;
+      max-width: 900px; /* 少し幅を広げて写真を大きく見せます */
       margin: 0 auto;
       padding: 60px 20px;
     }
@@ -24,35 +24,65 @@
       text-decoration: none;
       font-weight: bold;
     }
-    /* メイン画像（SVGロゴ）の設定 */
+
+    /* メインロゴの設定 */
     .main-visual-img {
       width: 100%;
       height: auto;
       border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       display: block;
     }
-    .image-grid-sub {
+
+    /* グッズのグリッド設定 */
+    .goods-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin-bottom: 50px;
+      grid-template-columns: repeat(2, 1fr); /* 2カラム */
+      gap: 40px 20px; /* 上下の隙間を広く */
+      margin-bottom: 60px;
     }
-    .image-grid-sub img {
+
+    /* 各アイテムの枠（灰色の背景をなくしました） */
+    .goods-item {
+      text-align: center; /* 中身（画像とテキスト）を中央に */
+    }
+
+    /* 画像を囲む枠（ズームのはみ出し防止） */
+    .image-wrap {
+      overflow: hidden; /* はみ出した画像を隠す */
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .image-wrap img {
       width: 100%;
-      border-radius: 4px;
+      display: block;
+      transition: transform 0.5s ease; /* ズームの速さ */
     }
+
+    /* マウスを乗せた時のズーム演出 */
+    .goods-item:hover .image-wrap img {
+      transform: scale(1.1); /* 1.1倍に拡大 */
+    }
+
+    /* 写真の下のテキスト */
+    .item-caption {
+      font-weight: bold;
+      color: #4682b4;
+    }
+    .item-caption span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: normal;
+      margin-top: 5px;
+    }
+
     .detail-text-box {
       text-align: center;
+      margin-top: 40px;
     }
-    .item-block {
-      text-align: left;
-      margin-bottom: 40px;
-      padding: 25px;
-      background-color: #fcfcfc;
-      border-left: 4px solid #4682b4;
-    }
+
     .cta-button-container {
       margin: 60px 0;
     }
@@ -78,15 +108,38 @@
     </nav>
 
     <article class="detail-content">
-      <div class="detail-image-box">
-        <img src="logo.svg" alt="miho takahashi" class="main-visual-img">
+      <img src="logo.svg" alt="miho takahashi" class="main-visual-img">
+
+      <div class="goods-grid">
         
-        <div class="image-grid-sub">
-           <img src="https://i.imgur.com/Ce2NJ1S.png" alt="グッズ1">
-           <img src="https://i.imgur.com/764AOxe.png" alt="グッズ2">
-           <img src="https://i.imgur.com/do2FCYG.png" alt="グッズ3">
-           <img src="https://i.imgur.com/3MmbWx5.png" alt="グッズ4">
+        <div class="goods-item">
+          <div class="image-wrap">
+            <img src="https://i.imgur.com/Ce2NJ1S.png" alt="Mag Cup">
+          </div>
+          <p class="item-caption">01<span>Mag Cup</span></p>
         </div>
+
+        <div class="goods-item">
+          <div class="image-wrap">
+            <img src="https://i.imgur.com/764AOxe.png" alt="Parker">
+          </div>
+          <p class="item-caption">02<span>Parker</span></p>
+        </div>
+
+        <div class="goods-item">
+          <div class="image-wrap">
+            <img src="https://i.imgur.com/do2FCYG.png" alt="T-shirt">
+          </div>
+          <p class="item-caption">03<span>T-shirt</span></p>
+        </div>
+
+        <div class="goods-item">
+          <div class="image-wrap">
+            <img src="https://i.imgur.com/3MmbWx5.png" alt="Tote Bag">
+          </div>
+          <p class="item-caption">04<span>Tote Bag</span></p>
+        </div>
+
       </div>
 
       <div class="detail-text-box">
@@ -95,16 +148,6 @@
         <p class="project-description">
           「miho takahashi」のロゴが持つ「リズム」と「つながり」を、日常生活に馴染むプロダクトへと展開しました。
         </p>
-
-        <div class="item-block">
-          <h3>Item 01: Mag Cup</h3>
-          <p>ロゴ入りのマグカップ。清潔感のあるホワイトに、カラフルなロゴが映えるデザインです。</p>
-        </div>
-
-        <div class="item-block">
-          <h3>Item 02: Parker</h3>
-          <p>胸にロゴを配置。カラフルで気分がハッピーになれるデザインです。</p>
-        </div>
 
         <div class="cta-button-container">
           <a href="index.html#contact" class="custom-btn">このグッズについて問い合わせる</a>
