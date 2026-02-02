@@ -541,3 +541,54 @@ footer a {
   height: 2px; /* 線の太さ */
   background-color: #4682b4； /* 線の色 */
 }
+
+/* --- 詳細ページ(work-detail)専用の修正 --- */
+
+/* 1. PCで横並びにする（他のページには影響しません） */
+.detail-flex-wrapper {
+  display: flex !important;
+  flex-direction: row !important; /* PCでは横並び */
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 40px !important; /* 画像と文字の間隔 */
+  margin-top: 40px;
+}
+
+/* 2. 画像エリアの幅調整 */
+.detail-image-box {
+  flex: 1.2 !important;
+  max-width: 55% !important;
+}
+
+/* 3. 画像同士の間隔を詰める（グリッド設定） */
+.image-grid-sub {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px !important; /* ここを小さくすると画像の間が詰まります */
+  margin-top: 15px !important;
+}
+
+/* 4. テキストエリアを中央に寄せる */
+.detail-text-box {
+  flex: 0.8 !important;
+  display: flex !important;
+  justify-content: center !important; /* 横方向中央 */
+}
+
+/* 5. テキストの中身が広がりすぎないように制限 */
+.detail-text-content {
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+/* 6. スマホでは自動で縦並びに戻す設定 */
+@media screen and (max-width: 767px) {
+  .detail-flex-wrapper {
+    flex-direction: column !important; /* スマホは縦 */
+  }
+  .detail-image-box, .detail-text-box {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
