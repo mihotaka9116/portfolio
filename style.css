@@ -87,3 +87,34 @@ a:hover { opacity: 0.7; }
   .content, .detail-flex-wrapper { flex-direction: column !important; }
   .content .img, .content .text, .detail-image-box, .detail-text-box { width: 100% !important; max-width: 100% !important; }
 }
+
+/* PCで横並びを強制する設定 */
+@media screen and (min-width: 768px) {
+  .detail-flex-wrapper {
+    display: flex !important;       /* これが横並びの魔法です */
+    flex-direction: row !important;  /* 明示的に「横」を指定 */
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 50px !important;
+    margin-top: 50px !important;
+  }
+
+  .detail-image-box {
+    flex: 1.2 !important; /* 画像側の幅を少し広く */
+    max-width: 55% !important;
+  }
+
+  .detail-text-box {
+    flex: 0.8 !important; /* テキスト側の幅 */
+    display: flex !important;
+    justify-content: center !important; /* 右側エリアの中央へ */
+  }
+}
+
+/* お問い合わせフォームの崩れを防止 */
+.contact-form .item {
+  display: flex;
+  flex-direction: column; /* ラベルと入力を縦に並べる */
+  align-items: flex-start;
+  width: 100%;
+}
