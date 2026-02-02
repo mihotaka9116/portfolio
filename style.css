@@ -809,4 +809,105 @@ footer a {
   }
 }
 
+/* --- 詳細ページ完全修正版 --- */
+
+/* PCで横並びにする設定 */
+.detail-flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+/* 画像エリアの設定 */
+.detail-image-box {
+  flex: 1;
+  max-width: 50%;
+}
+
+.main-visual-img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.image-grid-sub {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.image-grid-sub img {
+  width: 100%;
+  height: auto;
+}
+
+/* テキストエリアの中央寄せ設定 */
+.detail-text-box {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* 横方向中央 */
+  padding-top: 20px;
+}
+
+.detail-text-content {
+  max-width: 450px; /* テキストが横に広がりすぎないように制限 */
+  width: 100%;
+}
+
+.project-description {
+  margin: 30px 0;
+  line-height: 2;
+}
+
+.item-block {
+  margin-bottom: 25px;
+}
+
+.item-block h3 {
+  font-size: 1.1rem;
+  border-left: 3px solid #4682b4;
+  padding-left: 10px;
+  margin-bottom: 8px;
+}
+
+/* お問い合わせボタンの再設定 */
+.custom-btn {
+  display: inline-block;
+  background-color: #4682b4; /* ここで色を指定 */
+  color: #ffffff !important;
+  padding: 15px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, opacity 0.3s;
+  margin-top: 20px;
+}
+
+.custom-btn:hover {
+  background-color: #35668d;
+  opacity: 1 !important;
+}
+
+/* スマホ対応（767px以下） */
+@media screen and (max-width: 767px) {
+  .detail-flex-wrapper {
+    flex-direction: column !important; /* 縦並び */
+    gap: 40px;
+  }
+
+  .detail-image-box, 
+  .detail-text-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .detail-text-box {
+    justify-content: flex-start;
+    padding: 0;
+  }
+}
 
