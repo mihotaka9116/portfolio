@@ -4,13 +4,11 @@
 html {
   font-size: 100%;
   scroll-behavior: smooth; 
-
-  
 }
 body {
   color: #4682b4;
-  font-family: font-family: 'Playfair Display', serif;
-  line-height: 1.9; /* 読みやすさのために追加 */
+  font-family: 'Playfair Display', serif;
+  line-height: 1.9;
 }
 img {
   max-width: 100%;
@@ -39,6 +37,7 @@ a:hover {
 #header {
   width: 90vw;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 32px 0;
   margin: 0 auto 30px auto;
@@ -46,17 +45,13 @@ a:hover {
 .site-title {
   width: 110px;
   line-height: 1px;
-  margin-right: 50px;
 }
 #header ul {
   display: flex;
 }
 #header li {
-  font-size: 1.5rem;
-  margin-right: 30px;
-}
-#header li:last-child {
-  margin-right: 0;
+  font-size: 1.1rem;
+  margin-left: 30px;
 }
 
 /* メインビジュアル */
@@ -65,471 +60,22 @@ a:hover {
   height: 400px;
   margin: 4% auto 0 auto;
   background-color: #f9f9f9;
-  
-  /* 修正ポイント：url() を使って画像を指定します */
   background-image: url("https://i.imgur.com/sGTjqHM.png");
-  
-  /* 画像をタイル状に繰り返す設定 */
   background-repeat: repeat;
-  
-  /* 敷き詰めるパターンの大きさを調整 */
   background-size: 120px auto; 
   background-position: center;
 }
 
 /* コンテンツエリア */
 .section-title {
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-bottom: 4px;
-}
-.section-title-en {
-  display: inline-block;
-  margin-bottom: 25px;
-  font-size: 0.875rem;
-}
-.content {
-  display: flex;
-  align-items: center;
-  margin-bottom: 60px;
-}
-.content .img {
-  width: 50%;
-}
-.content .text {
-  width: 50%;
-  padding: 0 7%;
-}
-
-/* フッター */
-#footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-  padding: 40px 0 20px 0;
-  border-top: 1px solid #4682b4;
-}
-#footer .logo {
-  width: 110px;
-}
-
-/* レスポンシブ (SP) */
-@media screen and (max-width: 767px) {
-  #mainvisual {
-    width: 100%;
-    height: 50vh;
-    margin-top: 0;
-  }
-  #header {
-    width: 100%;
-    padding: 20px 18px;
-    flex-direction: column; /* スマホではロゴとナビを縦に並べる場合 */
-  }
-  .site-title {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-  .content {
-    flex-direction: column;
-  }
-  /* Workセクションの画像とテキストを入れ替える */
-  #work {
-    flex-direction: column-reverse;
-  }
-  .content .img, .content .text {
-    width: 100%;
-    padding: 0;
-  }
-  .content .img {
-    margin-bottom: 20px;
-  }
-}
-
-/* お問い合わせフォーム */
-.contact-form {
-  width: 50%;
-  padding: 0 7%;
-}
-.contact-form .item {
-  margin-bottom: 20px;
-}
-.contact-form label {
-  display: block;
-  font-size: 0.875rem;
-  margin-bottom: 5px;
-}
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #fafafa;
-  font-family: inherit;
-}
-.contact-form textarea {
-  height: 150px;
-}
-
-/* 送信ボタン */
-.parsed-btn input[type="submit"] {
-  background-color: #4682b4;
-  color: #fff;
-  padding: 12px 40px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.parsed-btn input[type="submit"]:hover {
-  background-color: #666;
-}
-
-/* レスポンシブ (SP) */
-@media screen and (max-width: 767px) {
-  .contact-form {
-    width: 100%;
-    padding: 0;
-    margin-top: 30px;
-  }
-}
-
-/* Skillsセクション */
-#skills {
-  padding: 60px 0;
-  margin-bottom: 60px;
-}
-.text-center {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-}
-.skill-item {
-  background-color: #fff;
-  padding: 30px 20px;
-  border: 1px solid #eee;
-  text-align: center;
-  transition: transform 0.3s;
-}
-.skill-item:hover {
-  transform: translateY(-5px); /* 軽く浮き上がる演出 */
-}
-
-  /* アイコン部分のサイズ調整 */
-.skill-icon {
-  width: 35px;            /* 60pxから45pxに縮小 */
-  height: 35px;           /* widthと同じ数値に */
-  background-color: #2d2d2d;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 15px;
-  font-weight: bold;
-  font-size: 0.9rem;      /* アイコンが小さくなるので中の文字も少し小さく */
-}
-
-
-/* 星評価のスタイル */
-.stars {
-  color: #d4af37; /* 上品なゴールド */
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-}
-.skill-desc {
-  font-size: 0.875rem;
-  text-align: left;
-  line-height: 1.6;
-}
-
-/* レスポンシブ */
-@media screen and (max-width: 767px) {
-  .skills-grid {
-    grid-template-columns: 1fr; /* スマホでは1列 */
-  }
-}
-
-/* Contactセクション全体の調整 */
-#contact {
-  padding: 80px 20px;
-  text-align: center; /* タイトルなどを中央寄せ */
-}
-
-/* フォーム本体の幅を制限して中央に配置 */
-#contact form {
-  max-width: 600px; /* フォームの最大幅 */
-  margin: 0 auto;   /* 左右中央寄せの魔法のコード */
-  text-align: left; /* 入力欄の中の文字は左寄せ */
-}
-
-/* 入力項目ごとの間隔 */
-#contact div {
-  margin-bottom: 20px;
-}
-
-/* ラベル（お名前、メールアドレスなど） */
-#contact label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-/* 入力欄（input, textarea）のスタイル */
-#contact input[type="text"],
-#contact input[type="email"],
-#contact textarea {
-  width: 100%;       /* 横幅いっぱいに広げる */
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px; /* 角を少し丸める */
-  box-sizing: border-box; /* paddingを含めた幅計算にする */
-}
-
-/* 送信ボタンのスタイル */
-#contact input[type="submit"] {
-  display: block;
-  width: 200px;      /* ボタンの幅 */
-  margin: 30px auto 0; /* ボタン自体を中央寄せ */
-  padding: 15px;
-  background-color: #4682b4;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#contact input[type="submit"]:hover {
-  background-color: #555; /* ホバー時に少し明るく */
-}
-
-header {
-  display: flex;             /* 横並びにする魔法の言葉 */
-  justify-content: space-between; /* 両端に広げて配置する */
-  align-items: center;       /* 上下の中央を揃える */
-  padding: 20px 4%;          /* 上下と左右に少し余白を作る */
-  background-color: #fff;    /* ヘッダーの背景色（お好みで） */
-}
-
-header nav ul {
-  display: flex;             /* メニュー項目も横並びにする */
-  list-style: none;          /* 箇条書きの点を消す */
-  margin: 0;
-  padding: 0;
-}
-
-header nav ul li {
-  margin-left: 20px;         /* メニュー同士の間隔をあける */
-}
-
-footer {
-  background-color: #4682b4; /* 好きな色に変更してください（例：濃いグレー） */
-  color: #ffffff;            /* 文字の色を白くして読みやすくする */
-  padding: 40px 20px;        /* 上下にゆとりを持たせる */
-  text-align: center;        /* コピーライトなどを中央に */
-}
-
-/* フッター内のリンクがあればその色も調整 */
-footer a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-/* --- ヘッダーの修正 --- */
-#header {
-  width: 90vw;
-  display: flex;
-  justify-content: space-between; /* 左右に振り分ける */
-  align-items: center;
-  padding: 32px 0;
-  margin: 0 auto 30px auto;
-}
-
-.site-title {
-  margin-right: 0; /* 右側の余白をリセット */
-}
-
-/* --- スキルセクションの説明文を中央寄せ --- */
-.skill-desc {
-  font-size: 0.875rem;
-  text-align: center; /* leftからcenterに変更 */
-  line-height: 1.6;
-}
-
-/* --- フッターのカスタマイズ --- */
-#footer {
-  background-color: #4682b4; /* 背景を濃いグレーに */
-  color: #fff;              /* 文字を白に */
-  padding: 60px 5%;         /* 上下にゆとりを */
-  border-top: none;         /* 境界線を消す */
-  display: flex;
-  flex-direction: column;    /* 縦に並べる（ロゴとコピーライト） */
-  gap: 20px;                /* 要素の隙間 */
-}
-
-#footer p {
-  color: #fff;              /* コピーライトの色 */
-}
-
-/* もしフッターにロゴ画像がある場合、白っぽく見えるように調整 */
-#footer .logo {
-  filter: brightness(0) invert(1); /* 黒いロゴを白く反転させる魔法 */
-  margin: 0 auto;
-}
-
-.skill-item:hover {
-  transform: translateY(-5px); /* 上に5px動く */
-}
-
-/* --- スキル項目を確実に浮かせ、中央に寄せる修正 --- */
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 中身を中央に */
-  transition: transform 0.3s ease; /* アニメーションを滑らかに */
-}
-
-.skill-item:hover {
-  transform: translateY(-10px) !important; /* 強制的に浮かせる */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* 浮いた感じを出す影 */
-}
-
-.skill-desc {
-  text-align: center !important; /* 確実に中央寄せ */
-}
-
-/* --- お問い合わせとフッターのレイアウト修正 --- */
-#contact {
-  padding: 80px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* フォームを中央に配置 */
-}
-
-.contact-form {
-  width: 100% !important;
-  max-width: 600px; /* フォームが広がりすぎないように */
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* フッターの重なり防止 */
-#footer {
-  width: 100%;
-  background-color: #4682b4；
-  color: #fff !important;
-  padding: 60px 0;
-  margin-top: 50px; /* お問い合わせとの間に隙間を作る */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-top: none;
-}
-
-/* フッターを画面横幅いっぱいにする修正 */
-#footer {
-  width: 100% !important;
-  margin-left: calc(-50vw + 50%); /* 親要素を無視して画面端まで広げる魔法のコード */
-  margin-right: calc(-50vw + 50%);
-  position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
-  
-  background-color: #4682b4；
-  color: #fff !important;
-  padding: 60px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* --- スマホ・タブレット用 (767px以下) --- */
-@media screen and (max-width: 767px) {
-  
-  /* ヘッダー：ロゴを中央、ナビをその下に並べる */
-  #header {
-    flex-direction: column;
-    padding: 20px 0;
-  }
-  
-  .site-title {
-    margin-bottom: 15px;
-  }
-  
-  #header li {
-    margin: 0 10px; /* メニューの間隔を調整 */
-    font-size: 0.8rem;
-  }
-
-  /* メインビジュアル：高さを少し抑える */
-  #mainvisual {
-    height: 300px;
-    background-size: 60px auto; /* ロゴパターンを少し小さく */
-  }
-
-  /* コンテンツ：横並びを縦並びに変更 */
-  .content {
-    flex-direction: column !important;
-    margin-bottom: 40px;
-  }
-
-  .content .img, 
-  .content .text {
-    width: 100% !important;
-    padding: 0;
-  }
-
-  .content .img {
-    margin-bottom: 20px;
-  }
-  
-  /* Workセクション：スマホでは「画像→テキスト」の順に統一 */
-  #work {
-    flex-direction: column !important;
-  }
-
-  /* スキル：1列にする（gridの調整） */
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  /* お問い合わせフォーム：横幅いっぱいにする */
-  .contact-form {
-    width: 100% !important;
-    padding: 0 10px;
-  }
-
-  /* セクションタイトルの調整 */
-  .section-title {
-    font-size: 1.3rem;
-  }
-}
-
-.section-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  
-  letter-spacing: 0.05em;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.section-title {
   position: relative;
-  display: inline-block; /* 下線の長さを文字に合わせる */
+  display: inline-block;
   padding-bottom: 10px;
   margin-bottom: 20px;
+  text-align: center;
 }
 .section-title::after {
   content: "";
@@ -537,75 +83,44 @@ footer a {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px; /* 線の長さ */
-  height: 2px; /* 線の太さ */
-  background-color: #4682b4； /* 線の色 */
+  width: 40px;
+  height: 2px;
+  background-color: #4682b4; /* 半角に修正済 */
 }
 
-/* --- 詳細ページ(work-detail)専用の修正 --- */
-
-/* 1. PCで横並びにする（他のページには影響しません） */
-.detail-flex-wrapper {
-  display: flex !important;
-  flex-direction: row !important; /* PCでは横並び */
-  justify-content: space-between !important;
-  align-items: flex-start !important;
-  gap: 40px !important; /* 画像と文字の間隔 */
-  margin-top: 40px;
+/* スキル */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.skill-item {
+  text-align: center;
+  transition: transform 0.3s;
+}
+.skill-item:hover {
+  transform: translateY(-10px) !important;
 }
 
-/* 2. 画像エリアの幅調整 */
-.detail-image-box {
-  flex: 1.2 !important;
-  max-width: 55% !important;
+/* フッター */
+#footer {
+  background-color: #4682b4; /* 半角に修正済 */
+  color: #ffffff;
+  padding: 60px 0;
+  text-align: center;
+  margin-top: 50px;
 }
 
-/* 3. 画像同士の間隔を詰める（グリッド設定） */
-.image-grid-sub {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 10px !important; /* ここを小さくすると画像の間が詰まります */
-  margin-top: 15px !important;
-}
-
-/* 4. テキストエリアを中央に寄せる */
-.detail-text-box {
-  flex: 0.8 !important;
-  display: flex !important;
-  justify-content: center !important; /* 横方向中央 */
-}
-
-/* 5. テキストの中身が広がりすぎないように制限 */
-.detail-text-content {
-  width: 100%;
-  max-width: 400px;
-  text-align: left;
-}
-
-/* 6. スマホでは自動で縦並びに戻す設定 */
-@media screen and (max-width: 767px) {
-  .detail-flex-wrapper {
-    flex-direction: column !important; /* スマホは縦 */
-  }
-  .detail-image-box, .detail-text-box {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-}
-
-/* --- DETAILページ専用の強制上書き --- */
-
-/* 1. 横並びの強制 */
+/* --- 詳細ページ(work-detail)専用設定 --- */
 .detail-flex-wrapper {
   display: flex !important;
   flex-direction: row !important;
   justify-content: space-between !important;
   align-items: flex-start !important;
-  gap: 40px !important;
-  margin-top: 40px !important;
+  gap: 50px !important;
+  margin-top: 50px !important;
 }
 
-/* 2. 画像エリアの調整（画像の間隔を詰める） */
 .detail-image-box {
   flex: 1.2 !important;
   max-width: 55% !important;
@@ -614,16 +129,14 @@ footer a {
 .image-grid-sub {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
-  gap: 10px !important; /* 隙間を10pxに固定 */
-  margin-top: 10px !important;
+  gap: 10px !important;
+  margin-top: 15px !important;
 }
 
-/* 3. テキストエリアを中央に寄せる */
 .detail-text-box {
   flex: 0.8 !important;
   display: flex !important;
   justify-content: center !important;
-  padding-left: 20px !important;
 }
 
 .detail-text-content {
@@ -632,14 +145,28 @@ footer a {
   text-align: left !important;
 }
 
-/* 4. スマホでは自動で縦にする */
+.custom-btn {
+  display: inline-block !important;
+  background-color: #4682b4 !important;
+  color: #fff !important;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+/* レスポンシブ */
 @media screen and (max-width: 767px) {
   .detail-flex-wrapper {
     flex-direction: column !important;
   }
   .detail-image-box, .detail-text-box {
     max-width: 100% !important;
-    width: 100% !important;
-    padding-left: 0 !important;
+  }
+  #header {
+    flex-direction: column;
+  }
+  #header li {
+    margin: 10px;
   }
 }
