@@ -43,7 +43,8 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   width: 100%;
   height: 400px;
   background-color: #f9f9f9;
-  background-image: url(img src="logo.svg" alt="miho takahashi" style="width: 120px; height: auto;")
+  /* ここを修正：urlの中はファイル名だけにします */
+  background-image: url("logo.svg"); 
   background-repeat: repeat;
   background-size: 120px auto; 
   background-position: center;
@@ -187,3 +188,5 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 #header a, #header a:visited {
   color: #4682b4 !important;
 }
+
+font-family: 'Montserrat', sans-serif;
