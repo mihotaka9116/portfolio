@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 全体設定 */
+/* --- 1. 全体共通設定 --- */
 html {
   font-size: 100%;
   scroll-behavior: smooth; 
@@ -9,31 +9,25 @@ body {
   color: #4682b4;
   font-family: 'Playfair Display', serif;
   line-height: 1.9;
+  margin: 0;
 }
 img {
   max-width: 100%;
+  height: auto;
   vertical-align: bottom;
 }
-ul {
-  list-style: none;
-}
-a {
-  color: #4682b4;
-  text-decoration: none;
-  transition: opacity 0.3s;
-}
-a:hover {
-  opacity: 0.7;
-}
+ul { list-style: none; padding: 0; margin: 0; }
+a { color: #4682b4; text-decoration: none; transition: 0.3s; }
+a:hover { opacity: 0.7; }
 
-/* レイアウト */
+/* --- 2. レイアウト --- */
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 18px;
 }
 
-/* ヘッダー */
+/* --- 3. ヘッダー（共通） --- */
 #header {
   width: 90vw;
   display: flex;
@@ -42,23 +36,15 @@ a:hover {
   padding: 32px 0;
   margin: 0 auto 30px auto;
 }
-.site-title {
-  width: 110px;
-  line-height: 1px;
-}
-#header ul {
-  display: flex;
-}
-#header li {
-  font-size: 1.1rem;
-  margin-left: 30px;
-}
+.site-title { width: 110px; }
+#header ul { display: flex; }
+#header li { font-size: 1.1rem; margin-left: 30px; }
 
-/* メインビジュアル */
+/* --- 4. トップページ専用：メインビジュアル --- */
 #mainvisual {
   width: 90vw;
-  height: 400px;
-  margin: 4% auto 0 auto;
+  height: 400px; /* ここを固定して巨大化を防ぎます */
+  margin: 4% auto 40px auto;
   background-color: #f9f9f9;
   background-image: url("https://i.imgur.com/sGTjqHM.png");
   background-repeat: repeat;
@@ -66,59 +52,56 @@ a:hover {
   background-position: center;
 }
 
-/* コンテンツエリア */
+/* --- 5. トップページ専用：コンテンツエリア --- */
+.content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.content .img, .content .text { width: 50%; }
+.content .text { padding: 0 7%; }
+
 .section-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   position: relative;
   display: inline-block;
   padding-bottom: 10px;
   margin-bottom: 20px;
-  text-align: center;
 }
 .section-title::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 40px;
   height: 2px;
-  background-color: #4682b4; /* 半角に修正済 */
+  background-color: #4682b4;
 }
 
-/* スキル */
+/* --- 6. スキル・お問い合わせ・フッター（共通） --- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
 }
-.skill-item {
-  text-align: center;
-  transition: transform 0.3s;
-}
-.skill-item:hover {
-  transform: translateY(-10px) !important;
-}
-
-/* フッター */
 #footer {
-  background-color: #4682b4; /* 半角に修正済 */
+  background-color: #4682b4;
   color: #ffffff;
   padding: 60px 0;
   text-align: center;
-  margin-top: 50px;
 }
 
-/* --- 詳細ページ(work-detail)専用設定 --- */
+/* --- 7. ★詳細ページ(work-detail)専用：ここが一番大事です --- */
 .detail-flex-wrapper {
   display: flex !important;
-  flex-direction: row !important;
+  flex-direction: row !important; /* PCで横並びを強制 */
   justify-content: space-between !important;
   align-items: flex-start !important;
-  gap: 50px !important;
+  gap: 60px !important;
   margin-top: 50px !important;
+  margin-bottom: 100px !important;
 }
 
 .detail-image-box {
@@ -129,44 +112,40 @@ a:hover {
 .image-grid-sub {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
-  gap: 10px !important;
+  gap: 10px !important; /* 画像の隙間を10pxに */
   margin-top: 15px !important;
 }
 
 .detail-text-box {
   flex: 0.8 !important;
   display: flex !important;
-  justify-content: center !important;
+  justify-content: center !important; /* テキストをエリアの中央へ */
 }
 
 .detail-text-content {
   width: 100% !important;
   max-width: 400px !important;
-  text-align: left !important;
 }
 
 .custom-btn {
   display: inline-block !important;
   background-color: #4682b4 !important;
   color: #fff !important;
-  padding: 15px 30px;
-  text-decoration: none;
+  padding: 15px 30px !important;
   border-radius: 4px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
-/* レスポンシブ */
+/* --- 8. レスポンシブ (スマホ) --- */
 @media screen and (max-width: 767px) {
-  .detail-flex-wrapper {
+  #header { flex-direction: column; }
+  #header li { margin: 10px; }
+  #mainvisual { height: 300px; background-size: 80px auto; }
+  .content, .detail-flex-wrapper {
     flex-direction: column !important;
   }
-  .detail-image-box, .detail-text-box {
+  .content .img, .content .text, .detail-image-box, .detail-text-box {
+    width: 100% !important;
     max-width: 100% !important;
-  }
-  #header {
-    flex-direction: column;
-  }
-  #header li {
-    margin: 10px;
   }
 }
