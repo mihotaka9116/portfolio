@@ -251,3 +251,31 @@ font-family: 'Montserrat', sans-serif;
     padding: 0 10px;       /* 画面端に文字がくっつかないよう余白 */
   }
 }
+
+/* --- 強制中央揃え（これを一番下に貼る） --- */
+
+/* タイトルの後の文章（pタグ）を中央にする */
+.text p, 
+.detail-text-box p, 
+.project-description {
+  text-align: center !important; /* 文字を中央へ */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;
+}
+
+/* 念のため、文字が入っているボックス自体のズレを直す */
+.content .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 中身を中央に集める */
+  text-align: center;
+}
+
+/* スマホの時も確実に中央 */
+@media screen and (max-width: 767px) {
+  .content .text p {
+    text-align: center !important;
+    width: 100%;
+  }
+}
