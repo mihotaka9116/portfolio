@@ -9,33 +9,29 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-    /* 縦並びを美しく整える専用デザイン */
+    /* 詳細ページ専用の調整 */
     .detail-container {
-      max-width: 800px; /* 読みやすい幅に制限 */
+      max-width: 800px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
-    
+    .back-nav {
+      margin-bottom: 30px;
+    }
     .back-nav a {
       color: #4682b4;
       text-decoration: none;
       font-weight: bold;
-      display: inline-block;
-      margin-bottom: 30px;
     }
-
-    /* 画像エリア */
     .main-visual-img {
       width: 100%;
-      height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       margin-bottom: 20px;
     }
-
     .image-grid-sub {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2列のタイル状 */
+      grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       margin-bottom: 50px;
     }
@@ -43,35 +39,18 @@
       width: 100%;
       border-radius: 4px;
     }
-
-    /* テキストエリア */
     .detail-text-box {
-      text-align: center; /* タイトル周りを中央寄せに */
+      text-align: center;
     }
-
-    .project-description {
-      margin: 30px auto 50px;
-      line-height: 2;
-      max-width: 600px;
-    }
-
-    /* アイテムごとのブロック */
     .item-block {
-      text-align: left; /* 説明文は左寄せで読みやすく */
+      text-align: left;
       margin-bottom: 40px;
       padding: 25px;
       background-color: #fcfcfc;
       border-left: 4px solid #4682b4;
     }
-    .item-block h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #4682b4;
-    }
-
     .cta-button-container {
-      margin-top: 60px;
-      padding-bottom: 100px;
+      margin: 60px 0;
     }
     .custom-btn {
       display: inline-block;
@@ -80,55 +59,67 @@
       padding: 15px 40px;
       text-decoration: none;
       border-radius: 5px;
-      transition: opacity 0.3s;
-    }
-    .custom-btn:hover {
-      opacity: 0.8;
     }
     </style>
 </head>
 <body>
 
-<div class="detail-container">
-  <nav class="back-nav">
-    <a href="index.html">← BACK TO TOP</a>
-  </nav>
-
-  <article class="detail-content">
-    <div class="detail-image-box">
-      <img src="https://i.imgur.com/sGTjqHM.png" alt="メインロゴ" class="main-visual-img">
-      <div class="image-grid-sub">
-         <img src="https://i.imgur.com/Ce2NJ1S.png" alt="グッズ1">
-         <img src="https://i.imgur.com/764AOxe.png" alt="グッズ2">
-         <img src="https://i.imgur.com/do2FCYG.png" alt="グッズ3">
-         <img src="https://i.imgur.com/3MmbWx5.png" alt="グッズ4">
-      </div>
+  <header id="header">
+    <div class="site-title">
+      <a href="index.html"><img src="https://i.imgur.com/your-logo-url.png" alt="miho takahashi"></a>
     </div>
+    <nav>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="detail-text-box">
-      <h2 class="section-title">LOGO GOODS LINEUP</h2>
-      <span class="section-title-en">制作したグッズについて</span>
-      
-      <p class="project-description">
-        「miho takahashi」のロゴが持つ「リズム」と「つながり」を、日常生活に馴染むプロダクトへと展開しました。
-      </p>
+  <div class="detail-container">
+    <nav class="back-nav">
+      <a href="index.html">← BACK TO TOP</a>
+    </nav>
 
-      <div class="item-block">
-        <h3>Item 01: Mag Cup</h3>
-        <p>ロゴ入りのマグカップ。清潔感のあるホワイトに、カラフルなロゴが映えるデザインです。</p>
+    <article class="detail-content">
+      <div class="detail-image-box">
+        <img src="https://i.imgur.com/sGTjqHM.png" alt="メインロゴ" class="main-visual-img">
+        <div class="image-grid-sub">
+           <img src="https://i.imgur.com/Ce2NJ1S.png" alt="グッズ1">
+           <img src="https://i.imgur.com/764AOxe.png" alt="グッズ2">
+           <img src="https://i.imgur.com/do2FCYG.png" alt="グッズ3">
+           <img src="https://i.imgur.com/3MmbWx5.png" alt="グッズ4">
+        </div>
       </div>
 
-      <div class="item-block">
-        <h3>Item 02: Parker</h3>
-        <p>胸にロゴを配置。カラフルで気分がハッピーになれるデザインです。</p>
-      </div>
+      <div class="detail-text-box">
+        <h2 class="section-title">LOGO GOODS LINEUP</h2>
+        <span class="section-title-en">制作したグッズについて</span>
+        <p class="project-description">
+          「miho takahashi」のロゴが持つ「リズム」と「つながり」を、日常生活に馴染むプロダクトへと展開しました。
+        </p>
 
-      <div class="cta-button-container">
-        <a href="index.html#contact" class="custom-btn">このグッズについて問い合わせる</a>
+        <div class="item-block">
+          <h3>Item 01: Mag Cup</h3>
+          <p>ロゴ入りのマグカップ。清潔感のあるホワイトに、カラフルなロゴが映えるデザインです。</p>
+        </div>
+
+        <div class="item-block">
+          <h3>Item 02: Parker</h3>
+          <p>胸にロゴを配置。カラフルで気分がハッピーになれるデザインです。</p>
+        </div>
+
+        <div class="cta-button-container">
+          <a href="index.html#contact" class="custom-btn">このグッズについて問い合わせる</a>
+        </div>
       </div>
-    </div>
-  </article>
-</div>
+    </article>
+  </div>
+
+  <footer id="footer">
+    <p>&copy; miho takahashi</p>
+  </footer>
 
 </body>
 </html>
