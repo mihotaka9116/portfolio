@@ -215,3 +215,19 @@ font-family: 'Montserrat', sans-serif;
 .btn:active {
   background-color: #4682b4;
 }
+
+/* --- 8. スマホ対応 --- */
+@media screen and (max-width: 767px) {
+  #header { flex-direction: column; }
+  #header li { margin: 10px 15px; }
+  
+  /* コンテンツを縦並びにして、すべてを中央に */
+  .content { 
+    flex-direction: column; 
+    text-align: center;
+  }
+  .content .img, 
+  .content .text { 
+    width: 100%; 
+  }
+}
