@@ -711,4 +711,102 @@ footer a {
   }
 }
 
+/* --- 詳細ページ専用スタイル --- */
+
+/* 1. PCで横並びにする設定 */
+.detail-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 上揃え */
+  gap: 60px; /* 画像とテキストの間の隙間 */
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+/* 2. 画像エリアの幅 */
+.detail-img-area {
+  flex: 1; /* 幅を柔軟に */
+  max-width: 550px;
+}
+
+.main-img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.sub-img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* 3. テキストエリアを中央に寄せる設定 */
+.detail-text-area {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* 横方向の中央 */
+  align-items: center;     /* 縦方向の中央（必要に応じて） */
+}
+
+.text-inner {
+  max-width: 450px; /* テキストが広がりすぎないように制限 */
+  text-align: left; /* 文字自体は左揃えが読みやすい */
+}
+
+/* 4. タイトルなどの装飾（以前の設定を上書き） */
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #4682b4;
+}
+
+.description {
+  margin: 30px 0;
+  line-height: 2;
+}
+
+.item-info {
+  margin-bottom: 30px;
+}
+
+.item-info h3 {
+  font-size: 1.1rem;
+  border-left: 3px solid #4682b4;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+/* 5. スマホ対応（レスポンシブ） */
+@media screen and (max-width: 899px) {
+  .detail-content {
+    flex-direction: column; /* 縦に並べる */
+    align-items: center;    /* 全体を中央寄せ */
+    gap: 40px;
+  }
+
+  .detail-img-area,
+  .detail-text-area {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .text-inner {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
 
