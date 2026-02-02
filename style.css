@@ -190,3 +190,28 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 font-family: 'Montserrat', sans-serif;
+
+/* View Detailボタン：クリック後も色を固定する */
+.btn, 
+.btn:link, 
+.btn:visited {
+  display: inline-block;
+  background-color: #4682b4; /* メインカラー */
+  color: #ffffff !important;   /* 文字色は常に白 */
+  padding: 10px 30px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+/* マウスを乗せた時だけ少し透明にする（リアクション） */
+.btn:hover {
+  opacity: 0.8;
+  color: #ffffff !important;
+}
+
+/* クリックした瞬間も色を変えない */
+.btn:active {
+  background-color: #4682b4;
+}
