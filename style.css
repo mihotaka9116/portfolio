@@ -169,3 +169,68 @@ img {
     flex-direction: column !important;
   }
 }
+
+/* --- DETAILページ専用の修正（他のページには影響させない） --- */
+
+/* 1. 全体コンテナの余白調整 */
+.detail-container {
+  padding-top: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 2. PCで画像とテキストを横並びにする（!importantで強制） */
+.project-layout {
+  display: flex !important;
+  flex-direction: row !important; /* PCは横並び */
+  gap: 50px !important;
+  align-items: flex-start !important;
+  margin-bottom: 80px;
+}
+
+/* 3. 画像エリア：1段目と2段目の間隔を詰める */
+.project-gallery {
+  flex: 1.2 !important;
+}
+
+.thumbnail-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px !important; /* 画像の隙間を狭く */
+  margin-top: 15px !important; /* メイン画像との隙間を詰める */
+}
+
+/* 4. テキストエリア：右側の空間の中で中央に寄せる */
+.project-info {
+  flex: 0.8 !important;
+  display: flex !important;
+  justify-content: center !important; /* 横方向の中央 */
+}
+
+.title-group, .description, .detail-item {
+  width: 100%;
+  max-width: 400px; /* 文字が広がりすぎないように制限 */
+  text-align: left;
+}
+
+/* 5. 消えてしまったボタンの色を強制復活 */
+.btn, .custom-btn {
+  display: inline-block !important;
+  background-color: #4682b4 !important; /* 青色 */
+  color: #ffffff !important;
+  padding: 12px 30px !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  border: none !important;
+  margin-top: 20px;
+}
+
+/* 6. スマホでは縦並びに戻す */
+@media screen and (max-width: 767px) {
+  .project-layout {
+    flex-direction: column !important;
+  }
+  .project-gallery, .project-info {
+    width: 100% !important;
+  }
+}
