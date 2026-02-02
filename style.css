@@ -1,132 +1,111 @@
 @charset "UTF-8";
 
-/* --- 共通設定 --- */
+/* --- 1. 全体設定 --- */
 html { scroll-behavior: smooth; }
 body {
   color: #4682b4;
   font-family: 'Playfair Display', 'Sawarabi Mincho', serif;
-  line-height: 1.9;
+  line-height: 1.8;
   margin: 0;
 }
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-ul { list-style: none; padding: 0; margin: 0; }
-a { color: #4682b4; text-decoration: none; transition: 0.3s; }
-a:hover { opacity: 0.7; }
+img { max-width: 100%; height: auto; vertical-align: bottom; border-radius: 4px; }
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
 
-.container { max-width: 1000px; margin: 0 auto; padding: 0 18px; }
-
-/* --- ヘッダー --- */
-#header {
-  width: 90vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px 0;
-  margin: 0 auto 30px auto;
-}
-.site-title { width: 110px; }
-#header ul { display: flex; }
-#header li { font-size: 1.1rem; margin-left: 30px; }
-
-/* --- メインビジュアル（トップページ） --- */
-#mainvisual {
-  width: 100%;
-  height: 400px;
-  background-color: #f9f9f9;
-  background-image: url("https://i.imgur.com/sGTjqHM.png");
-  background-repeat: repeat;
-  background-size: 120px auto; 
-  background-position: center;
-}
-
-/* --- コンテンツエリア（トップページ） --- */
-.content {
-  display: flex;
-  align-items: center;
-  margin-bottom: 80px;
-}
-.content .img, .content .text { width: 50%; }
-.content .text { padding: 0 5%; }
+/* --- 2. セクションタイトル（下線を確実に表示） --- */
+.text-center { text-align: center; }
 
 .section-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 5px;
-}
-.section-title-en { display: inline-block; margin-bottom: 20px; font-size: 0.9rem; }
-
-/* --- スキル --- */
-#skills { padding: 60px 0; }
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-.skill-item {
+  display: block; /* 縦並び用にブロック化 */
   text-align: center;
+  margin: 0 auto 10px;
+}
+
+/* タイトルの下の青い線（デザインのアクセント） */
+.section-title::after {
+  content: "";
+  display: block; /* 線を独立した要素として表示 */
+  width: 40px;
+  height: 2px;
+  background-color: #4682b4;
+  margin: 10px auto 0; /* 文字の真下に中央寄せ */
+}
+
+.section-title-en { 
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  letter-spacing: 0.1em;
+}
+
+/* --- 3. WORK DETAIL 専用デザイン（縦に並べて美しく） --- */
+.detail-flex-wrapper {
+  display: block; /* 縦並びを明示 */
+  margin-top: 40px;
+}
+
+.main-visual-img {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 軽い影で高級感を出す */
+}
+
+.image-grid-sub {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2列のタイル状 */
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.detail-text-box {
+  padding: 40px 0;
+  border-top: 1px solid #eee; /* 文章の前に区切り線 */
+}
+
+.project-description {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.item-block {
+  margin-bottom: 30px;
   padding: 20px;
-  border: 1px solid #eee;
+  background-color: #fdfdfd; /* ほんの少し背景をつけて読みやすく */
+  border-left: 3px solid #4682b4;
 }
-.skill-item svg { width: 40px; height: 40px; fill: #4682b4; margin-bottom: 15px; }
-.stars { color: #d4af37; margin: 10px 0; }
 
-/* --- お問い合わせ（ここを修正しました） --- */
-#contact { padding: 80px 0; text-align: center; }
-.contact-form { max-width: 600px; margin: 40px auto 0; text-align: left; }
-.contact-form .item { margin-bottom: 25px; }
-.contact-form label { display: block; font-weight: bold; margin-bottom: 8px; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+.item-block h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
-.parsed-btn input[type="submit"] {
-  background-color: #4682b4; color: #fff; border: none; padding: 15px 50px;
-  cursor: pointer; display: block; margin: 40px auto 0; transition: 0.3s;
-}
-.parsed-btn input[type="submit"]:hover { background-color: #35668d; }
 
-/* --- フッター --- */
+/* --- 4. スキルアイコン --- */
+.skill-item svg {
+  width: 50px;
+  height: 50px;
+  fill: #000;
+  margin-bottom: 15px;
+}
+
+/* --- 5. お問い合わせ・ボタン --- */
+.custom-btn {
+  display: block;
+  width: fit-content;
+  margin: 40px auto;
+  background-color: #4682b4;
+  color: #fff;
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
 #footer {
   background-color: #4682b4;
   color: #fff;
-  padding: 40px 0;
   text-align: center;
-}
-
-/* --- DETAILページ専用設定（PC） --- */
-@media screen and (min-width: 768px) {
-  .detail-flex-wrapper {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    gap: 60px !important;
-    margin-top: 50px !important;
-  }
-  .detail-image-box { flex: 0 0 55% !important; }
-  .detail-text-box { flex: 0 0 40% !important; }
-  
-  .image-grid-sub {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-    margin-top: 15px !important;
-  }
-  /* DETAILページ内のボタン */
-  .custom-btn {
-    display: inline-block;
-    background-color: #4682b4;
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 4px;
-    margin-top: 20px;
-  }
-}
-
-/* --- スマホ対応 --- */
-@media screen and (max-width: 767px) {
-  #header { flex-direction: column; }
-  #header li { margin: 10px; }
-  .content, .detail-flex-wrapper { flex-direction: column !important; }
-  .content .img, .content .text, .detail-image-box, .detail-text-box { width: 100% !important; padding: 0; }
-  #work { flex-direction: column-reverse !important; } /* Workセクションの画像と文字を入れ替え */
+  padding: 40px 0;
 }
