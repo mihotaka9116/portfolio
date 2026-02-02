@@ -911,3 +911,47 @@ footer a {
   }
 }
 
+
+/* PCで横並びを強制 */
+.detail-flex-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  gap: 50px !important;
+  margin-top: 60px;
+}
+
+/* 画像の幅を固定 */
+.detail-image-box {
+  flex: 1 !important;
+  max-width: 50% !important;
+}
+
+/* テキストを中央寄せにするエリア */
+.detail-text-box {
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: center !important; /* これでテキスト群が中央に寄ります */
+}
+
+/* 青いボタンを復活させる */
+.custom-btn {
+  display: inline-block !important;
+  background-color: #4682b4 !important; /* 青色 */
+  color: #ffffff !important;
+  padding: 15px 30px !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* スマホでは縦に戻す */
+@media screen and (max-width: 767px) {
+  .detail-flex-wrapper {
+    flex-direction: column !important;
+  }
+  .detail-image-box {
+    max-width: 100% !important;
+  }
+}
+
