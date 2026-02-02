@@ -3,62 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Work Detail</title>
+    <title>Work Detail - miho takahashi</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+    /* --- 詳細ページ専用：PCでの横並び設定 --- */
+    @media screen and (min-width: 768px) {
+      .detail-flex-wrapper {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 60px !important;
+        margin-top: 50px !important;
+      }
+      .detail-image-box {
+        flex: 0 0 55% !important; /* 画像エリアを55%に */
+        max-width: 55% !important;
+      }
+      .detail-text-box {
+        flex: 0 0 40% !important; /* テキストエリアを40%に */
+        max-width: 40% !important;
+      }
+      .image-grid-sub {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 小さい画像を2列に */
+        gap: 15px !important;
+        margin-top: 15px !important;
+      }
+      /* タイトルの下線を左寄せにする（横並び時） */
+      .detail-text-box .section-title::after {
+        left: 0 !important;
+        transform: none !important;
+      }
+    }
+
+    /* --- 共通：装飾 --- */
+    .main-visual-img {
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+    .image-grid-sub img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .item-block {
+      margin-bottom: 30px;
+      padding: 15px;
+      border-left: 3px solid #4682b4;
+      background: #fcfcfc;
+    }
+    .custom-btn {
+      display: inline-block;
+      background: #4682b4;
+      color: #fff;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+    </style>
 </head>
-<body>
-    <header id="header">
-        <div class="container">
-            <a href="index.html">← BACK TO TOP</a>
-        </div>
-    </header>
-
-    <div class="container">
-        <h1 class="section-title">WORK DETAIL</h1>
-        <p>ここに詳細が表示されます。この文字が見えれば成功です！</p>
-    </div>
-    <div class="container detail-container">
-  <div class="back-nav" style="margin-top: 40px;">
-    <a href="index.html" style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">← BACK TO TOP</a>
-  </div>
-
-  <section class="detail-flex-wrapper">
-    
-    <div class="detail-image-box">
-      <img src="https://i.imgur.com/sGTjqHM.png" alt="" class="main-visual-img">
-      <div class="image-grid-sub">
-         <img src="https://i.imgur.com/Ce2NJ1S.png" alt="">
-         <img src="https://i.imgur.com/764AOxe.png" alt="">
-         <img src="https://i.imgur.com/do2FCYG.png" alt="">
-         <img src="https://i.imgur.com/3MmbWx5.png" alt="">
-      </div>
-    </div>
-
-    <div class="detail-text-box">
-      <div class="detail-text-content">
-        <h2 class="section-title">LOGO GOODS LINEUP</h2>
-        <span class="section-title-en">制作したグッズについて</span>
-        
-        <p class="project-description">
-          「miho takahashi」のロゴが持つ「リズム」と「つながり」を、日常生活に馴染むプロダクトへと展開しました。
-        </p>
-
-        <div class="item-block">
-          <h3>Item 01: Mag Cup</h3>
-          <p>ロゴ入りのマグカップ。清潔感のあるホワイトに、カラフルなロゴが映えるデザインです。</p>
-        </div>
-
-        <div class="item-block">
-          <h3>Item 02: Parker</h3>
-          <p>胸にロゴを配置。カラフルで気分がハッピーになれるデザインです。</p>
-        </div>
-
-        <div class="cta-button-container">
-          <a href="index.html#contact" class="custom-btn">このグッズについて問い合わせる</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-</body>
-</html>
