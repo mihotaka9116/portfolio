@@ -560,3 +560,57 @@ footer a {
   color: #fff;
   opacity: 1; /* a:hoverのopacity 0.7を上書き */
 }
+
+/* --- 詳細ページ専用スタイル --- */
+.detail-section {
+  display: flex;
+  flex-wrap: wrap; /* 折り返しを許可 */
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.main-img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* サブ画像のグリッド：PCでは2列（または3列） */
+.sub-img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.item-detail {
+  margin-bottom: 30px;
+}
+
+.item-detail h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  border-left: 3px solid #4682b4;
+  padding-left: 10px;
+}
+
+/* --- レスポンシブ (SP: 767px以下) --- */
+@media screen and (max-width: 767px) {
+  .detail-section {
+    flex-direction: column; /* 縦並びに強制 */
+  }
+
+  .detail-section .img, 
+  .detail-section .text {
+    width: 100% !important; /* 横幅いっぱい */
+    padding: 0;
+  }
+
+  .sub-img-grid {
+    grid-template-columns: repeat(2, 1fr); /* スマホでも2列が見やすい */
+  }
+  
+  .section-title {
+    text-align: left; /* スマホで左寄せにする場合 */
+  }
+}
