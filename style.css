@@ -60,7 +60,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 10px;
 }
 
-/* 下線の修正（ど真ん中に固定） */
+/* 下線の修正（真ん中に固定） */
 .section-title::after {
   content: "";
   position: absolute;
