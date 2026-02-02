@@ -310,7 +310,7 @@ a:hover {
 }
 
 header {
-  display: flex;             /* 横並びにする魔法の言葉 */
+  display: flex;             
   justify-content: space-between; /* 両端に広げて配置する */
   align-items: center;       /* 上下の中央を揃える */
   padding: 20px 4%;          /* 上下と左右に少し余白を作る */
@@ -614,3 +614,101 @@ footer a {
     text-align: left; /* スマホで左寄せにする場合 */
   }
 }
+
+
+/* --- 詳細ページ全体のレイアウト --- */
+.detail-container {
+  padding-top: 40px;
+}
+
+.back-nav {
+  margin-bottom: 40px;
+}
+
+.project-layout {
+  display: flex;
+  gap: 50px; /* 画像とテキストの間の距離 */
+  align-items: flex-start; /* 上揃えにして余白のムラを解消 */
+  margin-bottom: 80px;
+}
+
+/* 画像エリア */
+.project-gallery {
+  flex: 1.2; /* 画像側を少し広く */
+}
+
+.main-visual img {
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 4px;
+}
+
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px; /* 1段目と2段目の間隔をここで調整 */
+}
+
+.thumbnail-grid img {
+  width: 100%;
+  border-radius: 2px;
+}
+
+/* テキストエリア */
+.project-info {
+  flex: 0.8;
+  padding-top: 10px; /* タイトルと画像の高さを揃える */
+}
+
+.title-group {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  text-align: left; /* 左寄せの指示を明確に（または中央ならcenterに） */
+  margin-bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.section-title::after {
+  left: 0; /* 下線を左端から開始 */
+  transform: none;
+  width: 30px;
+}
+
+.description {
+  margin-bottom: 40px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.detail-item {
+  margin-bottom: 25px;
+}
+
+.detail-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  border-left: 3px solid #4682b4;
+  padding-left: 12px;
+}
+
+/* --- レスポンシブ対応 (スマホ) --- */
+@media screen and (max-width: 899px) {
+  .project-layout {
+    flex-direction: column; /* スマホでは縦並び */
+    gap: 30px;
+  }
+  
+  .project-gallery, .project-info {
+    width: 100%;
+  }
+
+  .project-info {
+    padding: 0;
+  }
+}
+
+
