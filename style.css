@@ -272,3 +272,88 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     max-width: none;
   }
 }
+
+/* --- WORK DETAIL (work.html) 完全修正版 --- */
+
+.detail-container {
+  max-width: 900px;
+  margin: 0 auto !important;
+  padding: 60px 20px;
+  text-align: center; /* テキストを中央へ */
+}
+
+/* ロゴマーク（main-visual-img）の中央配置 */
+.main-visual-img {
+  width: 100%;
+  max-width: 300px; /* ロゴが大きすぎないように調整 */
+  height: auto;
+  margin: 0 auto 40px !important;
+  display: block;
+}
+
+/* グリッド設定：スマホは1列、PCは2列 */
+.goods-grid {
+  display: flex !important;
+  flex-direction: column !important; /* スマホで1列 */
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+/* 各アイテムの設定 */
+.goods-item {
+  width: 100% !important;
+  max-width: 400px;
+  text-align: center;
+}
+
+.image-wrap {
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.image-wrap img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.goods-item:hover .image-wrap img {
+  transform: scale(1.1);
+}
+
+/* キャプションとボタンの中央揃え */
+.item-caption {
+  font-weight: bold;
+  color: #4682b4;
+  text-align: center;
+}
+
+.detail-text-box {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.custom-btn {
+  display: inline-block;
+  background-color: #4682b4;
+  color: #fff !important;
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+/* PC版（768px以上）の設定 */
+@media screen and (min-width: 768px) {
+  .goods-grid {
+    flex-direction: row !important; /* 横並びに戻す */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .goods-item {
+    width: 45% !important;
+  }
+}
