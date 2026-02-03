@@ -223,3 +223,39 @@ p, .project-description {
     transform: translateX(-50%) !important;
   }
 }
+
+/* --- メインロゴの修正（巨大化防止） --- */
+.main-visual-img {
+  width: 100%;
+  max-width: 300px; /* ここでロゴの大きさを制限 */
+  height: auto;
+  margin: 0 auto 40px; /* 左右をautoにして中央寄せ */
+  display: block;
+}
+
+/* --- グッズのグリッド設定（レスポンシブ化） --- */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 基本は2列 */
+  gap: 40px 20px;
+  margin-bottom: 60px;
+}
+
+/* --- スマホ表示の調整 --- */
+@media screen and (max-width: 767px) {
+  /* 1. スマホでは1列にする */
+  .goods-grid {
+    grid-template-columns: 1fr; 
+    gap: 30px;
+  }
+
+  /* 2. ロゴをスマホでもう少し小さくする場合 */
+  .main-visual-img {
+    max-width: 200px;
+  }
+
+  /* 3. テキストが端に寄りすぎないよう調整 */
+  .project-description {
+    padding: 0 15px;
+  }
+}
