@@ -334,4 +334,80 @@ p, .project-description {
     object-fit: cover;
   }
 }
+
+/* --- 4. タイトルの中央揃えを再定義 --- */
+.section-title, .section-title-en {
+  display: block; /* inline-blockからblockに変更して幅を確保 */
+  width: 100%;
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+/* 下線がズレないように修正 */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 40px;
+  height: 2px;
+  background-color: #4682b4;
+}
+
+.section-title-en {
+  margin-bottom: 30px;
+}
+
+/* --- 8. スマホ対応 (max-width: 767px) の中を修正 --- */
+@media screen and (max-width: 767px) {
+  #header {
+    padding: 10px 0 !important; /* 上下の余白を最小限に */
+    gap: 0;
+  }
+  
+  #header .site-title {
+    width: 80px; /* ロゴを少し小さくして高さを抑える */
+    margin-bottom: 5px;
+  }
+
+  #header ul {
+    margin-top: 0;
+  }
+
+  #header li {
+    margin: 5px 10px;
+    font-size: 0.9rem;
+  }
+
+  /* コンセプト写真の拡大 */
+  #concept .img {
+    width: 100vw; /* 画面幅いっぱいにする */
+    margin-left: calc(50% - 50vw); /* 親要素のpaddingを無視して広げる */
+    margin-right: calc(50% - 50vw);
+  }
+
+  #concept .img img {
+    height: 280px; /* 縦幅を少し出して大きく見せる */
+    border-radius: 0; /* 画面いっぱいの時は角丸をなくすと綺麗です */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .content .img {
+    width: 50%; /* 45%から少し拡大 */
+    max-width: 500px; 
+  }
+  
+  .content .text {
+    width: 45%;
+  }
+}
 </style>
