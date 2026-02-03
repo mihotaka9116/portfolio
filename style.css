@@ -288,5 +288,50 @@ p, .project-description {
     max-width: 450px; /* 広がりすぎ防止 */
   }
 }
+/* --- 8. スマホ対応内 --- */
+@media screen and (max-width: 767px) {
+  #header {
+    padding: 10px 0; /* 上下の余白を20pxから10pxに半減 */
+    flex-direction: column; 
+    gap: 5px; /* ロゴとメニューの間の隙間を最小限に */
+  }
 
+  #header .site-title img {
+    width: 90px; /* ロゴ自体も少しだけ小さくして高さを抑える */
+  }
+
+  #header ul {
+    margin-top: 5px;
+  }
+}
+
+/* スマホ版でのWorkセクションの画像調整 */
+@media screen and (max-width: 767px) {
+  #work .img {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 横方向の中央 */
+    margin: 10px 0 0 0; /* 余計なマージンをリセット */
+  }
+
+  #work .img img {
+    width: 130px !important; /* サイズを固定 */
+    height: auto;
+    margin: 0 auto; /* 左右中央 */
+  }
+}
+
+/* コンセプト写真のサイズ調整 */
+@media screen and (max-width: 767px) {
+  #concept .img {
+    width: 100%; /* 横幅いっぱい */
+    padding: 0; /* 左右の余白をなくして写真を強調 */
+  }
+
+  #concept .img img {
+    height: 250px; /* 前回の200pxから250pxへ大きく */
+    width: 100%;
+    object-fit: cover;
+  }
+}
 </style>
