@@ -136,3 +136,74 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 #footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
+
+/* ============================================================
+   WORK DETAIL (work.html) 最終復旧コード
+   ============================================================ */
+
+/* 1. コンテナ全体を中央に固定 */
+.detail-container {
+  max-width: 1000px;
+  margin: 0 auto !important;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* タイトルなども中央へ */
+}
+
+/* 2. タイトルと下線を強制中央（絶対回避設定） */
+.detail-container .section-title,
+.detail-container .section-title-en {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* 3. グリッド設定：スマホ優先（1列） */
+.goods-grid {
+  display: flex !important;
+  flex-direction: column !important; /* スマホで1列を強制 */
+  align-items: center !important;
+  gap: 50px;
+  width: 100%;
+  margin: 40px auto 60px;
+}
+
+/* 4. 各アイテムの幅設定 */
+.goods-item {
+  width: 100% !important;
+  max-width: 400px; /* 広がりすぎ防止 */
+  margin: 0 auto;
+}
+
+/* 5. PC版（768px以上）で2列に戻す */
+@media screen and (min-width: 768px) {
+  .goods-grid {
+    flex-direction: row !important; /* 横並び */
+    flex-wrap: wrap !important;
+    justify-content: center !important; /* 中央に寄せる */
+    align-items: flex-start !important;
+  }
+  
+  .goods-item {
+    width: 45% !important; /* 2列 */
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* 6. 画像ホバーの微調整 */
+.image-wrap {
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+}
+.image-wrap img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.goods-item:hover img {
+  transform: scale(1.05);
+}
