@@ -9,9 +9,9 @@ body {
   margin: 0;
 }
 img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; overflow: hidden; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー --- */
+/* --- 2. ヘッダー（スマホで高さを抑える） --- */
 #header {
   width: 90%;
   max-width: 1000px;
@@ -24,12 +24,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .site-title { width: 110px; }
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 25px; }
-#header a, #header a:visited { 
-  color: #4682b4 !important; 
-  text-decoration: none; 
-  transition: 0.3s;
-}
-#header a:hover { opacity: 0.6; }
+#header a { color: #4682b4 !important; text-decoration: none; transition: 0.3s; }
 
 /* --- 3. メインビジュアル --- */
 #mainvisual {
@@ -43,48 +38,32 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 60px;
 }
 
-/* --- 4. タイトルと文章の完全中央揃え --- */
-.text-center, .detail-text-box { text-align: center !important; width: 100%; }
-
-.section-title, .section-title-en {
-  display: block; 
-  width: 100%;
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* --- 4. タイトルと文章の中央揃え --- */
+.text, .text-center { text-align: center !important; width: 100%; }
 
 .section-title {
   font-size: 1.8rem;
   font-weight: 700;
   position: relative;
+  display: inline-block;
   padding-bottom: 15px;
   margin-bottom: 5px;
 }
-
 .section-title::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+  left: 50%;
+  transform: translateX(-50%);
   width: 40px;
   height: 2px;
   background-color: #4682b4;
 }
+.section-title-en { display: block; font-size: 0.8rem; margin-bottom: 30px; }
 
-.section-title-en { 
-  font-size: 0.8rem; 
-  margin-bottom: 30px; 
-}
+p { margin: 0 auto 1.5rem; max-width: 700px; }
 
-p, .project-description {
-  text-align: center !important;
-  margin: 0 auto 1.5rem !important;
-  max-width: 700px;
-}
-
-/* --- 5. コンテンツエリア --- */
+/* --- 5. コンテンツエリア（Workロゴ・ボタンの修正） --- */
 .content {
   display: flex;
   flex-direction: column;
@@ -94,21 +73,20 @@ p, .project-description {
   width: 100%;
 }
 
-.content .img img {
-  width: 100%;
-  height: 300px; 
-  object-fit: cover; 
-  border-radius: 8px;
-  display: block;
-}
+.content .img { width: 100%; text-align: center; } /* 画像を中央に */
+.content .img img { border-radius: 8px; }
 
+/* View Detailボタンの親要素も中央揃えにする */
+.content .text { width: 100%; text-align: center; }
+
+/* PC版の横並び設定 */
 @media screen and (min-width: 768px) {
-  .content { flex-direction: row; justify-content: center; gap: 50px; }
+  .content { flex-direction: row; justify-content: center; gap: 60px; }
   .content:nth-of-type(even) { flex-direction: row-reverse; }
-  .content .text, .content .img { width: 45%; max-width: 500px; }
+  .content .text, .content .img { width: 45%; max-width: 450px; }
+  /* PCではテキストを左寄せにする場合（お好みで） */
   .content .text { text-align: left !important; }
-  .content .text p, .content .text .section-title, .content .text .section-title-en { text-align: left !important; }
-  .content .text .section-title::after { left: 0 !important; transform: none !important; }
+  .content .text .section-title::after { left: 0; transform: none; }
 }
 
 /* --- 6. スキル --- */
@@ -118,29 +96,51 @@ p, .project-description {
   gap: 30px;
   margin-top: 40px;
 }
-.skill-item { text-align: center; padding: 20px; transition: transform 0.4s ease; border-radius: 8px; }
 .skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin-bottom: 15px; }
-.skill-item:hover { transform: translateY(-10px); background-color: rgba(70, 130, 180, 0.03); }
 
-/* --- 7. ボタン・フォーム・フッター --- */
-.btn, .btn:link, .btn:visited {
+/* --- 7. ボタン（VIEWDETAIL） --- */
+.btn {
   display: inline-block;
   background-color: #4682b4;
-  color: #ffffff !important;
-  padding: 10px 30px;
+  color: #fff !important;
+  padding: 12px 40px;
   text-decoration: none;
   border-radius: 4px;
-  margin-top: 20px;
-  transition: 0.3s;
+  margin: 20px auto 0; /* 左右autoで中央 */
 }
-#contact { padding: 60px 0; text-align: center; }
-.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; color: #4682b4;
-}
-.parsed-btn input {
-  background-color: #4682b4; color: #fff; border: none; padding: 15px 40px; cursor: pointer; display: block; margin: 30px auto 0;
-}
-#footer { background-color: #4682b4; color: #fff; text-align: center; padding: 40px 0; }
 
-/*
+/* --- 8. スマホ対応 --- */
+@media screen and (max-width: 767px) {
+  #header {
+    padding: 10px 0 !important; /* 高さを低く */
+    flex-direction: column;
+    gap: 5px;
+  }
+  .site-title { width: 80px; }
+  #header li { margin: 5px 10px; font-size: 0.85rem; }
+  #header ul { margin-top: 0; }
+
+  /* コンセプト写真の拡大 */
+  #concept .img img {
+    height: 250px;
+    object-fit: cover;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    border-radius: 0;
+  }
+
+  /* Workロゴの中央揃え */
+  #work .img img {
+    width: 130px !important;
+    margin: 0 auto !important;
+    display: block;
+  }
+  
+  /* ボタンの中央配置を念押し */
+  .content .text .btn {
+    display: table; /* 中央寄せを確実に */
+    margin: 20px auto;
+  }
+}
+
+#footer { background-color: #4682b4; color: #fff; text-align: center; padding: 40px 0; }
