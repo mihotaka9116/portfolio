@@ -169,9 +169,34 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   }
 }
 
-/* --- 7. レスポンシブ調整（スマホ専用） --- */
+/* --- 8. スマホ版調整 --- */
 @media screen and (max-width: 767px) {
-  #header { flex-direction: column; padding: 10px 0; }
-  .site-title img { width: 80px; }
-  #mainvisual { height: 250px; background-size: 80px auto; }
+  /* ヘッダー全体の余白を調整 */
+  #header {
+    flex-direction: column;
+    padding: 30px 0 0 0; /* 上の余白を少し増やし、下は0に */
+    gap: 30px; /* ★ロゴとナビの間の距離 */
+  }
+
+  /* ロゴのサイズ調整 */
+  .site-title img {
+    width: 80px;
+  }
+
+  /* ナビゲーション（メニュー）の設定 */
+  #header ul {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px; /* ★ナビとメインビジュアルの間の距離 */
+  }
+
+  #header li {
+    margin: 0 10px;
+  }
+
+  /* メインビジュアルの高さ調整 */
+  #mainvisual {
+    height: 250px;
+    margin-top: 0; /* 余計な隙間をカット */
+  }
 }
