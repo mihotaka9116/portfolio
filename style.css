@@ -357,3 +357,59 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     width: 45% !important;
   }
 }
+
+/* --- WORK DETAIL (work.html) 画像サイズアップ版 --- */
+
+/* グリッド全体の幅を少し広げて、写真が大きく見えるようにする */
+.detail-container {
+  max-width: 1000px; /* 900pxから1000pxへ拡大 */
+  margin: 0 auto !important;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* 商品説明などの文章幅を少し広げる */
+.project-description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+/* グリッドの設定 */
+.goods-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 60px; /* 上下の間隔を少し広げてゆとりを持たせる */
+  margin-bottom: 80px;
+  align-items: center;
+}
+
+/* 各アイテムのサイズをアップ */
+.goods-item {
+  width: 100% !important;
+  max-width: 550px; /* 400pxから550pxへ：一回り大きく */
+  text-align: center;
+}
+
+/* 画像を囲む枠 */
+.image-wrap {
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 影を少し深くして存在感を出す */
+}
+
+/* PC版（768px以上）の設定：2列に並んだ時も大きく見えるように調整 */
+@media screen and (min-width: 768px) {
+  .goods-grid {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .goods-item {
+    /* 2列に並ぶ際、1つあたりの幅を48%にして最大化 */
+    width: 48% !important; 
+    max-width: none;
+  }
+}
