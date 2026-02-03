@@ -1,215 +1,68 @@
-@charset "UTF-8";
-
-/* --- 1. 基本設定 --- */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  color: #4682b4;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.8;
-  margin: 0;
-  overflow-x: hidden;
-}
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
-/* --- 2. ヘッダー --- */
-#header {
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-  margin: 0 auto;
-}
-.site-title img { width: 110px; }
-#header ul { display: flex; list-style: none; padding: 0; margin: 0; }
-#header li { margin-left: 25px; }
-#header a { color: #4682b4 !important; text-decoration: none; transition: 0.3s; }
-#header a:hover { opacity: 0.6; }
-
-/* --- 3. メインビジュアル --- */
-#mainvisual {
-  width: 100%;
-  height: 400px;
-  background: #f9f9f9 url("logo.svg") repeat center / 120px auto;
-  margin-bottom: 60px;
+/* --- メインページの Work ロゴを中央に固定 --- */
+#work .content {
+  align-items: center !important;
 }
 
-/* --- 4. タイトル（全ページ・全デバイスで絶対中央） --- */
-.section-title, .section-title-en {
-  display: block !important;
-  text-align: center !important;
+#work .img {
+  display: flex !important;
+  justify-content: center !important;
   width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  position: relative;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
-}
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: 40px;
-  height: 2px;
-  background-color: #4682b4;
-}
-.section-title-en { font-size: 0.8rem; margin-bottom: 30px; }
-
-/* --- 5. コンテンツエリア --- */
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 80px;
-  width: 100%;
-  gap: 30px;
-}
-.content .text { width: 100%; text-align: center; }
-.btn {
-  display: inline-block;
-  background-color: #4682b4;
-  color: #fff !important;
-  padding: 10px 30px;
-  text-decoration: none;
-  border-radius: 4px;
-  margin-top: 20px;
-  transition: 0.3s;
 }
 
-/* --- 6. スキル（★動きと色を完全再現） --- */
-.skills-grid { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 30px; 
-  margin-top: 40px; 
-}
-.skill-item {
-  text-align: center;
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.4s ease, background-color 0.4s ease; /* アニメーション復活 */
-  width: 100%;
-}
-/* ★ホバー：上に10px浮かび、背景を透明度の高い青へ */
-.skill-item:hover {
-  transform: translateY(-10px);
-  background-color: rgba(70, 130, 180, 0.03); 
-}
-.skill-item svg {
-  width: 60px;
-  height: 60px;
-  fill: #4682b4;
-  margin: 0 auto 15px;
-  display: block;
+#work .img img {
+  margin: 0 auto !important;
+  width: 130px !important; /* ロゴのサイズを固定 */
+  height: auto;
 }
 
-/* --- 7. WORK DETAIL ページ専用（スマホ1列・PC中央） --- */
+/* --- WORK DETAIL (work.html) の完全修正 --- */
+/* PCでの左寄りを解消 */
 .detail-container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto !important;
   padding: 60px 20px;
-  text-align: center;
-}
-.main-visual-img { margin: 0 auto 40px; display: block; max-width: 300px; }
-
-.goods-grid {
-  display: flex; /* gridからflexに変更して1列を確実に */
-  flex-direction: column; 
-  gap: 40px;
-  width: 100%;
-  margin-bottom: 60px;
-}
-.goods-item { width: 100%; text-align: center; }
-.image-wrap { overflow: hidden; border-radius: 8px; margin-bottom: 15px; }
-.image-wrap img { width: 100%; display: block; transition: 0.5s; }
-.goods-item:hover img { transform: scale(1.1); }
-
-/* --- 8. PC版レイアウト (768px以上) --- */
-@media screen and (min-width: 768px) {
-  .content { flex-direction: row; justify-content: space-between; }
-  .content:nth-of-type(even) { flex-direction: row-reverse; }
-  .content .text, .content .img { width: 48%; }
-  
-  /* スキルとワークディテールの横並び */
-  .skills-grid, .goods-grid { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
-  .skill-item { width: 30%; }
-  .goods-item { width: 48%; } /* 詳細ページの2列 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 中身も中央揃え */
 }
 
-/* --- 9. スマホ専用調整 --- */
-@media screen and (max-width: 767px) {
-  #header { flex-direction: column; padding: 10px 0 !important; }
-  #header li { margin: 10px 15px; }
-  #mainvisual { height: 250px; background-size: 80px auto; }
-  
-  #concept .img { width: 100vw; margin-left: calc(50% - 50vw); }
-  #concept .img img { border-radius: 0; height: 250px; object-fit: cover; }
-  
-  #work .img img { width: 130px !important; margin: 0 auto !important; display: block; }
-}
-
-#footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
-
-/* ============================================================
-   WORK DETAIL (work.html) 専用の最終調整
-   ============================================================ */
-
-/* 1. PC版で全体を中央に寄せる */
-.detail-container {
-  max-width: 1000px;
-  margin: 0 auto !important; /* 強制的に中央 */
-  padding: 60px 20px;
-  text-align: center;
-}
-
-/* 2. グリッドの基本設定（スマホ優先：1列） */
+/* スマホで1列、PCで2列の切り替えを確実に */
 .goods-grid {
   display: flex !important;
-  flex-direction: column !important; /* スマホで1列を強制 */
+  flex-direction: column !important; /* 基本は1列（縦並び） */
   align-items: center;
   gap: 40px;
   width: 100%;
-  margin: 40px 0;
+  max-width: 800px;
+  margin: 40px auto;
 }
 
 .goods-item {
-  width: 100%;
-  max-width: 400px; /* スマホで広がりすぎないように */
+  width: 100% !important;
+  max-width: 350px;
 }
 
-/* 3. PC版（768px以上）で2列に戻す */
+/* PCサイズ（768px以上）で2列に戻す */
 @media screen and (min-width: 768px) {
   .goods-grid {
     flex-direction: row !important; /* 横並び */
     flex-wrap: wrap;
-    justify-content: center; /* 中央に寄せて並べる */
+    justify-content: space-between;
   }
   
   .goods-item {
-    width: 45%; /* 2列 */
+    width: 45% !important; /* 2列にする */
     max-width: none;
   }
 }
 
-/* 4. 画像のホバーアニメーション（再定義） */
-.image-wrap {
-  overflow: hidden;
-  border-radius: 8px;
+/* --- 全ページのタイトル下線と英語を中央に強制 --- */
+.section-title::after {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
 }
-.image-wrap img {
-  width: 100%;
-  display: block;
-  transition: transform 0.5s ease;
-}
-.goods-item:hover img {
-  transform: scale(1.1);
+
+.section-title-en {
+  text-align: center !important;
+  width: 100% !important;
 }
