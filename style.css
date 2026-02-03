@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* --- 1. 共通設定 --- */
+/* --- 1. 基本設定 --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -103,6 +103,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 /* --- 5. 詳細ページ（work.html）用 --- */
+/* 基本（スマホ・全デバイス共通の中央寄せ設定） */
 .detail-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -116,14 +117,14 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 .goods-grid {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* スマホでは縦並び */
   align-items: center;
   gap: 60px;
   margin-bottom: 60px;
 }
 .goods-item {
   width: 100%;
-  max-width: 550px; /* 画像を一回り大きく設定 */
+  max-width: 550px; /* 写真のサイズ：一回り大きく */
   text-align: center;
 }
 .image-wrap {
@@ -132,7 +133,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
-.image-wrap img { transition: transform 0.4s ease; }
+.image-wrap img { transition: transform 0.4s ease; width: 100%; display: block; }
 .goods-item:hover img { transform: scale(1.05); }
 .item-caption { font-weight: bold; color: #4682b4; }
 .custom-btn {
@@ -145,9 +146,9 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-top: 30px;
 }
 
-/* --- 6. レスポンシブ調整（PC版） --- */
+/* --- 6. レスポンシブ調整（PC版：768px以上） --- */
 @media screen and (min-width: 768px) {
-  /* トップページ横並び */
+  /* トップページ用 */
   .content { flex-direction: row; justify-content: center; gap: 60px; }
   .content:nth-of-type(even) { flex-direction: row-reverse; }
   .content .text, .content .img { width: 45%; }
@@ -155,12 +156,20 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .skills-grid { flex-direction: row; justify-content: space-between; }
   .skill-item { width: 31%; }
 
-  /* 詳細ページ横並び */
-  .goods-grid { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 40px; }
-  .goods-item { width: 45%; max-width: none; }
+  /* 詳細ページ用 */
+  .goods-grid { 
+    flex-direction: row !important; /* 横並びに強制 */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px; 
+  }
+  .goods-item { 
+    width: 45% !important; /* 2列にする */
+    max-width: none; 
+  }
 }
 
-/* --- 7. レスポンシブ調整（スマホ版） --- */
+/* --- 7. レスポンシブ調整（スマホ専用） --- */
 @media screen and (max-width: 767px) {
   #header { flex-direction: column; padding: 10px 0; }
   .site-title img { width: 80px; }
