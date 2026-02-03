@@ -183,3 +183,35 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .goods-grid { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   .goods-item { width: 45%; }
 }
+
+/* --- 6. スキル（動き・色・速度を完全再現） --- */
+.skills-grid { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 30px; 
+  margin-top: 40px; 
+}
+
+.skill-item {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  /* 速度を0.3秒にし、ease-outでキレのある動きに */
+  transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+  width: 100%;
+}
+
+/* ★マウスホバー時の設定 */
+.skill-item:hover {
+  transform: translateY(-10px); /* 10px浮上 */
+  background-color: rgba(70, 130, 180, 0.03); /* 以前の薄い青色 */
+}
+
+.skill-item svg {
+  width: 60px;
+  height: 60px;
+  fill: #4682b4;
+  margin: 0 auto 15px;
+  display: block;
+}
