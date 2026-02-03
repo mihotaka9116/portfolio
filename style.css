@@ -13,7 +13,7 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. タイトル共通（絶対に中央に固定） --- */
+/* --- 2. タイトル共通（WORKのズレを解消する絶対中央設定） --- */
 .section-title, .section-title-en {
   display: block !important;
   text-align: center !important;
@@ -55,7 +55,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 25px; }
 #header a { color: #4682b4 !important; text-decoration: none; }
-
 #footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
 
 /* --- 4. メインビジュアル --- */
@@ -74,7 +73,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   align-items: center;
   margin-bottom: 80px;
   gap: 30px;
-  text-align: center; /* スマホでは文章も中央 */
+  text-align: center;
 }
 .content .img { width: 100%; max-width: 600px; }
 .content .img img {
@@ -84,7 +83,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   border-radius: 8px;
 }
 .content .text { width: 100%; }
-
 .btn {
   display: inline-block;
   background-color: #4682b4;
@@ -95,42 +93,52 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-top: 20px;
 }
 
-/* --- 6. スキル・お問い合わせ --- */
+/* --- 6. スキル（ホバー効果復活） --- */
 .skills-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; }
-.skill-item { text-align: center; padding: 30px 20px; }
+.skill-item { 
+  text-align: center; 
+  padding: 30px 20px; 
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* アニメーションの設定 */
+}
+/* ★ここが復活したホバー設定 */
+.skill-item:hover { 
+  transform: translateY(-10px); /* 上に浮かび上がる */
+  background-color: rgba(70, 130, 180, 0.05); /* ほんのり背景色 */
+}
 .skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin: 0 auto 15px; display: block; }
 
+/* --- 7. お問い合わせ --- */
 #contact { padding: 80px 0; text-align: center; }
 .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
 .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #e0e6ed; border-radius: 6px; }
 .parsed-btn input { background: #4682b4; color: #fff !important; border: none; padding: 15px 60px; border-radius: 30px; cursor: pointer; display: block; margin: 20px auto 0; }
 
-/* --- 7. 詳細ページ（work.html）専用 --- */
+/* --- 8. 詳細ページ（work.html）用 --- */
 .detail-container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; text-align: center; }
 .goods-grid { display: flex; flex-direction: column; align-items: center; gap: 60px; }
 .goods-item { width: 100%; max-width: 550px; text-align: center; }
 .image-wrap { overflow: hidden; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
 
-/* --- 8. 【最重要】PC版レスポンシブ（768px以上） --- */
+/* --- 9. PC版レスポンシブ（左右レイアウト ＆ ズレ修正） --- */
 @media screen and (min-width: 768px) {
-  /* トップページ：写真と文章を左右に分ける */
   .content {
-    flex-direction: row !important; /* 横並びに戻す */
+    flex-direction: row !important;
     justify-content: space-between;
-    align-items: flex-start; /* 文章の始まりを上に揃える */
-    text-align: left; /* 文章は左寄せ */
+    align-items: center; /* 縦方向の中央揃え */
+    text-align: left;
   }
-  /* 交互に左右を入れ替える */
-  .content:nth-of-type(even) {
-    flex-direction: row-reverse !important;
-  }
+  .content:nth-of-type(even) { flex-direction: row-reverse !important; }
   
   .content .img { width: 55%; }
   .content .text { 
     width: 40%; 
-    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ★PCでも文章内のタイトルは中央をキープ */
+    text-align: left; /* 説明文自体は左寄せで見やすく */
   }
-
+  
   /* スキル横並び */
   .skills-grid { flex-direction: row; justify-content: space-between; }
   .skill-item { width: 31%; }
@@ -145,7 +153,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .goods-item { width: 45% !important; max-width: none; }
 }
 
-/* --- 9. スマホ専用調整 --- */
+/* --- 10. スマホ専用調整 --- */
 @media screen and (max-width: 767px) {
   #header { flex-direction: column; padding: 20px 0 !important; gap: 30px; }
   .site-title img { width: 80px; }
