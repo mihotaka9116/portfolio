@@ -13,7 +13,7 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー（スマホで高さをスリムに） --- */
+/* --- 2. ヘッダー --- */
 #header {
   width: 100%;
   max-width: 1000px;
@@ -36,7 +36,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 60px;
 }
 
-/* --- 4. タイトル（全デバイス・絶対中央固定） --- */
+/* --- 4. タイトル（全デバイス絶対中央） --- */
 .section-title, .section-title-en {
   display: block !important;
   text-align: center !important;
@@ -51,7 +51,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding-bottom: 15px;
   margin-bottom: 10px;
 }
-/* 下線の位置を50%で完全に固定 */
 .section-title::after {
   content: "";
   position: absolute;
@@ -64,7 +63,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 .section-title-en { font-size: 0.8rem; margin-bottom: 30px; }
 
-/* --- 5. コンテンツエリア（写真サイズの適正化） --- */
+/* --- 5. コンテンツエリア（写真サイズ） --- */
 .content {
   display: flex;
   flex-direction: column;
@@ -73,19 +72,9 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   width: 100%;
   gap: 30px;
 }
-.content .img {
-  width: 100%;
-  max-width: 400px; 
-  text-align: center;
-}
-.content .img img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-}
+.content .img { width: 100%; max-width: 400px; text-align: center; }
+.content .img img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; }
 .content .text { width: 100%; text-align: center; }
-
 .btn {
   display: inline-block;
   background-color: #4682b4;
@@ -94,45 +83,34 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   text-decoration: none;
   border-radius: 4px;
   margin-top: 20px;
-  transition: 0.3s;
 }
 
-/* --- 6. スキル（ホバー挙動を完全再現） --- */
-.skills-grid { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 30px; 
-  margin-top: 40px; 
+/* --- 6. スキル（★動きと配置の完全修正） --- */
+.skills-grid {
+  display: flex;
+  flex-direction: column; /* スマホは縦 */
+  gap: 30px;
+  margin-top: 40px;
 }
 .skill-item {
   text-align: center;
   padding: 30px 20px;
   border-radius: 8px;
   background-color: transparent;
-  transition: transform 0.4s ease, background-color 0.4s ease;
+  transition: transform 0.3s ease-out, background-color 0.3s ease-out;
   width: 100%;
 }
 .skill-item:hover {
   transform: translateY(-10px);
-  background-color: rgba(70, 130, 180, 0.03); /* 薄い青色 */
+  background-color: rgba(70, 130, 180, 0.03);
 }
-.skill-item svg {
-  width: 60px;
-  height: 60px;
-  fill: #4682b4;
-  margin: 0 auto 15px;
-  display: block;
-}
+.skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin: 0 auto 15px; display: block; }
 
-/* --- 7. お問い合わせフォーム --- */
-#contact { padding: 80px 0; background-color: #fbfcfd; }
+/* --- 7. お問い合わせフォーム（★背景なし） --- */
+#contact { padding: 80px 0; background-color: #fff; } /* 背景色を削除 */
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
-  background: #fff;
-  padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.03);
   text-align: left;
 }
 .contact-form dt { font-weight: bold; margin-bottom: 8px; color: #4682b4; }
@@ -144,7 +122,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .parsed-btn input {
   background: #4682b4; color: #fff !important; border: none; 
   padding: 15px 60px; border-radius: 30px; cursor: pointer; 
-  display: block; margin: 10px auto 0; font-weight: bold;
+  display: block; margin: 20px auto 0; font-weight: bold;
 }
 
 /* --- 8. PC版レイアウト (768px以上) --- */
@@ -152,31 +130,33 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .content { flex-direction: row; justify-content: center; gap: 60px; }
   .content:nth-of-type(even) { flex-direction: row-reverse; }
   .content .text, .content .img { width: 45%; }
-  
-  /* PCではテキストを左寄せ、タイトル下線も左へ */
   .content .text { text-align: left; }
   .content .text .section-title, .content .text .section-title-en { text-align: left !important; }
   .content .text .section-title::after { left: 0 !important; transform: none !important; }
   .content .text .btn { margin-left: 0; }
 
-  .skills-grid { flex-direction: row; justify-content: space-between; }
-  .skill-item { width: 31%; }
+  /* スキルを横並びに強制 */
+  .skills-grid { 
+    flex-direction: row !important; 
+    justify-content: space-between; 
+  }
+  .skill-item { 
+    width: 31% !important; 
+  }
 }
 
 /* --- 9. スマホ専用調整 --- */
 @media screen and (max-width: 767px) {
-  #header { flex-direction: column; padding: 10px 0 !important; gap: 5px; }
+  #header { flex-direction: column; padding: 10px 0 !important; }
   .site-title img { width: 80px; }
-  #header li { margin: 5px 10px; font-size: 0.85rem; }
   #mainvisual { height: 250px; background-size: 80px auto; }
-  #concept .img { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
-  #concept .img img { border-radius: 0; height: 250px; }
+  #concept .img { width: 100vw; margin-left: calc(50% - 50vw); }
   #work .img img { width: 130px !important; margin: 0 auto !important; display: block; }
 }
 
-/* --- 10. フッター ＆ 詳細ページ共通 --- */
 #footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
 
+/* ワーク詳細ページ共通 */
 .detail-container { max-width: 1000px; margin: 0 auto !important; padding: 40px 20px; text-align: center; }
 .goods-grid { display: flex; flex-direction: column; gap: 30px; }
 @media screen and (min-width: 768px) {
@@ -184,34 +164,58 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .goods-item { width: 45%; }
 }
 
-/* --- 6. スキル（動き・色・速度を完全再現） --- */
-.skills-grid { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 30px; 
-  margin-top: 40px; 
-}
+/* --- WORK DETAIL (work.html) 最終修正 --- */
 
-.skill-item {
+/* コンテナ全体を中央に配置 */
+.detail-container {
+  max-width: 1000px;
+  margin: 0 auto !important;
+  padding: 40px 20px;
   text-align: center;
-  padding: 30px 20px;
-  border-radius: 8px;
-  background-color: transparent;
-  /* 速度を0.3秒にし、ease-outでキレのある動きに */
-  transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+/* グリッドを強制的に1列（縦並び）にする */
+.goods-grid {
+  display: flex !important;
+  flex-direction: column !important; /* スマホで1列を強制 */
+  align-items: center !important;
+  gap: 40px;
   width: 100%;
+  margin: 40px 0;
 }
 
-/* ★マウスホバー時の設定 */
-.skill-item:hover {
-  transform: translateY(-10px); /* 10px浮上 */
-  background-color: rgba(70, 130, 180, 0.03); /* 以前の薄い青色 */
+/* スマホでは各アイテムを横幅いっぱい（または適切）にする */
+.goods-item {
+  width: 100% !important;
+  max-width: 400px; /* スマホで広がりすぎないように制限 */
+  margin: 0 auto;
 }
 
-.skill-item svg {
-  width: 60px;
-  height: 60px;
-  fill: #4682b4;
-  margin: 0 auto 15px;
+/* PC版（768px以上）の設定 */
+@media screen and (min-width: 768px) {
+  .goods-grid {
+    flex-direction: row !important; /* 横並びに戻す */
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .goods-item {
+    width: 45% !important; /* 2列にする */
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* 画像のホバー（以前の動きを継承） */
+.image-wrap {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.image-wrap img {
+  width: 100%;
   display: block;
+  transition: transform 0.4s ease;
+}
+.goods-item:hover img {
+  transform: scale(1.05);
 }
