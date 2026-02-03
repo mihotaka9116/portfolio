@@ -1,187 +1,145 @@
-<style>
-/* --- 1. 基本レイアウト --- */
-.detail-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
-.back-nav {
-  margin-bottom: 30px;
-}
-.back-nav a {
+@charset "UTF-8";
+
+/* --- 1. 基本設定 --- */
+html { scroll-behavior: smooth; }
+body {
   color: #4682b4;
-  text-decoration: none;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.8;
+  margin: 0;
 }
+img { max-width: 100%; height: auto; vertical-align: bottom; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. メインロゴの修正（巨大化防止＆中央寄せ） --- */
-.main-visual-img {
-  width: 100%;
-  max-width: 300px; /* PCでの適切なサイズ */
-  height: auto;
-  border-radius: 8px;
-  margin: 0 auto 40px; /* 左右autoで中央配置 */
-  display: block;
-}
-
-/* --- 3. グッズのグリッド（PC版：2列） --- */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列 */
-  gap: 40px 20px;
-  margin-bottom: 60px;
-}
-
-.goods-item {
-  text-align: center;
-}
-
-.image-wrap {
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.image-wrap img {
-  width: 100%;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.goods-item:hover .image-wrap img {
-  transform: scale(1.1);
-}
-
-.item-caption {
-  font-weight: bold;
-  color: #4682b4;
-}
-.item-caption span {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: normal;
-  margin-top: 5px;
-}
-
-/* --- 4. テキストエリアの中央揃え --- */
-.detail-text-box {
-  text-align: center;
-  margin-top: 40px;
-  width: 100%;
-}
-
-.cta-button-container {
-  margin: 60px 0;
-}
-.custom-btn {
-  display: inline-block;
-  background-color: #4682b4;
-  color: #fff !important; /* 文字色を白に強制 */
-  padding: 15px 40px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: opacity 0.3s;
-}
-.custom-btn:hover {
-  opacity: 0.8;
-}
-
-/* --- 5. スマホ対応（画面幅767px以下） --- */
-@media screen and (max-width: 767px) {
-  .detail-container {
-    padding: 30px 20px;
-  }
-  
-  /* ロゴをスマホサイズに */
-  .main-visual-img {
-    max-width: 200px;
-  }
-
-  /* グリッドを1列に強制変更 */
-  .goods-grid {
-    grid-template-columns: 1fr; 
-    gap: 30px;
-  }
-  
-  .detail-text-box {
-    padding: 0 10px;
-  }
-
-  /* セクションタイトルの下線を中央に固定 */
-  .section-title::after {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-}
-
-/* ヘッダーのロゴをスマホで中央に寄せる（任意） */
-@media screen and (max-width: 767px) {
-  #header {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .site-title {
-    width: auto;
-  }
-}
-
-/* Workセクションのロゴ画像がスマホで左に寄るのを防ぐ */
-#work .img img {
-  display: block;
+/* --- 2. ヘッダー --- */
+#header {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
   margin: 0 auto;
 }
-
-/* お問い合わせフォームの調整 */
-.contact-form .item {
-  margin-bottom: 20px;
+.site-title { width: 110px; }
+#header ul { display: flex; list-style: none; padding: 0; }
+#header li { margin-left: 25px; }
+#header a, #header a:visited { 
+  color: #4682b4 !important; 
+  text-decoration: none; 
+  transition: 0.3s;
 }
-.contact-form label {
-  display: block; /* ラベルを上に配置 */
-  margin-bottom: 5px;
-  font-weight: 600;
-}
+#header a:hover { opacity: 0.6; }
 
-/* --- 3. メインビジュアル（以前の状態に復元） --- */
+/* --- 3. メインビジュアル --- */
 #mainvisual {
   width: 100%;
   height: 400px;
   background-color: #f9f9f9;
   background-image: url("logo.svg"); 
   background-repeat: repeat;
-  background-size: 120px auto; /* ロゴを小さく並べる */
+  background-size: 120px auto; 
   background-position: center;
   margin-bottom: 60px;
 }
 
-@media screen and (max-width: 767px) {
-  #mainvisual {
-    height: 250px;
-    background-size: 80px auto; /* スマホではロゴをさらに小さく */
-  }
+/* --- 4. タイトルと文章の完全中央揃え --- */
+/* 全てのセクションタイトルと文章を強制的に中央へ */
+.text, .text-center, .detail-text-box {
+  text-align: center !important;
+  width: 100%;
 }
 
-/* --- 6. スキルアイコンのサイズ固定 --- */
-.skill-item svg {
-  width: 60px;
-  height: 60px;
-  fill: #4682b4;
-  margin: 0 auto 15px;
-  display: block; /* 中央に配置 */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4682b4;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
 }
 
+/* 下線の修正（真ん中に固定） */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 40px;
+  height: 2px;
+  background-color: #4682b4;
+}
+
+.section-title-en { 
+  display: block; 
+  font-size: 0.8rem; 
+  color: #4682b4;
+  margin-bottom: 30px; 
+}
+
+/* 文章（pタグ）の中央揃え */
+p, .project-description {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 700px;
+}
+
+/* --- 5. コンテンツエリア（PC版は左右、スマホは縦） --- */
+.content {
+  display: flex;
+  flex-direction: column; /* 文章を真ん中にするため一度縦に */
+  align-items: center;
+  margin-bottom: 80px;
+  gap: 20px;
+}
+.content .text { width: 100%; }
+
+/* --- 6. スキル --- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
-
-/* Workセクション内の特定の画像のみ制限 */
-#work .img img {
-  width: 150px !important; /* HTMLの指定を優先 */
-  height: auto;
-  margin: 0 auto;
-  display: block;
+.skill-item {
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.4s ease;
+  border-radius: 8px;
 }
-</style>
+.skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin-bottom: 15px; }
+.skill-item:hover { transform: translateY(-10px); background-color: rgba(70, 130, 180, 0.03); }
+
+/* --- 7. ボタン・フォーム・フッター --- */
+.btn, .btn:link, .btn:visited {
+  display: inline-block;
+  background-color: #4682b4;
+  color: #ffffff !important;
+  padding: 10px 30px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.btn:hover { opacity: 0.8; }
+
+#contact { padding: 60px 0; text-align: center; }
+.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; color: #4682b4;
+}
+.parsed-btn input {
+  background-color: #4682b4; color: #fff; border: none; padding: 15px 40px; cursor: pointer; display: block; margin: 30px auto 0;
+}
+
+#footer { background-color: #4682b4; color: #fff; text-align: center; padding: 40px 0; }
+
+/* --- 8. スマホ対応 --- */
+@media screen and (max-width: 767px) {
+  #header { flex-direction: column; }
+  #header li { margin: 10px 15px; }
+  .section-title { font-size: 1.5rem; }
+}
