@@ -195,3 +195,38 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .site-title img { width: 80px; }
   #mainvisual { height: 250px; background-size: 80px auto; }
 }
+
+/* --- 5. トップページ（index.html）用 --- */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80px;
+  gap: 30px;
+  text-align: center;
+}
+
+/* 写真を囲む枠を横長に広げる */
+.content .img {
+  width: 100%;
+  max-width: 600px; /* ★ここを400pxから600pxへ（一回り横に広く） */
+  text-align: center;
+}
+
+/* 写真自体の比率を横長に固定する */
+.content .img img {
+  width: 100%;
+  height: 300px; /* 高さを維持、または250pxなどに下げるとより横長に見えます */
+  object-fit: cover; /* 横長に引き伸ばしても写真が歪まないように設定 */
+  border-radius: 8px;
+}
+
+/* PC版での微調整（写真が大きくなった分、文章とのバランスを取る） */
+@media screen and (min-width: 768px) {
+  .content .img {
+    width: 55%; /* 写真のエリアを少し広く */
+  }
+  .content .text {
+    width: 40%; /* 文章のエリアを少し狭く */
+  }
+}
