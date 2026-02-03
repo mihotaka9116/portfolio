@@ -195,3 +195,31 @@ p, .project-description {
   width: 100%;
   margin: 0 auto; /* 左右の余白を自動にして中央へ */
 }
+
+/* --- スマホ表示（画面幅767px以下）の修正 --- */
+@media screen and (max-width: 767px) {
+  /* 1. ロゴのサイズを適正にする */
+  .main-visual-img {
+    width: 80%;       /* 横幅を少し抑える */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 2. グリッドを2列から1列に変更 */
+  .goods-grid {
+    grid-template-columns: 1fr; /* 1列にする */
+    gap: 40px;                 /* 上下の間隔 */
+    width: 100%;
+  }
+
+  /* 3. テキストボックスの中央揃えを強化 */
+  .detail-text-box {
+    padding: 0 10px;
+  }
+
+  /* 4. タイトルの下線が左に寄るのを防ぐ（メインCSSとの兼ね合い） */
+  .section-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
