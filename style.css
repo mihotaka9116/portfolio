@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（ブラウザの初期余白をリセット） --- */
+/* --- 1. 基本設定 --- */
 * { 
   box-sizing: border-box; 
-  margin: 0; /* すべての要素の初期外側余白を0にする */
-  padding: 0; /* すべての要素の初期内側余白を0にする */
+  margin: 0; 
+  padding: 0; 
 }
 html { scroll-behavior: smooth; }
 body {
@@ -16,7 +16,7 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. タイトル共通（WORKのロゴと英語を絶対中央に固定） --- */
+/* --- 2. タイトル共通（WORK/CONCEPTのロゴと英語を中央固定） --- */
 .section-title, .section-title-en {
   display: block !important;
   text-align: center !important;
@@ -29,7 +29,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   font-weight: 700;
   position: relative;
   padding-bottom: 15px;
-  margin-top: 0;
   margin-bottom: 10px;
 }
 .section-title::after {
@@ -44,15 +43,15 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 .section-title-en { font-size: 0.8rem; margin-bottom: 30px; }
 
-/* --- 3. ヘッダー（上部の余白を調整） --- */
+/* --- 3. ヘッダー --- */
 #header {
   width: 100%;
   max-width: 1000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0; /* 上下の内側余白を少し詰めました */
-  margin: 0 auto; /* 上部の外側余白を0にして上ピッタリに */
+  padding: 15px 0;
+  margin: 0 auto;
 }
 .site-title img { width: 110px; }
 #header ul { display: flex; list-style: none; }
@@ -82,7 +81,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .content .img { width: 100%; max-width: 600px; }
 .content .img img {
   width: 100%;
-  height: 300px;
+  height: 350px; /* 少し高さを出してより横長感を強調 */
   object-fit: cover;
   border-radius: 8px;
 }
@@ -98,7 +97,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   border-radius: 4px;
 }
 
-/* --- 6. スキル（ホバー色を青っぽく完全再現） --- */
+/* --- 6. スキル（ホバー色を青っぽく再現） --- */
 .skills-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; padding: 0 20px; }
 .skill-item { 
   text-align: center; 
@@ -109,8 +108,8 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 .skill-item:hover { 
   transform: translateY(-12px); 
-  background-color: rgba(70, 130, 180, 0.18); /* さらに青みと濃度を微調整 */
-  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.15);
+  background-color: rgba(70, 130, 180, 0.2); /* 青みをしっかり感じる濃度 */
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2);
 }
 .skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin: 0 auto 15px; display: block; }
 
@@ -120,34 +119,31 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #e0e6ed; border-radius: 6px; margin-top: 5px; }
 .parsed-btn input { background: #4682b4; color: #fff !important; border: none; padding: 15px 60px; border-radius: 30px; cursor: pointer; display: block; margin: 20px auto 0; font-weight: bold; }
 
-/* --- 8. 詳細ページ（work.html）用 --- */
-.detail-container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; text-align: center; }
-.goods-grid { display: flex; flex-direction: column; align-items: center; gap: 60px; }
-.goods-item { width: 100%; max-width: 550px; text-align: center; }
-.image-wrap { overflow: hidden; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-
-/* --- 9. PC版レスポンシブ --- */
+/* --- 8. PC版レスポンシブ --- */
 @media screen and (min-width: 768px) {
-  .content { flex-direction: row !important; justify-content: space-between; align-items: center; }
+  .content { 
+    flex-direction: row !important; 
+    justify-content: space-between; 
+    align-items: center; /* 写真とテキストの高さを中央で揃える */
+  }
   .content:nth-of-type(even) { flex-direction: row-reverse !important; }
+  
   .content .img { width: 55%; }
   .content .text { 
     width: 40%; 
     display: flex;
     flex-direction: column;
-    align-items: center !important; /* タイトル類を中央固定 */
+    justify-content: center; /* 縦方向の中央寄せを強化 */
+    align-items: center !important; 
     text-align: center !important; 
   }
   .project-description { text-align: left; width: 100%; }
 
   .skills-grid { flex-direction: row; justify-content: space-between; }
   .skill-item { width: 31%; }
-
-  .goods-grid { flex-direction: row !important; flex-wrap: wrap; justify-content: center; gap: 40px; }
-  .goods-item { width: 45% !important; max-width: none; }
 }
 
-/* --- 10. スマホ専用調整 --- */
+/* --- 9. スマホ専用調整 --- */
 @media screen and (max-width: 767px) {
   #header { flex-direction: column; padding: 20px 0 !important; gap: 20px; }
   .site-title img { width: 80px; }
