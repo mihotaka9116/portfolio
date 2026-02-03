@@ -13,30 +13,40 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. タイトル共通（絶対中央固定） --- */
+/* --- 4. セクションタイトル（全デバイス共通で中央固定） --- */
 .section-title, .section-title-en {
-  display: block 
-  text-align: center 
-  width: 100% 
-  margin: 0 auto 10px;
+  text-align: center !important; /* 強制的に中央揃え */
+  display: block !important;
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
+
 .section-title {
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: bold;
   position: relative;
   padding-bottom: 15px;
+  margin-bottom: 10px;
+  margin-top: 0;
 }
+
+/* 下線の位置を中央に固定 */
 .section-title::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+  left: 50% !important; /* 親要素の真ん中から開始 */
+  transform: translateX(-50%) !important; /* 自身の幅の半分だけ左に戻して完全中央へ */
   width: 40px;
   height: 2px;
   background-color: #4682b4;
 }
-.section-title-en { font-size: 0.8rem; margin-bottom: 30px; }
+
+.section-title-en {
+  font-size: 0.8rem;
+  margin-bottom: 40px;
+}
 
 /* --- 3. ヘッダー・フッター --- */
 #header {
