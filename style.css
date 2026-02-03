@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
 /* --- 1. 基本設定 --- */
-* { box-sizing: border-box; } /* 崩れ防止の必須設定 */
+* { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   color: #4682b4;
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
   margin: 0;
-  overflow-x: hidden; /* 横揺れ防止 */
+  overflow-x: hidden;
 }
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー（スマホ高さを最小に） --- */
+/* --- 2. ヘッダー --- */
 #header {
   width: 100%;
   display: flex;
@@ -21,7 +21,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   align-items: center;
   padding: 15px 5%;
 }
-.site-title img { width: 100px; height: auto; }
+.site-title img { width: 100px; }
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 20px; }
 #header a { color: #4682b4 !important; text-decoration: none; font-size: 0.9rem; }
@@ -29,81 +29,99 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 /* --- 3. メインビジュアル --- */
 #mainvisual {
   width: 100%;
-  height: 250px; /* スマホ基準の高さ */
+  height: 250px;
   background: #f9f9f9 url("logo.svg") repeat center / 100px auto;
   margin-bottom: 40px;
 }
 
-/* --- 4. タイトル共通（絶対中央） --- */
+/* --- 4. タイトル（中央揃え＆下線固定） --- */
 .section-title, .section-title-en {
   display: block;
   text-align: center;
   width: 100%;
-  margin: 0 auto;
 }
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
 }
+/* 下線を中央に固定 */
 .section-title::after {
   content: "";
   position: absolute;
-  bottom: 0; left: 50%;
+  bottom: 0;
+  left: 50%;
   transform: translateX(-50%);
-  width: 30px; height: 2px;
-  background: #4682b4;
+  width: 40px;
+  height: 2px;
+  background-color: #4682b4;
 }
-.section-title-en { font-size: 0.75rem; margin-bottom: 25px; }
+.section-title-en { font-size: 0.8rem; margin-bottom: 30px; }
 
 /* --- 5. コンテンツ（コンセプト・Work） --- */
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
   width: 100%;
 }
 .content .img { width: 100%; text-align: center; margin-bottom: 20px; }
 .content .img img { 
   width: 100%; 
-  max-height: 250px; /* 縦長すぎを防止 */
+  max-height: 300px; 
   object-fit: cover; 
   border-radius: 8px; 
 }
 .content .text { width: 100%; text-align: center; }
 
-/* VIEW DETAILボタンの中央揃え */
 .btn {
   display: inline-block;
-  background: #4682b4;
+  background-color: #4682b4;
   color: #fff !important;
-  padding: 10px 30px;
+  padding: 12px 35px;
   text-decoration: none;
   border-radius: 4px;
   margin: 15px auto 0;
 }
 
-/* --- 6. スキル（崩れ修正） --- */
+/* --- 6. スキル（アイコン中央・背景・アニメーション復活） --- */
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 0;
+  gap: 30px;
+  margin-top: 40px;
 }
 .skill-item {
   text-align: center;
-  padding: 20px;
-  background: #fdfdfd;
+  padding: 30px 20px;
+  background-color: #fdfdfd; /* 背景色 */
+  border-radius: 10px;
+  transition: all 0.4s ease; /* アニメーション速度 */
+  width: 100%;
 }
-.skill-item svg { width: 50px; height: 50px; fill: #4682b4; margin-bottom: 10px; }
+/* ホバー時の動きを復活 */
+.skill-item:hover {
+  transform: translateY(-10px);
+  background-color: rgba(70, 130, 180, 0.08); /* ほんのり青く */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.skill-item svg {
+  width: 60px;
+  height: 60px;
+  fill: #4682b4;
+  margin: 0 auto 15px; /* 中央寄せ */
+  display: block;
+}
 
-/* --- 7. お問い合わせ（崩れ修正） --- */
-.contact-form { width: 100%; max-width: 500px; margin: 0 auto; }
-.contact-form .item { margin-bottom: 15px; }
-.contact-form label { display: block; margin-bottom: 5px; font-size: 0.9rem; }
+/* --- 7. お問い合わせ --- */
+.contact-form { width: 100%; max-width: 500px; margin: 0 auto; text-align: left; }
+.contact-form .item { margin-bottom: 20px; }
+.contact-form label { display: block; margin-bottom: 8px; }
 .contact-form input, .contact-form textarea {
-  width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;
+  width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; color: #4682b4;
 }
 
 /* --- 8. PC版レイアウト (768px以上) --- */
@@ -111,23 +129,36 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   #header { padding: 25px 5%; }
   .site-title img { width: 120px; }
   #mainvisual { height: 400px; background-size: 130px auto; }
-  
-  .content { flex-direction: row; justify-content: center; gap: 50px; }
+
+  .content { flex-direction: row; justify-content: center; gap: 60px; }
   .content:nth-of-type(even) { flex-direction: row-reverse; }
   .content .text, .content .img { width: 45%; }
-  .content .text { text-align: left; }
-  .content .text .section-title::after { left: 0; transform: none; }
-  .content .text .section-title, .content .text .section-title-en { text-align: left; }
   
+  /* PCではテキストを左寄せにする */
+  .content .text { text-align: left; }
+  .content .text .section-title, .content .text .section-title-en { text-align: left; }
+  .content .text .section-title::after { left: 0; transform: none; }
+  .content .text .btn { margin: 15px 0 0 0; }
+
   .skills-grid { flex-direction: row; justify-content: space-between; }
-  .skill-item { width: 30%; }
+  .skill-item { width: 31%; }
 }
 
-/* --- 9. スマホ専用の最終調整 --- */
+/* --- 9. スマホ専用最終調整 --- */
 @media screen and (max-width: 767px) {
   #header { flex-direction: column; padding: 10px 0; }
   #header li { margin: 5px 10px; }
-  #work .img img { width: 120px !important; margin: 0 auto; display: block; }
+  
+  /* コンセプト写真の拡大 */
+  #concept .img {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+  #concept .img img { border-radius: 0; height: 250px; }
+
+  /* Workロゴの中央揃え */
+  #work .img img { width: 130px !important; margin: 0 auto; display: block; }
 }
 
-#footer { background: #4682b4; color: #fff; text-align: center; padding: 30px 0; margin-top: 50px; }
+#footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
