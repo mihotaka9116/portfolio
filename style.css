@@ -13,15 +13,17 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー --- */
+/* --- 2. ヘッダー（スマホで高さを抑える設定含む） --- */
 #header {
   width: 100%;
+  max-width: 1000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 5%;
+  margin: 0 auto;
 }
-.site-title img { width: 100px; }
+.site-title img { width: 100px; transition: 0.3s; }
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 20px; }
 #header a { color: #4682b4 !important; text-decoration: none; font-size: 0.9rem; }
@@ -34,11 +36,13 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 40px;
 }
 
-/* --- 4. タイトル（中央揃え＆下線固定） --- */
+/* --- 4. タイトル（全ページ共通・絶対中央揃え） --- */
 .section-title, .section-title-en {
-  display: block;
-  text-align: center;
-  width: 100%;
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 .section-title {
   font-size: 1.8rem;
@@ -47,36 +51,28 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding-bottom: 15px;
   margin-bottom: 5px;
 }
-/* 下線を中央に固定 */
+/* 下線を中央に完全固定 */
 .section-title::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   width: 40px;
   height: 2px;
   background-color: #4682b4;
 }
 .section-title-en { font-size: 0.8rem; margin-bottom: 30px; }
 
-/* --- 5. コンテンツ（コンセプト・Work） --- */
+/* --- 5. コンテンツエリア（Work・Concept） --- */
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   width: 100%;
 }
-.content .img { width: 100%; text-align: center; margin-bottom: 20px; }
-.content .img img { 
-  width: 100%; 
-  max-height: 300px; 
-  object-fit: cover; 
-  border-radius: 8px; 
-}
 .content .text { width: 100%; text-align: center; }
-
 .btn {
   display: inline-block;
   background-color: #4682b4;
@@ -85,80 +81,86 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   text-decoration: none;
   border-radius: 4px;
   margin: 15px auto 0;
+  transition: 0.3s;
 }
+.btn:hover { opacity: 0.8; }
 
-/* --- 6. スキル（アイコン中央・背景・アニメーション復活） --- */
-.skills-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-top: 40px;
+/* --- 6. スキル（★アニメーションと背景色を復活） --- */
+.skills-grid { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 30px; 
+  margin-top: 40px; 
 }
 .skill-item {
   text-align: center;
   padding: 30px 20px;
-  background-color: #fdfdfd; /* 背景色 */
+  background-color: #fdfdfd;
   border-radius: 10px;
-  transition: all 0.4s ease; /* アニメーション速度 */
+  transition: all 0.4s ease; /* アニメーションの設定 */
   width: 100%;
 }
-/* ホバー時の動きを復活 */
+/* ★マウスを重ねた時の動き */
 .skill-item:hover {
-  transform: translateY(-10px);
-  background-color: rgba(70, 130, 180, 0.08); /* ほんのり青く */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transform: translateY(-10px); /* 上に浮き上がる */
+  background-color: rgba(70, 130, 180, 0.08); /* 薄い青色 */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* 影をつける */
 }
 .skill-item svg {
   width: 60px;
   height: 60px;
   fill: #4682b4;
-  margin: 0 auto 15px; /* 中央寄せ */
+  margin: 0 auto 15px;
   display: block;
 }
 
-/* --- 7. お問い合わせ --- */
-.contact-form { width: 100%; max-width: 500px; margin: 0 auto; text-align: left; }
-.contact-form .item { margin-bottom: 20px; }
-.contact-form label { display: block; margin-bottom: 8px; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; color: #4682b4;
+/* --- 7. WORK DETAIL ページ専用設定 --- */
+.detail-container {
+  max-width: 1000px;
+  margin: 0 auto !important; /* PCで中央寄せ */
+  padding: 40px 20px;
+  text-align: center;
 }
+.goods-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* スマホは1列 */
+  gap: 30px;
+  width: 100%;
+  margin: 40px 0;
+}
+.main-visual-img { margin: 0 auto 30px; display: block; max-width: 300px; }
 
 /* --- 8. PC版レイアウト (768px以上) --- */
 @media screen and (min-width: 768px) {
-  #header { padding: 25px 5%; }
-  .site-title img { width: 120px; }
   #mainvisual { height: 400px; background-size: 130px auto; }
-
+  
+  /* メインページの横並び */
   .content { flex-direction: row; justify-content: center; gap: 60px; }
   .content:nth-of-type(even) { flex-direction: row-reverse; }
   .content .text, .content .img { width: 45%; }
-  
-  /* PCではテキストを左寄せにする */
   .content .text { text-align: left; }
   .content .text .section-title, .content .text .section-title-en { text-align: left; }
-  .content .text .section-title::after { left: 0; transform: none; }
-  .content .text .btn { margin: 15px 0 0 0; }
+  .content .text .section-title::after { left: 0 !important; transform: none !important; }
+  .content .text .btn { margin-left: 0; }
 
+  /* スキルの横並び */
   .skills-grid { flex-direction: row; justify-content: space-between; }
   .skill-item { width: 31%; }
+
+  /* WORK DETAILのPC版2列化 */
+  .goods-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* --- 9. スマホ専用最終調整 --- */
 @media screen and (max-width: 767px) {
-  #header { flex-direction: column; padding: 10px 0; }
-  #header li { margin: 5px 10px; }
+  #header { flex-direction: column; padding: 10px 0 !important; gap: 5px; }
+  .site-title img { width: 80px; }
+  #header li { margin: 5px 10px; font-size: 0.85rem; }
   
-  /* コンセプト写真の拡大 */
-  #concept .img {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-  }
-  #concept .img img { border-radius: 0; height: 250px; }
-
-  /* Workロゴの中央揃え */
-  #work .img img { width: 130px !important; margin: 0 auto; display: block; }
+  #concept .img { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+  #concept .img img { border-radius: 0; height: 250px; object-fit: cover; }
+  
+  #work .img img { width: 130px !important; margin: 0 auto !important; display: block; }
 }
 
 #footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
