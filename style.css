@@ -175,3 +175,23 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .site-title img { width: 80px; }
   #mainvisual { height: 250px; background-size: 80px auto; }
 }
+/* --- 7. レスポンシブ調整（スマホ専用） --- */
+@media screen and (max-width: 767px) {
+  #header { 
+    flex-direction: column; 
+    padding: 20px 0 !important; /* 上下の余白を少し増やす */
+    gap: 20px; /* ★ロゴとナビの間の距離を広げる（お好みで30pxなどに調整可） */
+  }
+  
+  #header ul {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #header li {
+    margin: 0 10px; /* ナビ項目同士の左右間隔を調整 */
+  }
+
+  .site-title img { width: 80px; }
+  #mainvisual { height: 250px; background-size: 80px auto; }
+}
