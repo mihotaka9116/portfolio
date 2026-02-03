@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定 --- */
+/* --- 1. 共通設定 --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -13,22 +13,19 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. タイトル（全ページ・全デバイス・絶対中央固定） --- */
+/* --- 2. タイトル共通（絶対中央固定） --- */
 .section-title, .section-title-en {
   display: block !important;
   text-align: center !important;
   width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin: 0 auto 10px !important;
 }
 .section-title {
   font-size: 1.8rem;
   font-weight: 700;
   position: relative;
   padding-bottom: 15px;
-  margin-bottom: 10px;
 }
-/* 下線の位置を50%で固定。左右の余白を無視して真ん中に配置 */
 .section-title::after {
   content: "";
   position: absolute;
@@ -41,7 +38,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 .section-title-en { font-size: 0.8rem; margin-bottom: 30px; }
 
-/* --- 3. ヘッダー --- */
+/* --- 3. ヘッダー・フッター --- */
 #header {
   width: 100%;
   max-width: 1000px;
@@ -56,25 +53,24 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 #header li { margin-left: 25px; }
 #header a { color: #4682b4 !important; text-decoration: none; }
 
-/* --- 4. メインビジュアル --- */
+#footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
+
+/* --- 4. トップページ（index.html）用 --- */
 #mainvisual {
   width: 100%;
   height: 400px;
   background: #f9f9f9 url("logo.svg") repeat center / 120px auto;
   margin-bottom: 60px;
 }
-
-/* --- 5. コンテンツセクション --- */
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 80px;
   gap: 30px;
+  text-align: center;
 }
-.content .img { width: 100%; max-width: 400px; text-align: center; }
-.content .img img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; }
-.content .text { width: 100%; text-align: center; }
+.content .img img { height: 300px; object-fit: cover; border-radius: 8px; }
 .btn {
   display: inline-block;
   background-color: #4682b4;
@@ -85,7 +81,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-top: 20px;
 }
 
-/* --- 6. スキル --- */
+/* スキル */
 .skills-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; }
 .skill-item {
   text-align: center; padding: 30px 20px; border-radius: 8px;
@@ -94,248 +90,51 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .skill-item:hover { transform: translateY(-10px); background-color: rgba(70, 130, 180, 0.03); }
 .skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin: 0 auto 15px; display: block; }
 
-/* --- 7. お問い合わせ（背景白・文も中央） --- */
+/* お問い合わせ */
 #contact { padding: 80px 0; background-color: #fff; text-align: center; }
-#contact p { text-align: center !important; margin-bottom: 30px; width: 100%; }
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto !important;
-  text-align: left; /* 入力項目だけ左寄せ */
-}
-.contact-form dt { font-weight: bold; margin-bottom: 8px; color: #4682b4; }
+.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
+.contact-form dt { font-weight: bold; margin-bottom: 8px; }
 .contact-form dd { margin: 0 0 25px 0; }
 .contact-form input, .contact-form textarea {
-  width: 100%; padding: 12px; border: 1px solid #e0e6ed; border-radius: 6px; background: #fafbfd;
+  width: 100%; padding: 12px; border: 1px solid #e0e6ed; border-radius: 6px;
 }
 .parsed-btn input {
-  background: #4682b4; color: #fff !important; border: none; padding: 15px 60px; border-radius: 30px; display: block; margin: 20px auto 0; font-weight: bold;
+  background: #4682b4; color: #fff !important; border: none; padding: 15px 60px; border-radius: 30px; cursor: pointer; display: block; margin: 20px auto 0;
 }
 
-/* --- 8. PC版レイアウト (768px以上) --- */
-@media screen and (min-width: 768px) {
-  .content { flex-direction: row; justify-content: center; gap: 60px; }
-  .content:nth-of-type(even) { flex-direction: row-reverse; }
-  .content .text, .content .img { width: 45%; }
-  
-  /* PCで横並びになってもタイトルだけは中央を維持 */
-  .content .text {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* これでテキスト内の要素を中央に集める */
-  }
-
-  .skills-grid { flex-direction: row !important; justify-content: space-between; }
-  .skill-item { width: 31% !important; }
-}
-
-/* --- 9. スマホ専用調整 --- */
-@media screen and (max-width: 767px) {
-  #header { flex-direction: column; padding: 10px 0 !important; }
-  .site-title img { width: 80px; }
-  #mainvisual { height: 250px; background-size: 80px auto; }
-}
-
-#footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
-
-/* ============================================================
-   WORK DETAIL (work.html) 最終復旧コード
-   ============================================================ */
-
-/* 1. コンテナ全体を中央に固定 */
+/* --- 5. 詳細ページ（work.html）用 --- */
 .detail-container {
   max-width: 1000px;
-  margin: 0 auto !important;
+  margin: 0 auto;
   padding: 60px 20px;
+  text-align: center;
+}
+.main-visual-img {
+  max-width: 300px;
+  margin: 0 auto 40px;
+  display: block;
+}
+.goods-grid {
   display: flex;
   flex-direction: column;
-  align-items: center; /* タイトルなども中央へ */
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 60px;
 }
-
-/* 2. タイトルと下線を強制中央（絶対回避設定） */
-.detail-container .section-title,
-.detail-container .section-title-en {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 100% !important;
-}
-
-/* 3. グリッド設定：スマホ優先（1列） */
-.goods-grid {
-  display: flex !important;
-  flex-direction: column !important; /* スマホで1列を強制 */
-  align-items: center !important;
-  gap: 50px;
-  width: 100%;
-  margin: 40px auto 60px;
-}
-
-/* 4. 各アイテムの幅設定 */
 .goods-item {
-  width: 100% !important;
-  max-width: 400px; /* 広がりすぎ防止 */
-  margin: 0 auto;
+  width: 100%;
+  max-width: 550px; /* 画像を一回り大きく設定 */
+  text-align: center;
 }
-
-/* 5. PC版（768px以上）で2列に戻す */
-@media screen and (min-width: 768px) {
-  .goods-grid {
-    flex-direction: row !important; /* 横並び */
-    flex-wrap: wrap !important;
-    justify-content: center !important; /* 中央に寄せる */
-    align-items: flex-start !important;
-  }
-  
-  .goods-item {
-    width: 45% !important; /* 2列 */
-    max-width: none;
-    margin: 0;
-  }
-}
-
-/* 6. 画像ホバーの微調整 */
 .image-wrap {
   overflow: hidden;
   border-radius: 12px;
-  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
-.image-wrap img {
-  width: 100%;
-  display: block;
-  transition: transform 0.4s ease;
-}
-.goods-item:hover img {
-  transform: scale(1.05);
-}
-
-/* ============================================================
-   WORK DETAIL (work.html) コンテンツ中央配置
-   ============================================================ */
-
-/* 1. 全体を中央に寄せる */
-.detail-container {
-  max-width: 1000px;
-  margin: 0 auto !important;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 中身を中央揃え */
-  text-align: center;  /* テキストを中央揃え */
-}
-
-/* 2. 一番上のロゴマーク（site-title）を中央へ */
-.detail-container .site-title {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 40px;
-}
-
-/* 3. 商品説明テキストと「問い合わせる」文の中央配置 */
-.goods-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 画像・文字・ボタンを中央に集める */
-  text-align: center;
-  width: 100% !important;
-  max-width: 500px; /* 見やすい幅に制限 */
-  margin: 0 auto 60px;
-}
-
-/* 4. 画像の下にあるテキストの余白調整 */
-.goods-item p {
-  margin: 20px 0;
-  width: 100%;
-  line-height: 1.8;
-}
-
-/* 5. 「このグッズについて問い合わせる」ボタン・リンク */
-.goods-item a {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #4682b4;
-  font-weight: bold;
-}
-
-/* 6. PC版（横並びにする場合も中央を維持） */
-@media screen and (min-width: 768px) {
-  .goods-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* アイテム同士を中央寄せ */
-    gap: 40px;
-  }
-  
-  .goods-item {
-    width: 45% !important; /* 2列にする場合 */
-    max-width: none;
-  }
-}
-
-/* --- WORK DETAIL (work.html) 完全修正版 --- */
-
-.detail-container {
-  max-width: 900px;
-  margin: 0 auto !important;
-  padding: 60px 20px;
-  text-align: center; /* テキストを中央へ */
-}
-
-/* ロゴマーク（main-visual-img）の中央配置 */
-.main-visual-img {
-  width: 100%;
-  max-width: 300px; /* ロゴが大きすぎないように調整 */
-  height: auto;
-  margin: 0 auto 40px !important;
-  display: block;
-}
-
-/* グリッド設定：スマホは1列、PCは2列 */
-.goods-grid {
-  display: flex !important;
-  flex-direction: column !important; /* スマホで1列 */
-  gap: 40px;
-  margin-bottom: 60px;
-  align-items: center;
-}
-
-/* 各アイテムの設定 */
-.goods-item {
-  width: 100% !important;
-  max-width: 400px;
-  text-align: center;
-}
-
-.image-wrap {
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.image-wrap img {
-  width: 100%;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.goods-item:hover .image-wrap img {
-  transform: scale(1.1);
-}
-
-/* キャプションとボタンの中央揃え */
-.item-caption {
-  font-weight: bold;
-  color: #4682b4;
-  text-align: center;
-}
-
-.detail-text-box {
-  text-align: center;
-  margin-top: 40px;
-}
-
+.image-wrap img { transition: transform 0.4s ease; }
+.goods-item:hover img { transform: scale(1.05); }
+.item-caption { font-weight: bold; color: #4682b4; }
 .custom-btn {
   display: inline-block;
   background-color: #4682b4;
@@ -346,70 +145,24 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-top: 30px;
 }
 
-/* PC版（768px以上）の設定 */
+/* --- 6. レスポンシブ調整（PC版） --- */
 @media screen and (min-width: 768px) {
-  .goods-grid {
-    flex-direction: row !important; /* 横並びに戻す */
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .goods-item {
-    width: 45% !important;
-  }
-}
-
-/* --- WORK DETAIL (work.html) 画像サイズアップ版 --- */
-
-/* グリッド全体の幅を少し広げて、写真が大きく見えるようにする */
-.detail-container {
-  max-width: 1000px; /* 900pxから1000pxへ拡大 */
-  margin: 0 auto !important;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-/* 商品説明などの文章幅を少し広げる */
-.project-description {
-  max-width: 700px;
-  margin: 0 auto 40px;
-}
-
-/* グリッドの設定 */
-.goods-grid {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 60px; /* 上下の間隔を少し広げてゆとりを持たせる */
-  margin-bottom: 80px;
-  align-items: center;
-}
-
-/* 各アイテムのサイズをアップ */
-.goods-item {
-  width: 100% !important;
-  max-width: 550px; /* 400pxから550pxへ：一回り大きく */
-  text-align: center;
-}
-
-/* 画像を囲む枠 */
-.image-wrap {
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 影を少し深くして存在感を出す */
-}
-
-/* PC版（768px以上）の設定：2列に並んだ時も大きく見えるように調整 */
-@media screen and (min-width: 768px) {
-  .goods-grid {
-    flex-direction: row !important;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-  }
+  /* トップページ横並び */
+  .content { flex-direction: row; justify-content: center; gap: 60px; }
+  .content:nth-of-type(even) { flex-direction: row-reverse; }
+  .content .text, .content .img { width: 45%; }
   
-  .goods-item {
-    /* 2列に並ぶ際、1つあたりの幅を48%にして最大化 */
-    width: 48% !important; 
-    max-width: none;
-  }
+  .skills-grid { flex-direction: row; justify-content: space-between; }
+  .skill-item { width: 31%; }
+
+  /* 詳細ページ横並び */
+  .goods-grid { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 40px; }
+  .goods-item { width: 45%; max-width: none; }
+}
+
+/* --- 7. レスポンシブ調整（スマホ版） --- */
+@media screen and (max-width: 767px) {
+  #header { flex-direction: column; padding: 10px 0; }
+  .site-title img { width: 80px; }
+  #mainvisual { height: 250px; background-size: 80px auto; }
 }
