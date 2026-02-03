@@ -136,9 +136,40 @@ p, .project-description {
 
 #footer { background-color: #4682b4; color: #fff; text-align: center; padding: 40px 0; }
 
-/* --- 8. スマホ対応 --- */
+/* --- 8. スマホ対応 (最終版) --- */
 @media screen and (max-width: 767px) {
-  #header { flex-direction: column; }
-  #header li { margin: 10px 15px; }
-  .section-title { font-size: 1.5rem; }
+  #header {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  
+  #header ul {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  #header li {
+    margin: 5px 10px;
+  }
+
+  #mainvisual {
+    height: 250px; /* 巨大化防止 */
+    background-size: 80px auto;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  /* 写真が2列にならないよう縦に並べる */
+  .content {
+    flex-direction: column;
+  }
+
+  /* 文章が左に寄らないようリセット */
+  p, .project-description, .detail-text-box {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 }
