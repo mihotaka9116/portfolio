@@ -207,3 +207,68 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .goods-item:hover img {
   transform: scale(1.05);
 }
+
+/* ============================================================
+   WORK DETAIL (work.html) コンテンツ中央配置
+   ============================================================ */
+
+/* 1. 全体を中央に寄せる */
+.detail-container {
+  max-width: 1000px;
+  margin: 0 auto !important;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 中身を中央揃え */
+  text-align: center;  /* テキストを中央揃え */
+}
+
+/* 2. 一番上のロゴマーク（site-title）を中央へ */
+.detail-container .site-title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* 3. 商品説明テキストと「問い合わせる」文の中央配置 */
+.goods-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 画像・文字・ボタンを中央に集める */
+  text-align: center;
+  width: 100% !important;
+  max-width: 500px; /* 見やすい幅に制限 */
+  margin: 0 auto 60px;
+}
+
+/* 4. 画像の下にあるテキストの余白調整 */
+.goods-item p {
+  margin: 20px 0;
+  width: 100%;
+  line-height: 1.8;
+}
+
+/* 5. 「このグッズについて問い合わせる」ボタン・リンク */
+.goods-item a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #4682b4;
+  font-weight: bold;
+}
+
+/* 6. PC版（横並びにする場合も中央を維持） */
+@media screen and (min-width: 768px) {
+  .goods-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* アイテム同士を中央寄せ */
+    gap: 40px;
+  }
+  
+  .goods-item {
+    width: 45% !important; /* 2列にする場合 */
+    max-width: none;
+  }
+}
