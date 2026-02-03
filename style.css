@@ -141,4 +141,47 @@
   margin-bottom: 5px;
   font-weight: 600;
 }
+
+/* --- 3. メインビジュアル（以前の状態に復元） --- */
+#mainvisual {
+  width: 100%;
+  height: 400px;
+  background-color: #f9f9f9;
+  background-image: url("logo.svg"); 
+  background-repeat: repeat;
+  background-size: 120px auto; /* ロゴを小さく並べる */
+  background-position: center;
+  margin-bottom: 60px;
+}
+
+@media screen and (max-width: 767px) {
+  #mainvisual {
+    height: 250px;
+    background-size: 80px auto; /* スマホではロゴをさらに小さく */
+  }
+}
+
+/* --- 6. スキルアイコンのサイズ固定 --- */
+.skill-item svg {
+  width: 60px;
+  height: 60px;
+  fill: #4682b4;
+  margin: 0 auto 15px;
+  display: block; /* 中央に配置 */
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Workセクション内の特定の画像のみ制限 */
+#work .img img {
+  width: 150px !important; /* HTMLの指定を優先 */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
 </style>
