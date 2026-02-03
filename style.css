@@ -45,8 +45,8 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 20px;
-  margin: 0 auto;
+  padding: 20px 0;
+  margin: 20px auto;
 }
 .site-title img { width: 110px; }
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
