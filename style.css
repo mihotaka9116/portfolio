@@ -55,22 +55,37 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 #footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
 
-/* --- 4. トップページ（index.html）用 --- */
+/* --- 4. メインビジュアル（横長写真） --- */
 #mainvisual {
   width: 100%;
-  height: 400px;
-  background: #f9f9f9 url("logo.svg") repeat center / 120px auto;
+  height: 500px;
+  background: url("main.jpg") no-repeat center center;
+  background-size: cover;
   margin-bottom: 60px;
 }
+
+/* --- 5. トップページ（index.html）用 --- */
 .content {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* スマホでは縦 */
   align-items: center;
   margin-bottom: 80px;
   gap: 30px;
   text-align: center;
 }
-.content .img img { height: 300px; object-fit: cover; border-radius: 8px; }
+/* CONCEPTなどの写真を横長にする設定 */
+.content .img {
+  width: 100%;
+  max-width: 600px; /* 横幅を広く */
+}
+.content .img img {
+  width: 100%;
+  height: 300px; /* 高さを抑えて横長に */
+  object-fit: cover;
+  border-radius: 8px;
+}
+.content .text { width: 100%; }
+
 .btn {
   display: inline-block;
   background-color: #4682b4;
@@ -85,148 +100,11 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .skills-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; }
 .skill-item {
   text-align: center; padding: 30px 20px; border-radius: 8px;
-  transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
-.skill-item:hover { transform: translateY(-10px); background-color: rgba(70, 130, 180, 0.03); }
 .skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin: 0 auto 15px; display: block; }
 
 /* お問い合わせ */
 #contact { padding: 80px 0; background-color: #fff; text-align: center; }
 .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form dt { font-weight: bold; margin-bottom: 8px; }
-.contact-form dd { margin: 0 0 25px 0; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 12px; border: 1px solid #e0e6ed; border-radius: 6px;
-}
-.parsed-btn input {
-  background: #4682b4; color: #fff !important; border: none; padding: 15px 60px; border-radius: 30px; cursor: pointer; display: block; margin: 20px auto 0;
-}
-
-/* --- 5. 詳細ページ（work.html）用 --- */
-/* 基本（スマホ・全デバイス共通の中央寄せ設定） */
-.detail-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center;
-}
-.main-visual-img {
-  max-width: 300px;
-  margin: 0 auto 40px;
-  display: block;
-}
-.goods-grid {
-  display: flex;
-  flex-direction: column; /* スマホでは縦並び */
-  align-items: center;
-  gap: 60px;
-  margin-bottom: 60px;
-}
-.goods-item {
-  width: 100%;
-  max-width: 550px; /* 写真のサイズ：一回り大きく */
-  text-align: center;
-}
-.image-wrap {
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-.image-wrap img { transition: transform 0.4s ease; width: 100%; display: block; }
-.goods-item:hover img { transform: scale(1.05); }
-.item-caption { font-weight: bold; color: #4682b4; }
-.custom-btn {
-  display: inline-block;
-  background-color: #4682b4;
-  color: #fff !important;
-  padding: 15px 40px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 30px;
-}
-
-/* --- 6. レスポンシブ調整（PC版：768px以上） --- */
-@media screen and (min-width: 768px) {
-  /* トップページ用 */
-  .content { flex-direction: row; justify-content: center; gap: 60px; }
-  .content:nth-of-type(even) { flex-direction: row-reverse; }
-  .content .text, .content .img { width: 45%; }
-  
-  .skills-grid { flex-direction: row; justify-content: space-between; }
-  .skill-item { width: 31%; }
-
-  /* 詳細ページ用 */
-  .goods-grid { 
-    flex-direction: row !important; /* 横並びに強制 */
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 40px; 
-  }
-  .goods-item { 
-    width: 45% !important; /* 2列にする */
-    max-width: none; 
-  }
-}
-
-/* --- 7. レスポンシブ調整（スマホ専用） --- */
-@media screen and (max-width: 767px) {
-  #header { flex-direction: column; padding: 10px 0; }
-  .site-title img { width: 80px; }
-  #mainvisual { height: 250px; background-size: 80px auto; }
-}
-/* --- 7. レスポンシブ調整（スマホ専用） --- */
-@media screen and (max-width: 767px) {
-  #header { 
-    flex-direction: column; 
-    padding: 20px 0 !important; /* 上下の余白を少し増やす */
-    gap: 20px; /* ★ロゴとナビの間の距離を広げる（お好みで30pxなどに調整可） */
-  }
-  
-  #header ul {
-    justify-content: center;
-    width: 100%;
-  }
-
-  #header li {
-    margin: 0 10px; /* ナビ項目同士の左右間隔を調整 */
-  }
-
-  .site-title img { width: 80px; }
-  #mainvisual { height: 250px; background-size: 80px auto; }
-}
-
-/* --- 5. トップページ（index.html）用 --- */
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 80px;
-  gap: 30px;
-  text-align: center;
-}
-
-/* 写真を囲む枠を横長に広げる */
-.content .img {
-  width: 100%;
-  max-width: 600px; /* ★ここを400pxから600pxへ（一回り横に広く） */
-  text-align: center;
-}
-
-/* 写真自体の比率を横長に固定する */
-.content .img img {
-  width: 100%;
-  height: 300px; /* 高さを維持、または250pxなどに下げるとより横長に見えます */
-  object-fit: cover; /* 横長に引き伸ばしても写真が歪まないように設定 */
-  border-radius: 8px;
-}
-
-/* PC版での微調整（写真が大きくなった分、文章とのバランスを取る） */
-@media screen and (min-width: 768px) {
-  .content .img {
-    width: 55%; /* 写真のエリアを少し広く */
-  }
-  .content .text {
-    width: 40%; /* 文章のエリアを少し狭く */
-  }
-}
+.contact
