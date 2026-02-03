@@ -158,3 +158,58 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 #footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
+
+/* ============================================================
+   WORK DETAIL (work.html) 専用の最終調整
+   ============================================================ */
+
+/* 1. PC版で全体を中央に寄せる */
+.detail-container {
+  max-width: 1000px;
+  margin: 0 auto !important; /* 強制的に中央 */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* 2. グリッドの基本設定（スマホ優先：1列） */
+.goods-grid {
+  display: flex !important;
+  flex-direction: column !important; /* スマホで1列を強制 */
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.goods-item {
+  width: 100%;
+  max-width: 400px; /* スマホで広がりすぎないように */
+}
+
+/* 3. PC版（768px以上）で2列に戻す */
+@media screen and (min-width: 768px) {
+  .goods-grid {
+    flex-direction: row !important; /* 横並び */
+    flex-wrap: wrap;
+    justify-content: center; /* 中央に寄せて並べる */
+  }
+  
+  .goods-item {
+    width: 45%; /* 2列 */
+    max-width: none;
+  }
+}
+
+/* 4. 画像のホバーアニメーション（再定義） */
+.image-wrap {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.image-wrap img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.goods-item:hover img {
+  transform: scale(1.1);
+}
