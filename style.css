@@ -90,7 +90,6 @@ p, .project-description {
 /* --- 5. コンテンツエリア（PC版は左右、スマホは縦） --- */
 .content {
   display: flex;
-  flex-direction: column; /* 文章を真ん中にするため一度縦に */
   align-items: center;
   margin-bottom: 80px;
   gap: 20px;
