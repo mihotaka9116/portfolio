@@ -258,4 +258,35 @@ p, .project-description {
   margin: 0 auto 40px;
   display: block;
 }
+
+/* --- コンセプト写真の高さ調整 --- */
+.content .img img {
+  width: 100%;
+  height: 300px; /* PCでの高さを指定 */
+  object-fit: cover; /* 画像を歪ませずに指定サイズに収める */
+  border-radius: 8px;
+  display: block;
+}
+
+/* スマホの時はさらに高さを抑える */
+@media screen and (max-width: 767px) {
+  .content .img img {
+    height: 200px; /* スマホでは縦をグッと短く */
+  }
+}
+
+/* --- PC版の要素間隔の調整 --- */
+@media screen and (min-width: 768px) {
+  .content {
+    flex-direction: row;
+    justify-content: center; /* 両端ではなく中央に寄せる */
+    gap: 50px; /* 写真とテキストの間の距離（お好みで調整してください） */
+  }
+  
+  .content .text, .content .img {
+    width: auto; /* 幅を固定せず、コンテンツに合わせる */
+    max-width: 450px; /* 広がりすぎ防止 */
+  }
+}
+
 </style>
