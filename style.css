@@ -15,10 +15,10 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 /* --- 2. タイトル共通（絶対中央固定） --- */
 .section-title, .section-title-en {
-  display: block !important;
-  text-align: center !important;
-  width: 100% !important;
-  margin: 0 auto 10px !important;
+  display: block 
+  text-align: center 
+  width: 100% 
+  margin: 0 auto 10px;
 }
 .section-title {
   font-size: 1.8rem;
