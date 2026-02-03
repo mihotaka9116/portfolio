@@ -87,15 +87,49 @@ p, .project-description {
   max-width: 700px;
 }
 
-/* --- 5. コンテンツエリア（PC版は左右、スマホは縦） --- */
+/* --- 5. コンテンツエリア（基本：スマホは縦） --- */
 .content {
   display: flex;
-  flex-direction: column; /* 文章を真ん中にするため一度縦に */
+  flex-direction: column; /* スマホでは縦並び */
   align-items: center;
   margin-bottom: 80px;
-  gap: 20px;
+  gap: 30px;
+  width: 100%;
 }
-.content .text { width: 100%; }
+
+/* 画像サイズを制限（巨大化防止） */
+.content .img {
+  width: 100%;
+  max-width: 400px; /* 写真の最大幅を制限 */
+}
+.content .img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* PCサイズ（768px以上）の時だけ横並びにする */
+@media screen and (min-width: 768px) {
+  .content {
+    flex-direction: row; /* 横並びにする */
+    justify-content: space-between;
+    text-align: left !important; /* PCでは左寄せの方が見やすい */
+  }
+
+  /* 2つ目のセクション（Work）は左右を入れ替える */
+  .content:nth-of-type(even) {
+    flex-direction: row-reverse;
+  }
+
+  .content .img, .content .text {
+    width: 45%; /* 左右に45%ずつ割り当てる */
+  }
+
+  /* PC版ではテキストも左寄せに（任意） */
+  .content .text {
+    text-align: left !important;
+  }
+}
 
 /* --- 6. スキル --- */
 .skills-grid {
@@ -197,5 +231,31 @@ p, .project-description {
   .main-visual-img {
     max-width: 180px;
   }
+}
+
+/* WORK DETAIL ページ全体を中央に */
+.detail-container {
+  max-width: 1000px; /* コンテナの最大幅 */
+  margin: 0 auto !important; /* これでPC版で左右中央になります */
+  padding: 60px 20px;
+}
+
+/* グリッド自体も中央に */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 60px; /* 左右autoで中央 */
+}
+
+/* メインロゴも中央 */
+.main-visual-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto 40px;
+  display: block;
 }
 </style>
