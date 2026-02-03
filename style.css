@@ -219,3 +219,57 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .goods-item:hover img {
   transform: scale(1.05);
 }
+
+/* --- 1. タイトルと下線を全ページ・全デバイスで中央に強制 --- */
+.section-title, 
+.section-title-en {
+  display: block !important;
+  text-align: center !important; /* 文字を中央へ */
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+/* 下線を常に親要素の50%の位置（真ん中）に固定 */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 40px;
+  height: 2px;
+  background-color: #4682b4;
+}
+
+/* --- 2. お問い合わせセクションの文章を中央へ --- */
+#contact .container {
+  text-align: center; /* フォーム上の説明文を中央へ */
+}
+
+/* フォーム本体は中央に配置しつつ、ラベルは左寄せのままにする */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto !important;
+  text-align: left; /* 入力欄のラベルは左寄せが見やすい */
+}
+
+/* --- 3. PC版でのタイトルの「左寄せ」を無効化する調整 --- */
+@media screen and (min-width: 768px) {
+  /* PC版でもタイトルだけは中央揃えを維持する */
+  .content .text .section-title, 
+  .content .text .section-title-en {
+    text-align: center !important;
+  }
+  
+  .content .text .section-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
