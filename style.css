@@ -502,3 +502,17 @@ section h2 {
   margin-top: 20px !important; /* タイトルの下線からの距離を補強 */
 }
 
+/* --- コンセプトセクションの写真とタイトルの間隔を広げる --- */
+
+#concept .img {
+  margin-top: 40px !important;    /* ★タイトルの下線から写真までの距離を追加 */
+  margin-bottom: 40px !important; /* 写真と、その下の文章の間も確保 */
+}
+
+/* 他のセクション（スキルや実績）も念のため再調整して統一感を出す */
+.skills-grid, 
+.goods-grid,
+.content {
+  margin-top: 40px !important;
+}
+
