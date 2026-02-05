@@ -351,7 +351,7 @@ section:nth-of-type(even) .content {
   font-size: 2.2rem;
   margin-bottom: 10px;
   letter-spacing: 0.15em;
-  color: #333;
+  color: #4682b4;
 }
 
 .section-title-en {
@@ -378,7 +378,7 @@ section:nth-of-type(even) .content {
   font-size: 2.2rem;
   margin-bottom: 10px;
   letter-spacing: 0.15em;
-  color: #87CEEB !important; /* 本文と同じ水色（具体的な色コードに合わせて適宜調整してください） */
+  color: #4682b4; !important; /* 本文と同じ水色（具体的な色コードに合わせて適宜調整してください） */
 }
 
 /* --- ボタンを水色にし、クリック時の色変化（hover等）をシンプルにする --- */
@@ -386,7 +386,7 @@ section:nth-of-type(even) .content {
 input[type="submit"] {
   display: inline-block;
   padding: 12px 40px;
-  background-color: #87CEEB !important; /* ボタンの背景色を水色に */
+  background-color: ##4682b4; !important; /* ボタンの背景色を水色に */
   color: #fff !important;               /* 文字は白 */
   text-decoration: none;
   border: none;
@@ -400,14 +400,14 @@ input[type="submit"] {
 input[type="submit"]:hover,
 .btn:active,
 input[type="submit"]:active {
-  background-color: #87CEEB !important; /* 色を固定 */
+  background-color: #4682b4; !important; /* 色を固定 */
   opacity: 0.8;                         /* 変化は少し薄くなる程度にする */
   outline: none;
 }
 
 /* --- フッターなど、お問い合わせへのリンクがある場合も統一 --- */
 .back-to-home .btn {
-  background-color: #87CEEB !important;
+  background-color: #4682b4; !important;
 }
 
 /* --- 本文とタイトルの色を水色系に統一 --- */
@@ -453,13 +453,13 @@ input[type="submit"]:hover {
 body {
   /* 本文の色をフッターと同じ濃いグレーに設定 */
   color: #333; 
-  font-family: 'Crimson Text', serif;
+  font-family: 'Montserrat', serif;
   line-height: 2.0;
-  background-color: #fafafa;
+  background-color: #4682b4 ;
 }
 
 /* セクションタイトルの色変更 */
-.section-title {
+.section-title: #4682b4;
   color: #333 !important; 
   font-size: 2.2rem;
   margin-bottom: 10px;
@@ -477,7 +477,7 @@ body {
 input[type="submit"] {
   display: inline-block;
   padding: 15px 50px;
-  background-color: #333 !important; /* ボタンも同じ濃いグレーに */
+  background-color: #4682b4  !important; /* ボタンも同じ濃いグレーに */
   color: #fff !important;           /* 文字は白 */
   border-radius: 0 !important;       /* 長方形を維持 */
   border: none;
