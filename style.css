@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（Montserrat & スチールブルー統一） --- */
+/* --- 1. 基本設定（色の統一と読みやすさ） --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0; padding: 0;
   background-color: #ffffff;
-  color: #4682b4 !important; /* 本文・タイトルすべて水色に統一 */
-  font-family: 'Montserrat', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  color: #4682b4 !important; /* 全体の文字色を水色に固定 */
+  font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
@@ -26,23 +26,20 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
   max-width: 1000px;
   margin: 0 auto;
 }
-.site-title img { width: 100px; }
 #header ul {
   display: flex !important;
-  flex-direction: row !important;
   list-style: none;
   margin: 0; padding: 0;
 }
 #header li { margin-left: 30px; }
-#header a { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; }
+#header a { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; }
 
-/* --- 3. メインビジュアル（ロゴ敷き詰め・透過調整） --- */
+/* --- 3. メインビジュアル（ロゴ敷き詰め） --- */
 #mainvisual {
   width: 100%;
-  height: 450px;
+  height: 400px;
   background-color: #f4f7f9;
-  /* ロゴを敷き詰めつつ、可読性のために少し薄くする */
-  background-image: linear-gradient(rgba(244, 247, 249, 0.6), rgba(244, 247, 249, 0.6)), url("logo.svg");
+  background-image: linear-gradient(rgba(244, 247, 249, 0.5), rgba(244, 247, 249, 0.5)), url("logo.svg");
   background-repeat: repeat;
   background-size: 100px auto;
   display: flex;
@@ -52,261 +49,97 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
 }
 #mainvisual::after {
   content: "PORTFOLIO";
-  background: #ffffff;
+  background: #fff;
   color: #4682b4;
   font-size: 2.5rem;
   font-weight: 800;
   padding: 20px 60px;
   letter-spacing: 0.4em;
-  box-shadow: 0 10px 40px rgba(70, 130, 180, 0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* --- 4. セクションタイトル --- */
-.section-title-area { text-align: center; margin-bottom: 60px; }
-.section-title { font-size: 2.2rem; font-weight: 700; letter-spacing: 0.15em; margin: 0; }
-.section-title-en { display: block; font-size: 0.8rem; color: #a0c4de; text-transform: uppercase; letter-spacing: 0.3em; margin-top: 10px; }
+/* --- 4. ワークス一覧（work.html：画像サイズを適正化） --- */
+.detail-container {
+  max-width: 850px; /* ここで幅を絞ることで画像が大きくなりすぎるのを防ぎます */
+  margin: 0 auto;
+  padding: 60px 20px;
+}
 
-/* --- 5. メインコンテンツ（左右交互・Z型） --- */
-section { padding: 80px 0; }
-.content { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
-section:nth-of-type(even) .content { flex-direction: row-reverse; }
-
-.content .img { width: 45%; flex-shrink: 0; }
-.content .img img { width: 100%; max-width: 400px; border-radius: 4px; box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1); }
-.content .text { width: 48%; text-align: left; }
-.content .text h3 { font-size: 1.6rem; margin: 0 0 20px; }
-
-/* --- 6. ワークス（work.html / index.html共用 2列グリッド） --- */
 .goods-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 強制的に2列に固定 */
-  gap: 40px;
+  grid-template-columns: repeat(2, 1fr); /* 2列 */
+  gap: 60px 40px; /* 上下の余白を広めにとってスッキリ見せる */
   margin-top: 50px;
 }
+
 .goods-item { width: 100% !important; text-align: left; }
-.image-wrap { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid #d1e1ee; margin-bottom: 15px; }
-.image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+
+.image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10; /* 画像の高さを一定に揃える */
+  overflow: hidden;
+  border: 1px solid #d1e1ee;
+  margin-bottom: 20px;
+}
+
+.image-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: 0.5s ease;
+}
+
+/* ホバー時に画像が少し動く演出 */
 .goods-item:hover .image-wrap img { transform: scale(1.05); }
 
-/* --- スキルセクション：アイコンの色を保持しつつ動きを出す --- */
-
+/* --- 5. スキル（横並び・ホバー時に浮く） --- */
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 30px; margin-top: 50px;
 }
 
 .skill-item {
-  width: calc(33.333% - 30px);
-  min-width: 250px;
-  padding: 40px 20px;
-  background: #f9fbff; /* 薄い水色の背景 */
-  text-align: center;
-  border-radius: 8px;
+  width: calc(33.333% - 30px); min-width: 250px;
+  padding: 40px 20px; background: #f9fbff;
+  text-align: center; border-radius: 8px;
   transition: all 0.4s ease;
-  box-shadow: 0 5px 15px rgba(70, 130, 180, 0.05);
-  border: 1px solid transparent; /* ホバー時のガタつき防止 */
 }
 
-/* ホバー時の動き：背景と影だけを変化させる */
+/* ホバー時の挙動：色は変えず、浮遊感だけ出す */
 .skill-item:hover {
   transform: translateY(-10px);
-  background: #ffffff; /* 箱の背景だけ白くして浮遊感を出す */
+  background: #ffffff;
   box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
-  border: 1px solid #d1e1ee;
 }
 
-/* ★重要：画像の色を変えず、大きさだけ制御する */
-.skill-item img, 
-.skill-item svg {
-  width: 60px !important;
-  height: 60px !important;
-  margin: 0 auto 20px !important;
-  display: block;
-  /* 透過度やフィルターを一切かけない設定 */
-  filter: none !important; 
-  opacity: 1 !important;
-  transition: transform 0.4s ease;
+.skill-item img {
+  width: 60px !important; height: 60px !important;
+  margin: 0 auto 20px !important; display: block;
+  /* アイコンの色を保持 */
+  filter: none !important; opacity: 1 !important;
 }
 
-/* ホバー時にアイコンが少しだけ大きく強調される演出 */
-.skill-item:hover img {
-  transform: scale(1.1);
-}
-
-.skill-item h3 {
-  font-size: 1.2rem;
-  color: #4682b4; /* タイトルと同じ水色 */
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.skill-item p {
-  font-size: 0.9rem;
-  color: #4682b4 !important; /* テキストも水色 */
-  line-height: 1.6;
-}
-
-/* スマホ対応 */
-@media screen and (max-width: 768px) {
-  .skill-item {
-    width: 100%;
-  }
-}
-/* --- 8. お問い合わせ（白ボタン・高コントラスト） --- */
-.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form dt { font-weight: 700; margin-bottom: 10px; }
-.contact-form dd { margin: 0 0 30px 0; }
-.contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
-  width: 100%; padding: 15px; border: 1px solid #d1e1ee;
-}
-/* 送信ボタンの改善 */
+/* --- 6. お問い合わせ（白背景ボタンで見やすく） --- */
 .btn-area { text-align: center; margin-top: 40px; }
 .btn-area .btn, .btn-area input[type="submit"] {
   background-color: #ffffff !important;
   color: #4682b4 !important;
   border: 2px solid #4682b4 !important;
-  padding: 18px 60px;
+  padding: 16px 60px;
   font-weight: 700;
   cursor: pointer;
   transition: 0.3s;
-  display: inline-block;
 }
-.btn-area .btn:hover, .btn-area input[type="submit"]:hover {
-  background-color: #4682b4 !important;
-  color: #ffffff !important;
-}
+.btn-area .btn:hover { background-color: #4682b4 !important; color: #fff !important; }
 
-/* --- 9. フーター（濃紺・視認性向上） --- */
+/* --- 7. フーター（濃い水色で引き締める） --- */
 #footer {
-  background-color: #356a94 !important; /* 視認性のための濃い色 */
+  background-color: #356a94 !important;
   color: #ffffff !important;
-  text-align: center;
-  padding: 60px 0;
-  margin-top: 100px;
+  text-align: center; padding: 60px 0; margin-top: 100px;
 }
-#footer p { color: #ffffff !important; margin: 0; font-size: 0.8rem; }
 
-/* --- 10. レスポンシブ --- */
+/* --- 8. レスポンシブ（スマホ対応） --- */
 @media screen and (max-width: 768px) {
   #header { flex-direction: column; gap: 20px; }
-  .content, section:nth-of-type(even) .content { flex-direction: column; text-align: center; }
-  .content .img, .content .text { width: 100%; }
-  .goods-grid { grid-template-columns: 1fr; }
+  .goods-grid { grid-template-columns: 1fr; } /* スマホは1列 */
   .skill-item { width: 100%; }
-  #mainvisual::after { font-size: 1.5rem; padding: 15px 40px; }
-}
-
-/* --- work.html 全体のサイズを制限して画像を小さく見せる --- */
-
-/* 1. コンテナの最大幅を絞る（これが一番効きます） */
-.detail-container {
-  max-width: 800px; /* 900pxからさらに800pxに制限 */
-  margin: 0 auto;   /* 中央寄せ */
-  padding: 60px 20px;
-}
-
-/* 2. グリッドの余白を調整 */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列 */
-  gap: 50px 30px; /* 上下50px、左右30pxの余白 */
-  margin-top: 40px;
-}
-
-/* 3. 画像の枠の比率を調整 */
-.image-wrap {
-  width: 100%;
-  aspect-ratio: 3 / 2; /* 16:9よりも少し縦を出すことで、横幅の広がりを抑える効果があります */
-  overflow: hidden;
-  border: 1px solid #d1e1ee;
-  background-color: #f4f7f9;
-  margin-bottom: 15px;
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 4. 作品タイトルや説明文のフォントサイズを微調整 */
-.item-caption {
-  font-weight: 700;
-  font-size: 1rem; /* 少し小さくして上品に */
-  margin-bottom: 8px;
-  color: #4682b4;
-}
-
-.goods-item p {
-  font-size: 0.85rem; /* 本文も少し小さくしてバランスを取る */
-  line-height: 1.6;
-}
-
-/* --- work.html：実績一覧のサイズ適正化（最終版） --- */
-
-/* 1. コンテンツ全体の幅をさらに絞って中央に寄せる */
-.detail-container {
-  max-width: 800px; /* 1000pxから800pxに絞ることで画像サイズが適正になります */
-  margin: 0 auto;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-/* 2. グリッドの余白を広げて「抜け感」を出す */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列を維持 */
-  gap: 60px 40px; /* 上下の間隔を60pxに広げて1つ1つの作品を独立させる */
-  margin-top: 50px;
-}
-
-/* 3. 画像のサイズと比率を完璧に制御 */
-.image-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 10; /* 少し縦を出すことで、視覚的に落ち着いたサイズに見えます */
-  overflow: hidden;
-  border: 1px solid #d1e1ee;
-  background-color: #f4f7f9;
-  margin-bottom: 20px;
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* ホバー時に画像が少しだけズームするプロの演出 */
-.goods-item:hover .image-wrap img {
-  transform: scale(1.05);
-}
-
-/* 4. テキスト情報の整理 */
-.item-caption {
-  font-weight: 700;
-  font-size: 1rem; /* 読みやすいサイズに固定 */
-  margin-bottom: 10px;
-  color: #4682b4;
-  display: block;
-}
-
-.goods-item p {
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: #4682b4;
-  margin-bottom: 15px;
-}
-
-/* スマホでは1列にして、文字を中央寄せにする */
-@media screen and (max-width: 650px) {
-  .detail-container { padding: 40px 20px; }
-  .goods-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .goods-item { text-align: center; }
 }
