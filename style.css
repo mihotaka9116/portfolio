@@ -491,3 +491,30 @@ input[type="submit"]:hover {
   background-color: #333 !important;
   opacity: 0.8;
 }
+
+/* --- 送信ボタン（SEND MESSAGE）をフッターの色と統一 --- */
+.btn, 
+input[type="submit"] {
+  background-color: #333 !important; /* フッターと同じ濃いグレー */
+  color: #fff !important;           /* 文字は白 */
+  border-radius: 0 !important;       /* 角丸なしの長方形 */
+  border: none;
+  padding: 15px 50px;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  -webkit-appearance: none;          /* iOS対策 */
+}
+
+/* ホバー・クリック時も色を固定して、少し薄くするだけの演出 */
+.btn:hover, 
+input[type="submit"]:hover,
+.btn:active,
+input[type="submit"]:active {
+  background-color: #333 !important; /* 色は変えない */
+  opacity: 0.7;                      /* 透明度で反応を示す */
+  outline: none;
+}
