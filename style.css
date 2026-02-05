@@ -118,3 +118,35 @@ section { padding: 80px 0; clear: both; }
   .goods-grid { grid-template-columns: 1fr !important; }
   .skill-item { width: 100%; }
 }
+
+/* --- 詳細ページのボタンとロゴの間隔修正 --- */
+
+.view-detail-btn {
+  display: inline-block !important;
+  background-color: #4682b4 !important;
+  color: #ffffff !important;           /* ★文字を白に固定 */
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none !important;
+  margin-top: 30px;                    /* 上の文章との間隔 */
+  margin-bottom: 80px !important;      /* ★下のロゴマークとの間隔を大きくあける */
+  transition: 0.3s ease;
+}
+
+/* 訪問済みでも白を維持 */
+.view-detail-btn:visited {
+  color: #ffffff !important;
+}
+
+/* ホバー時の演出 */
+.view-detail-btn:hover {
+  background-color: #356a94 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+}
+
+/* もしロゴマークがフッター内にある場合の間隔調整 */
+#footer {
+  margin-top: 50px; /* フッター全体の上の余白も確保 */
+}
