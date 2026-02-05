@@ -429,14 +429,4 @@ section h2 span {
   opacity: 0.8;                      /* 少しだけ薄くして対比を出す */
 }
 
-/* 一番下に下線を引く */
-section h2::after {
-  content: "" !important;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);       /* センターから線を広げる */
-  width: 60px;                       /* 線の長さ（お好みで調整） */
-  height: 2px;                       /* 線の太さ */
-  background-color: #4682b4;         /* 線の色（水色） */
-}
+ｖ
