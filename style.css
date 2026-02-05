@@ -231,3 +231,42 @@ button {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- CONCEPTセクションの画像修正 --- */
+
+#concept .img {
+  /* 画像の表示サイズを制限（ここが重要！） */
+  max-width: 500px !important; 
+  margin: 0 auto 30px !important; /* 中央寄せと下の余白 */
+  padding: 0 !important;
+  background: none !important;
+  
+  /* 前の心地よい浮かび上がり設定 */
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out !important;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* マウスを乗せた時に「ふわっ」と浮かせる */
+#concept .img:hover {
+  transform: translateY(-12px) !important; /* 上に動く */
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important; /* 水色系の影 */
+}
+
+/* 画像自体の設定 */
+#concept .img img {
+  width: 100% !important; /* 枠（500px）いっぱいに広げる */
+  height: auto !important;
+  display: block;
+  border-radius: 10px;
+}
+
+/* テキストの調整 */
+#concept p {
+  color: #4682b4 !important;
+  max-width: 600px;
+  margin: 0 auto;
+}
