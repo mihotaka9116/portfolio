@@ -322,3 +322,29 @@ button {
   max-width: 600px;
   margin: 0 auto;
 }
+
+/* --- スキルアイコンをさらに小さく、綺麗に整える --- */
+
+.skill-item .img, 
+.skill-item img, 
+.skill-item svg {
+  /* 前の仕様よりさらに一回り小さい 40px に設定 */
+  width: 40px !important; 
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  
+  /* 中央寄せと、下の文字との余白 */
+  margin: 0 auto 12px !important; 
+  display: block !important;
+  object-fit: contain !important;
+  
+  /* アイコン自体の浮き上がりを滑らかに */
+  transition: transform 0.4s ease-out !important;
+}
+
+/* ボックス全体が浮いたとき、アイコンも少しだけ連動させる（お好みで） */
+.skill-item:hover .img,
+.skill-item:hover img {
+  transform: scale(1.1); /* ほんの少しだけ大きくして見やすく */
+}
