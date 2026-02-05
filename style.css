@@ -109,25 +109,65 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
   object-position: center center;
 }
 
-/* --- 6. スキル：小さめ水色アイコン & 横並び --- */
+/* --- スキルセクション：アイコンサイズと色の完全復元 --- */
+
 .skills-grid {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
 }
+
 .skill-item {
-  width: calc(33.333% - 30px); min-width: 250px;
-  padding: 40px 20px; background: #f9fbff; text-align: center;
-  border-radius: 8px; transition: 0.4s;
+  width: calc(33.333% - 30px);
+  min-width: 250px;
+  padding: 40px 20px;
+  background: #f9fbff;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.4s ease;
 }
+
+/* ホバー時に浮き上がる演出 */
 .skill-item:hover {
   transform: translateY(-10px);
   background: #ffffff;
   box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
 }
+
+/* ★以前の小さめサイズ(60px)と水色フィルターの完全再現 */
 .skill-item img {
-  width: 60px !important; height: 60px !important; /* 小さめサイズ固定 */
-  margin: 0 auto 20px !important; display: block;
-  /* 水色フィルター再現 */
+  width: 60px !important;      /* 以前設定した小さいサイズ */
+  height: 60px !important;     /* 縦横比を崩さないよう固定 */
+  margin: 0 auto 20px !important;
+  display: block;
+  object-fit: contain;
+
+  /* ★元の色（Figmaの赤やJSの黄など）をスチールブルーに変換するフィルター */
   filter: sepia(1) saturate(1) hue-rotate(170deg) brightness(0.85) !important;
+  opacity: 0.9;
+  transition: all 0.4s ease;
+}
+
+/* ホバー時にアイコンの色を少し明るくして反応を出す */
+.skill-item:hover img {
+  filter: sepia(1) saturate(1.5) hue-rotate(170deg) brightness(1) !important;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.skill-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #4682b4 !important;
+}
+
+.skill-item p {
+  font-size: 0.9rem;
+  color: #4682b4 !important;
+  margin: 0;
 }
 
 /* --- 7. お問い合わせ（完全センター） --- */
@@ -154,4 +194,56 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
   .content .img, .content .text { width: 100%; }
   .goods-grid { grid-template-columns: 1fr; }
   .skill-item { width: 100%; }
+}
+
+/* --- WORKDETAIL：ホバーアニメーションの復活 --- */
+
+.goods-item {
+  text-align: center;
+  /* ★浮き上がる動きを滑らかにするための設定 */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* ★マウスを重ねた時に浮き上がる演出（復活） */
+.goods-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(70, 130, 180, 0.15);
+  background-color: #ffffff;
+}
+
+.image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid #d1e1ee;
+  margin-bottom: 15px;
+  background-color: #f4f7f9;
+  /* ★中の要素を真ん中に寄せる設定 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.goods-item:hover .image-wrap img {
+  transform: scale(1.05);
+}
+
+/* --- 4番目のボックスの写真をど真ん中に固定 --- */
+
+/* 4番目のアイテムの画像だけ、拡大率や位置を微調整して中央に固定します */
+.goods-grid .goods-item:nth-child(4) .image-wrap img {
+  width: auto;           /* 横幅を自動にして、枠に無理やり合わせない */
+  height: 100%;          /* 高さを枠に合わせる */
+  max-width: 100%;       /* 枠からはみ出さない */
+  object-fit: contain;   /* 写真全体を枠の中に収めて、中央に配置 */
+  object-position: center; 
 }
