@@ -575,3 +575,49 @@ textarea {
   background-color: #fff;
 }
 
+/* --- メインページ：セクションの間隔（マージン）を統一して広げる --- */
+
+.container {
+  max-width: 1000px; /* 少し幅を広げてゆとりを持たせる */
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* 各セクション（Concept, Work, Productsなど）の上下余白を統一 */
+section, 
+.section-bg-white, 
+.section-bg-gray {
+  padding: 160px 0 !important; /* 上下にたっぷり160pxの余白を確保 */
+  background-color: #ffffff !important; /* 背景は白で統一 */
+}
+
+/* セクション内の各要素（タイトル、画像、テキスト）の間隔を調整 */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 60px; /* 画像とテキストの間の距離を広げる */
+}
+
+/* タイトルとサブタイトルの下の余白 */
+.section-title {
+  margin-bottom: 20px !important;
+}
+
+.section-title-en {
+  margin-bottom: 40px !important; /* 英語タイトルの下の余白を広げる */
+}
+
+/* スマホでは余白が広すぎると間延びするので、少しだけ調整 */
+@media screen and (max-width: 767px) {
+  section, 
+  .section-bg-white, 
+  .section-bg-gray {
+    padding: 100px 0 !important; /* スマホでは100pxに */
+  }
+  .content {
+    gap: 40px;
+  }
+}
+
