@@ -1,249 +1,130 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（スチールブルー統一） --- */
+/* --- 1. 基本設定 & リンク色の完全固定 --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0; padding: 0;
   background-color: #ffffff;
-  color: #4682b4 !important; 
+  color: #4682b4 !important;
   font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif;
   line-height: 1.8;
 }
 
+/* リンクを押しても、訪問済みでも色を変えない */
+a, a:visited, a:active {
+  color: #4682b4 !important;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.7; /* ホバー時は色を変えず、薄くして反応を出す */
+}
+
 h1, h2, h3, h4, p, li, dt, dd, span { color: #4682b4 !important; }
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー（横並び） --- */
-#header {
-  display: flex !important;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 0;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-#header ul {
-  display: flex !important;
-  list-style: none;
-  margin: 0; padding: 0;
-}
-#header li { margin-left: 30px; }
-#header a { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; }
-
-/* --- 3. メインビジュアル（ベールを薄く） --- */
-#mainvisual {
-  width: 100%;
-  height: 400px;
-  background-color: #f4f7f9;
-  background-image: linear-gradient(rgba(244, 247, 249, 0.15), rgba(244, 247, 249, 0.15)), url("logo.svg");
-  background-repeat: repeat;
-  background-size: 100px auto;
+/* --- 2. 制作したもの（WORKS）セクション：左テキスト・右ロゴ --- */
+#works .content {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+#works .text {
+  width: 55%;
+  text-align: left;
+}
+#works .img {
+  width: 40%;
+  display: flex;
   justify-content: center;
-  margin-bottom: 80px;
 }
-#mainvisual::after {
-  content: "PORTFOLIO";
-  background: rgba(255, 255, 255, 0.85);
-  color: #4682b4;
-  font-size: 2.5rem;
-  font-weight: 800;
-  padding: 20px 60px;
-  letter-spacing: 0.4em;
-  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
-}
-
-/* --- 4. メインページ：セクション交互配置 & 写真サイズ制限 --- */
-section { padding: 80px 0; }
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-}
-/* 交互配置 */
-section:nth-of-type(even) .content { flex-direction: row-reverse; }
-
-.content .img { width: 45%; flex-shrink: 0; }
-.content .img img {
+#works .img img {
   width: 100%;
-  max-width: 400px;
-  border-radius: 4px;
-  display: block;
-  margin: 0 auto;
-}
-.content .text { width: 48%; text-align: left; }
-
-/* --- 5. ワーク詳細（WORKDETAIL）：すべて中央寄せ --- */
-.detail-container {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center; /* ロゴ・テキスト・グリッドすべてを中央へ */
-}
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 60px 40px;
-  margin-top: 50px;
-}
-.goods-item { text-align: center; }
-.image-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border: 1px solid #d1e1ee;
-  margin-bottom: 15px;
-  background-color: #f4f7f9;
-}
-.image-wrap img {
-  width: 100%; height: 100%; object-fit: cover;
+  max-width: 300px; /* ロゴサイズを適切に制限 */
 }
 
-/* ★ 4番目の写真をど真ん中に固定 */
-.goods-grid .goods-item:nth-child(4) img {
-  object-position: center center;
-}
-
-/* --- スキルセクション：アイコンサイズと色の完全復元 --- */
-
+/* --- 3. スキル：以前の「小さめ水色」を強制再現 --- */
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
 }
-
 .skill-item {
-  width: calc(33.333% - 30px);
-  min-width: 250px;
-  padding: 40px 20px;
-  background: #f9fbff;
-  text-align: center;
-  border-radius: 8px;
-  transition: all 0.4s ease;
+  width: calc(33.333% - 30px); min-width: 250px;
+  padding: 40px 20px; background: #f9fbff; text-align: center; border-radius: 8px;
 }
-
-/* ホバー時に浮き上がる演出 */
-.skill-item:hover {
-  transform: translateY(-10px);
-  background: #ffffff;
-  box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
-}
-
-/* ★以前の小さめサイズ(60px)と水色フィルターの完全再現 */
 .skill-item img {
-  width: 60px !important;      /* 以前設定した小さいサイズ */
-  height: 60px !important;     /* 縦横比を崩さないよう固定 */
+  width: 60px !important;      /* 小さいサイズ固定 */
+  height: 60px !important;
   margin: 0 auto 20px !important;
   display: block;
-  object-fit: contain;
-
-  /* ★元の色（Figmaの赤やJSの黄など）をスチールブルーに変換するフィルター */
-  filter: sepia(1) saturate(1) hue-rotate(170deg) brightness(0.85) !important;
-  opacity: 0.9;
-  transition: all 0.4s ease;
+  /* アイコンを水色に染めるフィルター設定 */
+  filter: sepia(1) saturate(2) hue-rotate(175deg) brightness(0.8) !important;
 }
 
-/* ホバー時にアイコンの色を少し明るくして反応を出す */
-.skill-item:hover img {
-  filter: sepia(1) saturate(1.5) hue-rotate(170deg) brightness(1) !important;
-  opacity: 1;
-  transform: scale(1.1);
+/* --- 4. ボタン：水色系（スチールブルー）に統一 --- */
+/* VIEWMOREボタンや送信ボタンを水色背景に */
+.view-more, 
+.btn,
+.btn-area input[type="submit"] {
+  display: inline-block;
+  background-color: #4682b4 !important; /* 背景を水色に */
+  color: #ffffff !important;           /* 文字を白に */
+  padding: 12px 50px;
+  border-radius: 50px;                /* 角を丸くして洗練された印象に */
+  border: none;
+  font-weight: 700;
+  text-align: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+.view-more:hover, 
+.btn-area input[type="submit"]:hover {
+  background-color: #356a94 !important; /* ホバーで少し濃い青に */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
 }
 
-.skill-item h3 {
-  font-size: 1.1rem;
+/* --- 5. お問合せフォーム：見た目をリッチに --- */
+#contact { padding-bottom: 100px; }
+.contact-form {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #f9fbff;               /* フォーム全体に薄い水色の背景 */
+  padding: 40px;
+  border-radius: 12px;
+}
+.contact-form dl { text-align: center; }
+.contact-form dt {
   margin-bottom: 10px;
   font-weight: 700;
-  color: #4682b4 !important;
+  letter-spacing: 0.1em;
+}
+.contact-form dd { margin: 0 0 30px 0; }
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #d1e1ee;
+  border-radius: 8px;
+  background: #ffffff;
+  text-align: center;
+  color: #4682b4;
+  outline: none;
+}
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  border-color: #4682b4;           /* 入力中に枠線を強調 */
 }
 
-.skill-item p {
-  font-size: 0.9rem;
-  color: #4682b4 !important;
-  margin: 0;
+/* --- 6. フッター --- */
+#footer {
+  background: #356a94; color: #fff; text-align: center; padding: 60px 0;
 }
-
-/* --- 7. お問い合わせ（完全センター） --- */
-#contact { text-align: center; }
-.contact-form { max-width: 600px; margin: 0 auto; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 15px; border: 1px solid #d1e1ee;
-  text-align: center; border-radius: 4px; margin-bottom: 20px;
-}
-
-/* --- 8. フッター & ボタン --- */
-.btn-area { text-align: center; margin-top: 20px; }
-.btn-area input[type="submit"] {
-  background: #fff; color: #4682b4; border: 2px solid #4682b4;
-  padding: 15px 60px; cursor: pointer; font-weight: 700;
-}
-#footer { background: #356a94; color: #fff; text-align: center; padding: 60px 0; margin-top: 100px; }
 #footer p { color: #fff !important; }
 
-/* --- 9. スマホ対応 --- */
+/* スマホ対応 */
 @media screen and (max-width: 768px) {
-  #header { flex-direction: column; gap: 20px; }
-  .content, section:nth-of-type(even) .content { flex-direction: column; text-align: center; }
-  .content .img, .content .text { width: 100%; }
-  .goods-grid { grid-template-columns: 1fr; }
-  .skill-item { width: 100%; }
-}
-
-/* --- WORKDETAIL：ホバーアニメーションの復活 --- */
-
-.goods-item {
-  text-align: center;
-  /* ★浮き上がる動きを滑らかにするための設定 */
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border-radius: 8px;
-  padding: 10px;
-}
-
-/* ★マウスを重ねた時に浮き上がる演出（復活） */
-.goods-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(70, 130, 180, 0.15);
-  background-color: #ffffff;
-}
-
-.image-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border: 1px solid #d1e1ee;
-  margin-bottom: 15px;
-  background-color: #f4f7f9;
-  /* ★中の要素を真ん中に寄せる設定 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.goods-item:hover .image-wrap img {
-  transform: scale(1.05);
-}
-
-/* --- 4番目のボックスの写真をど真ん中に固定 --- */
-
-/* 4番目のアイテムの画像だけ、拡大率や位置を微調整して中央に固定します */
-.goods-grid .goods-item:nth-child(4) .image-wrap img {
-  width: auto;           /* 横幅を自動にして、枠に無理やり合わせない */
-  height: 100%;          /* 高さを枠に合わせる */
-  max-width: 100%;       /* 枠からはみ出さない */
-  object-fit: contain;   /* 写真全体を枠の中に収めて、中央に配置 */
-  object-position: center; 
+  #works .content { flex-direction: column; text-align: center; }
+  #works .text, #works .img { width: 100%; }
 }
