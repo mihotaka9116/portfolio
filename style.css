@@ -522,3 +522,56 @@ input[type="submit"]:hover {
   opacity: 0.8;                         /* 透明度だけで反応を出す */
 }
 
+/* --- 背景を白に、テキストをスチールブルーに統一 --- */
+
+body {
+  background-color: #ffffff !important; /* 背景を白に戻す */
+  color: #4682b4 !important;           /* テキストを以前の水色に */
+  font-family: 'Montserrat', sans-serif !important;
+  line-height: 1.8;
+}
+
+/* セクションタイトルも水色に統一 */
+.section-title {
+  color: #4682b4 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 0.15em;
+}
+
+/* 英語のサブタイトル（もしあれば）は少し薄くすると綺麗です */
+.section-title-en {
+  color: #a0c4de; /* 水色系の薄い色 */
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* --- ボタンも水色（#4682b4）に統一 --- */
+.btn, 
+input[type="submit"] {
+  background-color: #4682b4 !important; /* ボタンも水色 */
+  color: #ffffff !important;           /* 文字は白 */
+  font-family: 'Montserrat', sans-serif !important;
+  border-radius: 0 !important;          /* 長方形を維持 */
+  border: none;
+  padding: 15px 50px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* ホバー時は少し透明にするだけ */
+.btn:hover, 
+input[type="submit"]:hover {
+  background-color: #4682b4 !important;
+  opacity: 0.8;
+}
+
+/* フォームの入力枠も水色に馴染ませる */
+input[type="text"],
+input[type="email"],
+textarea {
+  border: 1px solid #4682b4; /* 枠線も水色系に */
+  background-color: #fff;
+}
+
