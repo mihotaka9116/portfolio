@@ -241,3 +241,30 @@ input[type="submit"] {
 .view-detail-btn:visited {
   color: #ffffff !important;
 }
+
+/* --- 詳細ページのカード（goods-item）を浮かび上がらせる --- */
+
+/* 1. 浮かび上がる前の準備（アニメーションの滑らかさ設定） */
+.goods-item {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  cursor: pointer;
+}
+
+/* 2. マウスを乗せた時の動き */
+.goods-item:hover {
+  transform: translateY(-12px) !important; /* 上に動く */
+}
+
+/* 3. 画像の枠（image-wrap）にも影をつけて浮かせる */
+.goods-item:hover .image-wrap {
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
+  border-color: #4682b4 !important; /* 枠線の色も少し強調 */
+  background-color: #ffffff !important;
+}
+
+/* 4. スキルの浮かび上がりも念のため再強化 */
+.skill-item:hover {
+  transform: translateY(-12px) !important;
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
+  background-color: #ffffff !important;
+}
