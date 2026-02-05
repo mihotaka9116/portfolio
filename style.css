@@ -80,15 +80,44 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   gap: 30px;
   text-align: center;
 }
-.content .img img { height: 300px; object-fit: cover; border-radius: 8px; }
-.btn {
-  display: inline-block;
-  background-color: #4682b4;
-  color: #fff !important;
-  padding: 10px 30px;
-  text-decoration: none;
-  border-radius: 4px;
-  margin-top: 20px;
+/* --- メインページ：画像のサイズと浮き上がり制御 --- */
+
+/* 1. 画像を小さくする（!importantで強制適用） */
+.content .img {
+  width: 180px !important;   /* 前回の200pxよりさらに少し小さく調整 */
+  height: 180px !important;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent !important; /* 背景の白い箱を消す */
+  border: none !important;           /* 枠線を消す */
+  box-shadow: none !important;       /* 影を消す */
+  transform: none !important;        /* 勝手に浮かないように固定 */
+}
+
+.content .img img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* 2. セクション全体の浮き上がり（フェードイン）設定 */
+.js-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.0s ease-out, transform 1.0s ease-out;
+}
+
+/* JavaScriptでこのクラスがついた時に表示される */
+.js-fade-up.is-show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* 3. お問い合わせボタン（長方形） */
+.btn, input[type="submit"] {
+  border-radius: 0 !important;
 }
 
 /* スキル */
