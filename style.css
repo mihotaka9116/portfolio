@@ -516,6 +516,23 @@ section h2 {
   margin-top: 40px;
 }
 
-body{
-  color:#4682b4;
+/* より具体的に場所を指定することで、黒を打ち消します */
+body #wrapper,
+body #wrapper p,
+body #wrapper .section-title,
+body #wrapper .section-title span {
+  color: #4682b4;
+}
+
+/* フッター本体の背景を濃いめの水色に */
+#footer {
+  background-color: #4682b4; /* 元のメインカラー */
+  padding: 40px 0;
+  margin-top: 80px;
+}
+
+/* フッター内の文字は白くして読みやすくする */
+#footer p {
+  color: #ffffff;
+  margin: 0;
 }
