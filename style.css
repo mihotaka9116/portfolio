@@ -5,7 +5,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0; padding: 0;
-  background-color: #fff;
+  background-color:　#fff;
   color: #4682b4 
   font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
@@ -41,14 +41,14 @@ section { padding: 80px 0; clear: both; }
 
 /* メインページの写真サイズ */
 .img img, .content img {
-  width: 100% !important;
+  width: 100%;
   max-width: 300px;
   height: auto;
   margin: 0 auto;
   border-radius: 8px;
 }
 
-/* --- 5. スキル：うかびあがる機能（修正） --- */
+/* --- 5. スキル：うかびあがる機能 --- */
 .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px; }
 .skill-item {
   width: calc(33.333% - 20px); min-width: 200px;
@@ -66,7 +66,7 @@ section { padding: 80px 0; clear: both; }
 }
 .skill-item svg { width: 50px; height: 50px; margin: 0 auto 15px; fill: #4682b4; }
 
-/* --- 6. お問い合わせ（背景ボックスなし） --- */
+/* --- 6. お問い合わせ --- */
 .contact-form { max-width: 600px; margin: 40px auto 0; background: none; }
 .contact-form .item { margin-bottom: 20px; text-align: left; }
 .contact-form label { display: block; margin-bottom: 8px; font-weight: 700; }
@@ -74,16 +74,16 @@ section { padding: 80px 0; clear: both; }
   width: 100%; padding: 12px; border: 2px solid #d1e1ee; border-radius: 8px; color: #4682b4;
 }
 
-/* --- 7. ボタン設定（白文字・余白確保） --- */
+/* --- 7. ボタン設定 --- */
 .btn, input[type="submit"], .view-detail-btn {
   display: inline-block;
   background-color: #4682b4;
   color: #ffffff;
   padding: 14px 50px; border-radius: 50px;
-  margin-top: 40px; /* ★文章との間をあける */
+  margin-top: 40px; /* 文章との間をあける */
   font-weight: 700; transition: 0.3s; cursor: pointer; border: none;
 }
-.btn:hover, .view-detail-btn:hover { background-color: #356a94 !important; transform: translateY(-3px); }
+.btn:hover, .view-detail-btn:hover { background-color: #356a94; transform: translateY(-3px); }
 
 /* --- 8. 詳細ページ（work.html）専用修正 --- */
 .detail-container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
@@ -96,7 +96,7 @@ section { padding: 80px 0; clear: both; }
 /* 詳細ページのグリッド（2列維持） */
 .goods-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* ★ここが1列に戻らないよう固定 */
+  grid-template-columns: 1fr 1fr; /* 
   gap: 40px; margin-top: 40px;
 }
 .image-wrap { 
@@ -124,13 +124,13 @@ section { padding: 80px 0; clear: both; }
 .view-detail-btn {
   display: inline-block;
   background-color: #4682b4;
-  color: #ffffff !important;           /* ★文字を白に固定 */
+  color: #fff;          
   padding: 12px 40px;
   border-radius: 50px;
   font-weight: 700;
   text-decoration: none;
-  margin-top: 30px;                    /* 上の文章との間隔 */
-  margin-bottom: 80px;      /* ★下のロゴマークとの間隔を大きくあける */
+  margin-top: 30px;      /* 上の文章との間隔 */
+  margin-bottom: 50px;     /* 下のロゴマークとの間隔を大きくあける */
   transition: 0.3s ease;
 }
 
@@ -252,39 +252,39 @@ input[type="submit"] {
 
 /* 2. マウスを乗せた時の動き */
 .goods-item:hover {
-  transform: translateY(-12px) !important; /* 上に動く */
+  transform: translateY(-12px); /* 上に動く */
 }
 
 /* 3. 画像の枠（image-wrap）にも影をつけて浮かせる */
 .goods-item:hover .image-wrap {
-  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2);
   border-color: #4682b4; 
   background-color: #fff;
 }
 
 /* 4. スキルの浮かび上がりも念のため再強化 */
 .skill-item:hover {
-  transform: translateY(-12px) !important;
-  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
+  transform: translateY(-12px);
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2);
   background-color: #fff;
 }
 
 /* --- スキルカードを等間隔に配置 --- */
 
 .skills-grid {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important; /* 中央から並べる */
-  gap: 40px;              /* ★箱と箱の間の「縦・横」の隙間を40pxで固定 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 中央から並べる */
+  gap: 40px;              /* 箱と箱の間の「縦・横」の隙間を40pxで固定 */
   margin-top: 50px;
-  padding: 0 20px;                   /* スマホ時に端がくっつくのを防止 */
+  padding: 0 20px;        /* スマホ時に端がくっつくのを防止 */
 }
 
 .skill-item {
   /* 幅の計算：(3列の場合) 100%から隙間分を引いて計算 */
-  width: calc(33.333% - 30px) !important; 
+  width: calc(33.333% - 30px); 
   min-width: 250px;        /* 小さくなりすぎないようガード */
-  margin: 0 !important;               /* gapで制御するためmarginは0に */
+  margin: 0;               /* gapで制御するためmarginは0に */
   box-sizing: border-box;
 }
 
@@ -382,7 +382,7 @@ section h2 {
 
 .skill-item {
   /* 100%から隙間2つ分(60px)を引いて、3で割った数値に調整 */
-  width: calc((100% - 60px) / 3) !important; 
+  width: calc((100% - 60px) / 3); 
   min-width: 200px;        /* 最小幅を少し小さくして、3つ並びやすくする */
   flex-grow: 0;            /* 勝手に巨大化するのを防ぐ */
   flex-shrink: 0;          /* 勝手に縮むのを防ぐ */
@@ -392,7 +392,7 @@ section h2 {
 /* スマホでは1列にする（タブレット以下で切り替え） */
 @media screen and (max-width: 850px) {
   .skill-item {
-    width: calc(50% - 30px) !important; /* タブレットでは2列 */
+    width: calc(50% - 30px); /* タブレットでは2列 */
   }
 }
 
@@ -462,7 +462,7 @@ section h2::after {
   position: absolute;
   bottom: 0;             /* padding-bottomの最下部に配置 */
   left: 50%;
-  transform: translateX(-50%) !important;
+  transform: translateX(-50%);
   width: 60;           /* 線の長さ */
   height: 2px;           /* 線の太さ */
   background-color: #4682b4;
