@@ -5,24 +5,24 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0; padding: 0;
-  background-color: #ffffff;
-  color: #4682b4 !important;
+  background-color: #fff;
+  color: #4682b4 
   font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
   text-align: center;
 }
-a, a:visited { color: #4682b4 !important; text-decoration: none; }
+a, a:visited { color: #4682b4; text-decoration: none; }
 
 /* --- 2. ヘッダー：左ロゴ・右ナビ --- */
 #header {
-  display: flex !important;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 5%;
   max-width: 1200px;
   margin: 0 auto;
 }
-#header ul { display: flex !important; list-style: none; gap: 30px; margin: 0; padding: 0; }
+#header ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
 
 /* --- 3. メインビジュアル --- */
 #mainvisual {
@@ -35,15 +35,15 @@ a, a:visited { color: #4682b4 !important; text-decoration: none; }
   padding: 15px 40px; letter-spacing: 0.4em; font-weight: 800;
 }
 
-/* --- 4. 共通レイアウト & 巨大化防止 --- */
+/* --- 4. 共通レイアウト -- */
 section { padding: 80px 0; clear: both; }
 .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
 /* メインページの写真サイズ */
 .img img, .content img {
   width: 100% !important;
-  max-width: 300px !important; /* ★ここで巨大化を封鎖 */
-  height: auto !important;
+  max-width: 300px;
+  height: auto;
   margin: 0 auto;
   border-radius: 8px;
 }
@@ -54,13 +54,13 @@ section { padding: 80px 0; clear: both; }
   width: calc(33.333% - 20px); min-width: 200px;
   padding: 30px 15px; background: #f9fbff; border-radius: 12px;
   /* 浮かび上がるためのアニメーション設定 */
-  transition: all 0.4s ease-out !important; 
+  transition: all 0.4s ease-out;
   cursor: pointer;
   position: relative;
   z-index: 1;
 }
 .skill-item:hover {
-  transform: translateY(-12px) !important; /* ★上に動く */
+  transform: translateY(-12px) !importan; /* ★上に動く */
   box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
   background-color: #ffffff !important;
 }
@@ -76,11 +76,11 @@ section { padding: 80px 0; clear: both; }
 
 /* --- 7. ボタン設定（白文字・余白確保） --- */
 .btn, input[type="submit"], .view-detail-btn {
-  display: inline-block !important;
-  background-color: #4682b4 !important;
-  color: #ffffff !important; /* ★文字は絶対白 */
+  display: inline-block;
+  background-color: #4682b4;
+  color: #ffffff;
   padding: 14px 50px; border-radius: 50px;
-  margin-top: 40px !important; /* ★文章との間をあける */
+  margin-top: 40px; /* ★文章との間をあける */
   font-weight: 700; transition: 0.3s; cursor: pointer; border: none;
 }
 .btn:hover, .view-detail-btn:hover { background-color: #356a94 !important; transform: translateY(-3px); }
@@ -90,58 +90,58 @@ section { padding: 80px 0; clear: both; }
 
 /* ロゴとボタンの間をあける */
 .detail-container > a > img { 
-  width: 120px !important; margin: 0 auto 50px !important; display: block; 
+  width: 120px; margin: 0 auto 50px; display: block; 
 }
 
 /* 詳細ページのグリッド（2列維持） */
 .goods-grid {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important; /* ★ここが1列に戻らないよう固定 */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* ★ここが1列に戻らないよう固定 */
   gap: 40px; margin-top: 40px;
 }
 .image-wrap { 
   width: 100% !important; max-width: 450px; margin: 0 auto 20px; 
   border: 1px solid #d1e1ee; border-radius: 8px; overflow: hidden;
 }
-.image-wrap img { width: 100% !important; height: auto !important; object-fit: cover; }
+.image-wrap img { width: 100%; height: auto; object-fit: cover; }
 
 /* --- 9. スクロールアニメーション --- */
 .js-fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
 .js-fade-up.is-show { opacity: 1; transform: translateY(0); }
 
 #footer { background-color: #356a94; padding: 40px 0; margin-top: 80px; }
-#footer p { color: #fff !important; }
+#footer p { color: #fff; }
 
 /* スマホ対応 */
 @media screen and (max-width: 768px) {
   #header { flex-direction: column; gap: 20px; }
-  .goods-grid { grid-template-columns: 1fr !important; }
+  .goods-grid { grid-template-columns: 1fr; }
   .skill-item { width: 100%; }
 }
 
 /* --- 詳細ページのボタンとロゴの間隔修正 --- */
 
 .view-detail-btn {
-  display: inline-block !important;
-  background-color: #4682b4 !important;
+  display: inline-block;
+  background-color: #4682b4;
   color: #ffffff !important;           /* ★文字を白に固定 */
   padding: 12px 40px;
   border-radius: 50px;
   font-weight: 700;
-  text-decoration: none !important;
+  text-decoration: none;
   margin-top: 30px;                    /* 上の文章との間隔 */
-  margin-bottom: 80px !important;      /* ★下のロゴマークとの間隔を大きくあける */
+  margin-bottom: 80px;      /* ★下のロゴマークとの間隔を大きくあける */
   transition: 0.3s ease;
 }
 
 /* 訪問済みでも白を維持 */
 .view-detail-btn:visited {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 /* ホバー時の演出 */
 .view-detail-btn:hover {
-  background-color: #356a94 !important;
+  background-color: #356a94;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
 }
@@ -153,16 +153,16 @@ section { padding: 80px 0; clear: both; }
 
 /* VIEW DETAILボタンの最終調整 */
 .view-detail-btn {
-  color: #ffffff !important;           /* 最初から白文字にする */
-  background-color: #4682b4 !important; /* 背景の青を確定 */
-  display: inline-block !important;
-  margin-bottom: 120px !important;     /* ★下のロゴとの間をさらにもう少しあける */
-  text-decoration: none !important;
+  color: #fff;           /* 最初から白文字にする */
+  background-color: #4682b4; /* 背景の青を確定 */
+  display: inline-block;
+  margin-bottom: 120px;     /* ★下のロゴとの間をさらにもう少しあける */
+  text-decoration: none;
 }
 
 /* 念のため、訪問済み（クリック後）も白を維持 */
 .view-detail-btn:visited {
-  color: #ffffff !important;
+  color: #fff;
 }
 
 /* --- 強制修正：詳細ページのボタンを白く、ロゴを遠ざける --- */
@@ -171,64 +171,64 @@ section { padding: 80px 0; clear: both; }
 section#work a.btn, 
 .view-detail-btn,
 a[href="work.html"].btn {
-  color: #ffffff !important;           /* 最初から絶対白 */
-  background-color: #4682b4 !important; /* 背景の青を確定 */
-  display: inline-block !important;
-  margin-top: 40px !important;
-  margin-bottom: 150px !important;     /* ★ロゴを思いっきり下に押し下げる */
-  padding: 15px 50px !important;
-  opacity: 1 !important;               /* 透明度をリセット */
+  color: #fff;           /* 最初から絶対白 */
+  background-color: #4682b4; /* 背景の青を確定 */
+  display: inline-block;
+  margin-top: 40px;
+  margin-bottom: 150px;     /* ★ロゴを思いっきり下に押し下げる */
+  padding: 15px 50px;
+  opacity: 1; /* 透明度をリセット */
 }
 
 /* 訪問済みでも白を維持 */
 section#work a.btn:visited,
 .view-detail-btn:visited {
-  color: #ffffff !important;
+  color: #fff;
 }
 
 /* ロゴマーク（詳細ページの下にあるもの）側の余白も確保 */
 .detail-container img, 
 footer img {
-  margin-top: 50px !important;
+  margin-top: 50px;
 }
 
 /* --- サイト全体の余白・統一感の調整 --- */
 
 /* 1. 全てのセクションの上下の間隔を統一 */
 section {
-  padding: 100px 0 !important; /* セクション同士がくっつかないよう統一 */
+  padding: 100px 0; /* セクション同士がくっつかないよう統一 */
 }
 
 /* 2. 文章（pタグ）とボタンの間の余白を統一 */
 .text p, 
 #concept p, 
 #work p {
-  margin-bottom: 40px !important; /* 文章のすぐ後にボタンがこないように */
+  margin-bottom: 40px; /* 文章のすぐ後にボタンがこないように */
 }
 
 /* 3. ボタンのスタイルと余白の統一 */
 .btn, 
 .view-detail-btn, 
 input[type="submit"] {
-  display: inline-block !important;
-  background-color: #4682b4 !important;
-  color: #ffffff !important;           /* 最初からずっと白文字 */
-  padding: 14px 50px !important;
-  border-radius: 50px !important;
-  text-decoration: none !important;
-  font-weight: 700 !important;
+  display: inline-block;
+  background-color: #4682b4;
+  color: #fff;
+  padding: 14px 50px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
   
   /* ボタンの下の余白：ここがロゴや次の要素との距離になります */
-  margin-bottom: 60px !important;      /* 150pxから60pxに抑えて統一 */
-  margin-top: 0 !important;            /* pタグのmargin-bottomで制御するため0に */
+  margin-bottom: 60px;      /* 150pxから60pxに抑えて統一 */
+  margin-top: 0;            /* pタグのmargin-bottomで制御するため0に */
   
   transition: 0.3s ease;
 }
 
 /* 4. 詳細ページ(work.html)のロゴ周りの余白 */
 .detail-container > a > img {
-  margin-top: 20px !important;
-  margin-bottom: 40px !important;      /* ロゴとタイトルの間の余白 */
+  margin-top: 20px;
+  margin-bottom: 40px;      /* ロゴとタイトルの間の余白 */
 }
 
 /* 5. スキルの各アイテム間の余白 */
@@ -239,7 +239,7 @@ input[type="submit"] {
 /* 6. 訪問済み・ホバー時の文字色固定 */
 .btn:visited, 
 .view-detail-btn:visited {
-  color: #ffffff !important;
+  color: #fff;
 }
 
 /* --- 詳細ページのカード（goods-item）を浮かび上がらせる --- */
@@ -258,15 +258,15 @@ input[type="submit"] {
 /* 3. 画像の枠（image-wrap）にも影をつけて浮かせる */
 .goods-item:hover .image-wrap {
   box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
-  border-color: #4682b4 !important; /* 枠線の色も少し強調 */
-  background-color: #ffffff !important;
+  border-color: #4682b4; 
+  background-color: #fff;
 }
 
 /* 4. スキルの浮かび上がりも念のため再強化 */
 .skill-item:hover {
   transform: translateY(-12px) !important;
   box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
-  background-color: #ffffff !important;
+  background-color: #fff;
 }
 
 /* --- スキルカードを等間隔に配置 --- */
@@ -275,15 +275,15 @@ input[type="submit"] {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important; /* 中央から並べる */
-  gap: 40px !important;              /* ★箱と箱の間の「縦・横」の隙間を40pxで固定 */
-  margin-top: 50px !important;
+  gap: 40px;              /* ★箱と箱の間の「縦・横」の隙間を40pxで固定 */
+  margin-top: 50px;
   padding: 0 20px;                   /* スマホ時に端がくっつくのを防止 */
 }
 
 .skill-item {
   /* 幅の計算：(3列の場合) 100%から隙間分を引いて計算 */
   width: calc(33.333% - 30px) !important; 
-  min-width: 250px !important;        /* 小さくなりすぎないようガード */
+  min-width: 250px;        /* 小さくなりすぎないようガード */
   margin: 0 !important;               /* gapで制御するためmarginは0に */
   box-sizing: border-box;
 }
@@ -291,43 +291,43 @@ input[type="submit"] {
 /* スマホでは1列にする */
 @media screen and (max-width: 768px) {
   .skill-item {
-    width: 100% !important;
+    width: 100%;
     max-width: 400px;
-    margin: 0 auto !important;
+    margin: 0 auto;
   }
   .skills-grid {
-    gap: 30px !important;             /* スマホでは隙間を少し狭く */
+    gap: 30px;             /* スマホでは隙間を少し狭く */
   }
 }
 
 /* --- 1. ヘッダーを左右の端に配置（メインページ用） --- */
 #header {
-  display: flex !important;
-  justify-content: space-between !important; /* ロゴを左、ナビを右へ */
-  align-items: center !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 30px 5% !important;
-  text-align: left; /* 文字の基本位置をリセット */
+  display: flex;
+  justify-content: space-between; /* ロゴを左、ナビを右へ */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 5%;
+  text-align: left; 
 }
 
 #header nav ul {
-  display: flex !important;
-  gap: 30px !important;
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* --- 2. お問い合わせフォームを中央に整列 --- */
 #contact {
-  text-align: center !important;
+  text-align: center;
 }
 
 .contact-form {
-  max-width: 600px !important;
-  margin: 40px auto 0 !important;
-  text-align: center !important; /* 項目名なども中央へ */
+  max-width: 600px;
+  margin: 40px auto 0;
+  text-align: center; /* 項目名なども中央へ */
 }
 
 .contact-form .item {
@@ -338,24 +338,24 @@ input[type="submit"] {
 }
 
 .contact-form label {
-  margin-bottom: 10px !important;
+  margin-bottom: 10px;
   font-weight: 700;
 }
 
 .contact-form input, 
 .contact-form textarea {
-  width: 100% !important;
-  max-width: 500px !important; /* 入力欄が広すぎないように制限 */
-  padding: 12px !important;
-  border: 2px solid #d1e1ee !important;
-  border-radius: 8px !important;
-  text-align: center !important; /* 入力する文字も中央から */
+  width: 100%;
+  max-width: 500px; /* 入力欄が広すぎないように制限 */
+  padding: 12px;
+  border: 2px solid #d1e1ee;
+  border-radius: 8px;
+  text-align: center; /* 入力する文字も中央から */
   color: #4682b4;
 }
 
 /* --- 3. セクションタイトルの下線を統一 --- */
 section h2 {
-  margin-bottom: 50px !important;
+  margin-bottom: 50px;
   font-size: 1.8rem;
   position: relative;
   display: inline-block;
@@ -364,29 +364,29 @@ section h2 {
 /* --- 4. スマホ時のヘッダー調整 --- */
 @media screen and (max-width: 768px) {
   #header {
-    flex-direction: column !important; /* スマホでは縦並び */
-    gap: 20px !important;
+    flex-direction: column; /* スマホでは縦並び */
+    gap: 20px;
   }
 }
 
 /* --- スキルを確実に横3列に並べる修正 --- */
 
 .skills-grid {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 30px !important;              /* 隙間を30pxに固定 */
-  max-width: 1000px !important;      /* 全体の幅を広げてスペースを確保 */
-  margin: 50px auto 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;              /* 隙間を30pxに固定 */
+  max-width: 1000px;      /* 全体の幅を広げてスペースを確保 */
+  margin: 50px auto 0;
 }
 
 .skill-item {
   /* 100%から隙間2つ分(60px)を引いて、3で割った数値に調整 */
   width: calc((100% - 60px) / 3) !important; 
-  min-width: 200px !important;        /* 最小幅を少し小さくして、3つ並びやすくする */
-  flex-grow: 0 !important;            /* 勝手に巨大化するのを防ぐ */
-  flex-shrink: 0 !important;          /* 勝手に縮むのを防ぐ */
-  box-sizing: border-box !important;
+  min-width: 200px;        /* 最小幅を少し小さくして、3つ並びやすくする */
+  flex-grow: 0;            /* 勝手に巨大化するのを防ぐ */
+  flex-shrink: 0;          /* 勝手に縮むのを防ぐ */
+  box-sizing: border-box;
 }
 
 /* スマホでは1列にする（タブレット以下で切り替え） */
@@ -398,47 +398,47 @@ section h2 {
 
 @media screen and (max-width: 550px) {
   .skill-item {
-    width: 100% !important;             /* スマホでは1列 */
+    width: 100%;             /* スマホでは1列 */
     max-width: 350px;
   }
   .skills-grid {
-    gap: 20px !important;
+    gap: 20px;
   }
 }
 
 /* --- セクションタイトルの調整（英語の下に日本語＋下線） --- */
 
 section h2 {
-  display: flex !important;
-  flex-direction: column !important; /* 縦に並べる */
-  align-items: center !important;    /* 中央に揃える */
-  margin-bottom: 60px !important;    /* 下のコンテンツとの間隔 */
+  display: flex;
+  flex-direction: column; /* 縦に並べる */
+  align-items: center;    /* 中央に揃える */
+  margin-bottom: 60px;    /* 下のコンテンツとの間隔 */
   position: relative;
-  padding-bottom: 15px !important;   /* 下線との隙間 */
-  color: #4682b4 !important;
-  font-size: 2rem !important;        /* 英語のサイズ */
-  letter-spacing: 0.1em;
+  padding-bottom: 15px;   /* 下線との隙間 */
+  color: #4682b4;
+  font-size: 2rem;        /* 英語のサイズ */
+  letter-spacing: 0.1;
 }
 
 /* 英語のすぐ横にある日本語（spanタグなど）の調整 */
 section h2 span {
-  font-size: 0.9rem !important;      /* 日本語を少し小さく */
-  font-weight: 400 !important;
-  margin-top: 5px !important;        /* 英語との隙間 */
-  color: #4682b4 !important;
+  font-size: 0.9rem;      /* 日本語を少し小さく */
+  font-weight: 400;
+  margin-top: 5px;        /* 英語との隙間 */
+  color: #4682b4;
   opacity: 0.8;                      /* 少しだけ薄くして対比を出す */
 }
 
 /* --- タイトル下線の復活と配置の修正 --- */
 
 section h2.js-fade-up {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0; /* アニメーション用初期値 */
-  padding-bottom: 25px !important; /* 日本語と線の間の距離 */
-  position: relative !important;
-  overflow: visible !important;   /* ★線がはみ出しても消えないようにする */
+  padding-bottom: 25px; /* 日本語と線の間の距離 */
+  position: relative;
+  overflow: visible;   /* ★線がはみ出しても消えないようにする */
 }
 
 /* 表示された時の状態 */
@@ -448,50 +448,50 @@ section h2.js-fade-up.is-show {
 
 /* 日本語サブタイトルの強制改行 */
 section h2 span {
-  display: block !important;
-  font-size: 0.9rem !important;
-  margin-top: 10px !important;
-  font-weight: normal !important;
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  font-weight: normal;
   letter-spacing: 0.2em;
 }
 
 /* ★下線の再定義（絶対配置で一番下に置く） */
 section h2::after {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  bottom: 0 !important;             /* padding-bottomの最下部に配置 */
-  left: 50% !important;
+  content: "" ;
+  display: block;
+  position: absolute;
+  bottom: 0;             /* padding-bottomの最下部に配置 */
+  left: 50%;
   transform: translateX(-50%) !important;
-  width: 60px !important;           /* 線の長さ */
-  height: 2px !important;           /* 線の太さ */
-  background-color: #4682b4 !important;
-  z-index: 10 !important;           /* ★他の要素より手前に出す */
+  width: 60;           /* 線の長さ */
+  height: 2px;           /* 線の太さ */
+  background-color: #4682b4;
+  z-index: 10;           /* ★他の要素より手前に出す */
 }
 /* --- タイトルと下線の間隔を狭める --- */
 
 section h2 {
   /* 下線との距離を 25px から 15px に短縮 */
-  padding-bottom: 15px !important; 
-  margin-bottom: 50px !important;
+  padding-bottom: 15px; 
+  margin-bottom: 50px;
 }
 
 section h2 span {
   /* 英語と日本語の間の隙間も少し詰めたい場合はここを調整 */
-  margin-top: 5px !important; 
+  margin-top: 5px; 
 }
 
 section h2::after {
   /* 線の太さや長さを維持しつつ、位置を微調整 */
-  bottom: 0 !important;
-  width: 50px !important;
+  bottom: 0;
+  width: 50px;
 }
 
 /* --- セクションタイトルとコンテンツ（写真・テキスト）の間隔を広げる --- */
 
 section h2 {
   /* タイトルセット（英語・日本語・線）から下のコンテンツまでの距離 */
-  margin-bottom: 80px !important; 
+  margin-bottom: 80px; 
 }
 
 /* スキルセクションや制作実績など、グリッド状のコンテンツとの間隔も個別に確保 */
@@ -499,20 +499,20 @@ section h2 {
 .goods-grid,
 .content,
 #work.js-fade-up {
-  margin-top: 20px !important; /* タイトルの下線からの距離を補強 */
+  margin-top: 20px; /* タイトルの下線からの距離を補強 */
 }
 
 /* --- コンセプトセクションの写真とタイトルの間隔を広げる --- */
 
 #concept .img {
-  margin-top: 40px !important;    /* ★タイトルの下線から写真までの距離を追加 */
-  margin-bottom: 40px !important; /* 写真と、その下の文章の間も確保 */
+  margin-top: 40px;    /* ★タイトルの下線から写真までの距離を追加 */
+  margin-bottom: 40px; /* 写真と、その下の文章の間も確保 */
 }
 
 /* 他のセクション（スキルや実績）も念のため再調整して統一感を出す */
 .skills-grid, 
 .goods-grid,
 .content {
-  margin-top: 40px !important;
+  margin-top: 40px;
 }
 
