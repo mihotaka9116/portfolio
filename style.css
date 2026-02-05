@@ -621,3 +621,48 @@ section,
   }
 }
 
+/* --- 1. セクションの間隔を程よく調整 --- */
+section, 
+.section-bg-white, 
+.section-bg-gray {
+  padding: 100px 0 !important; /* 160pxから100pxに狭めて密度を上げます */
+  background-color: #ffffff !important;
+}
+
+/* --- 2. 制作物のテキストとボタンを中央揃えにする --- */
+.content .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* 横方向の中央揃え */
+  text-align: center;     /* テキストの中央寄せ */
+  width: 100% !important;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 本文（pタグなど）の余白調整 */
+.content .text p {
+  margin-bottom: 30px;    /* ボタンとの間に適度な隙間を作る */
+  color: #4682b4;         /* 水色を維持 */
+}
+
+/* VIEW DETAILボタン（リンク）を中央に配置 */
+.content .text a.btn, 
+.content .text .view-detail {
+  display: inline-block;  /* 中央揃えを効かせるため */
+  margin: 0 auto;
+}
+
+/* --- 3. 全体的な微調整 --- */
+.content {
+  gap: 40px; /* 画像とテキストの間の距離も少し詰めました */
+}
+
+@media screen and (max-width: 767px) {
+  section, 
+  .section-bg-white, 
+  .section-bg-gray {
+    padding: 60px 0 !important; /* スマホではさらに少し詰める */
+  }
+}
+
