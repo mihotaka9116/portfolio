@@ -372,3 +372,40 @@ section:nth-of-type(even) .content {
     font-size: 1.8rem;
   }
 }
+
+/* --- セクションタイトルを本文と同じ水色にする --- */
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.15em;
+  color: #87CEEB !important; /* 本文と同じ水色（具体的な色コードに合わせて適宜調整してください） */
+}
+
+/* --- ボタンを水色にし、クリック時の色変化（hover等）をシンプルにする --- */
+.btn, 
+input[type="submit"] {
+  display: inline-block;
+  padding: 12px 40px;
+  background-color: #87CEEB !important; /* ボタンの背景色を水色に */
+  color: #fff !important;               /* 文字は白 */
+  text-decoration: none;
+  border: none;
+  border-radius: 0 !important;          /* 以前の修正通り長方形 */
+  cursor: pointer;
+  transition: opacity 0.3s ease;        /* 色ではなく透明度で反応させる */
+}
+
+/* クリックした時やマウスを乗せた時の「色が変わる仕様」を消す */
+.btn:hover, 
+input[type="submit"]:hover,
+.btn:active,
+input[type="submit"]:active {
+  background-color: #87CEEB !important; /* 色を固定 */
+  opacity: 0.8;                         /* 変化は少し薄くなる程度にする */
+  outline: none;
+}
+
+/* --- フッターなど、お問い合わせへのリンクがある場合も統一 --- */
+.back-to-home .btn {
+  background-color: #87CEEB !important;
+}
