@@ -169,3 +169,124 @@ a { color: #4682b4; text-decoration: none; }
   .skill-item { width: 100%; }
   .goods-grid { grid-template-columns: 1fr; }
 }
+
+@charset "UTF-8";
+
+/* --- 1. 基本設定 --- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; padding: 0;
+  background-color: #fff;
+  color: #333; /* 基本の文字色は黒系に戻しました */
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.8;
+  text-align: center;
+}
+a { color: #333; text-decoration: none; }
+
+/* --- 2. ヘッダー --- */
+#header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 5%; max-width: 1200px; margin: 0 auto;
+}
+#header ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+#header a { color: #4682b4; font-weight: bold; }
+
+/* --- 3. メインビジュアル --- */
+#mainvisual {
+  width: 100%; height: 300px;
+  background-color: #f4f7f9;
+  background-image: url("logo.svg"); 
+  background-repeat: repeat;
+  background-size: 80px auto;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 60px;
+}
+#mainvisual::after {
+  content: "PORTFOLIO";
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 40px;
+  letter-spacing: 0.4em;
+  font-weight: 800;
+  color: #4682b4;
+}
+
+/* --- 4. スキル：3列 & 浮かび上がる機能 --- */
+.skills-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 20px; max-width: 1000px; margin: 40px auto;
+}
+
+.skill-item {
+  width: calc(33.333% - 20px);
+  min-width: 250px;
+  padding: 30px 15px;
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  /* ↓ これが浮かび上がるアニメーションの設定です */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ★マウスを乗せた時にふわっと浮かび上がる */
+.skill-item:hover {
+  transform: translateY(-10px) !important; /* 上に動く */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important; /* 影をつける */
+}
+
+/* アイコンサイズ固定（巨大化を100%防ぐ） */
+.skill-item .img, .skill-item img {
+  width: 60px !important;
+  height: 60px !important;
+  max-width: 60px !important;
+  margin: 0 auto 15px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+/* スキル名の文字色（水色にせず、黒系に固定） */
+.skill-item p {
+  color: #333 !important;
+  font-weight: bold;
+}
+
+/* --- 5. WORK：制作実績（水色にしない・画像そのまま） --- */
+.goods-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.image-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  /* 画像そのものの色で見せる（フィルターなし） */
+  transition: opacity 0.3s;
+}
+.image-wrap img:hover {
+  opacity: 0.8;
+}
+
+/* --- 6. ボタン --- */
+.btn {
+  display: inline-block;
+  background-color: #4682b4;
+  color: #ffffff !important;
+  padding: 12px 40px;
+  border-radius: 50px;
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+/* --- 7. フッター --- */
+#footer { background-color: #4682b4; padding: 30px 0; margin-top: 60px; }
+#footer p { color: #fff; margin: 0; }
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+  .skill-item { width: 100%; }
+  .goods-grid { grid-template-columns: 1fr; }
+}
