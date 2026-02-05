@@ -169,3 +169,67 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
     gap: 30px;
   }
 }
+
+/* --- スキルセクション：横並びとアニメーションの復活 --- */
+
+.skills-grid {
+  display: flex; /* 横並びを優先 */
+  flex-wrap: wrap; /* 画面が狭くなったら折り返す */
+  justify-content: center; /* 中央寄せ */
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.skill-item {
+  width: calc(33.333% - 30px); /* 基本は3列 */
+  min-width: 250px; /* 小さくなりすぎないように制限 */
+  padding: 40px 20px;
+  background: #f9fbff;
+  text-align: center;
+  border-radius: 8px;
+  /* ★動きを滑らかにする設定 */
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 5px 15px rgba(70, 130, 180, 0.05);
+}
+
+/* ★マウスを重ねた時の動き（復活） */
+.skill-item:hover {
+  transform: translateY(-10px); /* 上にふわっと浮く */
+  box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15); /* 影を強くして浮遊感を出す */
+  background: #ffffff; /* 背景を白くして強調 */
+}
+
+/* アイコンサイズの適正化 */
+.skill-item img, 
+.skill-item svg {
+  width: 60px !important;
+  height: 60px !important;
+  margin: 0 auto 20px !important;
+  display: block;
+  /* アイコン自体も少し動かす演出 */
+  transition: transform 0.4s ease;
+}
+
+.skill-item:hover img {
+  transform: scale(1.1); /* ホバー時にアイコンも少し拡大 */
+}
+
+.skill-item h3 {
+  font-size: 1.2rem;
+  color: #4682b4;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.skill-item p {
+  font-size: 0.9rem;
+  color: #4682b4 !important;
+  line-height: 1.6;
+}
+
+/* スマホ対応：1列に整列 */
+@media screen and (max-width: 768px) {
+  .skill-item {
+    width: 100%;
+  }
+}
