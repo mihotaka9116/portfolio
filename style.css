@@ -205,3 +205,74 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
   #mainvisual { height: 300px; }
   .section-title { font-size: 1.8rem; }
 }
+
+/* --- Work Page (work.html) 完全版レイアウト --- */
+
+/* 1. 作品一覧の親要素（グリッド設定） */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動で列数を調整 */
+  gap: 40px; /* アイテム間の余白 */
+  margin: 60px 0;
+}
+
+/* 2. 各作品カード */
+.goods-item {
+  width: 100% !important; /* 横幅いっぱいに広がらないよう制御 */
+  text-align: left;
+}
+
+/* 3. 画像の枠（ここを揃えるのがプロのコツ） */
+.image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* すべての画像の比率を16:9に統一 */
+  overflow: hidden;
+  background-color: #f0f4f7;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画像を切り抜いて枠にフィットさせる */
+  transition: transform 0.5s ease;
+}
+
+/* ホバー時に画像を少し拡大 */
+.goods-item:hover .image-wrap img {
+  transform: scale(1.05);
+}
+
+/* 4. 作品タイトル */
+.item-caption {
+  font-weight: 700;
+  color: #4682b4;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  display: block;
+}
+
+/* 5. 詳細ボタン（メインページと共通化） */
+.custom-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #4682b4;
+  color: #fff !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.custom-btn:hover {
+  opacity: 0.8;
+}
+
+/* スマホ表示の微調整 */
+@media screen and (max-width: 767px) {
+  .goods-grid {
+    grid-template-columns: 1fr; /* スマホは1列 */
+    gap: 30px;
+  }
+}
