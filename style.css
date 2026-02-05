@@ -8,119 +8,150 @@ body {
   margin: 0; padding: 0;
   background-color: #ffffff;
   color: #4682b4 !important; 
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.8;
 }
 
-h1, h2, h3, h4, p, li, dt, dd { color: #4682b4 !important; }
+h1, h2, h3, h4, p, li, dt, dd, span { color: #4682b4 !important; }
 img { max-width: 100%; height: auto; vertical-align: bottom; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ワーク詳細ページ（WORKDETAIL）のセンター寄せ --- */
-/* ロゴ・テキストすべてを中央に配置 */
+/* --- 2. ヘッダー（横並び） --- */
+#header {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+#header ul {
+  display: flex !important;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+#header li { margin-left: 30px; }
+#header a { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; }
+
+/* --- 3. メインビジュアル（ベールを薄く） --- */
+#mainvisual {
+  width: 100%;
+  height: 400px;
+  background-color: #f4f7f9;
+  background-image: linear-gradient(rgba(244, 247, 249, 0.15), rgba(244, 247, 249, 0.15)), url("logo.svg");
+  background-repeat: repeat;
+  background-size: 100px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+#mainvisual::after {
+  content: "PORTFOLIO";
+  background: rgba(255, 255, 255, 0.85);
+  color: #4682b4;
+  font-size: 2.5rem;
+  font-weight: 800;
+  padding: 20px 60px;
+  letter-spacing: 0.4em;
+  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
+}
+
+/* --- 4. メインページ：セクション交互配置 & 写真サイズ制限 --- */
+section { padding: 80px 0; }
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+/* 交互配置 */
+section:nth-of-type(even) .content { flex-direction: row-reverse; }
+
+.content .img { width: 45%; flex-shrink: 0; }
+.content .img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+.content .text { width: 48%; text-align: left; }
+
+/* --- 5. ワーク詳細（WORKDETAIL）：すべて中央寄せ --- */
 .detail-container {
   max-width: 850px;
   margin: 0 auto;
   padding: 60px 20px;
-  text-align: center; /* これでテキストとロゴを中央寄せ */
+  text-align: center; /* ロゴ・テキスト・グリッドすべてを中央へ */
 }
-
-/* ワーク詳細のグリッド設定 */
 .goods-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
   gap: 60px 40px;
   margin-top: 50px;
 }
-
-.goods-item {
-  width: 100% !important;
-  text-align: center; /* ボックス内のテキストも中央 */
-}
-
-/* 画像の枠（共通設定） */
+.goods-item { text-align: center; }
 .image-wrap {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border: 1px solid #d1e1ee;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background-color: #f4f7f9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-
 .image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 基本は全体をカバー */
+  width: 100%; height: 100%; object-fit: cover;
 }
 
-/* ★ 4番目のボックス（写真がズレているもの）の修正 */
-/* 画像の切り抜き位置を「ど真ん中」に固定します */
+/* ★ 4番目の写真をど真ん中に固定 */
 .goods-grid .goods-item:nth-child(4) img {
-  object-fit: cover;
-  object-position: center center; /* 上下左右の真ん中を表示 */
+  object-position: center center;
 }
 
-/* --- 3. スキルセクション（以前の小さめサイズ & 水色再現） --- */
+/* --- 6. スキル：小さめ水色アイコン & 横並び --- */
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
 }
-
 .skill-item {
-  width: calc(33.333% - 30px);
-  min-width: 250px;
-  padding: 40px 20px;
-  background: #f9fbff;
-  text-align: center;
-  border-radius: 8px;
-  transition: all 0.4s ease;
+  width: calc(33.333% - 30px); min-width: 250px;
+  padding: 40px 20px; background: #f9fbff; text-align: center;
+  border-radius: 8px; transition: 0.4s;
 }
-
 .skill-item:hover {
   transform: translateY(-10px);
   background: #ffffff;
   box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
 }
-
-/* ★スキルのアイコン：小さめサイズと水色フィルターの再現 */
 .skill-item img {
-  width: 60px !important;  /* 前回の小さめサイズ */
-  height: 60px !important;
-  margin: 0 auto 20px !important;
-  display: block;
-  /* 水色（#4682b4）に寄せるための精密フィルター */
+  width: 60px !important; height: 60px !important; /* 小さめサイズ固定 */
+  margin: 0 auto 20px !important; display: block;
+  /* 水色フィルター再現 */
   filter: sepia(1) saturate(1) hue-rotate(170deg) brightness(0.85) !important;
-  transition: transform 0.4s ease;
 }
 
-.skill-item:hover img {
-  transform: scale(1.1);
-}
-
-/* --- 4. 問い合わせフォーム（完全センター） --- */
+/* --- 7. お問い合わせ（完全センター） --- */
 #contact { text-align: center; }
 .contact-form { max-width: 600px; margin: 0 auto; }
 .contact-form input, .contact-form textarea {
   width: 100%; padding: 15px; border: 1px solid #d1e1ee;
-  text-align: center; border-radius: 4px;
+  text-align: center; border-radius: 4px; margin-bottom: 20px;
 }
 
-/* --- 5. フッター・ボタン --- */
-.btn-area { text-align: center; margin-top: 40px; }
+/* --- 8. フッター & ボタン --- */
+.btn-area { text-align: center; margin-top: 20px; }
 .btn-area input[type="submit"] {
   background: #fff; color: #4682b4; border: 2px solid #4682b4;
   padding: 15px 60px; cursor: pointer; font-weight: 700;
 }
-#footer { background: #356a94; color: #fff; text-align: center; padding: 60px 0; }
+#footer { background: #356a94; color: #fff; text-align: center; padding: 60px 0; margin-top: 100px; }
 #footer p { color: #fff !important; }
 
-/* スマホ対応 */
+/* --- 9. スマホ対応 --- */
 @media screen and (max-width: 768px) {
+  #header { flex-direction: column; gap: 20px; }
+  .content, section:nth-of-type(even) .content { flex-direction: column; text-align: center; }
+  .content .img, .content .text { width: 100%; }
   .goods-grid { grid-template-columns: 1fr; }
   .skill-item { width: 100%; }
 }
