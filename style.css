@@ -10,10 +10,10 @@ body {
   color: #4682b4 !important;
   font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
-  text-align: center; /* ★ページ全体を中央寄せに */
+  text-align: center; /* セクション内は中央寄せ */
 }
 
-/* リンク色：訪問後も水色を維持 */
+/* リンク色：常に水色 */
 a, a:visited, a:active {
   color: #4682b4 !important;
   text-decoration: none;
@@ -22,18 +22,26 @@ a:hover { opacity: 0.7; }
 
 h1, h2, h3, h4, p, li, dt, dd, span, label { color: #4682b4 !important; }
 
-/* --- 2. ヘッダー：中央に配置 --- */
+/* --- 2. ヘッダー：左ロゴ・右ナビ (ここを修正) --- */
 #header {
-  padding: 40px 0;
-  max-width: 1000px;
+  display: flex !important;
+  justify-content: space-between; /* 両端に振り分け */
+  align-items: center;
+  padding: 20px 5%;
+  max-width: 1200px;
   margin: 0 auto;
 }
-#header .site-title { margin-bottom: 20px; }
-#header ul {
-  display: flex;
-  justify-content: center; /* ナビを中央寄せ */
+
+#header .site-title {
+  margin: 0; /* 余計な余白を消して左に固定 */
+}
+
+#header nav ul {
+  display: flex !important;
+  justify-content: flex-end; /* ナビを右に寄せる */
   list-style: none;
   gap: 30px;
+  margin: 0;
   padding: 0;
 }
 
@@ -50,104 +58,64 @@ h1, h2, h3, h4, p, li, dt, dd, span, label { color: #4682b4 !important; }
   content: "PORTFOLIO";
   background: rgba(255, 255, 255, 0.9);
   padding: 15px 40px; letter-spacing: 0.4em; font-weight: 800;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
 /* --- 4. セクション共通：すべて中央配置 --- */
-section { 
-  padding: 100px 0; 
-  clear: both; /* 崩れ防止 */
-}
+section { padding: 100px 0; clear: both; }
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* CONCEPTやWORKの枠を縦並び中央にする */
 .content, #work.js-fade-up {
-  display: block !important; /* 横並びをやめて縦に */
+  display: block !important;
   text-align: center;
 }
 
-/* 画像のサイズ制限と中央寄せ */
-.img {
-  width: 100% !important;
-  margin-bottom: 30px;
-}
+.img { width: 100% !important; margin-bottom: 30px; }
 .img img {
   width: 100% !important;
-  max-width: 300px !important; /* 巨大化防止 */
+  max-width: 300px !important;
   height: auto !important;
   margin: 0 auto;
   border-radius: 8px;
 }
 
-.text {
-  width: 100% !important;
-  margin: 0 auto;
-}
+.text { width: 100% !important; margin: 0 auto; }
 
-/* --- 5. スキル：タイトル中央・アイコン横並びを維持 --- */
+/* --- 5. スキル：アイコン横並びを維持 --- */
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* 横並びを維持 */
-  gap: 20px;
-  margin-top: 40px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px;
 }
 .skill-item {
-  width: calc(33.333% - 20px);
-  min-width: 200px;
-  padding: 30px 15px;
-  background: #f9fbff;
-  border-radius: 12px;
+  width: calc(33.333% - 20px); min-width: 200px;
+  padding: 30px 15px; background: #f9fbff; border-radius: 12px;
 }
 .skill-item svg {
-  width: 50px !important;
-  height: 50px !important;
-  margin: 0 auto 15px;
-  fill: #4682b4 !important; /* アイコンを水色に */
+  width: 50px !important; height: 50px !important;
+  margin: 0 auto 15px; fill: #4682b4 !important;
 }
 
 /* --- 6. お問い合わせ：中央寄せ --- */
 .contact-form {
-  max-width: 600px;
-  margin: 40px auto 0;
-  background-color: #f9fbff;
-  padding: 40px;
-  border-radius: 15px;
-}
-.contact-form .item {
-  margin-bottom: 20px;
+  max-width: 600px; margin: 40px auto 0;
+  background-color: #f9fbff; padding: 40px; border-radius: 15px;
 }
 .contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #d1e1ee;
-  border-radius: 8px;
-  text-align: center; /* 入力文字も中央 */
+  width: 100%; padding: 12px; border: 2px solid #d1e1ee; border-radius: 8px; text-align: center;
 }
 
 /* --- 7. ボタン & フッター --- */
 .btn, input[type="submit"] {
-  display: inline-block;
-  background-color: #4682b4 !important;
-  color: #ffffff !important;
-  padding: 12px 50px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
+  display: inline-block; background-color: #4682b4 !important; color: #ffffff !important;
+  padding: 12px 50px; border-radius: 50px; border: none; cursor: pointer;
 }
-
-#footer {
-  background-color: #356a94;
-  padding: 40px 0;
-  margin-top: 80px;
-}
+#footer { background-color: #356a94; padding: 40px 0; margin-top: 80px; }
 #footer p { color: #fff !important; margin: 0; }
 
-/* フェードアップ */
+/* スマホ対応：ヘッダーを縦並びに戻す */
+@media screen and (max-width: 768px) {
+  #header { flex-direction: column; gap: 20px; }
+  .skill-item { width: 100%; }
+}
+
+/* アニメーション用 */
 .js-fade-up { opacity: 0; transform: translateY(20px); transition: 0.8s; }
 .js-fade-up.is-show { opacity: 1; transform: translateY(0); }
