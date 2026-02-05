@@ -1,25 +1,23 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定 (テキスト色を水色に統一) --- */
+/* --- 1. 基本設定（テキスト色：水色） --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background-color: #ffffff;
-  /* 本文もセクションタイトルと同じ水色に統一 */
-  color: #4682b4 !important; 
-  font-family: 'Montserrat', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+  color: #4682b4 !important; /* 全体の文字色を水色に */
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
 
 img { max-width: 100%; height: auto; vertical-align: bottom; }
-a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
+a { transition: 0.3s; text-decoration: none; color: #4682b4; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー (横並びを確実に固定) --- */
+/* --- 2. ヘッダー（横並び固定） --- */
 #header {
   display: flex !important;
   justify-content: space-between;
@@ -28,69 +26,76 @@ a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
   max-width: 1000px;
   margin: 0 auto;
 }
-.site-title img { width: 100px; }
 #header ul {
   display: flex !important;
-  flex-direction: row !important;
   list-style: none;
   margin: 0; padding: 0;
 }
 #header li { margin-left: 30px; }
-#header a { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
+#header a { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; }
 
-/* --- 3. メインビジュアル (ロゴを敷き詰める設定) --- */
+/* --- 3. メインビジュアル（ロゴ敷き詰め） --- */
 #mainvisual {
   width: 100%;
-  height: 450px;
-  background-color: #f4f7f9; /* ベースの薄い水色 */
-  
-  /* ロゴ画像を背景に敷き詰める */
-  background-image: url("logo.svg"); 
-  background-repeat: repeat; 
-  background-size: 100px auto; /* ロゴの密度を調整 */
-  background-position: center;
-  
+  height: 400px;
+  background-color: #f4f7f9;
+  background-image: linear-gradient(rgba(244, 247, 249, 0.5), rgba(244, 247, 249, 0.5)), url("logo.svg");
+  background-repeat: repeat;
+  background-size: 100px auto;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 80px;
-  position: relative;
 }
-
-/* ロゴパターンの上に重ねる中央の白抜きエリア */
 #mainvisual::after {
   content: "PORTFOLIO";
-  background-color: rgba(255, 255, 255, 0.9);
+  background: #fff;
   color: #4682b4;
   font-size: 2.5rem;
   font-weight: 800;
   padding: 20px 60px;
   letter-spacing: 0.4em;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* --- 4. セクションタイトル --- */
-.section-title-area {
-  text-align: center;
-  margin-bottom: 60px;
+/* --- 4. 作品一覧・オンラインショップ（グリッド修正） --- */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
 }
-.section-title {
-  color: #4682b4 !important;
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: 0.15em;
+
+.goods-item {
+  width: 100% !important; /* 巨大化防止 */
+  text-align: left;
 }
-.section-title-en {
+
+/* 画像を縦長にさせない設定 */
+.image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 比率を固定 */
+  overflow: hidden;
+  border: 1px solid #d1e1ee;
+  margin-bottom: 15px;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 枠に合わせてきれいに収める */
+}
+
+/* --- 5. スキルアイコン（巨大化防止） --- */
+.skill-item img, 
+.skill-item svg {
+  width: 60px !important;  /* アイコンサイズを固定 */
+  height: 60px !important;
+  margin: 0 auto 20px !important;
   display: block;
-  font-size: 0.8rem;
-  color: #a0c4de;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  margin-top: 10px;
 }
 
-/* --- 5. メインコンテンツ (プロ仕様の左右交互) --- */
+/* --- 6. コンテンツ左右交互（TOPページ用） --- */
 section { padding: 80px 0; }
 .content {
   display: flex;
@@ -99,31 +104,28 @@ section { padding: 80px 0; }
   gap: 60px;
 }
 section:nth-of-type(even) .content { flex-direction: row-reverse; }
-
-.content .img { width: 45%; flex-shrink: 0; }
-.content .img img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
-}
+.content .img { width: 45%; }
 .content .text { width: 48%; text-align: left; }
-.content .text h3 { color: #4682b4; font-size: 1.6rem; margin: 0 0 20px; }
 
-/* --- 6. ボタンとフォーム --- */
-.btn {
+/* --- 7. フォーム・ボタン --- */
+.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 15px; border: 1px solid #d1e1ee;
+}
+.btn, .custom-btn {
   display: inline-block;
   padding: 15px 50px;
   background-color: #4682b4;
-  color: #ffffff !important;
+  color: #fff !important;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  border-radius: 0;
-  margin-top: 10px;
 }
-.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form dt { font-weight: 700; margin-bottom: 8px; }
-.contact-form dd { margin: 0 0 25px 0; }
-.contact-form input, .contact-form textarea { width: 100%; padding: 15px; border: 1px solid #d1e1ee; border-radius: 0; }
-.btn-area {
+
+/* --- 8. フッター --- */
+#footer { background: #4682b4; color: #fff; text-align: center; padding: 60px 0; }
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+  #header { flex-direction: column; gap: 20px; }
+  .content, section:nth-of-type(even) .content { flex-direction: column; text-align: center; }
+  .content .img, .content .text { width: 100%; }
+}
