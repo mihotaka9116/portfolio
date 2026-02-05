@@ -47,24 +47,26 @@ header ul { display: flex; list-style: none; gap: 30px; }
 /* --- 3. セクション共通：巨大化防止 & 交互配置 --- */
 section { padding: 100px 0; overflow: hidden; }
 
-/* CONCEPT (1番目): 左写真・右テキスト */
+/* CONCEPT: 左写真・右テキスト */
 #concept .content {
   display: flex; align-items: center; justify-content: space-between; gap: 50px;
   flex-direction: row;
 }
 
-/* WORK (2番目): 左テキスト・右写真 */
+/* WORK: 左テキスト・右写真 */
 #work.js-fade-up {
   display: flex; align-items: center; justify-content: space-between; gap: 50px;
-  flex-direction: row-reverse; /* ここで左右を入れ替え */
+  flex-direction: row-reverse; /* 左右を反転させてテキストを左に */
   max-width: 1000px; margin: 0 auto; padding: 0 20px;
 }
 
 /* 写真のサイズ制限（共通） */
 .img { width: 45%; flex-shrink: 0; text-align: center; }
 .img img {
-  width: 100%; max-width: 350px; /* ★ここでサイズを固定 */
-  height: auto; border-radius: 8px;
+  width: 100% !important; 
+  max-width: 350px !important; /* ★ここで巨大化を防止 */
+  height: auto !important; 
+  border-radius: 8px;
 }
 .text { width: 50%; text-align: left; }
 
@@ -76,11 +78,11 @@ section { padding: 100px 0; overflow: hidden; }
   width: calc(33.333% - 30px); min-width: 250px;
   padding: 40px 20px; background: #f9fbff; text-align: center; border-radius: 12px;
 }
-/* SVGアイコンのサイズと水色固定 */
+/* SVGアイコンを水色にし、小さく固定 */
 .skill-item svg {
   width: 50px !important; height: 50px !important;
   margin: 0 auto 20px; display: block;
-  fill: #4682b4 !important; /* SVGの色を水色に強制 */
+  fill: #4682b4 !important; /* SVGの色を水色に */
 }
 
 /* --- 5. お問い合わせ：リッチなセンター寄せ --- */
@@ -101,6 +103,7 @@ section { padding: 100px 0; overflow: hidden; }
   background-color: #4682b4 !important; color: #ffffff !important;
   padding: 14px 50px; border-radius: 50px; border: none;
   font-weight: 700; cursor: pointer; transition: 0.3s;
+  text-align: center;
 }
 .btn:hover { background-color: #356a94 !important; transform: translateY(-2px); }
 
@@ -111,32 +114,31 @@ section { padding: 100px 0; overflow: hidden; }
 }
 #footer p { color: #ffffff !important; }
 
-/* フェードアップ用 */
-.js-fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s; }
-.js-fade-up.is-show { opacity: 1; transform: translateY(0); }
-
 /* スマホ対応 */
 @media screen and (max-width: 768px) {
   #concept .content, #work.js-fade-up { flex-direction: column !important; text-align: center; }
   .img, .text { width: 100%; }
 }
 
-/* --- WORKDETAIL ページ専用：中央寄せ & ズレ修正 --- */
+/* --- WORKDETAIL（work.html）専用の修正 --- */
 
-/* 1. 全体を中央寄せ（ロゴ・テキスト） */
+/* 1. ロゴとタイトルを中央に寄せる */
 .detail-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 60px 20px;
-  text-align: center; /* これですべてのテキストとインライン要素を中央に */
+  text-align: center; /* テキストとロゴをすべて中央へ */
 }
 
-.detail-container img {
-  margin: 0 auto 20px; /* 上部のロゴマークを中央に配置 */
+/* ロゴマーク（logo.svg）のサイズと中央配置 */
+.detail-container > a > img {
+  width: 120px !important; /* 巨大化を防ぐサイズ */
+  height: auto;
+  margin: 0 auto 30px;
   display: block;
 }
 
-/* 2. グリッドのレイアウト */
+/* 2. グリッドのレイアウト調整 */
 .goods-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -145,59 +147,61 @@ section { padding: 100px 0; overflow: hidden; }
 }
 
 .goods-item {
-  text-align: center; /* 各アイテムの中身（写真・キャプション）を中央に */
-  transition: transform 0.4s ease;
+  text-align: center; /* アイテム内の文字も中央 */
 }
 
-.goods-item:hover {
-  transform: translateY(-10px); /* ホバーで浮かせる */
-}
-
-/* 3. 画像の枠（白ボックス）の設定 */
+/* 3. 画像の白い枠（ボックス）の設定 */
 .image-wrap {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border: 1px solid #d1e1ee;
-  background-color: #ffffff; /* 白いボックス */
-  margin-bottom: 15px;
+  background-color: #ffffff; /* 白い背景 */
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* マウスを乗せた時に浮き上がる演出 */
+.goods-item:hover .image-wrap {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(70, 130, 180, 0.15);
 }
 
 .image-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 基本は枠いっぱいに表示 */
-  transition: 0.4s;
+  object-fit: cover; /* 基本は枠いっぱいに */
 }
 
-/* ★ 4番目のボックスのズレを「ど真ん中」に修正 */
+/* ★ 4番目のボックス（名刺）をど真ん中に配置 */
 .goods-grid .goods-item:nth-child(4) .image-wrap img {
-  object-fit: contain; /* 写真全体を枠の中に収める */
-  padding: 10%;       /* 枠に対して少し余白を作る */
-  background-color: #ffffff;
+  object-fit: contain;  /* 画像を削らずに枠内に収める */
+  width: 90%;          /* 枠に対して少しだけ余白を作る */
+  height: 90%;
+  object-position: center; /* 確実に真ん中へ */
 }
 
-/* 4. テキストとボタンの色固定 */
+/* 4. テキストとボタンの色調整 */
 .goods-item h3, 
 .goods-item p {
   color: #4682b4 !important;
-  margin-bottom: 10px;
 }
 
 .view-detail-btn {
   display: inline-block;
   background-color: #4682b4;
   color: #ffffff !important;
-  padding: 8px 24px;
+  padding: 10px 30px;
   border-radius: 50px;
-  font-size: 0.8rem;
-  margin-top: 10px;
+  font-size: 0.85rem;
+  margin-top: 15px;
+  text-decoration: none;
 }
 
-/* 5. スマホ対応（1列にする） */
+/* スマホ対応：1列にする */
 @media screen and (max-width: 768px) {
   .goods-grid {
     grid-template-columns: 1fr;
