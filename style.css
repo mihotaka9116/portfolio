@@ -405,3 +405,38 @@ section h2 {
     gap: 20px !important;
   }
 }
+
+/* --- セクションタイトルの調整（英語の下に日本語＋下線） --- */
+
+section h2 {
+  display: flex !important;
+  flex-direction: column !important; /* 縦に並べる */
+  align-items: center !important;    /* 中央に揃える */
+  margin-bottom: 60px !important;    /* 下のコンテンツとの間隔 */
+  position: relative;
+  padding-bottom: 15px !important;   /* 下線との隙間 */
+  color: #4682b4 !important;
+  font-size: 2rem !important;        /* 英語のサイズ */
+  letter-spacing: 0.1em;
+}
+
+/* 英語のすぐ横にある日本語（spanタグなど）の調整 */
+section h2 span {
+  font-size: 0.9rem !important;      /* 日本語を少し小さく */
+  font-weight: 400 !important;
+  margin-top: 5px !important;        /* 英語との隙間 */
+  color: #4682b4 !important;
+  opacity: 0.8;                      /* 少しだけ薄くして対比を出す */
+}
+
+/* 一番下に下線を引く */
+section h2::after {
+  content: "" !important;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);       /* センターから線を広げる */
+  width: 60px;                       /* 線の長さ（お好みで調整） */
+  height: 2px;                       /* 線の太さ */
+  background-color: #4682b4;         /* 線の色（水色） */
+}
