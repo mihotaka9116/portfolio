@@ -237,3 +237,35 @@ button {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- メインページ：セクション画像のサイズを個別に調整 --- */
+
+/* Concept, Work, Productsセクション内の画像ボックス */
+#concept .img, 
+#work .img, 
+#products .img {
+  width: 200px !important;  /* 箱自体の幅を200pxに固定（お好みで調整） */
+  height: 200px !important; /* 高さも揃えて正方形に */
+  margin: 0 auto;           /* 中央寄せ */
+  background-color: transparent; /* 背景の白い箱が不要ならここをtransparentに */
+  border: none;             /* 枠線が不要ならここをnoneに */
+  box-shadow: none;         /* 影が不要ならここをnoneに */
+}
+
+/* 箱の中の画像自体のサイズ */
+#concept .img img, 
+#work .img img, 
+#products .img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;      /* 画像の比率を保ったまま収める */
+}
+
+/* スマホでは少しだけ小さくする */
+@media screen and (max-width: 767px) {
+  #concept .img, #work .img, #products .img {
+    width: 150px !important;
+    height: 150px !important;
+    margin-bottom: 20px;
+  }
+}
