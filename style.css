@@ -532,3 +532,23 @@ section h2 {
   object-fit: contain;       /* 形を崩さずに収める */
   margin-bottom: 15px;
 }
+
+/* --- スキルアイコンのサイズをすべて統一 --- */
+
+/* SVG（IllustratorやHTML/CSSのアイコン）の設定 */
+.skill-item svg {
+  width: 50px !important;
+  height: 50px !important;
+  margin: 0 auto 15px !important;
+  display: block !important;
+  fill: #4682b4;
+}
+
+/* 画像（JavaScriptのアイコンなど）の設定 ★ここを追加 */
+.skill-item img {
+  width: 50px !important;
+  height: 50px !important;
+  margin: 0 auto 15px !important;
+  display: block !important;
+  object-fit: contain; /* 形を崩さず枠内に収める */
+}
