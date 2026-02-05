@@ -1,23 +1,29 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（スチールブルー統一） --- */
+/* --- 1. 基本設定（全要素の色をスチールブルーに固定） --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0; padding: 0;
   background-color: #ffffff;
-  color: #4682b4 !important; /* 全テキストを水色に統一 */
-  font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif;
+  /* 全てのテキストを水色に。!importantで確実に上書きします */
+  color: #4682b4 !important; 
+  font-family: 'Montserrat', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+}
+
+/* 全ての要素（タイトル、段落、リスト等）の色を強制的に統一 */
+h1, h2, h3, h4, p, li, dt, dd, span {
+  color: #4682b4 !important;
 }
 
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 a { transition: 0.3s; text-decoration: none; color: #4682b4; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー（ナビゲーション横並び） --- */
+/* --- 2. ヘッダー（横並びとロゴサイズ） --- */
 #header {
   display: flex !important;
   justify-content: space-between;
@@ -26,19 +32,21 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
   max-width: 1000px;
   margin: 0 auto;
 }
+.site-title img { width: 100px; }
 #header ul {
   display: flex !important;
   list-style: none;
   margin: 0; padding: 0;
 }
 #header li { margin-left: 30px; }
-#header a { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; }
+#header a { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* --- 3. メインビジュアル（ロゴ敷き詰め） --- */
+/* --- 3. メインビジュアル（ロゴ敷き詰め・背景調整） --- */
 #mainvisual {
   width: 100%;
   height: 400px;
   background-color: #f4f7f9;
+  /* 透過度を調整したロゴパターン */
   background-image: linear-gradient(rgba(244, 247, 249, 0.5), rgba(244, 247, 249, 0.5)), url("logo.svg");
   background-repeat: repeat;
   background-size: 100px auto;
@@ -49,72 +57,66 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
 }
 #mainvisual::after {
   content: "PORTFOLIO";
-  background: #fff;
+  background: #ffffff;
   color: #4682b4;
   font-size: 2.5rem;
   font-weight: 800;
   padding: 20px 60px;
   letter-spacing: 0.4em;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
 }
 
-/* --- 4. ワークス一覧（work.html：サイズ適正化） --- */
+/* --- 4. ワークス一覧（work.html：2列・適正サイズ） --- */
 .detail-container {
-  max-width: 800px; /* ここを絞ることで画像が大きくなりすぎるのを防ぎます */
+  max-width: 800px; /* 全体幅を絞ることで、画像が「デカすぎる」のを防ぎます */
   margin: 0 auto;
   padding: 60px 20px;
 }
-
 .goods-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列 */
-  gap: 60px 40px; /* 上下の余白を広めにとってスッキリ */
+  grid-template-columns: repeat(2, 1fr); /* 2列固定 */
+  gap: 50px 30px; /* 上下左右の余白 */
   margin-top: 50px;
 }
-
 .goods-item { width: 100% !important; text-align: left; }
-
 .image-wrap {
   width: 100%;
-  aspect-ratio: 16 / 10; /* 全画像の高さを一定に揃える */
+  aspect-ratio: 16 / 10; /* 全画像の比率を統一 */
   overflow: hidden;
   border: 1px solid #d1e1ee;
   margin-bottom: 15px;
+  background-color: #f4f7f9;
 }
-
 .image-wrap img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: 0.5s ease;
+  transition: transform 0.6s ease;
 }
 .goods-item:hover .image-wrap img { transform: scale(1.05); }
 
-/* --- 5. スキル（横並び・色保持・ホバー） --- */
+/* --- 5. スキル（横並び・色保持・ホバー浮遊） --- */
 .skills-grid {
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 30px; margin-top: 50px;
 }
-
 .skill-item {
   width: calc(33.333% - 30px); min-width: 250px;
   padding: 40px 20px; background: #f9fbff;
   text-align: center; border-radius: 8px;
   transition: all 0.4s ease;
 }
-
 .skill-item:hover {
   transform: translateY(-10px);
   background: #ffffff;
   box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
 }
-
-.skill-item img, .skill-item svg {
+.skill-item img {
   width: 60px !important; height: 60px !important;
   margin: 0 auto 20px !important; display: block;
-  /* アイコンの色を絶対に変えない設定 */
+  /* ロゴの色を100%保持 */
   filter: none !important; opacity: 1 !important;
 }
 
-/* --- 6. お問い合わせ（白背景ボタンで視認性向上） --- */
+/* --- 6. お問い合わせ（白背景ボタン・高コントラスト） --- */
 .btn-area { text-align: center; margin-top: 40px; }
 .btn-area input[type="submit"] {
   background-color: #ffffff !important;
@@ -124,24 +126,25 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
   font-weight: 700;
   cursor: pointer;
   transition: 0.3s;
-  -webkit-appearance: none; /* ブラウザ標準デザインのリセット */
+  border-radius: 0;
 }
 .btn-area input[type="submit"]:hover {
   background-color: #4682b4 !important;
-  color: #fff !important;
+  color: #ffffff !important;
 }
 
-/* --- 7. フーター（濃紺で引き締める） --- */
+/* --- 7. フーター（濃紺でページを締める） --- */
 #footer {
-  background-color: #356a94 !important; /* 濃い水色で見やすく */
+  background-color: #356a94 !important; /* 濃い水色 */
   color: #ffffff !important;
   text-align: center; padding: 60px 0; margin-top: 100px;
 }
-#footer p { color: #ffffff !important; margin: 0; }
+#footer p { color: #ffffff !important; }
 
-/* --- 8. レスポンシブ（スマホ対応） --- */
+/* --- 8. スマホ対応 --- */
 @media screen and (max-width: 768px) {
   #header { flex-direction: column; gap: 20px; }
   .goods-grid { grid-template-columns: 1fr; }
   .skill-item { width: 100%; }
+  #mainvisual::after { font-size: 1.6rem; padding: 15px 40px; }
 }
