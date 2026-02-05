@@ -219,13 +219,19 @@ button {
   -webkit-appearance: none;    /* iOSでの自動角丸を防止 */
 }
 
-/* --- セクションが浮き上がるための準備設定 --- */
+/* --- セクション浮き上がりの準備 --- */
 .js-fade-up {
-  opacity: 0;                /* 最初は透明 */
-  transform: translateY(50px); /* 50px下に下げておく */
-  transition: opacity 1.2s ease, transform 1.2s ease; /* 1.2秒かけて動く */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  will-change: opacity, transform; /* 動作をスムーズにする */
 }
 
+/* 画面に入った時に付与されるクラス。!importantを付けて確実に表示させる */
+.js-fade-up.is-show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 /* 画面に入った時に付与されるクラス */
 .is-show {
   opacity: 1;
