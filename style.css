@@ -396,3 +396,37 @@ input[type="submit"] {
   margin-right: auto !important;
   text-align: center !important;
 }
+
+/* --- スキルアイコンのサイズアップ ＆ 水色カラー化 --- */
+
+.skill-item .img, 
+.skill-item img, 
+.skill-item svg {
+  /* 一回り大きく設定（50px） */
+  width: 50px !important; 
+  height: 50px !important;
+  max-width: 50px !important;
+  max-height: 50px !important;
+  
+  margin: 0 auto 15px !important; 
+  display: block !important;
+  object-fit: contain !important;
+
+  /* ★アイコンを水色（#4682b4）系に染める魔法のフィルター */
+  /* 元が黒いアイコンの場合、これで綺麗な水色になります */
+  filter: invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(90%) !important;
+  
+  transition: transform 0.4s ease-out, filter 0.4s ease-out !important;
+}
+
+/* マウスを乗せた時、さらに少し強調する（お好みで） */
+.skill-item:hover img {
+  transform: scale(1.1) !important;
+  filter: invert(40%) sepia(15%) saturate(2000%) hue-rotate(170deg) brightness(100%) contrast(100%) !important;
+}
+
+/* スキル名のテキストも水色に統一 */
+.skill-item p {
+  color: #4682b4 !important;
+  font-weight: bold;
+}
