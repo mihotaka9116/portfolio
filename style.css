@@ -348,3 +348,51 @@ button {
 .skill-item:hover img {
   transform: scale(1.1); /* ほんの少しだけ大きくして見やすく */
 }
+
+/* --- 1. 全てのセクションタイトルを中央に --- */
+section h2, 
+#concept h2, 
+#skill h2, 
+#work h2, 
+#contact h2 {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; /* 横方向の中央 */
+  justify-content: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 60px !important;
+}
+
+/* タイトルの下の棒（もしあれば）も中央に */
+section h2::after {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* --- 2. 全てのボタン（VIEW MORE / SEND等）を中央に --- */
+/* ボタンを包んでいるエリアを中央揃えにする */
+.container, 
+#work .container, 
+#contact .container {
+  text-align: center !important;
+}
+
+/* ボタン自体の配置を中央に固定 */
+.btn, 
+.view-detail-btn, 
+input[type="submit"] {
+  display: inline-block !important; /* blockではなくinline-blockで中央寄せを有効に */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none !important; /* 寄ってしまうのを防ぐ */
+}
+
+/* --- 3. コンセプトのテキストなども念のため中央に --- */
+#concept p, 
+#skill p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
