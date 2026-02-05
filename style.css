@@ -1,139 +1,153 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（Montserrat適用） --- */
+/* --- 1. 基本設定（テキスト色を水色に統一） --- */
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
 body {
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   background-color: #ffffff;
-  color: #333;
+  color: #4682b4 !important; /* 本文もすべて水色に統一 */
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* --- 2. ヘッダー（ナビの横並びを完全固定） --- */
+img { max-width: 100%; height: auto; vertical-align: bottom; }
+a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* --- 2. ヘッダー（横並びを確実に固定） --- */
 #header {
   display: flex !important;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 40px;
-  max-width: 1100px;
+  padding: 40px 0;
+  max-width: 1000px;
   margin: 0 auto;
 }
+.site-title img { width: 100px; }
 #header ul {
   display: flex !important;
+  flex-direction: row !important;
   list-style: none;
   margin: 0; padding: 0;
 }
-#header li { margin-left: 25px; }
-#header a {
-  text-decoration: none;
-  color: #4682b4;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
+#header li { margin-left: 30px; }
+#header a { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; }
+
+/* --- 3. メインビジュアル --- */
+#mainvisual {
+  width: 100%;
+  height: 400px;
+  background-color: #f4f7f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
 }
 
-/* --- 3. 作品一覧（グリッドレイアウト） --- */
-.detail-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 60px 20px;
+/* --- 4. セクションタイトル --- */
+.section-title-area {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-title {
+  color: #4682b4 !important;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.15em;
+}
+.section-title-en {
+  display: block;
+  font-size: 0.8rem;
+  color: #a0c4de; /* 少し薄い水色 */
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-top: 10px;
+}
+
+/* --- 5. メインコンテンツ（2カラム左右交互） --- */
+section { padding: 80px 0; }
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+/* 偶数番目は左右反転 */
+section:nth-of-type(even) .content { flex-direction: row-reverse; }
+
+/* 画像サイズを固定（巨大化防止） */
+.content .img {
+  width: 45%;
+  flex-shrink: 0;
   text-align: center;
 }
-
-.goods-grid {
-  display: grid;
-  /* PCで3列、1100px以下で2列、スマホで1列に自動調整 */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin-top: 50px;
-}
-
-.goods-item {
-  width: 100% !important; /* 巨大化を防止 */
-  background: #fff;
-  transition: transform 0.3s ease;
-  text-align: left; /* テキストは読みやすく左寄せ */
-}
-
-/* 画像の高さを統一して整列させる最重要パーツ */
-.image-wrap {
+.content .img img {
   width: 100%;
-  aspect-ratio: 16 / 9; /* 比率を16:9で統一 */
-  overflow: hidden;
-  border: 1px solid #f0f0f0;
-  margin-bottom: 15px;
+  max-width: 380px; /* ここでサイズを制限 */
+  height: auto;
+  border-radius: 4px;
 }
 
-.image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 枠に合わせて切り抜き */
-  transition: transform 0.5s ease;
+.content .text {
+  width: 48%;
+  text-align: left;
 }
-
-.goods-item:hover .image-wrap img {
-  transform: scale(1.1); /* ホバー時にズームアップ */
-}
-
-/* 作品タイトルとボタン */
-.item-caption {
-  font-weight: 700;
+.content .text h3 {
   color: #4682b4;
-  font-size: 1.1rem;
-  display: block;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-top: 0;
 }
 
-.custom-btn {
+/* --- 6. スキル・ボタン・フォーム --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.skill-item {
+  padding: 30px;
+  background: #f9fbff;
+  text-align: center;
+}
+.skill-item img, .skill-item svg {
+  width: 50px !important; height: 50px !important; margin-bottom: 15px;
+}
+
+.btn {
   display: inline-block;
-  padding: 10px 30px;
+  padding: 15px 50px;
   background-color: #4682b4;
   color: #ffffff !important;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  font-weight: 700;
   border-radius: 0;
+  margin-top: 20px;
 }
 
-/* --- 4. フッター --- */
+.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
+.contact-form dt { font-weight: 700; color: #4682b4; margin-bottom: 8px; }
+.contact-form dd { margin: 0 0 25px 0; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 15px; border: 1px solid #d1e1ee; border-radius: 0;
+}
+.btn-area { text-align: center; margin-top: 30px; }
+
+/* --- 7. フッター --- */
 #footer {
-  background: #4682b4;
-  color: #fff;
+  background-color: #4682b4;
+  color: #ffffff;
   text-align: center;
   padding: 60px 0;
-  margin-top: 100px;
 }
 
-/* スマホ対応の微調整 */
+/* --- 8. レスポンシブ --- */
 @media screen and (max-width: 768px) {
   #header { flex-direction: column; gap: 20px; }
-  .goods-grid { gap: 30px; }
-}
-
-/* --- サイト全体のテキスト色をセクションタイトルと同じ水色に統一 --- */
-
-body {
-  color: #4682b4 !important; /* 全体の文字色を水色に固定 */
-}
-
-p, dt, dd, li {
-  color: #4682b4 !important; /* 本文、リスト、ラベルもすべて水色に */
-}
-
-/* もし「制作物の説明文」などが別のクラス名（.text p など）で指定されていても
-   これで強制的に水色になります */
-.content .text p,
-.item-caption,
-.skill-item p {
-  color: #4682b4 !important;
-}
-
-/* --- お問い合わせフォームの入力文字だけは読みやすさのため黒系を推奨 --- */
-/* もし入力文字まで水色にしたい場合は、以下のブロックは削除してください */
-input[type="text"],
-input[type="email"],
-textarea {
-  color: #333; 
+  .content, section:nth-of-type(even) .content { flex-direction: column; text-align: center; gap: 40px; }
+  .content .img, .content .text { width: 100%; }
+  .content .text { text-align: center; }
 }
