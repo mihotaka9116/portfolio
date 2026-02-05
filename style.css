@@ -1,130 +1,154 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（プロ仕様のミニマル） --- */
+/* --- 1. Reset & Base --- */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
 body {
-  background-color: #ffffff;
-  color: #333; /* 文字は読みやすく濃いグレーに */
-  font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.8;
   margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+  font-family: 'Montserrat', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
+img { max-width: 100%; height: auto; vertical-align: bottom; }
+a { transition: opacity 0.3s ease; text-decoration: none; }
+a:hover { opacity: 0.7; }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. セクションタイトル（左寄せで知的な印象に） --- */
+/* --- 2. Header & Footer --- */
+#header {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-title img { width: 100px; }
+#header ul { display: flex; list-style: none; margin: 0; padding: 0; }
+#header li { margin-left: 30px; }
+#header a { color: #4682b4; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.1em; }
+
+#footer {
+  background: #4682b4;
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+  margin-top: 100px;
+}
+
+/* --- 3. Section Titles --- */
 .section-title-area {
-  margin-bottom: 60px;
-  border-left: 4px solid #4682b4;
-  padding-left: 20px;
+  text-align: center;
+  margin-bottom: 80px;
 }
-
 .section-title {
-  font-size: 2rem;
-  font-weight: 700;
   color: #4682b4;
+  font-size: 2.2rem;
   margin: 0;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  font-weight: 700;
 }
-
 .section-title-en {
   font-size: 0.8rem;
   color: #999;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.3em;
+  display: block;
+  margin-top: 10px;
 }
 
-/* --- 3. メインレイアウト（左右交互の2カラム） --- */
+/* --- 4. Main Contents (左右交互レイアウト) --- */
 section { padding: 100px 0; }
 
 .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 80px;
-  margin-bottom: 40px;
+  gap: 60px;
 }
 
-/* 偶数番目のセクションは左右を入れ替える（リズムを作る） */
+/* 偶数番目のセクションは左右を反転 */
 section:nth-of-type(even) .content {
   flex-direction: row-reverse;
 }
 
-/* 画像サイズを厳密に固定（巨大化防止） */
+/* 画像サイズを適切に固定 (巨大化防止) */
 .content .img {
-  width: 45%;
+  width: 48%;
   flex-shrink: 0;
 }
-
 .content .img img {
   width: 100%;
-  max-width: 450px; /* ここで最大サイズを固定 */
+  max-width: 450px; /* ここでサイズを制限 */
   height: auto;
-  box-shadow: 20px 20px 0px #f0f4f7; /* オシャレな背面のズレ影 */
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .content .text {
-  width: 50%;
-  text-align: left; /* 左寄せに戻して読みやすく */
+  width: 48%;
+  text-align: left;
 }
-
 .content .text h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #4682b4;
+  margin-top: 0;
   margin-bottom: 20px;
 }
 
-/* --- 4. ボタン（プロ仕様：塗りつぶさない枠線スタイル） --- */
+/* --- 5. Skills Grid --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.skill-item {
+  padding: 40px;
+  background: #f9fbff;
+  text-align: center;
+  border-radius: 8px;
+}
+.skill-item img, .skill-item svg {
+  width: 50px !important;
+  height: 50px !important;
+  margin-bottom: 20px;
+}
+
+/* --- 6. Buttons & Forms --- */
 .btn {
   display: inline-block;
-  padding: 12px 40px;
-  border: 1px solid #4682b4;
-  color: #4682b4 !important;
-  text-decoration: none;
+  padding: 15px 45px;
+  background-color: #4682b4;
+  color: #fff !important;
   font-weight: 600;
   letter-spacing: 0.1em;
-  transition: all 0.3s ease;
+  border-radius: 0;
   margin-top: 20px;
 }
 
-.btn:hover {
-  background-color: #4682b4;
-  color: #fff !important;
+.contact-form { max-width: 600px; margin: 0 auto; }
+.contact-form dt { font-weight: bold; margin-bottom: 8px; color: #4682b4; }
+.contact-form dd { margin: 0 0 25px 0; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d1e1ee;
+  border-radius: 0;
 }
 
-/* --- 5. アイコン・スキル（グリッドレイアウト） --- */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
-
-.skill-item {
-  padding: 30px;
-  background: #fdfdfd;
-  border: 1px solid #eee;
-  text-align: center;
-}
-
-.skill-item svg, .skill-item img {
-  width: 50px !important; /* アイコンの巨大化を防止 */
-  height: 50px !important;
-  margin-bottom: 15px;
-}
-
-/* --- 6. レスポンシブ --- */
+/* --- 7. Responsive --- */
 @media screen and (max-width: 768px) {
+  #header { flex-direction: column; gap: 20px; }
+  #header li { margin: 0 10px; }
+  
   .content, section:nth-of-type(even) .content {
     flex-direction: column;
+    text-align: center;
     gap: 40px;
   }
-  .content .img, .content .text {
-    width: 100%;
-  }
-  .content .img img {
-    max-width: 100%;
-  }
+  .content .img, .content .text { width: 100%; }
+  .content .text { text-align: center; }
+  
+  .section-title { font-size: 1.8rem; }
 }
