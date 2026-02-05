@@ -210,3 +210,24 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     margin-top: 0; /* 余計な隙間をカット */
   }
 }
+
+/* --- お問い合わせボタンを長方形にする --- */
+.btn, 
+input[type="submit"], 
+button {
+  border-radius: 0 !important; /* 角丸を完全に削除 */
+  -webkit-appearance: none;    /* iOSでの自動角丸を防止 */
+}
+
+/* --- セクションが浮き上がるための準備設定 --- */
+.js-fade-up {
+  opacity: 0;                /* 最初は透明 */
+  transform: translateY(50px); /* 50px下に下げておく */
+  transition: opacity 1.2s ease, transform 1.2s ease; /* 1.2秒かけて動く */
+}
+
+/* 画面に入った時に付与されるクラス */
+.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
