@@ -429,4 +429,44 @@ section h2 span {
   opacity: 0.8;                      /* 少しだけ薄くして対比を出す */
 }
 
-ｖ
+/* --- タイトル下線の復活と配置の修正 --- */
+
+section h2.js-fade-up {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  opacity: 0; /* アニメーション用初期値 */
+  padding-bottom: 25px !important; /* 日本語と線の間の距離 */
+  position: relative !important;
+  overflow: visible !important;   /* ★線がはみ出しても消えないようにする */
+}
+
+/* 表示された時の状態 */
+section h2.js-fade-up.is-show {
+  opacity: 1;
+}
+
+/* 日本語サブタイトルの強制改行 */
+section h2 span {
+  display: block !important;
+  font-size: 0.9rem !important;
+  margin-top: 10px !important;
+  font-weight: normal !important;
+  letter-spacing: 0.2em;
+}
+
+/* ★下線の再定義（絶対配置で一番下に置く） */
+section h2::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  bottom: 0 !important;             /* padding-bottomの最下部に配置 */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 60px !important;           /* 線の長さ */
+  height: 2px !important;           /* 線の太さ */
+  background-color: #4682b4 !important;
+  z-index: 10 !important;           /* ★他の要素より手前に出す */
+}
+
+
