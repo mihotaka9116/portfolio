@@ -1,278 +1,113 @@
 @charset "UTF-8";
 
-/* --- 1. Reset & Base (基本設定) --- */
+/* --- 1. 基本設定（Montserrat適用） --- */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background-color: #ffffff;
   color: #333;
-  font-family: 'Montserrat', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
 }
 
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-a { transition: opacity 0.3s ease; text-decoration: none; }
-a:hover { opacity: 0.7; }
-
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
-/* --- 2. Header (ロゴと横並びナビ) --- */
+/* --- 2. ヘッダー（ナビの横並びを完全固定） --- */
 #header {
   display: flex !important;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0;
-  max-width: 1000px;
+  padding: 30px 40px;
+  max-width: 1100px;
   margin: 0 auto;
 }
-
-.site-title img { width: 100px; }
-
 #header ul {
   display: flex !important;
-  flex-direction: row !important;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
 }
-
-#header li { margin-left: 30px; }
-#header a { 
-  color: #4682b4; 
-  font-weight: 600; 
-  font-size: 0.9rem; 
+#header li { margin-left: 25px; }
+#header a {
+  text-decoration: none;
+  color: #4682b4;
+  font-weight: 600;
+  font-size: 0.9rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
-/* --- 3. Main Visual (復活) --- */
-#mainvisual {
-  width: 100%;
-  height: 500px;
-  background-color: #f4f7f9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 80px;
-}
-/* 背景に画像を使いたい場合は以下のコメントアウトを外す */
-/* #mainvisual { background: url("../img/main.jpg") no-repeat center center / cover; } */
-
-/* --- 4. Section Title (共通スタイル) --- */
-.section-title-area {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-title {
-  color: #4682b4;
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: 0.15em;
-}
-
-.section-title-en {
-  display: block;
-  font-size: 0.8rem;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  margin-top: 10px;
-}
-
-/* --- 5. Main Content (左右交互レイアウト) --- */
-section { padding: 80px 0; }
-
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-}
-
-/* 偶数セクションの反転 */
-section:nth-of-type(even) .content { flex-direction: row-reverse; }
-
-.content .img {
-  width: 45%;
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.content .img img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
-}
-
-.content .text { width: 50%; text-align: left; }
-.content .text h3 {
-  color: #4682b4;
-  font-size: 1.5rem;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-/* --- 6. Buttons --- */
-.btn {
-  display: inline-block;
-  padding: 15px 50px;
-  background-color: #4682b4;
-  color: #ffffff !important;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  border-radius: 0;
-  border: none;
-  cursor: pointer;
-}
-
-/* --- 7. Skills Grid --- */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.skill-item {
-  padding: 40px;
-  background: #f9fbff;
-  text-align: center;
-  border-radius: 8px;
-}
-
-.skill-item img, .skill-item svg {
-  width: 50px !important;
-  height: 50px !important;
-  margin-bottom: 20px;
-}
-
-/* --- 8. Contact Form (中央配置) --- */
-.contact-form {
-  max-width: 600px;
+/* --- 3. 作品一覧（グリッドレイアウト） --- */
+.detail-container {
+  max-width: 1100px;
   margin: 0 auto;
-  text-align: left;
-}
-
-.contact-form dt {
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #4682b4;
-}
-
-.contact-form dd { margin: 0 0 25px 0; }
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #d1e1ee;
-  border-radius: 0;
-}
-
-.btn-area {
+  padding: 60px 20px;
   text-align: center;
-  margin-top: 40px;
 }
 
-/* --- 9. Footer --- */
-#footer {
-  background-color: #4682b4;
-  color: #ffffff;
-  text-align: center;
-  padding: 60px 0;
-}
-
-/* --- 10. Responsive --- */
-@media screen and (max-width: 768px) {
-  #header { flex-direction: column; gap: 20px; padding: 20px; }
-  #header li { margin: 0 10px; }
-  
-  .content, 
-  section:nth-of-type(even) .content {
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .content .img, .content .text { width: 100%; text-align: center; }
-  #mainvisual { height: 300px; }
-  .section-title { font-size: 1.8rem; }
-}
-
-/* --- Work Page (work.html) 完全版レイアウト --- */
-
-/* 1. 作品一覧の親要素（グリッド設定） */
 .goods-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動で列数を調整 */
-  gap: 40px; /* アイテム間の余白 */
-  margin: 60px 0;
+  /* PCで3列、1100px以下で2列、スマホで1列に自動調整 */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
 }
 
-/* 2. 各作品カード */
 .goods-item {
-  width: 100% !important; /* 横幅いっぱいに広がらないよう制御 */
-  text-align: left;
+  width: 100% !important; /* 巨大化を防止 */
+  background: #fff;
+  transition: transform 0.3s ease;
+  text-align: left; /* テキストは読みやすく左寄せ */
 }
 
-/* 3. 画像の枠（ここを揃えるのがプロのコツ） */
+/* 画像の高さを統一して整列させる最重要パーツ */
 .image-wrap {
   width: 100%;
-  aspect-ratio: 16 / 9; /* すべての画像の比率を16:9に統一 */
+  aspect-ratio: 16 / 9; /* 比率を16:9で統一 */
   overflow: hidden;
-  background-color: #f0f4f7;
-  border: 1px solid #eee;
+  border: 1px solid #f0f0f0;
   margin-bottom: 15px;
 }
 
 .image-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 画像を切り抜いて枠にフィットさせる */
+  object-fit: cover; /* 枠に合わせて切り抜き */
   transition: transform 0.5s ease;
 }
 
-/* ホバー時に画像を少し拡大 */
 .goods-item:hover .image-wrap img {
-  transform: scale(1.05);
+  transform: scale(1.1); /* ホバー時にズームアップ */
 }
 
-/* 4. 作品タイトル */
+/* 作品タイトルとボタン */
 .item-caption {
   font-weight: 700;
   color: #4682b4;
   font-size: 1.1rem;
-  margin: 10px 0;
   display: block;
+  margin-bottom: 10px;
 }
 
-/* 5. 詳細ボタン（メインページと共通化） */
 .custom-btn {
   display: inline-block;
-  padding: 10px 25px;
+  padding: 10px 30px;
   background-color: #4682b4;
-  color: #fff !important;
-  font-size: 0.8rem;
-  font-weight: 600;
+  color: #ffffff !important;
   text-decoration: none;
-  transition: 0.3s;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  border-radius: 0;
 }
 
-.custom-btn:hover {
-  opacity: 0.8;
+/* --- 4. フッター --- */
+#footer {
+  background: #4682b4;
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+  margin-top: 100px;
 }
 
-/* スマホ表示の微調整 */
-@media screen and (max-width: 767px) {
-  .goods-grid {
-    grid-template-columns: 1fr; /* スマホは1列 */
-    gap: 30px;
-  }
+/* スマホ対応の微調整 */
+@media screen and (max-width: 768px) {
+  #header { flex-direction: column; gap: 20px; }
+  .goods-grid { gap: 30px; }
 }
