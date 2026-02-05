@@ -1,74 +1,103 @@
-@charset "UTF-8";
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
-/* 1. 基本設定 */
-* { box-sizing: border-box !important; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0; padding: 0; background-color: #fff; color: #4682b4;
-  font-family: 'Montserrat', sans-serif; line-height: 1.8; text-align: center;
-}
-a { color: #4682b4; text-decoration: none; }
+    <header id="header">
+        <h1><img src="logo.svg" alt="Logo" style="width: 120px;"></h1>
+        <nav>
+            <ul>
+                <li><a href="#concept">CONCEPT</a></li>
+                <li><a href="#skill">SKILL</a></li>
+                <li><a href="#work">WORK</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
 
-/* 2. ヘッダー */
-#header {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 20px 5%; max-width: 1200px; margin: 0 auto;
-}
-#header ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+    <div id="mainvisual"></div>
 
-/* 3. セクションタイトル */
-section h2 {
-  display: flex; flex-direction: column; align-items: center;
-  margin-bottom: 60px; position: relative; padding-bottom: 20px; font-size: 2rem;
-}
-section h2 span { display: block; font-size: 0.9rem; margin-top: 10px; font-weight: normal; }
-section h2::after {
-  content: ""; position: absolute; bottom: 0; left: 50%;
-  transform: translateX(-50%); width: 50px; height: 2px; background-color: #4682b4;
-}
+    <main>
+        <section id="concept">
+            <div class="container">
+                <h2>CONCEPT <span>コンセプト</span></h2>
+                <div class="img">
+                    <img src="concept.png" alt="コンセプト画像">
+                </div>
+                <p>あなたの想いを形にするお手伝いをします。<br>
+                シンプルで使いやすく、温かみのあるデザインを心がけています。</p>
+            </div>
+        </section>
 
-/* 4. スキル：アイコン巨大化を物理的に防ぐ命令 */
-.skills-grid {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
-  max-width: 1000px; margin: 0 auto;
-}
-.skill-item {
-  width: calc((100% - 60px) / 3); min-width: 200px;
-  padding: 30px 15px; background: #f9fbff; border-radius: 12px;
-}
+        <section id="skill">
+            <div class="container">
+                <h2>SKILL <span>スキル</span></h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="img"><img src="html.png" alt="html"></div>
+                        <p>HTML/CSS</p>
+                        <p>Webサイトの骨組みと装飾を担当します。</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="img"><img src="ai.png" alt="illustrator"></div>
+                        <p>Illustrator</p>
+                        <p>ロゴやアイコン、印刷物のデザインが可能です。</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="img"><img src="js.png" alt="javascript"></div>
+                        <p>JavaScript</p>
+                        <p>動きのあるサイトを制作することが可能です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-/* --- ここが巨大化を殺す核心部分 --- */
-/* .imgという枠、その中のimgタグ、svgタグ、すべてを60pxに閉じ込めます */
-.skill-item .img, 
-.skill-item img, 
-.skill-item svg {
-  width: 60px !important;
-  height: 60px !important;
-  max-width: 60px !important;
-  min-width: 60px !important;
-  margin: 0 auto 15px !important;
-  display: block !important;
-  object-fit: contain !important;
-}
+        <section id="work">
+            <div class="container">
+                <h2>WORK <span>制作実績</span></h2>
+                <div class="goods-grid">
+                    <div class="image-wrap">
+                        <img src="work1.png" alt="実績1">
+                    </div>
+                    <div class="image-wrap">
+                        <img src="work2.png" alt="実績2">
+                    </div>
+                </div>
+                <a href="work.html" class="btn">VIEW DETAIL</a>
+            </div>
+        </section>
 
-/* 5. 制作実績 */
-.goods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-/* ここは実績画像なので、幅100%でOK */
-.image-wrap img { width: 100%; height: auto; border-radius: 8px; }
+        <section id="contact">
+            <div class="container">
+                <h2>CONTACT <span>お問い合わせ</span></h2>
+                <form action="#" class="contact-form">
+                    <div class="item">
+                        <label>Name</label>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="item">
+                        <label>Email</label>
+                        <input type="email" name="email">
+                    </div>
+                    <div class="item">
+                        <label>Message</label>
+                        <textarea name="message"></textarea>
+                    </div>
+                    <input type="submit" value="SEND" class="btn">
+                </form>
+            </div>
+        </section>
+    </main>
 
-/* 6. ボタン */
-.btn, .view-detail-btn, input[type="submit"] {
-  display: inline-block; background-color: #4682b4; color: #fff !important;
-  padding: 14px 50px; border-radius: 50px; margin: 40px 0; font-weight: 700; border: none;
-}
+    <footer id="footer">
+        <p>&copy; 2026 Portfolio All rights reserved.</p>
+    </footer>
 
-/* 7. フッター */
-#footer { background-color: #4682b4; padding: 40px 0; margin-top: 80px; }
-#footer p { color: #fff; margin: 0; }
-
-/* スマホ対応 */
-@media screen and (max-width: 768px) {
-  #header { flex-direction: column; gap: 20px; }
-  .skill-item { width: 100%; }
-  .goods-grid { grid-template-columns: 1fr; }
-}
+</body>
+</html>
