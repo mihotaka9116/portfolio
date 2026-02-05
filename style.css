@@ -164,3 +164,30 @@ section { padding: 80px 0; clear: both; }
 .view-detail-btn:visited {
   color: #ffffff !important;
 }
+
+/* --- 強制修正：詳細ページのボタンを白く、ロゴを遠ざける --- */
+
+/* aタグ自体の色を「最初から白」に上書き */
+section#work a.btn, 
+.view-detail-btn,
+a[href="work.html"].btn {
+  color: #ffffff !important;           /* 最初から絶対白 */
+  background-color: #4682b4 !important; /* 背景の青を確定 */
+  display: inline-block !important;
+  margin-top: 40px !important;
+  margin-bottom: 150px !important;     /* ★ロゴを思いっきり下に押し下げる */
+  padding: 15px 50px !important;
+  opacity: 1 !important;               /* 透明度をリセット */
+}
+
+/* 訪問済みでも白を維持 */
+section#work a.btn:visited,
+.view-detail-btn:visited {
+  color: #ffffff !important;
+}
+
+/* ロゴマーク（詳細ページの下にあるもの）側の余白も確保 */
+.detail-container img, 
+footer img {
+  margin-top: 50px !important;
+}
