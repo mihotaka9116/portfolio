@@ -12,50 +12,71 @@ body {
   line-height: 1.8;
 }
 
-/* リンク色を常に水色に固定 */
+/* リンク色：訪問後も水色をキープ */
 a, a:visited, a:active {
   color: #4682b4 !important;
   text-decoration: none;
+  transition: 0.3s;
 }
 a:hover { opacity: 0.7; }
 
-h1, h2, h3, h4, p, li, dt, dd { color: #4682b4 !important; }
+h1, h2, h3, h4, p, li, dt, dd, span, label { color: #4682b4 !important; }
 
-/* --- 2. 制作したもの（WORKS）セクション：左テキスト・右ロゴ --- */
-#works .content {
+/* --- 2. レイアウト共通設定 --- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section { padding: 100px 0; }
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* --- 3. CONCEPTセクション：左写真・右テキスト --- */
+#concept .content {
+  flex-direction: row; 
+}
+
+/* --- 4. 制作したもの（WORK）セクション：左テキスト・右写真 --- */
+#work.js-fade-up {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 50px;
   max-width: 1000px;
   margin: 0 auto;
+  flex-direction: row; /* 左テキスト・右写真 */
 }
 
-#works .text {
-  width: 55%;
-  text-align: left;
-}
-
-#works .img {
-  width: 40%;
+/* 写真の巨大化を完全に防ぐ */
+.img {
+  width: 45%;
+  flex-shrink: 0;
   text-align: center;
 }
-
-/* ★巨大化防止：ロゴ・写真のサイズを制限 */
-#works .img img {
+.img img {
   width: 100%;
-  max-width: 320px; /* この数値を小さくするとさらに写真は小さくなります */
+  max-width: 350px; /* ここでサイズを固定 */
   height: auto;
-  display: inline-block;
+  border-radius: 8px;
 }
 
-/* --- 3. SKILLS：小さめ水色アイコンの完全再現 --- */
+.text { width: 50%; }
+
+/* --- 5. スキル：以前の「小さめ水色アイコン」を完全再現 --- */
+.text-center { text-align: center; margin-bottom: 40px; }
+
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  margin-top: 50px;
 }
 
 .skill-item {
@@ -73,61 +94,100 @@ h1, h2, h3, h4, p, li, dt, dd { color: #4682b4 !important; }
   box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
 }
 
-/* ★スキルアイコンのサイズ固定と色加工 */
-.skill-item img {
-  width: 60px !important;      /* 理想の小さいサイズ */
-  height: 60px !important;
-  margin: 0 auto 20px !important;
+/* スキルアイコン（SVG）のサイズと色の固定 */
+.skill-item svg {
+  width: 50px !important;
+  height: 50px !important;
+  margin: 0 auto 20px;
   display: block;
-  object-fit: contain;
-  /* アイコンを水色に染めるフィルター */
-  filter: sepia(1) saturate(2) hue-rotate(175deg) brightness(0.8) !important;
+  fill: #4682b4 !important; /* SVGアイコンを水色に */
 }
 
-/* --- 4. ボタン & フォームのデザイン --- */
-.view-more, 
-.btn-area input[type="submit"] {
-  display: inline-block;
-  background-color: #4682b4 !important;
-  color: #ffffff !important;
-  padding: 12px 50px;
-  border-radius: 50px;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#contact .contact-form {
-  max-width: 650px;
-  margin: 0 auto;
+/* --- 6. お問い合わせ：寂しさを解消するリッチデザイン --- */
+.contact-form {
+  max-width: 600px;
+  margin: 50px auto 0;
   background-color: #f9fbff;
-  padding: 40px;
+  padding: 50px 40px;
   border-radius: 15px;
 }
 
-.contact-form input, 
+.contact-form .item {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
 .contact-form textarea {
   width: 100%;
   padding: 15px;
   border: 2px solid #d1e1ee;
   border-radius: 8px;
-  text-align: center;
+  background: #ffffff;
   color: #4682b4;
-  margin-bottom: 20px;
+  outline: none;
+  transition: 0.3s;
 }
 
-/* --- 5. フッター --- */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #4682b4;
+}
+
+/* --- 7. ボタンデザイン（水色系） --- */
+.btn, 
+input[type="submit"] {
+  display: inline-block;
+  background-color: #4682b4 !important;
+  color: #ffffff !important;
+  padding: 14px 40px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.btn:hover, 
+input[type="submit"]:hover {
+  background-color: #356a94 !important;
+  transform: translateY(-2px);
+}
+
+/* --- 8. フッター --- */
 #footer {
   background-color: #356a94;
   color: #ffffff !important;
-  text-align: center;
   padding: 60px 0;
+  text-align: center;
+  margin-top: 100px;
 }
-#footer p { color: #ffffff !important; }
+#footer p { color: #ffffff !important; margin: 0; }
 
 /* スマホ対応 */
 @media screen and (max-width: 768px) {
-  #works .content { flex-direction: column; text-align: center; }
-  #works .text, #works .img { width: 100%; }
+  .content, #work.js-fade-up { flex-direction: column !important; text-align: center; }
+  .img, .text { width: 100%; }
+  .skill-item { width: 100%; }
+}
+
+/* フェードインアニメーション用 */
+.js-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.js-fade-up.is-show {
+  opacity: 1;
+  transform: translateY(0);
 }
