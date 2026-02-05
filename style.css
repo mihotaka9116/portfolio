@@ -88,7 +88,8 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
 .image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 .goods-item:hover .image-wrap img { transform: scale(1.05); }
 
-/* --- 7. スキル（横並び・ホバーアニメーション） --- */
+/* --- スキルセクション：アイコンの色を保持しつつ動きを出す --- */
+
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -96,26 +97,64 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
   gap: 30px;
   margin-top: 50px;
 }
+
 .skill-item {
   width: calc(33.333% - 30px);
   min-width: 250px;
   padding: 40px 20px;
-  background: #f9fbff;
+  background: #f9fbff; /* 薄い水色の背景 */
   text-align: center;
   border-radius: 8px;
   transition: all 0.4s ease;
   box-shadow: 0 5px 15px rgba(70, 130, 180, 0.05);
-}
-.skill-item:hover {
-  transform: translateY(-10px); /* ふわっと浮く */
-  background: #ffffff;
-  box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
-}
-.skill-item img, .skill-item svg {
-  width: 60px !important; height: 60px !important;
-  margin: 0 auto 20px !important; display: block;
+  border: 1px solid transparent; /* ホバー時のガタつき防止 */
 }
 
+/* ホバー時の動き：背景と影だけを変化させる */
+.skill-item:hover {
+  transform: translateY(-10px);
+  background: #ffffff; /* 箱の背景だけ白くして浮遊感を出す */
+  box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
+  border: 1px solid #d1e1ee;
+}
+
+/* ★重要：画像の色を変えず、大きさだけ制御する */
+.skill-item img, 
+.skill-item svg {
+  width: 60px !important;
+  height: 60px !important;
+  margin: 0 auto 20px !important;
+  display: block;
+  /* 透過度やフィルターを一切かけない設定 */
+  filter: none !important; 
+  opacity: 1 !important;
+  transition: transform 0.4s ease;
+}
+
+/* ホバー時にアイコンが少しだけ大きく強調される演出 */
+.skill-item:hover img {
+  transform: scale(1.1);
+}
+
+.skill-item h3 {
+  font-size: 1.2rem;
+  color: #4682b4; /* タイトルと同じ水色 */
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.skill-item p {
+  font-size: 0.9rem;
+  color: #4682b4 !important; /* テキストも水色 */
+  line-height: 1.6;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+  .skill-item {
+    width: 100%;
+  }
+}
 /* --- 8. お問い合わせ（白ボタン・高コントラスト） --- */
 .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
 .contact-form dt { font-weight: 700; margin-bottom: 10px; }
