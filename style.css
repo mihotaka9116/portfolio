@@ -119,3 +119,44 @@ section { padding: 100px 0; clear: both; }
 /* アニメーション用 */
 .js-fade-up { opacity: 0; transform: translateY(20px); transition: 0.8s; }
 .js-fade-up.is-show { opacity: 1; transform: translateY(0); }
+
+/* --- 制作したもの・コンセプトのボタン修正 --- */
+
+/* 1. ボタン自体の文字色を白にし、上のテキストとの間隔を広げる */
+.btn, 
+input[type="submit"],
+.view-detail-btn {
+  display: inline-block !important;
+  background-color: #4682b4 !important;
+  color: #ffffff !important;           /* ★文字色を白に固定 */
+  padding: 14px 50px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  text-decoration: none !important;    /* 下線を消す */
+  margin-top: 30px;                    /* ★上のテキストとの間隔を確保 */
+  cursor: pointer;
+  transition: 0.3s ease;
+  line-height: 1;                      /* 文字の垂直位置を安定させる */
+}
+
+/* 2. 訪問済みリンクでも文字が白のままになるように強制 */
+.btn:visited,
+.view-detail-btn:visited {
+  color: #ffffff !important;
+}
+
+/* 3. ホバー時の演出（少し濃い青にして浮かせる） */
+.btn:hover,
+input[type="submit"]:hover,
+.view-detail-btn:hover {
+  background-color: #356a94 !important;
+  color: #ffffff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(70, 130, 180, 0.3);
+}
+
+/* 4. テキスト側の設定（念のためボタンとの干渉を防ぐ） */
+.text p {
+  margin-bottom: 0; /* pタグの下余白をリセットして、ボタンのmargin-topで制御する */
+}
