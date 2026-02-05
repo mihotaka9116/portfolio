@@ -268,3 +268,34 @@ input[type="submit"] {
   box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
   background-color: #ffffff !important;
 }
+
+/* --- スキルカードを等間隔に配置 --- */
+
+.skills-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important; /* 中央から並べる */
+  gap: 40px !important;              /* ★箱と箱の間の「縦・横」の隙間を40pxで固定 */
+  margin-top: 50px !important;
+  padding: 0 20px;                   /* スマホ時に端がくっつくのを防止 */
+}
+
+.skill-item {
+  /* 幅の計算：(3列の場合) 100%から隙間分を引いて計算 */
+  width: calc(33.333% - 30px) !important; 
+  min-width: 250px !important;        /* 小さくなりすぎないようガード */
+  margin: 0 !important;               /* gapで制御するためmarginは0に */
+  box-sizing: border-box;
+}
+
+/* スマホでは1列にする */
+@media screen and (max-width: 768px) {
+  .skill-item {
+    width: 100% !important;
+    max-width: 400px;
+    margin: 0 auto !important;
+  }
+  .skills-grid {
+    gap: 30px !important;             /* スマホでは隙間を少し狭く */
+  }
+}
