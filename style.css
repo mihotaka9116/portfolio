@@ -159,3 +159,49 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
   .skill-item { width: 100%; }
   #mainvisual::after { font-size: 1.5rem; padding: 15px 40px; }
 }
+
+/* --- work.html 全体のサイズを制限して画像を小さく見せる --- */
+
+/* 1. コンテナの最大幅を絞る（これが一番効きます） */
+.detail-container {
+  max-width: 800px; /* 900pxからさらに800pxに制限 */
+  margin: 0 auto;   /* 中央寄せ */
+  padding: 60px 20px;
+}
+
+/* 2. グリッドの余白を調整 */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列 */
+  gap: 50px 30px; /* 上下50px、左右30pxの余白 */
+  margin-top: 40px;
+}
+
+/* 3. 画像の枠の比率を調整 */
+.image-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 2; /* 16:9よりも少し縦を出すことで、横幅の広がりを抑える効果があります */
+  overflow: hidden;
+  border: 1px solid #d1e1ee;
+  background-color: #f4f7f9;
+  margin-bottom: 15px;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 4. 作品タイトルや説明文のフォントサイズを微調整 */
+.item-caption {
+  font-weight: 700;
+  font-size: 1rem; /* 少し小さくして上品に */
+  margin-bottom: 8px;
+  color: #4682b4;
+}
+
+.goods-item p {
+  font-size: 0.85rem; /* 本文も少し小さくしてバランスを取る */
+  line-height: 1.6;
+}
