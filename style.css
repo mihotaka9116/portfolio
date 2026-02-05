@@ -1,668 +1,163 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定 --- */
+/* --- 1. 基本設定（さらに洗練された質感へ） --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
-  color: #4682b4;
+  background-color: #ffffff;
+  color: #4682b4; /* 統一感のあるスチールブルー */
   font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
   margin: 0;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; /* 文字をより鮮明に */
 }
+
 img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 
-/* --- 4. セクションタイトル（全デバイス共通で中央固定） --- */
-.section-title, .section-title-en {
-  text-align: center !important; /* 強制的に中央揃え */
-  display: block !important;
-  width: 100%;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
-  margin-top: 0;
-}
-
-/* 下線の位置を中央に固定 */
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50% !important; /* 親要素の真ん中から開始 */
-  transform: translateX(-50%) !important; /* 自身の幅の半分だけ左に戻して完全中央へ */
-  width: 40px;
-  height: 2px;
-  background-color: #4682b4;
-}
-
-.section-title-en {
-  font-size: 0.8rem;
-  margin-bottom: 40px;
-}
-
-/* --- 3. ヘッダー・フッター --- */
+/* --- 2. ヘッダー（余白を広げ、浮遊感を出す） --- */
 #header {
-  width: 100%;
-  max-width: 1000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  margin: 20px auto;
-}
-.site-title img { width: 110px; }
-#header ul { display: flex; list-style: none; padding: 0; margin: 0; }
-#header li { margin-left: 25px; }
-#header a { color: #4682b4 !important; text-decoration: none; }
-
-#footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
-
-/* --- 4. トップページ（index.html）用 --- */
-#mainvisual {
-  width: 100%;
-  height: 400px;
-  background: #f9f9f9 url("logo.svg") repeat center / 120px auto;
-  margin-bottom: 60px;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 80px;
-  gap: 30px;
-  text-align: center;
-}
-/* --- メインページ：画像のサイズと浮き上がり制御 --- */
-
-/* 1. 画像を小さくする（!importantで強制適用） */
-.content .img {
-  width: 180px !important;   /* 前回の200pxよりさらに少し小さく調整 */
-  height: 180px !important;
+  padding: 40px 0;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent !important; /* 背景の白い箱を消す */
-  border: none !important;           /* 枠線を消す */
-  box-shadow: none !important;       /* 影を消す */
-  transform: none !important;        /* 勝手に浮かないように固定 */
-}
-
-.content .img img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: contain;
-}
-
-/* 2. セクション全体の浮き上がり（フェードイン）設定 */
-.js-fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.0s ease-out, transform 1.0s ease-out;
-}
-
-/* JavaScriptでこのクラスがついた時に表示される */
-.js-fade-up.is-show {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* 3. お問い合わせボタン（長方形） */
-.btn, input[type="submit"] {
-  border-radius: 0 !important;
-}
-
-/* スキル */
-.skills-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; }
-.skill-item {
-  text-align: center; padding: 30px 20px; border-radius: 8px;
-  transition: transform 0.3s ease-out, background-color 0.3s ease-out;
-}
-.skill-item:hover { transform: translateY(-10px); background-color: rgba(70, 130, 180, 0.03); }
-.skill-item svg { width: 60px; height: 60px; fill: #4682b4; margin: 0 auto 15px; display: block; }
-
-/* お問い合わせ */
-#contact { padding: 80px 0; background-color: #fff; text-align: center; }
-.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form dt { font-weight: bold; margin-bottom: 8px; }
-.contact-form dd { margin: 0 0 25px 0; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 12px; border: 1px solid #e0e6ed; border-radius: 6px;
-}
-.parsed-btn input {
-  background: #4682b4; color: #fff !important; border: none; padding: 15px 60px; border-radius: 30px; cursor: pointer; display: block; margin: 20px auto 0;
-}
-
-/* --- 5. 詳細ページ（work.html）用 --- */
-/* 基本（スマホ・全デバイス共通の中央寄せ設定） */
-.detail-container {
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center;
 }
-.main-visual-img {
-  max-width: 300px;
-  margin: 0 auto 40px;
-  display: block;
-}
-.goods-grid {
-  display: flex;
-  flex-direction: column; /* スマホでは縦並び */
-  align-items: center;
-  gap: 60px;
-  margin-bottom: 60px;
-}
-.goods-item {
-  width: 100%;
-  max-width: 550px; /* 写真のサイズ：一回り大きく */
-  text-align: center;
-}
-.image-wrap {
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-.image-wrap img { transition: transform 0.4s ease; width: 100%; display: block; }
-.goods-item:hover img { transform: scale(1.05); }
-.item-caption { font-weight: bold; color: #4682b4; }
-.custom-btn {
-  display: inline-block;
-  background-color: #4682b4;
-  color: #fff !important;
-  padding: 15px 40px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 30px;
+.site-title img { width: 100px; }
+#header ul { display: flex; list-style: none; padding: 0; margin: 0; }
+#header li { margin-left: 35px; }
+#header a { 
+  color: #4682b4 !important; 
+  text-decoration: none; 
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-/* --- 6. レスポンシブ調整（PC版：768px以上） --- */
-@media screen and (min-width: 768px) {
-  /* トップページ用 */
-  .content { flex-direction: row; justify-content: center; gap: 60px; }
-  .content:nth-of-type(even) { flex-direction: row-reverse; }
-  .content .text, .content .img { width: 45%; }
-  
-  .skills-grid { flex-direction: row; justify-content: space-between; }
-  .skill-item { width: 31%; }
-
-  /* ★詳細ページ用（ここが重要！）★ */
-  .goods-grid { 
-    flex-direction: row !important; /* 横並びに強制 */
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 40px; 
-  }
-  .goods-item { 
-    width: 45% !important; /* 2列にする */
-    max-width: none; 
-  }
-}
-
-/* --- 8. スマホ版調整 --- */
-@media screen and (max-width: 767px) {
-  /* ヘッダー全体の余白を調整 */
-  #header {
-    flex-direction: column;
-    padding: 30px 0 0 0; /* 上の余白を少し増やし、下は0に */
-    gap: 30px; /* ★ロゴとナビの間の距離 */
-  }
-
-  /* ロゴのサイズ調整 */
-  .site-title img {
-    width: 80px;
-  }
-
-  /* ナビゲーション（メニュー）の設定 */
-  #header ul {
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 30px; /* ★ナビとメインビジュアルの間の距離 */
-  }
-
-  #header li {
-    margin: 0 10px;
-  }
-
-  /* メインビジュアルの高さ調整 */
-  #mainvisual {
-    height: 250px;
-    margin-top: 0; /* 余計な隙間をカット */
-  }
-}
-
-/* --- お問い合わせボタンを長方形にする --- */
-.btn, 
-input[type="submit"], 
-button {
-  border-radius: 0 !important; /* 角丸を完全に削除 */
-  -webkit-appearance: none;    /* iOSでの自動角丸を防止 */
-}
-
-/* --- セクション浮き上がりの準備 --- */
-.js-fade-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-  will-change: opacity, transform; /* 動作をスムーズにする */
-}
-
-/* 画面に入った時に付与されるクラス。!importantを付けて確実に表示させる */
-.js-fade-up.is-show {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-/* 画面に入った時に付与されるクラス */
-.is-show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- メインページ：セクション画像のサイズを個別に調整 --- */
-
-/* Concept, Work, Productsセクション内の画像ボックス */
-#concept .img, 
-#work .img, 
-#products .img {
-  width: 200px !important;  /* 箱自体の幅を200pxに固定（お好みで調整） */
-  height: 200px !important; /* 高さも揃えて正方形に */
-  margin: 0 auto;           /* 中央寄せ */
-  background-color: transparent; /* 背景の白い箱が不要ならここをtransparentに */
-  border: none;             /* 枠線が不要ならここをnoneに */
-  box-shadow: none;         /* 影が不要ならここをnoneに */
-}
-
-/* 箱の中の画像自体のサイズ */
-#concept .img img, 
-#work .img img, 
-#products .img img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain;      /* 画像の比率を保ったまま収める */
-}
-
-/* スマホでは少しだけ小さくする */
-@media screen and (max-width: 767px) {
-  #concept .img, #work .img, #products .img {
-    width: 150px !important;
-    height: 150px !important;
-    margin-bottom: 20px;
-  }
-}
-
-/* --- 5. Content Layout (メインページ用：完全中央揃えスタイル) --- */
-
-.container {
-  max-width: 900px; /* 中央揃えなので、少し横幅を絞ると読みやすくなります */
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-.content {
-  display: flex;
-  flex-direction: column; /* 縦並びに変更 */
-  align-items: center;    /* 左右中央揃え */
-  justify-content: center;
-  text-align: center;     /* テキストをすべて中央寄せ */
-  gap: 30px;              /* 画像とテキストの間の距離 */
-  padding: 100px 0;       /* セクションごとの上下余白 */
-  border-bottom: 1px solid #f0f0f0; /* セクションの境界線（不要なら消してください） */
-}
-
-/* 左右交互の設定を解除（すべて同じ並びにする） */
-section:nth-of-type(even) .content {
-  flex-direction: column; 
-}
-
-/* 画像エリアの設定（以前よりさらにコンパクトに） */
-.content .img {
-  width: 150px !important;  /* 画像をさらに小さく上品に */
-  height: auto !important;
-  margin: 0 auto 10px;      /* 下に少し余白 */
-  display: block;
-  transform: none !important; /* 浮かび上がり不要 */
-  box-shadow: none !important;
-  border: none !important;
-  background: transparent !important;
-}
-
-.content .img img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: contain;
-}
-
-/* テキストエリアの設定 */
-.content .text {
-  width: 100% !important; /* 全幅を使って中央寄せ */
-  max-width: 600px;       /* 文章が横に広がりすぎないように制限 */
+/* --- 3. セクション（ゆったりとしたリズム） --- */
+section, .section-bg-white {
+  padding: 120px 0 !important;
 }
 
 .section-title {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  letter-spacing: 0.15em;
-  color: #4682b4;
+  font-size: 2.5rem; /* 少し大きく */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5px;
+  letter-spacing: 0.2em; /* 文字の間隔を広く */
+  text-transform: uppercase;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 30px; /* 短く */
+  height: 3px; /* 少し太く */
+  background-color: #4682b4;
+  margin: 20px auto 0;
 }
 
 .section-title-en {
   display: block;
-  font-size: 0.9rem;
-  color: #a0a0a0;
-  margin-bottom: 25px;
+  font-size: 0.75rem;
+  color: #99b8d1;
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: 0.3em; /* さらに広く */
   text-transform: uppercase;
-  letter-spacing: 0.2em;
 }
 
-/* スマホ対応 */
-@media screen and (max-width: 767px) {
-  .content {
-    padding: 60px 0;
-  }
-  .section-title {
-    font-size: 1.8rem;
-  }
+/* --- 4. メインコンテンツ（中央揃えの美学） --- */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
 }
 
-/* --- セクションタイトルを本文と同じ水色にする --- */
-.section-title {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  letter-spacing: 0.15em;
-  color: #4682b4; !important; /* 本文と同じ水色（具体的な色コードに合わせて適宜調整してください） */
+.content .img {
+  width: 220px !important; /* 少し存在感を出す */
+  margin: 0 auto;
+  transition: transform 0.6s ease;
 }
 
-/* --- ボタンを水色にし、クリック時の色変化（hover等）をシンプルにする --- */
-.btn, 
-input[type="submit"] {
+/* 画像にほんのりと影をつけて浮かす */
+.content .img img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(70, 130, 180, 0.15));
+}
+
+.content .text {
+  max-width: 650px;
+  width: 100%;
+}
+
+.content .text p {
+  margin-bottom: 40px;
+  font-size: 1.05rem;
+  line-height: 2.2;
+}
+
+/* --- 5. ボタン（高級感のあるミニマルデザイン） --- */
+.btn, input[type="submit"] {
   display: inline-block;
-  padding: 12px 40px;
-  background-color: ##4682b4; !important; /* ボタンの背景色を水色に */
-  color: #fff !important;               /* 文字は白 */
+  padding: 18px 60px; /* さらに横長に */
+  background-color: #4682b4 !important;
+  color: #ffffff !important;
   text-decoration: none;
-  border: none;
-  border-radius: 0 !important;          /* 以前の修正通り長方形 */
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  border-radius: 0 !important;
+  border: 1px solid #4682b4;
   cursor: pointer;
-  transition: opacity 0.3s ease;        /* 色ではなく透明度で反応させる */
+  transition: all 0.4s ease;
+  text-transform: uppercase;
 }
 
-/* クリックした時やマウスを乗せた時の「色が変わる仕様」を消す */
-.btn:hover, 
-input[type="submit"]:hover,
-.btn:active,
-input[type="submit"]:active {
-  background-color: #4682b4; !important; /* 色を固定 */
-  opacity: 0.8;                         /* 変化は少し薄くなる程度にする */
+.btn:hover, input[type="submit"]:hover {
+  background-color: transparent !important;
+  color: #4682b4 !important; /* 反転するアニメーション */
+  opacity: 1;
+}
+
+/* --- 6. お問い合わせフォーム（モダンな入力欄） --- */
+.contact-form { max-width: 650px; margin: 0 auto; }
+.contact-form dt { font-size: 0.9rem; margin-bottom: 10px; font-weight: 700; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d1e1ee;
+  background-color: #fbfdff;
+  border-radius: 0;
+  margin-bottom: 30px;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: #4682b4;
   outline: none;
 }
 
-/* --- フッターなど、お問い合わせへのリンクがある場合も統一 --- */
-.back-to-home .btn {
-  background-color: #4682b4; !important;
+/* --- 7. フッター --- */
+#footer {
+  background: #4682b4;
+  color: #fff;
+  padding: 80px 0;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
 }
 
-/* --- 本文とタイトルの色を水色系に統一 --- */
-
-body {
-  /* 本文の色をグレーから水色系に変更 */
-  color: #4682b4; 
-  font-family: 'Crimson Text', serif;
-  line-height: 2.0;
-  background-color: #fafafa;
-}
-
-.section-title {
-  /* セクションタイトルも同じ色に統一 */
-  color: #4682b4 !important;
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  letter-spacing: 0.15em;
-  text-align: center;
-}
-
-/* ボタンも同じ水色に合わせる */
-.btn, 
-input[type="submit"] {
-  background-color: #4682b4 !important;
-  color: #fff !important;
-  border-radius: 0 !important;
-  border: none;
-  padding: 15px 50px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-/* ホバー時の設定（色を変えず、少し薄くするだけ） */
-.btn:hover, 
-input[type="submit"]:hover {
-  background-color: #4682b4 !important;
-  opacity: 0.8;
-}
-
-/* --- 全体の色をフッターと統一（濃いグレー系） --- */
-
-body {
-  /* 本文の色をフッターと同じ濃いグレーに設定 */
-  color: #333; 
-  font-family: 'Montserrat', serif;
-  line-height: 2.0;
-  background-color: #4682b4 ;
-}
-
-/* セクションタイトルの色変更 */
-.section-title: #4682b4;
-  color: #333 !important; 
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  letter-spacing: 0.15em;
-  text-align: center;
-}
-
-/* 英語のサブタイトル（もしあれば）も馴染ませる */
-.section-title-en {
-  color: #888;
-}
-
-/* --- ボタンもフッターの色に合わせて統一 --- */
-.btn, 
-input[type="submit"] {
-  display: inline-block;
-  padding: 15px 50px;
-  background-color: #4682b4  !important; /* ボタンも同じ濃いグレーに */
-  color: #fff !important;           /* 文字は白 */
-  border-radius: 0 !important;       /* 長方形を維持 */
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-/* ホバー時は少し薄くするだけ（色の変化はなし） */
-.btn:hover, 
-input[type="submit"]:hover {
-  background-color: #333 !important;
-  opacity: 0.8;
-}
-
-/* --- タイトルとボタンの色を、以前の水色（スチールブルー）に設定 --- */
-
-/* 1. タイトルの色を水色に戻す */
-.section-title {
-  color: #4682b4 !important; /* 以前の水色系に戻す */
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  letter-spacing: 0.15em;
-  text-align: center;
-}
-
-/* 2. リンクボタンも水色に戻し、長方形を維持 */
-.btn, 
-input[type="submit"] {
-  background-color: #4682b4 !important; /* ボタンも同じ水色に */
-  color: #ffffff !important;           /* 文字は白 */
-  border-radius: 0 !important;          /* 形はシャープな長方形 */
-  border: none;
-  padding: 15px 50px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-/* 3. ホバー（マウスを乗せた時）の色の変化を止める */
-.btn:hover, 
-input[type="submit"]:hover {
-  background-color: #4682b4 !important; /* 色は変えない */
-  opacity: 0.8;                         /* 透明度だけで反応を出す */
-}
-
-/* --- 背景を白に、テキストをスチールブルーに統一 --- */
-
-body {
-  background-color: #ffffff !important; /* 背景を白に戻す */
-  color: #4682b4 !important;           /* テキストを以前の水色に */
-  font-family: 'Montserrat', sans-serif !important;
-  line-height: 1.8;
-}
-
-/* セクションタイトルも水色に統一 */
-.section-title {
-  color: #4682b4 !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 10px;
-  letter-spacing: 0.15em;
-}
-
-/* 英語のサブタイトル（もしあれば）は少し薄くすると綺麗です */
-.section-title-en {
-  color: #a0c4de; /* 水色系の薄い色 */
-  font-family: 'Montserrat', sans-serif !important;
-}
-
-/* --- ボタンも水色（#4682b4）に統一 --- */
-.btn, 
-input[type="submit"] {
-  background-color: #4682b4 !important; /* ボタンも水色 */
-  color: #ffffff !important;           /* 文字は白 */
-  font-family: 'Montserrat', sans-serif !important;
-  border-radius: 0 !important;          /* 長方形を維持 */
-  border: none;
-  padding: 15px 50px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-/* ホバー時は少し透明にするだけ */
-.btn:hover, 
-input[type="submit"]:hover {
-  background-color: #4682b4 !important;
-  opacity: 0.8;
-}
-
-/* フォームの入力枠も水色に馴染ませる */
-input[type="text"],
-input[type="email"],
-textarea {
-  border: 1px solid #4682b4; /* 枠線も水色系に */
-  background-color: #fff;
-}
-
-/* --- メインページ：セクションの間隔（マージン）を統一して広げる --- */
-
-.container {
-  max-width: 1000px; /* 少し幅を広げてゆとりを持たせる */
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-/* 各セクション（Concept, Work, Productsなど）の上下余白を統一 */
-section, 
-.section-bg-white, 
-.section-bg-gray {
-  padding: 160px 0 !important; /* 上下にたっぷり160pxの余白を確保 */
-  background-color: #ffffff !important; /* 背景は白で統一 */
-}
-
-/* セクション内の各要素（タイトル、画像、テキスト）の間隔を調整 */
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 60px; /* 画像とテキストの間の距離を広げる */
-}
-
-/* タイトルとサブタイトルの下の余白 */
-.section-title {
-  margin-bottom: 20px !important;
-}
-
-.section-title-en {
-  margin-bottom: 40px !important; /* 英語タイトルの下の余白を広げる */
-}
-
-/* スマホでは余白が広すぎると間延びするので、少しだけ調整 */
+/* --- レスポンシブ --- */
 @media screen and (max-width: 767px) {
-  section, 
-  .section-bg-white, 
-  .section-bg-gray {
-    padding: 100px 0 !important; /* スマホでは100pxに */
-  }
-  .content {
-    gap: 40px;
-  }
+  section { padding: 80px 0 !important; }
+  .section-title { font-size: 1.8rem; }
+  #header { padding: 30px 20px; }
+  #header li { margin-left: 15px; }
 }
-
-/* --- 1. セクションの間隔を程よく調整 --- */
-section, 
-.section-bg-white, 
-.section-bg-gray {
-  padding: 100px 0 !important; /* 160pxから100pxに狭めて密度を上げます */
-  background-color: #ffffff !important;
-}
-
-/* --- 2. 制作物のテキストとボタンを中央揃えにする --- */
-.content .text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;    /* 横方向の中央揃え */
-  text-align: center;     /* テキストの中央寄せ */
-  width: 100% !important;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* 本文（pタグなど）の余白調整 */
-.content .text p {
-  margin-bottom: 30px;    /* ボタンとの間に適度な隙間を作る */
-  color: #4682b4;         /* 水色を維持 */
-}
-
-/* VIEW DETAILボタン（リンク）を中央に配置 */
-.content .text a.btn, 
-.content .text .view-detail {
-  display: inline-block;  /* 中央揃えを効かせるため */
-  margin: 0 auto;
-}
-
-/* --- 3. 全体的な微調整 --- */
-.content {
-  gap: 40px; /* 画像とテキストの間の距離も少し詰めました */
-}
-
-@media screen and (max-width: 767px) {
-  section, 
-  .section-bg-white, 
-  .section-bg-gray {
-    padding: 60px 0 !important; /* スマホではさらに少し詰める */
-  }
-}
-
