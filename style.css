@@ -515,3 +515,20 @@ section h2 {
 .content {
   margin-top: 40px;
 }
+
+/* スキルアイコンのサイズを強制的に固定 */
+.skill-item svg {
+  width: 50px !important;    /* 横幅を50pxに固定 */
+  height: 50px !important;   /* 高さを50pxに固定 */
+  margin: 0 auto 15px !important; /* 中央寄せと下の余白 */
+  display: block !important; /* ブロック要素にして中央寄せを確実にする */
+  fill: #4682b4;             /* アイコンの色を水色に */
+}
+
+/* もし画像（img）を使っている場合も想定 */
+.skill-item img {
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: contain;       /* 形を崩さずに収める */
+  margin-bottom: 15px;
+}
