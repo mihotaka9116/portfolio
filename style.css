@@ -552,3 +552,34 @@ section h2 {
   display: block !important;
   object-fit: contain; /* 形を崩さず枠内に収める */
 }
+
+/* =============================================
+   【最終解決】スキルアイコンの巨大化を強制修正
+   ============================================= */
+
+/* 1. JavaScriptアイコン（img）を囲っている枠のサイズを固定 */
+#skill .skill-item .img {
+  width: 60px !important;
+  height: 60px !important;
+  margin: 0 auto 15px !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+/* 2. その中にある画像自体を枠いっぱいに収める */
+#skill .skill-item .img img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 60px !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  border-radius: 0 !important; /* スキルアイコンに角丸は不要なら */
+}
+
+/* 3. 他のSVGアイコンもサイズを統一して並びを揃える */
+#skill .skill-item svg {
+  width: 60px !important;
+  height: 60px !important;
+  margin: 0 auto 15px !important;
+  display: block !important;
+}
