@@ -244,3 +244,69 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
   font-size: 0.85rem; /* 本文も少し小さくしてバランスを取る */
   line-height: 1.6;
 }
+
+/* --- work.html：実績一覧のサイズ適正化（最終版） --- */
+
+/* 1. コンテンツ全体の幅をさらに絞って中央に寄せる */
+.detail-container {
+  max-width: 800px; /* 1000pxから800pxに絞ることで画像サイズが適正になります */
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* 2. グリッドの余白を広げて「抜け感」を出す */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列を維持 */
+  gap: 60px 40px; /* 上下の間隔を60pxに広げて1つ1つの作品を独立させる */
+  margin-top: 50px;
+}
+
+/* 3. 画像のサイズと比率を完璧に制御 */
+.image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10; /* 少し縦を出すことで、視覚的に落ち着いたサイズに見えます */
+  overflow: hidden;
+  border: 1px solid #d1e1ee;
+  background-color: #f4f7f9;
+  margin-bottom: 20px;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ホバー時に画像が少しだけズームするプロの演出 */
+.goods-item:hover .image-wrap img {
+  transform: scale(1.05);
+}
+
+/* 4. テキスト情報の整理 */
+.item-caption {
+  font-weight: 700;
+  font-size: 1rem; /* 読みやすいサイズに固定 */
+  margin-bottom: 10px;
+  color: #4682b4;
+  display: block;
+}
+
+.goods-item p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #4682b4;
+  margin-bottom: 15px;
+}
+
+/* スマホでは1列にして、文字を中央寄せにする */
+@media screen and (max-width: 650px) {
+  .detail-container { padding: 40px 20px; }
+  .goods-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .goods-item { text-align: center; }
+}
