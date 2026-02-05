@@ -41,15 +41,51 @@ a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
 #header li { margin-left: 30px; }
 #header a { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* --- 3. メインビジュアル --- */
+/* --- メインビジュアル：ロゴを敷き詰める設定 --- */
 #mainvisual {
   width: 100%;
   height: 400px;
-  background-color: #f4f7f9;
+  background-color: #f4f7f9; /* ベースの薄い水色 */
+  
+  /* ロゴ画像を背景に指定 */
+  background-image: url("logo.svg"); 
+  
+  /* 画像を敷き詰める設定 */
+  background-repeat: repeat; 
+  
+  /* ロゴ一つ一つのサイズ（ここを調整して密度を変えられます） */
+  background-size: 120px auto; 
+  
+  /* ロゴの位置を中央基準にする */
+  background-position: center;
+  
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+/* メインビジュアルの上に大きなロゴや文字を重ねたい場合 */
+#mainvisual::after {
+  content: "PORTFOLIO";
+  font-size: 3rem;
+  font-weight: 800;
+  color: #4682b4;
+  letter-spacing: 0.5em;
+  background: rgba(244, 247, 249, 0.8); /* 背景パターンを少し透かす */
+  padding: 20px 40px;
+}
+
+/* スマホではロゴを少し小さくして密度を調整 */
+@media screen and (max-width: 767px) {
+  #mainvisual {
+    height: 250px;
+    background-size: 80px auto;
+  }
+  #mainvisual::after {
+    font-size: 1.5rem;
+  }
 }
 
 /* --- 4. セクションタイトル --- */
