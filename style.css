@@ -1,65 +1,92 @@
 @charset "UTF-8";
 
-/* --- 1. Reset & Base --- */
+/* --- 1. Reset & Base (基本設定) --- */
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
   color: #333;
-  font-family: 'Montserrat', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: 'Montserrat', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
+
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 a { transition: opacity 0.3s ease; text-decoration: none; }
 a:hover { opacity: 0.7; }
 
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. Header & Footer --- */
+/* --- 2. Header (ロゴと横並びナビ) --- */
 #header {
-  padding: 40px 0;
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: center;
+  padding: 30px 0;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+
 .site-title img { width: 100px; }
-#header ul { display: flex; list-style: none; margin: 0; padding: 0; }
-#header li { margin-left: 30px; }
-#header a { color: #4682b4; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.1em; }
 
-#footer {
-  background: #4682b4;
-  color: #fff;
-  text-align: center;
-  padding: 60px 0;
-  margin-top: 100px;
+#header ul {
+  display: flex !important;
+  flex-direction: row !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* --- 3. Section Titles --- */
-.section-title-area {
-  text-align: center;
+#header li { margin-left: 30px; }
+#header a { 
+  color: #4682b4; 
+  font-weight: 600; 
+  font-size: 0.9rem; 
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* --- 3. Main Visual (復活) --- */
+#mainvisual {
+  width: 100%;
+  height: 500px;
+  background-color: #f4f7f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 80px;
 }
+/* 背景に画像を使いたい場合は以下のコメントアウトを外す */
+/* #mainvisual { background: url("../img/main.jpg") no-repeat center center / cover; } */
+
+/* --- 4. Section Title (共通スタイル) --- */
+.section-title-area {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
 .section-title {
   color: #4682b4;
   font-size: 2.2rem;
+  font-weight: 700;
   margin: 0;
   letter-spacing: 0.15em;
-  font-weight: 700;
 }
+
 .section-title-en {
+  display: block;
   font-size: 0.8rem;
   color: #999;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  display: block;
   margin-top: 10px;
 }
 
-/* --- 4. Main Contents (左右交互レイアウト) --- */
-section { padding: 100px 0; }
+/* --- 5. Main Content (左右交互レイアウト) --- */
+section { padding: 80px 0; }
 
 .content {
   display: flex;
@@ -68,87 +95,113 @@ section { padding: 100px 0; }
   gap: 60px;
 }
 
-/* 偶数番目のセクションは左右を反転 */
-section:nth-of-type(even) .content {
-  flex-direction: row-reverse;
+/* 偶数セクションの反転 */
+section:nth-of-type(even) .content { flex-direction: row-reverse; }
+
+.content .img {
+  width: 45%;
+  flex-shrink: 0;
+  text-align: center;
 }
 
-/* 画像サイズを適切に固定 (巨大化防止) */
-.content .img {
-  width: 48%;
-  flex-shrink: 0;
-}
 .content .img img {
   width: 100%;
-  max-width: 450px; /* ここでサイズを制限 */
+  max-width: 400px;
   height: auto;
   border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
 }
 
-.content .text {
-  width: 48%;
-  text-align: left;
-}
+.content .text { width: 50%; text-align: left; }
 .content .text h3 {
-  font-size: 1.6rem;
   color: #4682b4;
+  font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 20px;
 }
 
-/* --- 5. Skills Grid --- */
+/* --- 6. Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 15px 50px;
+  background-color: #4682b4;
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- 7. Skills Grid --- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
+
 .skill-item {
   padding: 40px;
   background: #f9fbff;
   text-align: center;
   border-radius: 8px;
 }
+
 .skill-item img, .skill-item svg {
   width: 50px !important;
   height: 50px !important;
   margin-bottom: 20px;
 }
 
-/* --- 6. Buttons & Forms --- */
-.btn {
-  display: inline-block;
-  padding: 15px 45px;
-  background-color: #4682b4;
-  color: #fff !important;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  border-radius: 0;
-  margin-top: 20px;
+/* --- 8. Contact Form (中央配置) --- */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-.contact-form { max-width: 600px; margin: 0 auto; }
-.contact-form dt { font-weight: bold; margin-bottom: 8px; color: #4682b4; }
+.contact-form dt {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #4682b4;
+}
+
 .contact-form dd { margin: 0 0 25px 0; }
-.contact-form input, .contact-form textarea {
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
   width: 100%;
   padding: 15px;
   border: 1px solid #d1e1ee;
   border-radius: 0;
 }
 
-/* --- 7. Responsive --- */
+.btn-area {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* --- 9. Footer --- */
+#footer {
+  background-color: #4682b4;
+  color: #ffffff;
+  text-align: center;
+  padding: 60px 0;
+}
+
+/* --- 10. Responsive --- */
 @media screen and (max-width: 768px) {
-  #header { flex-direction: column; gap: 20px; }
+  #header { flex-direction: column; gap: 20px; padding: 20px; }
   #header li { margin: 0 10px; }
   
-  .content, section:nth-of-type(even) .content {
+  .content, 
+  section:nth-of-type(even) .content {
     flex-direction: column;
-    text-align: center;
     gap: 40px;
   }
-  .content .img, .content .text { width: 100%; }
-  .content .text { text-align: center; }
   
+  .content .img, .content .text { width: 100%; text-align: center; }
+  #mainvisual { height: 300px; }
   .section-title { font-size: 1.8rem; }
 }
