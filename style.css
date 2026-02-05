@@ -409,3 +409,41 @@ input[type="submit"]:active {
 .back-to-home .btn {
   background-color: #87CEEB !important;
 }
+
+/* --- 本文とタイトルの色を水色系に統一 --- */
+
+body {
+  /* 本文の色をグレーから水色系に変更 */
+  color: #4682b4; 
+  font-family: 'Crimson Text', serif;
+  line-height: 2.0;
+  background-color: #fafafa;
+}
+
+.section-title {
+  /* セクションタイトルも同じ色に統一 */
+  color: #4682b4 !important;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+/* ボタンも同じ水色に合わせる */
+.btn, 
+input[type="submit"] {
+  background-color: #4682b4 !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  border: none;
+  padding: 15px 50px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* ホバー時の設定（色を変えず、少し薄くするだけ） */
+.btn:hover, 
+input[type="submit"]:hover {
+  background-color: #4682b4 !important;
+  opacity: 0.8;
+}
