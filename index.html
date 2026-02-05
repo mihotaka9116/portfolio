@@ -123,22 +123,32 @@
     <footer id="footer">
         <p>&copy; 2026 miho takahashi</p>
     </footer>
-        <script>
-  // スクロールでふわっと出す
-  const targets = document.querySelectorAll('.js-fade-up');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-show');
-      }
-    });
-  }, {
-    threshold: 0.1 // 10%見えたら実行
-  });
 
-  targets.forEach(target => {
-    observer.observe(target);
+        <script>
+  window.addEventListener('load', function() {
+    const targets = document.querySelectorAll('.js-fade-up');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-show');
+        }
+      });
+    }, {
+      threshold: 0.1 // 10%見えたら実行
+    });
+
+    targets.forEach(target => {
+      observer.observe(target);
+    });
+    
+    // もしJavaScriptが動かなかった時のための保険：
+    // 3秒経っても表示されなければ強制的に全表示させる
+    setTimeout(() => {
+      targets.forEach(target => {
+        target.classList.add('is-show');
+      });
+    }, 3000);
   });
 </script>
 
