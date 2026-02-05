@@ -358,3 +358,44 @@ table, th, td {
 th {
   background-color: #eaf4ff !important;
 }
+
+/* --- 詳細ページの黒を水色に変更（背景は白を維持） --- */
+
+/* 全体の背景は白をキープし、文字色だけ水色にする */
+body, p, h1, h2, h3, li, dt, dd, span, .work-title {
+  background-color: #fff !important; 
+  color: #4682b4 !important;
+}
+
+/* --- 浮かび上がりの設定（前の仕様を復活） --- */
+
+/* 画像の枠（image-wrap）の設定 */
+.image-wrap {
+  background: none !important; /* 黒い背景などを完全に消す */
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out !important;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  display: block;
+}
+
+/* マウスを乗せた時に「スッと」浮かび上がる */
+.image-wrap:hover {
+  transform: translateY(-12px) !important; /* 上方向に移動 */
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important; /* 水色系の影で浮かせる */
+}
+
+/* 画像自体の設定 */
+.image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* もし画像が a タグで囲まれている場合も浮かせる */
+a:has(img):hover {
+  display: inline-block;
+  transform: translateY(-12px) !important;
+  transition: transform 0.4s ease-out !important;
+}
