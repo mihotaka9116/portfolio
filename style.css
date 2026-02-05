@@ -159,3 +159,86 @@ section:nth-of-type(even) .content {
   .section-title { font-size: 1.8rem; }
   #mainvisual { height: 300px; }
 }
+
+/* --- Work Page (work.html) 最終完全版 --- */
+
+/* 1. 作品一覧エリアのテキスト色も水色に統一 */
+.detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+  color: #4682b4 !important; /* コンテナ全体の色を水色に */
+}
+
+/* 2. 作品を3列のグリッド状に並べる */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 50px; /* アイテム間の余白をたっぷり取る */
+  margin-top: 60px;
+}
+
+/* 3. 各作品カードのデザイン */
+.goods-item {
+  width: 100% !important; /* 巨大化を防止 */
+  text-align: left; /* テキストは読みやすく左寄せ */
+}
+
+/* 4. 画像のサイズと比率を統一（これが整列の鍵） */
+.image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 全ての画像を16:9で統一 */
+  overflow: hidden;
+  border: 1px solid #d1e1ee;
+  margin-bottom: 20px;
+  background-color: #f4f7f9;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 枠に合わせて綺麗に切り抜く */
+  transition: transform 0.5s ease;
+}
+
+/* ホバーで画像を少しズームさせる演出 */
+.goods-item:hover .image-wrap img {
+  transform: scale(1.1);
+}
+
+/* 5. 作品タイトルと説明文の色を統一 */
+.item-caption {
+  font-weight: 700;
+  color: #4682b4 !important; /* タイトル色 */
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.goods-item p {
+  color: #4682b4 !important; /* 説明文も水色に */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 6. VIEW DETAILボタン */
+.custom-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #4682b4;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 767px) {
+  .goods-grid {
+    grid-template-columns: 1fr; /* スマホでは1列 */
+    gap: 40px;
+  }
+}
