@@ -487,3 +487,18 @@ section h2::after {
   width: 50px !important;
 }
 
+/* --- セクションタイトルとコンテンツ（写真・テキスト）の間隔を広げる --- */
+
+section h2 {
+  /* タイトルセット（英語・日本語・線）から下のコンテンツまでの距離 */
+  margin-bottom: 80px !important; 
+}
+
+/* スキルセクションや制作実績など、グリッド状のコンテンツとの間隔も個別に確保 */
+.skills-grid, 
+.goods-grid,
+.content,
+#work.js-fade-up {
+  margin-top: 20px !important; /* タイトルの下線からの距離を補強 */
+}
+
