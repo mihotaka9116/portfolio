@@ -111,3 +111,29 @@ body {
   #header { flex-direction: column; gap: 20px; }
   .goods-grid { gap: 30px; }
 }
+
+/* --- サイト全体のテキスト色をセクションタイトルと同じ水色に統一 --- */
+
+body {
+  color: #4682b4 !important; /* 全体の文字色を水色に固定 */
+}
+
+p, dt, dd, li {
+  color: #4682b4 !important; /* 本文、リスト、ラベルもすべて水色に */
+}
+
+/* もし「制作物の説明文」などが別のクラス名（.text p など）で指定されていても
+   これで強制的に水色になります */
+.content .text p,
+.item-caption,
+.skill-item p {
+  color: #4682b4 !important;
+}
+
+/* --- お問い合わせフォームの入力文字だけは読みやすさのため黒系を推奨 --- */
+/* もし入力文字まで水色にしたい場合は、以下のブロックは削除してください */
+input[type="text"],
+input[type="email"],
+textarea {
+  color: #333; 
+}
