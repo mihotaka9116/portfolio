@@ -468,5 +468,22 @@ section h2::after {
   background-color: #4682b4 !important;
   z-index: 10 !important;           /* ★他の要素より手前に出す */
 }
+/* --- タイトルと下線の間隔を狭める --- */
 
+section h2 {
+  /* 下線との距離を 25px から 15px に短縮 */
+  padding-bottom: 15px !important; 
+  margin-bottom: 50px !important;
+}
+
+section h2 span {
+  /* 英語と日本語の間の隙間も少し詰めたい場合はここを調整 */
+  margin-top: 5px !important; 
+}
+
+section h2::after {
+  /* 線の太さや長さを維持しつつ、位置を微調整 */
+  bottom: 0 !important;
+  width: 50px !important;
+}
 
