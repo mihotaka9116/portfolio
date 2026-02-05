@@ -1,159 +1,74 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>miho takahashi</title>
-    <meta name="description" content="ポートフォリオ">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-    <body>
-        <div id="mainvisual"></div>
+@charset "UTF-8";
 
-        <header id="header">
-            <div class="site-title">
-            <a href="index.html">
-                <img src="logo.svg" alt="miho takahashi" style="width: 120px; height: auto;">
-            </a>
-        </div>
-        <nav>
-<ul>
-  <li><a href="#concept">CONCEPT</a></li>
-  <li><a href="#skill">SKILL</a></li> <li><a href="#work">WORK</a></li>   
-　<li><a href="#contact">CONTACT</a></li>
-</ul>    
-        </nav>
-    </header>
+/* 1. 基本設定 */
+* { box-sizing: border-box !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; padding: 0; background-color: #fff; color: #4682b4;
+  font-family: 'Montserrat', sans-serif; line-height: 1.8; text-align: center;
+}
+a { color: #4682b4; text-decoration: none; }
 
-    <div class="container">
-        <main>
-           <section id="Concept">
-  <div class="container js-fade-up">
-    <div class="section-title-area">
-      <h2 class="section-title">コンセプト</h2>
-    </div>
-    
-    <div class="content">
-      <div class="img">
-        <img src="door.jpg" alt="Concept">
-      </div>
-      <div class="text">
-        <h3>ロゴマークをメインビジュアルに</h3>
-        <p>Illustratorで制作したロゴマークを、メインのビジュアルに採用しました。ロゴマーク単体にはなかったリズムやパターンとしての美しさが出てきました。</p>
-      </div>
-    </div>
-  </div>
-</section>
+/* 2. ヘッダー */
+#header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 5%; max-width: 1200px; margin: 0 auto;
+}
+#header ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
 
-           <section id="Work" class="section-bg-gray js-fade-up">
-                <div class="text">
-                    <h2 class="section-title">制作したもの</h2>
-                    <p>制作したロゴを、名刺やパーカー、マグカップなどに商品展開しました。</p>
-                   <a href="work.html" class="btn" target="_blank" rel="noopener noreferrer">VIEW DETAIL</a>
-                </div>
-                <div class="img">
-                    <a href="work.html">
-                        <img src="logo.svg" alt="miho takahashi" style="width: 150px; height: auto;">
-                    </a>
-                </div>
-            </section>
+/* 3. セクションタイトル */
+section h2 {
+  display: flex; flex-direction: column; align-items: center;
+  margin-bottom: 60px; position: relative; padding-bottom: 20px; font-size: 2rem;
+}
+section h2 span { display: block; font-size: 0.9rem; margin-top: 10px; font-weight: normal; }
+section h2::after {
+  content: ""; position: absolute; bottom: 0; left: 50%;
+  transform: translateX(-50%); width: 50px; height: 2px; background-color: #4682b4;
+}
 
-           <section id="Skills" class="section-bg-gray js-fade-up">
-                <div class="text-center">
-                    <h2 class="section-title">スキル</h2>
-                </div>
+/* 4. スキル：アイコン巨大化を物理的に防ぐ命令 */
+.skills-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+  max-width: 1000px; margin: 0 auto;
+}
+.skill-item {
+  width: calc((100% - 60px) / 3); min-width: 200px;
+  padding: 30px 15px; background: #f9fbff; border-radius: 12px;
+}
 
-                <div class="Skills-grid">
-                    <div class="skill-item">
-                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Figma</title><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>
-                        <h3>Illustrator / Figma</h3>
-                        <p class="stars">★★★☆☆</p>
-                        <p class="skill-desc">基本操作を習得し、トレースやオリジナルロゴの制作を通じて丁寧な作業を心がけています。</p>
-                    </div>
+/* --- ここが巨大化を殺す核心部分 --- */
+/* .imgという枠、その中のimgタグ、svgタグ、すべてを60pxに閉じ込めます */
+.skill-item .img, 
+.skill-item img, 
+.skill-item svg {
+  width: 60px !important;
+  height: 60px !important;
+  max-width: 60px !important;
+  min-width: 60px !important;
+  margin: 0 auto 15px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
 
-                    <div class="Skill-item">
-                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>CSS</title><path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63"/></svg>
-                        <h3>HTML / CSS</h3>
-                        <p class="stars">★★★☆☆</p>
-                        <p class="skill-desc">Flexboxを用いたレスポンシブの実装など、メンテナンス性の高いコードを心がけています。</p>
-                    </div>
+/* 5. 制作実績 */
+.goods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+/* ここは実績画像なので、幅100%でOK */
+.image-wrap img { width: 100%; height: auto; border-radius: 8px; }
 
-                    <div class="skill-item">
-                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>JavaScript</title><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
-                        <h3>JavaScript</h3>
-                        <p class="stars">★★☆☆☆</p>
-                        <p class="skill-desc">jQueryやVanilla JSを中心に、モダンな記述方法を学習中です。</p>
-                    </div>
-                </div>
-            </section>
+/* 6. ボタン */
+.btn, .view-detail-btn, input[type="submit"] {
+  display: inline-block; background-color: #4682b4; color: #fff !important;
+  padding: 14px 50px; border-radius: 50px; margin: 40px 0; font-weight: 700; border: none;
+}
 
-             <section id="Contact" class="section-bg-gray js-fade-up
-                <div class="text-center">
-                    <h2 class="section-title">お問い合わせ</h2>
-                    <span class="section-title-en">Contact</span>
-                    <p>制作のご依頼やご相談など、お気軽にお問い合わせください。</p>
-                </div>
-                
-                <div class="contact-form">
-                    <form action="#" method="post">
-                        <div class="item">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="your-name" placeholder="お名前" required>
-                        </div>
-                        <div class="item">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="your-email" placeholder="メールアドレス" required>
-                        </div>
-                        <div class="item">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="your-message" placeholder="お問い合わせ内容"></textarea>
-                        </div>
-                        <div class="parsed-btn">
-                          <input type="submit" value="SEND MESSAGE" class="btn">
-                        </div>
-                    </form>
-                </div>
-            </section> 
-        </main>
-    </div> 
+/* 7. フッター */
+#footer { background-color: #4682b4; padding: 40px 0; margin-top: 80px; }
+#footer p { color: #fff; margin: 0; }
 
-    <footer id="footer">
-        <p>&copy; 2026 miho takahashi</p>
-    </footer>
-
-        <script>
-  window.addEventListener('load', function() {
-    const targets = document.querySelectorAll('.js-fade-up');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-show');
-        }
-      });
-    }, {
-      threshold: 0.1 // 10%見えたら実行
-    });
-
-    targets.forEach(target => {
-      observer.observe(target);
-    });
-    
-    // もしJavaScriptが動かなかった時のための保険：
-    // 3秒経っても表示されなければ強制的に全表示させる
-    setTimeout(() => {
-      targets.forEach(target => {
-        target.classList.add('is-show');
-      });
-    }, 3000);
-  });
-</script>
-
-</body>
-</html>
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+  #header { flex-direction: column; gap: 20px; }
+  .skill-item { width: 100%; }
+  .goods-grid { grid-template-columns: 1fr; }
+}
