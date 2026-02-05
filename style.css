@@ -1,61 +1,30 @@
 @charset "UTF-8";
 
 /* =============================================
-   1. Base Settings (基本設定)
+   1. Base & Color (詳細度を上げて色を固定)
    ============================================= */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-/* 詳細度を上げるために body などの要素を組み合わせて指定。
-   これで !important なしでも、テンプレートのデフォルト色（黒）に勝ちます。
-*/
+/* body要素と組み合わせることで、!importantなしで黒を上書きします */
 body, 
-body p, 
-body li, 
-body dl dt, 
-body dl dd {
-  margin: 0; padding: 0;
-  background-color: #fff;
-  color: #4682b4; /* 本文・タイトル共通の水色 */
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+html body #wrapper,
+html body section p,
+html body section li {
+  color: #4682b4;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
+  background-color: #fff;
 }
 
-a { 
-  color: #4682b4; 
-  text-decoration: none; 
-  transition: 0.3s ease; 
-}
-
-/* =============================================
-   2. Header (左右レイアウト)
-   ============================================= */
-#header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px 5%;
-}
-
-#header ul { 
-  display: flex; 
-  list-style: none; 
-  gap: 30px; 
-  margin: 0; 
-  padding: 0; 
+/* リンクの色も一括指定 */
+body a {
+  color: #4682b4;
+  text-decoration: none;
 }
 
 /* =============================================
-   3. Section Title (英語・日本語・下線)
+   2. Section Title (英語・日本語・下線の構成)
    ============================================= */
-section { padding: 100px 0; }
-
-/* HTML側の h2 に class="section-title" を付けることで、
-   CSSの詳細度が上がり、!important なしで確実に制御できます。
-*/
-.section-title {
+/* sectionタグとクラス名を繋げて書くことで詳細度を高めます */
+section .section-title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +35,7 @@ section { padding: 100px 0; }
   color: #4682b4;
 }
 
-.section-title span {
+section .section-title span {
   display: block;
   font-size: 0.9rem;
   font-weight: normal;
@@ -75,7 +44,8 @@ section { padding: 100px 0; }
   color: #4682b4;
 }
 
-.section-title::after {
+/* 下線：疑似要素 ::after */
+section .section-title::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -87,66 +57,74 @@ section { padding: 100px 0; }
 }
 
 /* =============================================
-   4. Concept Section (余白調整)
+   3. Layout & Space (余白の設計)
    ============================================= */
-#concept .img { 
-  margin: 40px auto; 
-  max-width: 300px;
-}
+section { padding: 100px 0; }
 
-#concept p { 
-  max-width: 700px;
-  margin: 0 auto 40px;
-}
+/* コンセプト写真の余白 */
+#concept .img { margin: 40px auto; }
+#concept p { margin-bottom: 40px; }
 
 /* =============================================
-   5. Buttons (ボタンの統一)
+   4. Components (スキル・実績・ボタン)
    ============================================= */
-/* aタグを親要素のbodyから指定することで優先順位を上げ、白文字を固定 */
-body a.btn-primary,
-body a.view-detail-btn {
+
+/* スキルグリッド */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skill-item {
+  width: calc((100% - 60px) / 3);
+  min-width: 250px;
+  padding: 30px 15px;
+  background: #f9fbff;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2);
+}
+
+/* ボタン：詳細度を上げて白文字を死守 */
+body .btn-primary,
+body .view-detail-btn {
   display: inline-block;
   background-color: #4682b4;
-  color: #ffffff; 
+  color: #fff;
   padding: 14px 50px;
   border-radius: 50px;
   font-weight: 700;
-  text-align: center;
-  border: none;
+  margin-bottom: 60px;
 }
 
-body a.btn-primary:visited,
-body a.view-detail-btn:visited {
-  color: #ffffff; /* 訪問済みでも白を維持 */
-}
-
-body a.btn-primary:hover,
-body a.view-detail-btn:hover {
-  background-color: #356a94;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
-  opacity: 1;
-}
+body a.btn-primary:visited { color: #fff; }
 
 /* =============================================
-   6. Footer (水色系フッター)
+   5. Footer (水色背景)
    ============================================= */
 #footer {
-  background-color: #4682b4; /* 背景をメインの水色に */
-  padding: 60px 0;
-  margin-top: 100px;
+  background-color: #4682b4;
+  padding: 50px 0;
+  margin-top: 80px;
 }
 
 #footer p {
-  color: #ffffff; /* フッター内の文字のみ白 */
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  color: #fff; /* フッター内は白 */
+  margin: 0;
 }
 
 /* =============================================
-   7. Responsive (スマホ対応)
+   6. Responsive
    ============================================= */
 @media screen and (max-width: 768px) {
-  #header { flex-direction: column; gap: 20px; }
-  .section-title { font-size: 1.8rem; margin-bottom: 60px; }
+  .skill-item { width: 100%; }
+  .goods-grid { grid-template-columns: 1fr; }
 }
