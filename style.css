@@ -290,3 +290,71 @@ a { color: #333; text-decoration: none; }
   .skill-item { width: 100%; }
   .goods-grid { grid-template-columns: 1fr; }
 }
+
+/* --- 詳細ページの画像（image-wrap）を浮かせる設定 --- */
+
+/* 1. まず動きを滑らかにする準備 */
+.image-wrap, 
+.image-wrap img,
+.content img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  display: block;
+}
+
+/* 2. マウスを乗せた時に浮かせる（15px上昇） */
+.image-wrap:hover,
+.image-wrap img:hover,
+.content img:hover {
+  transform: translateY(-15px) !important; /* 上に動かす */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important; /* 影をつける */
+  background: none !important; /* 水色にならないように背景を消す */
+}
+
+/* 3. 制作実績ページ特有の背景色がついている場合を解除 */
+.image-wrap {
+  background-color: transparent !important;
+}
+
+/* --- 詳細ページ（work.html）の配色カスタマイズ --- */
+
+/* 1. 背景の黒を、薄い水色に変更 */
+body, 
+.work-detail-page, 
+#work-detail {
+  background-color: #f4f9ff !important; /* 真っ白ではなく、ごく薄い水色に */
+  color: #4682b4 !important; /* 基本の文字色を水色に */
+}
+
+/* 2. 見出しやタイトルを濃い水色（ネイビー系）に変更 */
+h1, h2, h3, .work-title {
+  color: #2c5d88 !important; /* 黒の代わりに、少し濃いめの水色 */
+}
+
+/* 3. 説明文などの黒い文字を水色に変更 */
+p, li, dt, dd, span {
+  color: #4682b4 !important;
+}
+
+/* 4. 詳細ページの画像エリアを整える（黒い背景を消す） */
+.image-wrap, 
+.content-wrapper {
+  background-color: transparent !important; /* 黒い背景を透明に */
+  border-color: #e0efff !important; /* 枠線がある場合は薄い水色に */
+}
+
+/* 5. 戻るボタンなどのパーツも水色に統一 */
+.back-btn, 
+.btn-secondary {
+  background-color: #4682b4 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+/* 6. 表（スペック表など）がある場合の黒を修正 */
+table, th, td {
+  border-color: #bcd9f5 !important;
+  color: #4682b4 !important;
+}
+th {
+  background-color: #eaf4ff !important;
+}
