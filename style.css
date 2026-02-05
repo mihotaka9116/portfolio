@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（色の統一と読みやすさ） --- */
+/* --- 1. 基本設定（スチールブルー統一） --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0; padding: 0;
   background-color: #ffffff;
-  color: #4682b4 !important; /* 全体の文字色を水色に固定 */
+  color: #4682b4 !important; /* 全テキストを水色に統一 */
   font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +17,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 a { transition: 0.3s; text-decoration: none; color: #4682b4; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー（横並び固定） --- */
+/* --- 2. ヘッダー（ナビゲーション横並び） --- */
 #header {
   display: flex !important;
   justify-content: space-between;
@@ -58,9 +58,9 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* --- 4. ワークス一覧（work.html：画像サイズを適正化） --- */
+/* --- 4. ワークス一覧（work.html：サイズ適正化） --- */
 .detail-container {
-  max-width: 850px; /* ここで幅を絞ることで画像が大きくなりすぎるのを防ぎます */
+  max-width: 800px; /* ここを絞ることで画像が大きくなりすぎるのを防ぎます */
   margin: 0 auto;
   padding: 60px 20px;
 }
@@ -68,7 +68,7 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
 .goods-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2列 */
-  gap: 60px 40px; /* 上下の余白を広めにとってスッキリ見せる */
+  gap: 60px 40px; /* 上下の余白を広めにとってスッキリ */
   margin-top: 50px;
 }
 
@@ -76,21 +76,19 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
 
 .image-wrap {
   width: 100%;
-  aspect-ratio: 16 / 10; /* 画像の高さを一定に揃える */
+  aspect-ratio: 16 / 10; /* 全画像の高さを一定に揃える */
   overflow: hidden;
   border: 1px solid #d1e1ee;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .image-wrap img {
   width: 100%; height: 100%; object-fit: cover;
   transition: 0.5s ease;
 }
-
-/* ホバー時に画像が少し動く演出 */
 .goods-item:hover .image-wrap img { transform: scale(1.05); }
 
-/* --- 5. スキル（横並び・ホバー時に浮く） --- */
+/* --- 5. スキル（横並び・色保持・ホバー） --- */
 .skills-grid {
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 30px; margin-top: 50px;
@@ -103,23 +101,22 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
   transition: all 0.4s ease;
 }
 
-/* ホバー時の挙動：色は変えず、浮遊感だけ出す */
 .skill-item:hover {
   transform: translateY(-10px);
   background: #ffffff;
   box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
 }
 
-.skill-item img {
+.skill-item img, .skill-item svg {
   width: 60px !important; height: 60px !important;
   margin: 0 auto 20px !important; display: block;
-  /* アイコンの色を保持 */
+  /* アイコンの色を絶対に変えない設定 */
   filter: none !important; opacity: 1 !important;
 }
 
-/* --- 6. お問い合わせ（白背景ボタンで見やすく） --- */
+/* --- 6. お問い合わせ（白背景ボタンで視認性向上） --- */
 .btn-area { text-align: center; margin-top: 40px; }
-.btn-area .btn, .btn-area input[type="submit"] {
+.btn-area input[type="submit"] {
   background-color: #ffffff !important;
   color: #4682b4 !important;
   border: 2px solid #4682b4 !important;
@@ -127,19 +124,24 @@ a { transition: 0.3s; text-decoration: none; color: #4682b4; }
   font-weight: 700;
   cursor: pointer;
   transition: 0.3s;
+  -webkit-appearance: none; /* ブラウザ標準デザインのリセット */
 }
-.btn-area .btn:hover { background-color: #4682b4 !important; color: #fff !important; }
+.btn-area input[type="submit"]:hover {
+  background-color: #4682b4 !important;
+  color: #fff !important;
+}
 
-/* --- 7. フーター（濃い水色で引き締める） --- */
+/* --- 7. フーター（濃紺で引き締める） --- */
 #footer {
-  background-color: #356a94 !important;
+  background-color: #356a94 !important; /* 濃い水色で見やすく */
   color: #ffffff !important;
   text-align: center; padding: 60px 0; margin-top: 100px;
 }
+#footer p { color: #ffffff !important; margin: 0; }
 
 /* --- 8. レスポンシブ（スマホ対応） --- */
 @media screen and (max-width: 768px) {
   #header { flex-direction: column; gap: 20px; }
-  .goods-grid { grid-template-columns: 1fr; } /* スマホは1列 */
+  .goods-grid { grid-template-columns: 1fr; }
   .skill-item { width: 100%; }
 }
