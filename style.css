@@ -28,35 +28,26 @@ a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
   max-width: 1000px;
   margin: 0 auto;
 }
-
 .site-title img { width: 100px; }
-
 #header ul {
   display: flex !important;
   flex-direction: row !important;
   list-style: none;
   margin: 0; padding: 0;
 }
-
 #header li { margin-left: 30px; }
 #header a { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* --- メインビジュアル：ロゴを敷き詰める設定 --- */
+/* --- 3. メインビジュアル (ロゴを敷き詰める設定) --- */
 #mainvisual {
   width: 100%;
-  height: 400px;
+  height: 450px;
   background-color: #f4f7f9; /* ベースの薄い水色 */
   
-  /* ロゴ画像を背景に指定 */
+  /* ロゴ画像を背景に敷き詰める */
   background-image: url("logo.svg"); 
-  
-  /* 画像を敷き詰める設定 */
   background-repeat: repeat; 
-  
-  /* ロゴ一つ一つのサイズ（ここを調整して密度を変えられます） */
-  background-size: 120px auto; 
-  
-  /* ロゴの位置を中央基準にする */
+  background-size: 100px auto; /* ロゴの密度を調整 */
   background-position: center;
   
   display: flex;
@@ -66,26 +57,16 @@ a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
   position: relative;
 }
 
-/* メインビジュアルの上に大きなロゴや文字を重ねたい場合 */
+/* ロゴパターンの上に重ねる中央の白抜きエリア */
 #mainvisual::after {
   content: "PORTFOLIO";
-  font-size: 3rem;
-  font-weight: 800;
+  background-color: rgba(255, 255, 255, 0.9);
   color: #4682b4;
-  letter-spacing: 0.5em;
-  background: rgba(244, 247, 249, 0.8); /* 背景パターンを少し透かす */
-  padding: 20px 40px;
-}
-
-/* スマホではロゴを少し小さくして密度を調整 */
-@media screen and (max-width: 767px) {
-  #mainvisual {
-    height: 250px;
-    background-size: 80px auto;
-  }
-  #mainvisual::after {
-    font-size: 1.5rem;
-  }
+  font-size: 2.5rem;
+  font-weight: 800;
+  padding: 20px 60px;
+  letter-spacing: 0.4em;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 /* --- 4. セクションタイトル --- */
@@ -93,7 +74,6 @@ a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
   text-align: center;
   margin-bottom: 60px;
 }
-
 .section-title {
   color: #4682b4 !important;
   font-size: 2.2rem;
@@ -101,11 +81,10 @@ a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
   margin: 0;
   letter-spacing: 0.15em;
 }
-
 .section-title-en {
   display: block;
   font-size: 0.8rem;
-  color: #a0c4de; /* 少し薄い水色で抜け感を出す */
+  color: #a0c4de;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   margin-top: 10px;
@@ -113,45 +92,26 @@ a { transition: opacity 0.3s ease; text-decoration: none; color: #4682b4; }
 
 /* --- 5. メインコンテンツ (プロ仕様の左右交互) --- */
 section { padding: 80px 0; }
-
 .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 60px;
 }
+section:nth-of-type(even) .content { flex-direction: row-reverse; }
 
-/* 偶数番目のセクションは画像とテキストを反転 */
-section:nth-of-type(even) .content {
-  flex-direction: row-reverse;
-}
-
-.content .img {
-  width: 45%;
-  flex-shrink: 0;
-}
-
+.content .img { width: 45%; flex-shrink: 0; }
 .content .img img {
   width: 100%;
-  max-width: 400px; /* 巨大化防止 */
+  max-width: 400px;
   height: auto;
   border-radius: 4px;
   box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
 }
+.content .text { width: 48%; text-align: left; }
+.content .text h3 { color: #4682b4; font-size: 1.6rem; margin: 0 0 20px; }
 
-.content .text {
-  width: 48%;
-  text-align: left;
-}
-
-.content .text h3 {
-  color: #4682b4;
-  font-size: 1.6rem;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-/* --- 6. ボタン (長方形・水色) --- */
+/* --- 6. ボタンとフォーム --- */
 .btn {
   display: inline-block;
   padding: 15px 50px;
@@ -160,121 +120,10 @@ section:nth-of-type(even) .content {
   font-weight: 700;
   letter-spacing: 0.15em;
   border-radius: 0;
-  border: none;
-  cursor: pointer;
   margin-top: 10px;
 }
-
-/* --- 7. スキル・お問い合わせ・フッター --- */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-.skill-item { padding: 40px; background: #f9fbff; text-align: center; border-radius: 8px; }
-.skill-item img, .skill-item svg { width: 50px !important; height: 50px !important; margin-bottom: 20px; }
-
 .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
 .contact-form dt { font-weight: 700; margin-bottom: 8px; }
 .contact-form dd { margin: 0 0 25px 0; }
 .contact-form input, .contact-form textarea { width: 100%; padding: 15px; border: 1px solid #d1e1ee; border-radius: 0; }
-.btn-area { text-align: center; margin-top: 40px; }
-
-#footer { background-color: #4682b4; color: #ffffff; text-align: center; padding: 60px 0; margin-top: 100px; }
-
-/* --- 8. レスポンシブ (スマホ対応) --- */
-@media screen and (max-width: 768px) {
-  #header { flex-direction: column; gap: 20px; padding: 20px; }
-  #header li { margin: 0 10px; }
-  .content, section:nth-of-type(even) .content {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px;
-  }
-  .content .img, .content .text { width: 100%; }
-  .section-title { font-size: 1.8rem; }
-  #mainvisual { height: 300px; }
-}
-
-/* --- Work Page (work.html) 最終完全版 --- */
-
-/* 1. 作品一覧エリアのテキスト色も水色に統一 */
-.detail-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center;
-  color: #4682b4 !important; /* コンテナ全体の色を水色に */
-}
-
-/* 2. 作品を3列のグリッド状に並べる */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 50px; /* アイテム間の余白をたっぷり取る */
-  margin-top: 60px;
-}
-
-/* 3. 各作品カードのデザイン */
-.goods-item {
-  width: 100% !important; /* 巨大化を防止 */
-  text-align: left; /* テキストは読みやすく左寄せ */
-}
-
-/* 4. 画像のサイズと比率を統一（これが整列の鍵） */
-.image-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 9; /* 全ての画像を16:9で統一 */
-  overflow: hidden;
-  border: 1px solid #d1e1ee;
-  margin-bottom: 20px;
-  background-color: #f4f7f9;
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 枠に合わせて綺麗に切り抜く */
-  transition: transform 0.5s ease;
-}
-
-/* ホバーで画像を少しズームさせる演出 */
-.goods-item:hover .image-wrap img {
-  transform: scale(1.1);
-}
-
-/* 5. 作品タイトルと説明文の色を統一 */
-.item-caption {
-  font-weight: 700;
-  color: #4682b4 !important; /* タイトル色 */
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  display: block;
-}
-
-.goods-item p {
-  color: #4682b4 !important; /* 説明文も水色に */
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* 6. VIEW DETAILボタン */
-.custom-btn {
-  display: inline-block;
-  padding: 12px 30px;
-  background-color: #4682b4;
-  color: #ffffff !important;
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  margin-top: 15px;
-}
-
-/* スマホ対応 */
-@media screen and (max-width: 767px) {
-  .goods-grid {
-    grid-template-columns: 1fr; /* スマホでは1列 */
-    gap: 40px;
-  }
-}
+.btn-area {
