@@ -150,3 +150,17 @@ section { padding: 80px 0; clear: both; }
 #footer {
   margin-top: 50px; /* フッター全体の上の余白も確保 */
 }
+
+/* VIEW DETAILボタンの最終調整 */
+.view-detail-btn {
+  color: #ffffff !important;           /* 最初から白文字にする */
+  background-color: #4682b4 !important; /* 背景の青を確定 */
+  display: inline-block !important;
+  margin-bottom: 120px !important;     /* ★下のロゴとの間をさらにもう少しあける */
+  text-decoration: none !important;
+}
+
+/* 念のため、訪問済み（クリック後）も白を維持 */
+.view-detail-btn:visited {
+  color: #ffffff !important;
+}
