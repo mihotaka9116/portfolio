@@ -447,3 +447,47 @@ input[type="submit"]:hover {
   background-color: #4682b4 !important;
   opacity: 0.8;
 }
+
+/* --- 全体の色をフッターと統一（濃いグレー系） --- */
+
+body {
+  /* 本文の色をフッターと同じ濃いグレーに設定 */
+  color: #333; 
+  font-family: 'Crimson Text', serif;
+  line-height: 2.0;
+  background-color: #fafafa;
+}
+
+/* セクションタイトルの色変更 */
+.section-title {
+  color: #333 !important; 
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+/* 英語のサブタイトル（もしあれば）も馴染ませる */
+.section-title-en {
+  color: #888;
+}
+
+/* --- ボタンもフッターの色に合わせて統一 --- */
+.btn, 
+input[type="submit"] {
+  display: inline-block;
+  padding: 15px 50px;
+  background-color: #333 !important; /* ボタンも同じ濃いグレーに */
+  color: #fff !important;           /* 文字は白 */
+  border-radius: 0 !important;       /* 長方形を維持 */
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* ホバー時は少し薄くするだけ（色の変化はなし） */
+.btn:hover, 
+input[type="submit"]:hover {
+  background-color: #333 !important;
+  opacity: 0.8;
+}
