@@ -299,3 +299,109 @@ input[type="submit"] {
     gap: 30px !important;             /* スマホでは隙間を少し狭く */
   }
 }
+
+/* --- 1. ヘッダーを左右の端に配置（メインページ用） --- */
+#header {
+  display: flex !important;
+  justify-content: space-between !important; /* ロゴを左、ナビを右へ */
+  align-items: center !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 30px 5% !important;
+  text-align: left; /* 文字の基本位置をリセット */
+}
+
+#header nav ul {
+  display: flex !important;
+  gap: 30px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* --- 2. お問い合わせフォームを中央に整列 --- */
+#contact {
+  text-align: center !important;
+}
+
+.contact-form {
+  max-width: 600px !important;
+  margin: 40px auto 0 !important;
+  text-align: center !important; /* 項目名なども中央へ */
+}
+
+.contact-form .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ラベルと入力を中央に */
+  margin-bottom: 25px;
+}
+
+.contact-form label {
+  margin-bottom: 10px !important;
+  font-weight: 700;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100% !important;
+  max-width: 500px !important; /* 入力欄が広すぎないように制限 */
+  padding: 12px !important;
+  border: 2px solid #d1e1ee !important;
+  border-radius: 8px !important;
+  text-align: center !important; /* 入力する文字も中央から */
+  color: #4682b4;
+}
+
+/* --- 3. セクションタイトルの下線を統一 --- */
+section h2 {
+  margin-bottom: 50px !important;
+  font-size: 1.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* --- 4. スマホ時のヘッダー調整 --- */
+@media screen and (max-width: 768px) {
+  #header {
+    flex-direction: column !important; /* スマホでは縦並び */
+    gap: 20px !important;
+  }
+}
+
+/* --- スキルを確実に横3列に並べる修正 --- */
+
+.skills-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 30px !important;              /* 隙間を30pxに固定 */
+  max-width: 1000px !important;      /* 全体の幅を広げてスペースを確保 */
+  margin: 50px auto 0 !important;
+}
+
+.skill-item {
+  /* 100%から隙間2つ分(60px)を引いて、3で割った数値に調整 */
+  width: calc((100% - 60px) / 3) !important; 
+  min-width: 200px !important;        /* 最小幅を少し小さくして、3つ並びやすくする */
+  flex-grow: 0 !important;            /* 勝手に巨大化するのを防ぐ */
+  flex-shrink: 0 !important;          /* 勝手に縮むのを防ぐ */
+  box-sizing: border-box !important;
+}
+
+/* スマホでは1列にする（タブレット以下で切り替え） */
+@media screen and (max-width: 850px) {
+  .skill-item {
+    width: calc(50% - 30px) !important; /* タブレットでは2列 */
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .skill-item {
+    width: 100% !important;             /* スマホでは1列 */
+    max-width: 350px;
+  }
+  .skills-grid {
+    gap: 20px !important;
+  }
+}
