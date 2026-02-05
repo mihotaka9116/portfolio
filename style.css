@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定 & リンク色の完全固定 --- */
+/* --- 1. 基本設定：色とフォントを水色で固定 --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
@@ -12,7 +12,7 @@ body {
   line-height: 1.8;
 }
 
-/* リンク色：訪問後もずっと水色 */
+/* リンク色：訪問後も水色を維持 */
 a, a:visited, a:active {
   color: #4682b4 !important;
   text-decoration: none;
@@ -21,9 +21,25 @@ a:hover { opacity: 0.7; }
 
 h1, h2, h3, h4, p, li, dt, dd, span, label { color: #4682b4 !important; }
 
-/* --- 2. メインビジュアル & ヘッダー --- */
+/* --- 2. ヘッダー：横並びに固定 --- */
+#header {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#header ul {
+  display: flex !important;
+  list-style: none;
+  gap: 30px;
+  margin: 0; padding: 0;
+}
+
+/* --- 3. メインビジュアル：高さを抑える --- */
 #mainvisual {
-  width: 100%; height: 400px;
+  width: 100%; height: 350px;
   background-color: #f4f7f9;
   background-image: linear-gradient(rgba(244, 247, 249, 0.15), rgba(244, 247, 249, 0.15)), url("logo.svg");
   background-repeat: repeat;
@@ -32,45 +48,47 @@ h1, h2, h3, h4, p, li, dt, dd, span, label { color: #4682b4 !important; }
 }
 #mainvisual::after {
   content: "PORTFOLIO";
-  background: rgba(255, 255, 255, 0.85);
-  color: #4682b4; font-size: 2.5rem; font-weight: 800;
-  padding: 20px 60px; letter-spacing: 0.4em;
+  background: rgba(255, 255, 255, 0.9);
+  color: #4682b4; font-size: 2rem; font-weight: 800;
+  padding: 15px 50px; letter-spacing: 0.4em;
   box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
 }
 
-header#header {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 30px 5%;
-}
-header ul { display: flex; list-style: none; gap: 30px; }
+/* --- 4. セクション共通：巨大化防止 & 交互配置 --- */
+section { padding: 80px 0; overflow: hidden; }
 
-/* --- 3. セクション共通：巨大化防止 & 交互配置 --- */
-section { padding: 100px 0; overflow: hidden; }
-
-/* CONCEPT: 左写真・右テキスト */
-#concept .content {
-  display: flex; align-items: center; justify-content: space-between; gap: 50px;
-  flex-direction: row;
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* WORK: 左テキスト・右写真 */
-#work.js-fade-up {
-  display: flex; align-items: center; justify-content: space-between; gap: 50px;
-  flex-direction: row-reverse; /* 左右を反転させてテキストを左に */
-  max-width: 1000px; margin: 0 auto; padding: 0 20px;
+/* コンテンツの横並び設定 */
+.content, #work.js-fade-up {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
 }
 
-/* 写真のサイズ制限（共通） */
+/* 交互配置：Conceptは左写真、Workは右写真 */
+#concept .content { flex-direction: row; }
+#work.js-fade-up { flex-direction: row-reverse; }
+
+/* 画像のサイズ制限（絶対に巨大化させない） */
 .img { width: 45%; flex-shrink: 0; text-align: center; }
 .img img {
-  width: 100% !important; 
-  max-width: 350px !important; /* ★ここで巨大化を防止 */
-  height: auto !important; 
+  width: 100% !important;
+  max-width: 320px !important;
+  height: auto !important;
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;
 }
+
 .text { width: 50%; text-align: left; }
 
-/* --- 4. SKILLS：小さめ水色アイコンの再現 --- */
+/* --- 5. スキル：水色アイコン & 小さめサイズ --- */
 .skills-grid {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 50px;
 }
@@ -78,132 +96,21 @@ section { padding: 100px 0; overflow: hidden; }
   width: calc(33.333% - 30px); min-width: 250px;
   padding: 40px 20px; background: #f9fbff; text-align: center; border-radius: 12px;
 }
-/* SVGアイコンを水色にし、小さく固定 */
 .skill-item svg {
   width: 50px !important; height: 50px !important;
   margin: 0 auto 20px; display: block;
   fill: #4682b4 !important; /* SVGの色を水色に */
 }
 
-/* --- 5. お問い合わせ：リッチなセンター寄せ --- */
-.contact-form {
-  max-width: 600px; margin: 50px auto 0;
-  background-color: #f9fbff; padding: 50px 40px; border-radius: 15px;
-}
-.contact-form .item { margin-bottom: 25px; text-align: center; }
-.contact-form label { display: block; margin-bottom: 10px; font-weight: 700; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 15px; border: 2px solid #d1e1ee; border-radius: 8px;
-  text-align: center; color: #4682b4; outline: none;
-}
-
-/* --- 6. ボタンデザイン --- */
-.btn, input[type="submit"] {
-  display: inline-block;
-  background-color: #4682b4 !important; color: #ffffff !important;
-  padding: 14px 50px; border-radius: 50px; border: none;
-  font-weight: 700; cursor: pointer; transition: 0.3s;
+/* --- 6. お問い合わせ：崩れを直してリッチに --- */
+#contact { 
+  display: block !important; 
   text-align: center;
+  clear: both;
 }
-.btn:hover { background-color: #356a94 !important; transform: translateY(-2px); }
-
-/* --- 7. フッター --- */
-#footer {
-  background-color: #356a94; color: #ffffff !important;
-  padding: 60px 0; text-align: center;
+.contact-form {
+  max-width: 600px; margin: 40px auto 0;
+  background-color: #f9fbff; padding: 40px; border-radius: 15px;
 }
-#footer p { color: #ffffff !important; }
-
-/* スマホ対応 */
-@media screen and (max-width: 768px) {
-  #concept .content, #work.js-fade-up { flex-direction: column !important; text-align: center; }
-  .img, .text { width: 100%; }
-}
-
-/* --- WORKDETAIL（work.html）専用の修正 --- */
-
-/* 1. ロゴとタイトルを中央に寄せる */
-.detail-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center; /* テキストとロゴをすべて中央へ */
-}
-
-/* ロゴマーク（logo.svg）のサイズと中央配置 */
-.detail-container > a > img {
-  width: 120px !important; /* 巨大化を防ぐサイズ */
-  height: auto;
-  margin: 0 auto 30px;
-  display: block;
-}
-
-/* 2. グリッドのレイアウト調整 */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 60px 40px;
-  margin-top: 50px;
-}
-
-.goods-item {
-  text-align: center; /* アイテム内の文字も中央 */
-}
-
-/* 3. 画像の白い枠（ボックス）の設定 */
-.image-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border: 1px solid #d1e1ee;
-  background-color: #ffffff; /* 白い背景 */
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* マウスを乗せた時に浮き上がる演出 */
-.goods-item:hover .image-wrap {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(70, 130, 180, 0.15);
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* 基本は枠いっぱいに */
-}
-
-/* ★ 4番目のボックス（名刺）をど真ん中に配置 */
-.goods-grid .goods-item:nth-child(4) .image-wrap img {
-  object-fit: contain;  /* 画像を削らずに枠内に収める */
-  width: 90%;          /* 枠に対して少しだけ余白を作る */
-  height: 90%;
-  object-position: center; /* 確実に真ん中へ */
-}
-
-/* 4. テキストとボタンの色調整 */
-.goods-item h3, 
-.goods-item p {
-  color: #4682b4 !important;
-}
-
-.view-detail-btn {
-  display: inline-block;
-  background-color: #4682b4;
-  color: #ffffff !important;
-  padding: 10px 30px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  margin-top: 15px;
-  text-decoration: none;
-}
-
-/* スマホ対応：1列にする */
-@media screen and (max-width: 768px) {
-  .goods-grid {
-    grid-template-columns: 1fr;
-  }
-}
+.contact-form .item { margin-bottom: 20px; text-align: left; }
+.contact-form label { display: block; margin-bottom: 8px; font-weight: 7
