@@ -492,3 +492,33 @@ input[type="submit"]:hover {
   opacity: 0.8;
 }
 
+/* --- タイトルとボタンの色を、以前の水色（スチールブルー）に設定 --- */
+
+/* 1. タイトルの色を水色に戻す */
+.section-title {
+  color: #4682b4 !important; /* 以前の水色系に戻す */
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+/* 2. リンクボタンも水色に戻し、長方形を維持 */
+.btn, 
+input[type="submit"] {
+  background-color: #4682b4 !important; /* ボタンも同じ水色に */
+  color: #ffffff !important;           /* 文字は白 */
+  border-radius: 0 !important;          /* 形はシャープな長方形 */
+  border: none;
+  padding: 15px 50px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* 3. ホバー（マウスを乗せた時）の色の変化を止める */
+.btn:hover, 
+input[type="submit"]:hover {
+  background-color: #4682b4 !important; /* 色は変えない */
+  opacity: 0.8;                         /* 透明度だけで反応を出す */
+}
+
