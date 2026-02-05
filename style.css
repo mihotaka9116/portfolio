@@ -298,3 +298,77 @@ button {
     margin-bottom: 20px;
   }
 }
+
+/* --- 5. Content Layout (メインページ用：完全中央揃えスタイル) --- */
+
+.container {
+  max-width: 900px; /* 中央揃えなので、少し横幅を絞ると読みやすくなります */
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* 縦並びに変更 */
+  align-items: center;    /* 左右中央揃え */
+  justify-content: center;
+  text-align: center;     /* テキストをすべて中央寄せ */
+  gap: 30px;              /* 画像とテキストの間の距離 */
+  padding: 100px 0;       /* セクションごとの上下余白 */
+  border-bottom: 1px solid #f0f0f0; /* セクションの境界線（不要なら消してください） */
+}
+
+/* 左右交互の設定を解除（すべて同じ並びにする） */
+section:nth-of-type(even) .content {
+  flex-direction: column; 
+}
+
+/* 画像エリアの設定（以前よりさらにコンパクトに） */
+.content .img {
+  width: 150px !important;  /* 画像をさらに小さく上品に */
+  height: auto !important;
+  margin: 0 auto 10px;      /* 下に少し余白 */
+  display: block;
+  transform: none !important; /* 浮かび上がり不要 */
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.content .img img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* テキストエリアの設定 */
+.content .text {
+  width: 100% !important; /* 全幅を使って中央寄せ */
+  max-width: 600px;       /* 文章が横に広がりすぎないように制限 */
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.15em;
+  color: #333;
+}
+
+.section-title-en {
+  display: block;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 767px) {
+  .content {
+    padding: 60px 0;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
