@@ -123,6 +123,24 @@
     <footer id="footer">
         <p>&copy; 2026 miho takahashi</p>
     </footer>
+        <script>
+  // スクロールでふわっと出す
+  const targets = document.querySelectorAll('.js-fade-up');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-show');
+      }
+    });
+  }, {
+    threshold: 0.1 // 10%見えたら実行
+  });
+
+  targets.forEach(target => {
+    observer.observe(target);
+  });
+</script>
 
 </body>
 </html>
