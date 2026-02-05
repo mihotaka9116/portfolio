@@ -66,3 +66,106 @@ section h2::after {
   .skill-item { width: 100%; }
   .goods-grid { grid-template-columns: 1fr; }
 }
+
+@charset "UTF-8";
+
+/* --- 1. 基本設定 --- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; padding: 0;
+  background-color: #fff;
+  color: #4682b4;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.8;
+  text-align: center;
+}
+a { color: #4682b4; text-decoration: none; }
+
+/* --- 2. ヘッダー --- */
+#header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 5%; max-width: 1200px; margin: 0 auto;
+}
+#header ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+
+/* --- 3. メインビジュアル（復活） --- */
+#mainvisual {
+  width: 100%; height: 300px;
+  background-color: #f4f7f9;
+  background-image: url("logo.svg"); 
+  background-repeat: repeat;
+  background-size: 80px auto;
+  display: flex; align-items: center; justify-content: center;
+}
+#mainvisual::after {
+  content: "PORTFOLIO";
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 40px;
+  letter-spacing: 0.4em;
+  font-weight: 800;
+}
+
+/* --- 4. スキル：3列 & 浮かび上がるアニメーション（復活） --- */
+.skills-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 20px; margin-top: 40px; max-width: 1000px; margin: 40px auto 0;
+}
+
+.skill-item {
+  /* 横3列の計算（隙間分を引く） */
+  width: calc(33.333% - 20px);
+  min-width: 200px;
+  padding: 30px 15px;
+  background: #f9fbff;
+  border-radius: 12px;
+  /* 浮かび上がる設定 */
+  transition: all 0.4s ease-out;
+  cursor: pointer;
+}
+
+/* マウスを乗せた時の動き */
+.skill-item:hover {
+  transform: translateY(-12px) !important;
+  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) !important;
+  background-color: #ffffff !important;
+}
+
+/* --- アイコンサイズ固定（巨大化対策） --- */
+.skill-item .img,
+.skill-item svg,
+.skill-item img {
+  width: 50px !important; /* 前の仕様のサイズへ */
+  height: 50px !important;
+  max-width: 50px !important;
+  margin: 0 auto 15px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+/* --- 5. 制作実績 --- */
+.goods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+.image-wrap img { width: 100%; height: auto; border-radius: 8px; }
+
+/* --- 6. ボタン --- */
+.btn, .view-detail-btn, input[type="submit"] {
+  display: inline-block;
+  background-color: #4682b4;
+  color: #ffffff !important;
+  padding: 14px 50px;
+  border-radius: 50px;
+  margin-top: 40px;
+  font-weight: 700;
+  border: none;
+}
+
+/* --- 7. フッター --- */
+#footer { background-color: #4682b4; padding: 40px 0; margin-top: 80px; }
+#footer p { color: #fff; margin: 0; }
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+  #header { flex-direction: column; gap: 20px; }
+  .skill-item { width: 100%; }
+  .goods-grid { grid-template-columns: 1fr; }
+}
