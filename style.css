@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定 & リンク色の完全固定 --- */
+/* --- 1. 基本設定 & リンク色の固定 --- */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
@@ -8,24 +8,20 @@ body {
   margin: 0; padding: 0;
   background-color: #ffffff;
   color: #4682b4 !important;
-  font-family: 'Montserrat', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: 'Montserrat', "Helvetica Neue", Arial, sans-serif;
   line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* リンク色を未訪問・訪問済み問わず水色に固定 */
+/* リンク色を常に水色に固定 */
 a, a:visited, a:active {
   color: #4682b4 !important;
   text-decoration: none;
-  transition: 0.3s;
 }
-a:hover {
-  opacity: 0.7;
-}
+a:hover { opacity: 0.7; }
 
-h1, h2, h3, h4, p, li, dt, dd, span { color: #4682b4 !important; }
+h1, h2, h3, h4, p, li, dt, dd { color: #4682b4 !important; }
 
-/* --- 2. WORKS（制作したもの）セクション：左テキスト・右ロゴ --- */
+/* --- 2. 制作したもの（WORKS）セクション：左テキスト・右ロゴ --- */
 #works .content {
   display: flex;
   align-items: center;
@@ -45,13 +41,15 @@ h1, h2, h3, h4, p, li, dt, dd, span { color: #4682b4 !important; }
   text-align: center;
 }
 
+/* ★巨大化防止：ロゴ・写真のサイズを制限 */
 #works .img img {
   width: 100%;
-  max-width: 320px; /* ロゴサイズを上品に制限 */
+  max-width: 320px; /* この数値を小さくするとさらに写真は小さくなります */
   height: auto;
+  display: inline-block;
 }
 
-/* --- 3. SKILLS：以前の「小さめ水色アイコン」を完全再現 --- */
+/* --- 3. SKILLS：小さめ水色アイコンの完全再現 --- */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -72,154 +70,64 @@ h1, h2, h3, h4, p, li, dt, dd, span { color: #4682b4 !important; }
 
 .skill-item:hover {
   transform: translateY(-10px);
-  background: #ffffff;
   box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
 }
 
+/* ★スキルアイコンのサイズ固定と色加工 */
 .skill-item img {
-  width: 60px !important;      /* 以前の小さめサイズに固定 */
+  width: 60px !important;      /* 理想の小さいサイズ */
   height: 60px !important;
   margin: 0 auto 20px !important;
   display: block;
   object-fit: contain;
-  /* アイコンを水色に染めるフィルター(完全再現) */
+  /* アイコンを水色に染めるフィルター */
   filter: sepia(1) saturate(2) hue-rotate(175deg) brightness(0.8) !important;
 }
 
-/* --- 4. ボタン：水色系・丸みのあるデザイン --- */
+/* --- 4. ボタン & フォームのデザイン --- */
 .view-more, 
-.btn,
 .btn-area input[type="submit"] {
   display: inline-block;
-  background-color: #4682b4 !important; /* 背景：水色 */
-  color: #ffffff !important;           /* 文字：白 */
-  padding: 14px 60px;
-  border-radius: 50px;                 /* 角丸 */
+  background-color: #4682b4 !important;
+  color: #ffffff !important;
+  padding: 12px 50px;
+  border-radius: 50px;
   border: none;
   font-weight: 700;
-  text-align: center;
-  transition: 0.3s ease;
   cursor: pointer;
-  text-decoration: none;
-  font-size: 0.9rem;
+  transition: 0.3s;
 }
 
-.view-more:hover, 
-.btn-area input[type="submit"]:hover {
-  background-color: #356a94 !important; /* 少し濃い青 */
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(70, 130, 180, 0.3);
-}
-
-/* --- 5. お問い合わせフォーム：リッチな見た目 --- */
-#contact {
-  padding: 80px 0 120px;
-  text-align: center;
-}
-
-.contact-form {
+#contact .contact-form {
   max-width: 650px;
   margin: 0 auto;
-  background-color: #f9fbff;           /* 薄い水色の背景 */
-  padding: 50px 40px;
+  background-color: #f9fbff;
+  padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-}
-
-.contact-form dl {
-  margin-bottom: 30px;
-}
-
-.contact-form dt {
-  margin-bottom: 12px;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.contact-form dd {
-  margin: 0 0 25px 0;
 }
 
 .contact-form input, 
 .contact-form textarea {
   width: 100%;
-  padding: 16px;
+  padding: 15px;
   border: 2px solid #d1e1ee;
-  border-radius: 10px;
-  background: #ffffff;
+  border-radius: 8px;
   text-align: center;
   color: #4682b4;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.3s;
+  margin-bottom: 20px;
 }
 
-.contact-form input:focus, 
-.contact-form textarea:focus {
-  border-color: #4682b4;
-}
-
-/* --- 6. フッター --- */
+/* --- 5. フッター --- */
 #footer {
-  background-color: #356a94 !important;
+  background-color: #356a94;
   color: #ffffff !important;
   text-align: center;
   padding: 60px 0;
 }
-#footer p { color: #ffffff !important; margin: 0; font-size: 0.8rem; }
+#footer p { color: #ffffff !important; }
 
 /* スマホ対応 */
 @media screen and (max-width: 768px) {
   #works .content { flex-direction: column; text-align: center; }
   #works .text, #works .img { width: 100%; }
-  .skill-item { width: 100%; }
-}
-
-/* --- 写真の巨大化を防止する設定 --- */
-
-/* 1. コンテンツ全体の幅を制限し、中央に寄せる */
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  max-width: 900px; /* 全体の幅を少し絞る */
-  margin: 0 auto;   /* 中央寄せ */
-}
-
-/* 2. 写真を入れる枠（.img）のサイズを固定 */
-.content .img {
-  width: 40%;       /* 画面の40%までに制限 */
-  flex-shrink: 0;   /* 枠が潰れないように固定 */
-  display: flex;
-  justify-content: center;
-}
-
-/* 3. 中の写真（imgタグ）自体の最大サイズを制限 */
-.content .img img {
-  width: 100%;
-  max-width: 350px; /* ★ここが重要：これ以上大きくならないように固定 */
-  height: auto;
-  border-radius: 8px; /* 角を少し丸くするとプロっぽくなります */
-  box-shadow: 0 10px 20px rgba(70, 130, 180, 0.1); /* 軽い影で浮かせる */
-}
-
-/* 4. テキスト側の幅も調整 */
-.content .text {
-  width: 55%;
-  text-align: left;
-}
-
-/* スマホでは縦並びにして、写真を中央に */
-@media screen and (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .content .img, .content .text {
-    width: 100%;
-  }
-  .content .img img {
-    max-width: 280px; /* スマホではさらに少し小さく */
-  }
 }
