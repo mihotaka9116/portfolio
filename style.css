@@ -13,18 +13,18 @@ body {
 }
 a { color: #4682b4; text-decoration: none; }
 
-/* --- 2. ヘッダー（左右配置） --- */
+/* --- 2. ヘッダー --- */
 #header {
   display: flex; justify-content: space-between; align-items: center;
   padding: 30px 5%; max-width: 1200px; margin: 0 auto;
 }
 #header ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
 
-/* --- 3. セクションタイトル（英語・日本語・下線） --- */
+/* --- 3. セクションタイトル（下線付き） --- */
 section h2 {
   display: flex; flex-direction: column; align-items: center;
   margin-bottom: 80px; position: relative; padding-bottom: 20px;
-  color: #4682b4; font-size: 2rem;
+  font-size: 2rem; color: #4682b4;
 }
 section h2 span {
   display: block; font-size: 0.9rem; margin-top: 10px; font-weight: normal; letter-spacing: 0.2em;
@@ -34,7 +34,12 @@ section h2::after {
   transform: translateX(-50%); width: 50px; height: 2px; background-color: #4682b4;
 }
 
-/* --- 4. スキル：横3列・アイコンサイズ固定 --- */
+/* --- 4. メインページ・詳細ページの画像基本設定 --- */
+.img img, .content img, .image-wrap img {
+  width: 100%; height: auto; border-radius: 8px;
+}
+
+/* --- 5. スキル：横並びと【巨大化修正】 --- */
 .skills-grid {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
   max-width: 1000px; margin: 0 auto;
@@ -46,32 +51,36 @@ section h2::after {
 }
 .skill-item:hover { transform: translateY(-12px); box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2); }
 
-/* ★JavaScriptのアイコン巨大化を止める決定打★ */
-.skill-item .img, .skill-item svg, .skill-item img {
-  width: 60px !important; height: 60px !important;
-  margin: 0 auto 15px !important; display: block !important;
+/* 【最優先】スキル内の画像とSVGを強制的に60pxに固定 */
+#skill .skill-item .img img,
+#skill .skill-item img,
+#skill .skill-item svg {
+  width: 60px !important;
+  height: 60px !important;
+  max-width: 60px !important;
+  margin: 0 auto 15px !important;
+  display: block !important;
   object-fit: contain !important;
 }
 
-/* --- 5. 制作実績（work.html含む） --- */
-.goods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
-.image-wrap img { width: 100%; height: auto; border-radius: 8px; }
-
-/* --- 6. ボタン（白文字・余白） --- */
+/* --- 6. ボタン設定（白文字を死守） --- */
 .btn, .view-detail-btn, input[type="submit"] {
-  display: inline-block; background-color: #4682b4; color: #fff !important;
+  display: inline-block; background-color: #4682b4; color: #ffffff !important;
   padding: 14px 50px; border-radius: 50px; margin: 40px 0 60px;
-  font-weight: 700; border: none; cursor: pointer;
+  font-weight: 700; border: none; cursor: pointer; text-decoration: none;
 }
-.btn:visited, .view-detail-btn:visited { color: #fff !important; }
+.btn:visited, .view-detail-btn:visited { color: #ffffff !important; }
 
 /* --- 7. フッター（水色背景） --- */
-#footer { background-color: #4682b4; padding: 40px 0; margin-top: 80px; }
-#footer p { color: #fff; margin: 0; }
+#footer { background-color: #4682b4; padding: 50px 0; margin-top: 80px; }
+#footer p { color: #ffffff; margin: 0; }
 
-/* スマホ対応 */
-@media screen and (max-width: 768px) {
+/* スマホ・タブレット対応 */
+@media screen and (max-width: 850px) {
+  .skill-item { width: calc(50% - 30px); }
+}
+@media screen and (max-width: 550px) {
   #header { flex-direction: column; gap: 20px; }
-  .skill-item { width: 100%; }
+  .skill-item { width: 100%; max-width: 350px; }
   .goods-grid { grid-template-columns: 1fr; }
 }
