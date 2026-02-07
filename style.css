@@ -37,7 +37,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   position: absolute;
   bottom: 0;
   left: 50% ; /* 親要素の真ん中から開始 */
-  transform: translateX(-50%) !important; /* 自身の幅の半分だけ左に戻して完全中央へ */
+  transform: translateX(-50%); /* 自身の幅の半分だけ左に戻して完全中央へ */
   width: 40px;
   height: 2px;
   background-color: #4682b4;
@@ -58,6 +58,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 20px 0;
   margin: 20px auto;
 }
+
 .site-title img { width: 110px; }
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 25px; }
@@ -91,6 +92,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-top: 20px;
 }
 
+
 /* スキル */
 .skills-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; }
 .skill-item {
@@ -111,6 +113,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .parsed-btn input {
   background: #4682b4; color: #fff; border: none; padding: 15px 60px; border-radius: 30px; cursor: pointer; display: block; margin: 20px auto 0;
 }
+
 
 /* --- 5. 詳細ページ（work.html）用 --- */
 /* 基本（スマホ・全デバイス共通の中央寄せ設定） */
@@ -185,7 +188,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   #header {
     flex-direction: column;
     padding: 30px 0 0 0; /* 上の余白を少し増やし、下は0に */
-    gap: 30px; /* ★ロゴとナビの間の距離 */
+    gap: 30px; /* ロゴとナビの間の距離 */
   }
 
   /* ロゴのサイズ調整 */
@@ -197,7 +200,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   #header ul {
     justify-content: center;
     width: 100%;
-    margin-bottom: 30px; /* ★ナビとメインビジュアルの間の距離 */
+    margin-bottom: 30px; /* ナビとメインビジュアルの間の距離 */
   }
 
   #header li {
@@ -242,7 +245,7 @@ button {
   background: none;
   
   /* 前の心地よい浮かび上がり設定 */
-  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out !important;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
   position: relative;
   top: 0;
   cursor: pointer;
@@ -250,9 +253,9 @@ button {
   overflow: hidden;
 }
 
-/* マウスを乗せた時に「ふわっ」と浮かせる */
+/* マウスを乗せた時に浮かせる */
 #concept .img:hover {
-  transform: translateY(-12px) !important; /* 上に動く */
+  transform: translateY(-12px); /* 上に動く */
   box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) ; /* 水色系の影 */
 }
 
@@ -313,7 +316,7 @@ button {
 
 /* 送信ボタンにマウスを乗せた時 */
 .contact-form .btn:hover {
-  transform: translateY(-8px) !important; /* 8px浮き上がる */
+  transform: translateY(-8px); /* 8px浮き上がる */
   box-shadow: 0 10px 20px rgba(70, 130, 180, 0.3); /* 水色の影 */
 }
 
@@ -367,7 +370,7 @@ section h2,
 
 /* タイトルの下の棒（もしあれば）も中央に */
 section h2::after {
-  left: 50% !important;
+  left: 50%;
   transform: translateX(-50%);
 }
 
@@ -412,7 +415,7 @@ input[type="submit"] {
   object-fit: contain;
 
   /* ★アイコンを水色（#4682b4）系に染めるフィルター */
-  filter: invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(90%) !important;
+  filter: invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(90%);
   
   transition: transform 0.4s ease-out, filter 0.4s ease-out;
 }
