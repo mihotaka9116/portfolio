@@ -501,3 +501,33 @@ body {
 a, button, .btn {
   transition: all 0.3s ease;
 }
+
+/* Web実績のテキスト周り */
+.work-section {
+  margin-bottom: 120px;
+}
+
+.work-feature {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.detail-text-box .title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4682b4;
+  margin-bottom: 15px;
+}
+
+.skill-tags {
+  font-size: 0.8rem;
+  color: #88a6c1;
+  margin-top: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.project-description.center {
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
