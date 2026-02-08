@@ -531,3 +531,15 @@ a, button, .btn {
   max-width: 600px;
   margin: 0 auto 40px;
 }
+
+@media screen and (min-width: 768px) {
+  .goods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列に固定 */
+    gap: 30px;
+  }
+  
+  .goods-item, .image-wrap {
+    width: 100%; /* 親のグリッド幅に合わせる */
+  }
+}
