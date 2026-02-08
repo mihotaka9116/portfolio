@@ -427,3 +427,31 @@ input[type="submit"] {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+/* スキル名の直後の説明テキストだけを少し細く、読みやすくする */
+.skill-item p + p {
+  font-weight: normal;
+  font-size: 0.9rem;
+  opacity: 0.9; /* わずかに透過させて色の強さを和らげる */
+}
+
+/* --- スキル全体の設定 --- */
+.skills-grid { 
+  display: flex; 
+  flex-direction: row;    /* 横並びに変更 */
+  flex-wrap: wrap;        /* 幅が狭くなったら折り返す */
+  justify-content: center; /* 中央寄せ */
+  gap: 30px; 
+  margin-top: 40px; 
+}
+
+/* 各スキル項目の幅調整 */
+.skill-item {
+  flex: 1;               /* 均等に広がる */
+  min-width: 250px;      /* 最低限の幅（これより狭くなると折り返す） */
+  max-width: 320px;      /* 広がりすぎ防止 */
+  text-align: center; 
+  padding: 30px 20px; 
+  border-radius: 8px;
+  transition: transform 0.25s ease-out, background-color 0.25s ease-out;
+}
