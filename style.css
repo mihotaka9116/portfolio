@@ -93,15 +93,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 
-/* スキル */
-.skills-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; }
-.skill-item {
-  text-align: center; padding: 30px 20px; border-radius: 8px;
-  transition: transform 0.3s ease-out, background-color 0.3s ease-out;
-}
-.skill-item:hover { transform: translateY(-10px); background-color: rgba(70, 130, 180, 0.03); }
-.skill-item svg { width: 60px; height: 60px; fill: 4682b4; margin: 0 auto 15px; display: block; }
-
 /* お問い合わせ */
 #contact { padding: 80px 0; background-color: #fff; text-align: center; }
 .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
@@ -326,32 +317,6 @@ button {
   margin: 0 auto;
 }
 
-/* --- スキルアイコンをさらに小さく、綺麗に整える --- */
-
-.skill-item .img, 
-.skill-item img, 
-.skill-item svg {
-  /* 前の仕様よりさらに一回り小さい 40px に設定 */
-  width: 40px; 
-  height: 40px;
-  max-width: 40px;
-  max-height: 40px;
-  
-  /* 中央寄せと、下の文字との余白 */
-  margin: 0 auto 12px; 
-  display: block;
-  object-fit: contain;
-  
-  /* アイコン自体の浮き上がりを滑らかに */
-  transition: transform 0.4s ease-out;
-}
-
-/* ボックス全体が浮いたとき、アイコンも少しだけ連動させる（お好みで） */
-.skill-item:hover .img,
-.skill-item:hover img {
-  transform: scale(1.1); /* ほんの少しだけ大きくして見やすく */
-}
-
 /* --- 1. 全てのセクションタイトルを中央に --- */
 section h2, 
 #concept h2, 
@@ -400,110 +365,26 @@ input[type="submit"] {
   text-align: center;
 }
 
-/* --- スキルアイコンのサイズアップ ＆ 水色カラー化 --- */
-
-.skill-item .img, 
-.skill-item img, 
-.skill-item svg {
-  /* 一回り大きく設定（50px） */
-  width: 50px; 
-  height: 50px;
-  max-width: 50px;
-  max-height: 50px;
-  
-  margin: 0 auto 15px;
-  object-fit: contain;
-
-  /* アイコンを水色（#4682b4）系に染めるフィルター */
-  filter: invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(90%);
-  
-  transition: transform 0.4s ease-out, filter 0.4s ease-out;
-}
-
-
-/* スキル名のテキストも水色に統一 */
-.skill-item p {
-  color: #4682b4;
-  font-weight: bold;
-}
-
-/* --- スキルアイコン：鮮明化 ＆ 動作スピード改善 --- */
-
-.skill-item .img, 
-.skill-item img {
-  width: 50px; 
-  height: 50px;
-  margin: 0 auto 15px; 
-  display: block;
-  object-fit: contain;
-
-  /* ぼやけ防止：画像をくっきりさせる設定 */
-  image-rendering: -webkit-optimize-contrast; 
-  image-rendering: crisp-edges;
-  backface-visibility: hidden; /* 動き出しのガタつき防止 */
-
-  /* 水色化フィルター：少し数値を調整して鮮明に */
-  filter: invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(95%) contrast(100%) ;
-  
-  /* 動きをキビキビ（0.4s → 0.25s）にする */
-  transition: transform 0.25s ease-out, filter 0.25s ease-out;
-}
-
-/* マウスを乗せた時：拡大をやめて「上に動く」だけに統一 */
-/* 拡大（scale）を使うと画像がぼやけやすいため、移動（translate）に絞ります */
-.skill-item:hover img {
-  transform: translateY(-5px) ; /* アイコン単体でも少し上に動く */
-  filter: invert(35%) sepia(20%) saturate(2500%) hue-rotate(175deg) brightness(90%) contrast(110%);
-}
-
-/* ボックス自体の動きもキビキビさせる */
-.skill-item {
-  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
-}
-
-.skill-item:hover {
-  transform: translateY(-10px);
-}
-
-/* --- スキルアイコン：鮮明化 ＆ 高精細設定 --- */
-
-.skill-item .img, 
-.skill-item img,
-.skill-item svg {
-  width: 50px; 
-  height: 50px;
-  margin: 0 auto 15px; 
-  display: block;
-  object-fit: contain;
-
-  /* 1. ぼやけ防止（エッジの強調） */
-  image-rendering: -webkit-optimize-contrast; 
-  image-rendering: crisp-edges;
-  
-  /* 2. アニメーション時のガタつき・ボケ防止 */
-  backface-visibility: hidden;
-  will-change: transform; 
-
-  /* 3. 色の設定（水色：SteelBlue #4682b4） */
-  /* SVGの場合はfill、画像の場合はfilterを使用 */
-  fill: #4682b4; 
-  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(90%);
-  
-  transition: transform 0.2s ease-out, filter 0.2s ease-out;
-}
-
-/* マウスホバー時：拡大ではなく「浮上」のみにして鮮明さを維持 */
-.skill-item:hover img,
-.skill-item:hover svg {
-  transform: translateY(-5px);
-  /* ホバー時に少しだけ色を濃くして視認性を上げる */
-  filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(2500%) hue-rotate(175deg) brightness(85%) contrast(110%);
+/* --- スキル全体の設定 --- */
+.skills-grid { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 30px; 
+  margin-top: 40px; 
 }
 
 .skill-item {
-  transition: transform 0.2s ease-out, background-color 0.2s ease-out;
-  /* 念のため親要素でもボケ防止 */
-  -webkit-font-smoothing: antialiased;
+  text-align: center; 
+  padding: 30px 20px; 
+  border-radius: 8px;
+  transition: transform 0.25s ease-out, background-color 0.25s ease-out;
+  -webkit-font-smoothing: antialiased; /* 文字のボケ防止 */
+}
+
+/* ボックス自体のホバー：少し浮いて背景に薄く色を付ける */
+.skill-item:hover { 
+  transform: translateY(-10px); 
+  background-color: rgba(70, 130, 180, 0.03); 
 }
 
 /* --- スキルアイコン：究極の鮮明化設定 --- */
@@ -520,26 +401,29 @@ input[type="submit"] {
   image-rendering: -webkit-optimize-contrast; 
   image-rendering: crisp-edges;
   
-  /* 2. レンダリング時のボケを防ぐおまじない */
+  /* 2. レンダリング時のボケを防ぐ（3Dアクセラレーション） */
   backface-visibility: hidden;
-  transform: translateZ(0); /* 3Dアクセラレーションを強制 */
+  transform: translateZ(0); 
   will-change: transform; 
 
   /* 3. 水色設定（SteelBlue #4682b4） */
-  /* 一度真っ黒にしてから色を乗せることで、元画像の色に左右されずクッキリします */
+  /* 真っ黒にしてから青を乗せることで、元画像に左右されずクッキリします */
   filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(100%);
   
   transition: transform 0.25s ease-out, filter 0.25s ease-out;
 }
 
-/* マウスホバー時：拡大(scale)を使わず、移動(translate)のみでボケを回避 */
+/* アイコン単体のホバー：拡大せず移動(translate)のみで鮮明さを維持 */
 .skill-item:hover img,
 .skill-item:hover svg {
   transform: translateY(-8px);
-  /* ホバー時は少し鮮やかな青に */
+  /* ホバー時は少しだけ濃い青に */
   filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(2500%) hue-rotate(175deg) brightness(85%) contrast(110%);
 }
 
-.skill-item {
-  transition: transform 0.25s ease-out, background-color 0.25s ease-out;
+/* スキル名のテキスト */
+.skill-item p {
+  color: #4682b4;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
