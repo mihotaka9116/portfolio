@@ -8,60 +8,70 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-    
+    <script src="script.js" defer></script>
 </head>
-    <body>
+<body>
 
-      <div class="detail-container">
-        <nav class="back-nav">
-          <a href="index.html">← Back To Top</a>
-        </nav>
+  <div class="detail-container">
+    <nav class="back-nav">
+      <a href="index.html">← Back To Top</a>
+    </nav>
 
     <article class="detail-content">
-      <img src="logo.svg" alt="miho takahashi" class="main-visual-img">
+      <img src="logo.svg" alt="miho takahashi" class="main-visual-img fade-in">
 
-      <div class="goods-grid">
+      <section class="work-section fade-in">
+        <h2 class="section-title">Web Site Design</h2>
+        <span class="section-title-en">Webサイト制作</span>
         
-        <div class="goods-item">
+        <div class="work-feature">
           <div class="image-wrap">
-            <img src="magcup.png" alt="Mag Cup">
+            <a href="https://mihotaka9116.github.io/portfolio/" target="_blank">
+              <img src="https://i.imgur.com/qFZz90W.jpeg" alt="仙台・横浜カフェブック">
+            </a>
           </div>
-          <p class="item-caption">01<span>Mag Cup</span></p>
-        </div>
-
-        <div class="goods-item">
-          <div class="image-wrap">
-            <img src="magcupsoto.png" alt="Mag Cup">
+          <div class="detail-text-box">
+            <p class="title">仙台・横浜カフェブック</p>
+            <p class="project-description">
+              「お気に入りの場所が見つかる」をコンセプトにしたカフェ紹介サイト。
+              JavaScriptを用いたエリア絞り込み機能や、交差監視API（Intersection Observer）による滑らかなアニメーションを実装し、ユーザー体験の向上を図りました。
+            </p>
+            <p class="skill-tags">HTML / CSS / JavaScript / Responsive Design</p>
           </div>
-          <p class="item-caption">01<span>Mag Cup</span></p>
         </div>
+      </section>
 
-        <div class="goods-item">
-          <div class="image-wrap">
-            <img src="hoodie.png" alt="Hoodie">
-          </div>
-          <p class="item-caption">02<span>Hoodie</span></p>
-        </div>
-
-        <div class="goods-item">
-          <div class="image-wrap">
-            <img src="totebag.png" alt="Tote Bag">
-          </div>
-          <p class="item-caption">03<span>Tote Bag</span></p>
-        </div>
-
-      </div>
-
-      <div class="detail-text-box">
+      <section class="work-section fade-in">
         <h2 class="section-title">Logo Goods Lineup</h2>
-        <span class="section-title-en">制作したグッズについて</span>
-        <p class="project-description">
-          「miho takahashi」のロゴが持つ「リズム」と「美しさ」を、日常生活に馴染むプロダクトへと展開しました。
+        <span class="section-title-en">ロゴグッズ展開</span>
+        
+        <p class="project-description center">
+          「miho takahashi」のロゴが持つリズムを、日常生活に馴染むプロダクトへと展開しました。
         </p>
 
+        <div class="goods-grid">
+          <div class="goods-item">
+            <div class="image-wrap"><img src="magcup.png" alt="Mag Cup"></div>
+            <p class="item-caption">01<span>Mag Cup</span></p>
+          </div>
+          <div class="goods-item">
+            <div class="image-wrap"><img src="magcupsoto.png" alt="Mag Cup"></div>
+            <p class="item-caption">01<span>Mag Cup (Outdoor)</span></p>
+          </div>
+          <div class="goods-item">
+            <div class="image-wrap"><img src="hoodie.png" alt="Hoodie"></div>
+            <p class="item-caption">02<span>Hoodie</span></p>
+          </div>
+          <div class="goods-item">
+            <div class="image-wrap"><img src="totebag.png" alt="Tote Bag"></div>
+            <p class="item-caption">03<span>Tote Bag</span></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-area fade-in">
         <div class="cta-button-container">
-          <a href="index.html#contact" class="custom-btn">グッズについて問い合わせる</a>
+          <a href="index.html#contact" class="custom-btn">制作・デザインのご相談はこちら</a>
         </div>
       </div>
     </article>
