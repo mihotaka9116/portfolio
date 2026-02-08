@@ -100,7 +100,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   transition: transform 0.3s ease-out, background-color 0.3s ease-out;
 }
 .skill-item:hover { transform: translateY(-10px); background-color: rgba(70, 130, 180, 0.03); }
-.skill-item svg { width: 60px; height: 60px; fill: #fff; margin: 0 auto 15px; display: block; }
+.skill-item svg { width: 60px; height: 60px; fill: 4682b4; margin: 0 auto 15px; display: block; }
 
 /* お問い合わせ */
 #contact { padding: 80px 0; background-color: #fff; text-align: center; }
@@ -244,7 +244,7 @@ button {
   padding: 0;
   background: none;
   
-  /* 前の心地よい浮かび上がり設定 */
+  /* 浮かび上がり設定 */
   transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
   position: relative;
   top: 0;
@@ -301,7 +301,7 @@ button {
   color: #4682b4;
 }
 
-/* 送信ボタンを浮かせる（前の仕様） */
+/* 送信ボタンを浮かせる */
 .contact-form .btn {
   background-color: #4682b4;
   color: #fff;
@@ -414,17 +414,12 @@ input[type="submit"] {
   margin: 0 auto 15px;
   object-fit: contain;
 
-  /* ★アイコンを水色（#4682b4）系に染めるフィルター */
+  /* アイコンを水色（#4682b4）系に染めるフィルター */
   filter: invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(90%);
   
   transition: transform 0.4s ease-out, filter 0.4s ease-out;
 }
 
-/* マウスを乗せた時、さらに少し強調する（お好みで） */
-.skill-item:hover img {
-  transform: scale(1.1);
-  filter: invert(40%) sepia(15%) saturate(2000%) hue-rotate(170deg) brightness(100%) contrast(100%) ;
-}
 
 /* スキル名のテキストも水色に統一 */
 .skill-item p {
