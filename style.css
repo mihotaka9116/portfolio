@@ -544,3 +544,17 @@ a, button, .btn {
   }
 }
 
+/* --- アニメーションの設定を統一 --- */
+
+/* 1. 最初（隠れている時）の状態 */
+.js-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* 2. 画面に現れた時（is-showクラスがついた時）の状態 */
+.js-fade-up.is-show {
+    opacity: 1;
+    transform: translateY(0);
+}
