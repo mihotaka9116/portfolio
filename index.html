@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO | あなたのお名前</title> <meta name="description" content="ポートフォリオサイトです。デザインとコーディングのスキルを紹介します。">
+    <title>PORTFOLIO | miho takahashi</title>
+    <meta name="description" content="デザインとコーディングのスキルを紹介するポートフォリオサイトです。">
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     
     <link rel="icon" href="img/favicon.png" type="image/png">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header id="header">
-        <h1><img src="logo.svg" alt="Logo" style="width: 120px;"></h1>
+        <h1><img src="logo.svg" alt="miho takahashi" style="width: 120px;"></h1>
         <nav>
             <ul>
                 <li><a href="#concept">CONCEPT</a></li>
@@ -27,92 +29,97 @@
     <div id="mainvisual"></div>
 
     <main>
-        <section id="concept">
+        <section id="concept" class="js-fade-up">
             <div class="container">
-                <h2>CONCEPT</h2>
+                <h2 class="section-title">CONCEPT</h2>
+                <span class="section-title-en">コンセプト</span>
                 <div class="img">
-                    <img src="door.jpg" alt="ドアの画像">
+                    <img src="door.jpg" alt="扉の画像">
                 </div>
                 <p>あなたの想いを形にするお手伝いをします。<br>
                 シンプルで使いやすく、温かみのあるデザインを心がけています。</p>
             </div>
         </section>
 
-        <section id="skill">
+        <section id="skill" class="js-fade-up">
             <div class="container">
-                <h2>SKILL</h2>
+                <h2 class="section-title">SKILL</h2>
+                <span class="section-title-en">スキル</span>
                 <div class="skills-grid">
                     <div class="skill-item">
-    <div class="img"><img src="illustrator.svg" alt="Illustrator"></div>
-    <p>Illustrator</p>
-    <p>ロゴやアイコン、印刷物のデザインが可能です。</p>
-</div>
-                    <div class="skill-item">
-                        <div class="img"><img src="figma.svg" alt="Figma"></div>
+                        <div class="img"><img src="illustrator.svg" alt="Illustrator"></div>
                         <p>Illustrator</p>
                         <p>ロゴやアイコン、印刷物のデザインが可能です。</p>
                     </div>
                     <div class="skill-item">
-                        <div class="img"><img src="javascript.svg" alt="javascript"></div>
+                        <div class="img"><img src="figma.svg" alt="Figma"></div>
+                        <p>Figma</p>
+                        <p>Webサイトのプロトタイプ制作や、使いやすいUI設計が得意です。</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="img"><img src="javascript.svg" alt="JavaScript"></div>
                         <p>JavaScript</p>
-                        <p>動きのあるサイトを制作することが可能です。</p>
+                        <p>動きのあるサイトや、便利な機能を実装することが可能です。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="work" class="fade-in">
-    <div class="container">
-        <h2>WORK</h2>
-        <div class="goods-grid">
-            <div class="image-wrap">
-                <a href="https://mihotaka9116.github.io/cafe/" target="_blank">
-                    <img src="work-cafe.png" alt="カフェブック">
-                    <p class="work-caption">仙台・横浜カフェブック</p>
-                </a>
-            </div>
-
-            <div class="image-wrap">
-                <a href="https://mihotaka9116.github.io/moderncording/" target="_blank">
-                    <img src="work-modern.png" alt="Modern Coding">
-                    <p class="work-caption">Modern Coding</p>
-                </a>
-            </div>
-
-            <div class="image-wrap">
-                <a href="work.html"> <img src="work-creative.png" alt="Creative Works">
-                    <p class="work-caption">Logo & Goods Design</p>
-                </a>
-            </div>
-        </div>
-        <a href="work.html" class="btn">VIEW ALL WORKS</a>
-    </div>
-</section>
-
-        <section id="contact">
+        <section id="work" class="js-fade-up">
             <div class="container">
-                <h2>CONTACT</h2>
+                <h2 class="section-title">WORK</h2>
+                <span class="section-title-en">実績</span>
+                <div class="goods-grid">
+                    <div class="image-wrap">
+                        <a href="https://mihotaka9116.github.io/cafe/" target="_blank">
+                            <img src="work-cafe.png" alt="仙台・横浜カフェブック">
+                            <p class="work-caption">仙台・横浜カフェブック</p>
+                        </a>
+                    </div>
+
+                    <div class="image-wrap">
+                        <a href="https://mihotaka9116.github.io/moderncording/" target="_blank">
+                            <img src="work-modern.png" alt="Modern Coding">
+                            <p class="work-caption">Modern Coding</p>
+                        </a>
+                    </div>
+
+                    <div class="image-wrap">
+                        <a href="work.html">
+                            <img src="work-creative.png" alt="Creative Works">
+                            <p class="work-caption">Logo & Goods Design</p>
+                        </a>
+                    </div>
+                </div>
+                <a href="work.html" class="btn">VIEW ALL WORKS</a>
+            </div>
+        </section>
+
+        <section id="contact" class="js-fade-up">
+            <div class="container">
+                <h2 class="section-title">CONTACT</h2>
+                <span class="section-title-en">お問い合わせ</span>
                 <form action="#" class="contact-form">
                     <div class="item">
                         <label>Name</label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" placeholder="お名前">
                     </div>
                     <div class="item">
                         <label>Email</label>
-                        <input type="email" name="email">
+                        <input type="email" name="email" placeholder="メールアドレス">
                     </div>
                     <div class="item">
                         <label>Message</label>
-                        <textarea name="message"></textarea>
+                        <textarea name="message" placeholder="ご相談内容をご記入ください"></textarea>
                     </div>
-                    <input type="submit" value="SEND　MESSAGE" class="btn">
+                    <input type="submit" value="SEND MESSAGE" class="btn">
                 </form>
             </div>
         </section>
     </main>
 
     <footer id="footer">
-        <p>&copy; 2026 Portfolio All rights reserved.</p>
+        <p>&copy; 2026 miho takahashi All rights reserved.</p>
     </footer>
 
 </body>
