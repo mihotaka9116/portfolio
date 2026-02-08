@@ -558,3 +558,38 @@ a, button, .btn {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- 8. スマホ版調整 --- */
+@media screen and (max-width: 767px) {
+  /* ...他の設定... */
+
+  .goods-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1列に並べる */
+    gap: 40px; /* アイテム同士の縦の隙間を少し広げると見やすくなります */
+  }
+}
+
+/* --- 8. スマホ版調整 --- */
+@media screen and (max-width: 767px) {
+  
+  /* 実績（WORK）を1列に */
+  .goods-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 40px;
+  }
+
+  /* スキル（SKILL）を1列に */
+  .skills-grid {
+    display: flex;
+    flex-direction: column; /* 縦並びに変更 */
+    align-items: center;    /* 中央寄せ */
+    gap: 20px;
+  }
+  
+  .skill-item {
+    width: 100%;
+    max-width: 300px; /* 横に広がりすぎないよう調整 */
+  }
+}
