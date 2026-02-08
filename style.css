@@ -505,3 +505,41 @@ input[type="submit"] {
   /* 念のため親要素でもボケ防止 */
   -webkit-font-smoothing: antialiased;
 }
+
+/* --- スキルアイコン：究極の鮮明化設定 --- */
+.skill-item .img, 
+.skill-item img,
+.skill-item svg {
+  width: 50px; 
+  height: 50px;
+  margin: 0 auto 15px; 
+  display: block;
+  object-fit: contain;
+
+  /* 1. 画像のエッジを物理的に立たせる（ぼやけ防止） */
+  image-rendering: -webkit-optimize-contrast; 
+  image-rendering: crisp-edges;
+  
+  /* 2. レンダリング時のボケを防ぐおまじない */
+  backface-visibility: hidden;
+  transform: translateZ(0); /* 3Dアクセラレーションを強制 */
+  will-change: transform; 
+
+  /* 3. 水色設定（SteelBlue #4682b4） */
+  /* 一度真っ黒にしてから色を乗せることで、元画像の色に左右されずクッキリします */
+  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(100%);
+  
+  transition: transform 0.25s ease-out, filter 0.25s ease-out;
+}
+
+/* マウスホバー時：拡大(scale)を使わず、移動(translate)のみでボケを回避 */
+.skill-item:hover img,
+.skill-item:hover svg {
+  transform: translateY(-8px);
+  /* ホバー時は少し鮮やかな青に */
+  filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(2500%) hue-rotate(175deg) brightness(85%) contrast(110%);
+}
+
+.skill-item {
+  transition: transform 0.25s ease-out, background-color 0.25s ease-out;
+}
