@@ -455,3 +455,49 @@ input[type="submit"] {
   border-radius: 8px;
   transition: transform 0.25s ease-out, background-color 0.25s ease-out;
 }
+
+/* ふわっと表示される前の状態 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* 画面に入った時の状態 */
+.fade-in.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* セクション間の余白を大胆に取る */
+section {
+  padding: 100px 0; /* 60pxや80pxから100px以上にアップ */
+}
+
+/* 文字の間隔（レタースペーシング）を微調整 */
+body {
+  letter-spacing: 0.03em;
+}
+
+#mainvisual {
+  height: 60vh; /* 固定値(400px)より、画面高さの60%にする方がダイナミック */
+  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+              url("logo.svg") repeat center / 120px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrap {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-wrap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(70, 130, 180, 0.2); /* SteelBlueの影 */
+}
+
+/* 全てのリンクのホバーを滑らかにする（共通設定） */
+a, button, .btn {
+  transition: all 0.3s ease;
+}
