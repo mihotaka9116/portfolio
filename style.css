@@ -318,3 +318,37 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     transform: translateY(-10px); /* ② 上に10px移動して浮き上がらせる */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* ③ 影をつけて立体感を出す */
 }
+
+/* 画像を囲む枠の修正 */
+.image-wrap {
+    width: 100%;
+    height: auto;      /* 高さを固定せず、中身に合わせる */
+    overflow: hidden;  /* はみ出しを防ぐ */
+    display: flex;     /* 中の画像を中央に配置しやすくする */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 画像自体の設定 */
+.image-wrap img {
+    width: 100%;       /* 横幅いっぱいに広げる */
+    height: auto;      /* 比率を維持して高さを自動計算 */
+    display: block;    /* 画像の下にできる謎の隙間を消す */
+    object-fit: cover; /* 枠に合わせて綺麗に収める */
+}
+
+/* スキル項目の基本状態（index.html用） */
+.skill-item {
+    background-color: #ffffff; /* 元の背景色 */
+    transition: all 0.3s ease;  /* 動きを滑らかにする魔法の1行 */
+    border-radius: 10px;       /* 角を少し丸くすると今っぽくなります */
+    border: 1px solid #eee;    /* 軽い枠線 */
+}
+
+/* マウスを重ねたときの変化 */
+.skill-item:hover {
+    background-color: #f9f9f9; /* ① ほんのり色を変える */
+    transform: translateY(-10px); /* ② 上に10px浮き上がらせる */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* ③ 影を強くして立体感を出す */
+    border-color: #ccc;        /* 枠の色も少し濃くする */
+}
