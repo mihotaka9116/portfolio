@@ -134,3 +134,36 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   transform: translateX(-50%);
   z-index: 10; /* ロゴより手前に出す */
 }
+
+/* メインビジュアルのロゴ調整 */
+#mainvisual img {
+  width: 120px; /* 150pxから少し小さく */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* CONCEPT写真の調整 */
+#concept .img {
+  max-width: 300px; /* 380pxから300pxに縮小 */
+  margin: 0 auto 30px;
+}
+
+/* SKILLアイコンの調整 */
+.skill-item img {
+  width: 40px; /* 50pxから40pxに縮小 */
+  margin-bottom: 10px;
+}
+.skill-item h3 {
+  font-size: 1rem; /* テキストも少し抑える */
+}
+
+/* WORKカードのサイズ調整 */
+.image-wrap img {
+  height: 200px; /* 250pxから200pxに低くする */
+  object-fit: cover;
+}
+.goods-grid {
+  gap: 20px; /* 隙間を少し詰めて密度を上げる */
+}
+
+
