@@ -198,12 +198,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     margin: 0 10px;
   }
 
-  /* メインビジュアルの高さ調整 */
-  #mainvisual {
-    height: 250px;
-    margin-top: 0; /* 余計な隙間をカット */
-  }
-}
+
 
 /* --- お問い合わせボタンを長方形にする --- */
 .btn, 
@@ -479,14 +474,6 @@ body {
   letter-spacing: 0.03em;
 }
 
-#mainvisual {
-  height: 60vh; /* 固定値(400px)より、画面高さの60%にする方がダイナミック */
-  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
-              url("logo.svg") repeat center / 120px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .image-wrap {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -593,37 +580,7 @@ a, button, .btn {
     max-width: 300px; /* 横に広がりすぎないよう調整 */
   }
 }
-/* --- メインビジュアルの確定版（抽象写真ver.） --- */
-#mainvisual {
-  height: 60vh;
-  /* 画像の上にグラデーションを重ねて視認性を確保 */
-  /* 下記URL部分にお好みの抽象写真（Unsplashなど）のURLを入れてください */
-  background: 
-    linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.5)), 
-    url("https://i.imgur.com/UmLbDhC.jpeg") no-repeat center / cover;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border-bottom: 3px solid var(--accent-gold); /* ゴールドの細いライン */
-  margin-bottom: 60px;
-}
 
-/* メインビジュアル内のロゴやキャッチコピーを白くして読みやすくする */
-#mainvisual .site-title img {
-  filter: brightness(0) invert(1); /* ロゴを白抜きにする */
-  width: 150px;
-  margin-bottom: 20px;
-}
-
-#mainvisual p {
-  color: #fff;
-  font-weight: bold;
-  letter-spacing: 0.2em;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
 :root {
   --main-blue: #4682b4;
   --accent-gold: #9b7e46; /* 暗めのゴールド */
@@ -675,44 +632,7 @@ input[type="submit"] {
               url("logo.svg") repeat center / 120px auto;
 }
 
-/* --- #mainvisualの修正案3 --- */
-#mainvisual {
-  height: 60vh;
-  /* 背景に写真を設定（例：work-bg.jpg） */
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-              url("your-image.jpg") no-repeat center / cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-/* --- 0. カラー変数の定義（管理しやすくするため冒頭に追加） --- */
-:root {
-  --main-blue: #4682b4;
-  --accent-gold: #9b7e46; /* 暗めのゴールド */
-  --light-gold: #c5a059;  /* ホバー時用 */
-  --bg-dark-overlay: rgba(0, 0, 0, 0.2); /* メインビジュアルの見栄え調整用 */
-}
-
-/* --- 4. セクションタイトル（下線をゴールドに） --- */
-.section-title::after {
-  background-color: var(--accent-gold); /* 青からゴールドへ変更 */
-  height: 3px; /* 少し太くして存在感を出す */
-}
-
-/* --- 4. トップページ（メインビジュアルの修正） --- */
-#mainvisual {
-  height: 60vh;
-  /* 白っぽさを抑えるため、薄いグレーとゴールドの微細なグラデーションを重ねる */
-  background: 
-    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-    url("logo.svg") repeat center / 120px auto;
-  background-color: #f4f4f4;
-  border-bottom: 2px solid var(--accent-gold); /* 下端にゴールドのライン */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* --- ボタン類（VIEW MORE / SEND等）をゴールドに --- */
 .btn, 
@@ -755,4 +675,52 @@ input[type="submit"] {
 .contact-form textarea:focus {
   border-color: var(--accent-gold); /* 入力中に枠線をゴールドに */
   outline: none;
+}
+
+  /* --- 0. カラー変数の定義（一番上に配置） --- */
+:root {
+  --main-blue: #4682b4;
+  --accent-gold: #9b7e46; /* 暗めのゴールド */
+  --light-gold: #d4af37;  /* ホバー時 */
+}
+
+/* --- 4. メインビジュアル確定版（整理後） --- */
+#mainvisual {
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  /* 抽象写真＋暗めのオーバーレイ */
+  background: 
+    linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.5)), 
+    url("https://i.imgur.com/UmLbDhC.jpeg") no-repeat center / cover;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  /* ゴールドの上下ライン */
+  border-top: 4px solid var(--accent-gold);
+  border-bottom: 3px solid var(--accent-gold);
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+
+/* メインビジュアル内のロゴを白抜きにして目立たせる */
+#mainvisual .site-title img,
+#mainvisual img {
+  filter: brightness(0) invert(1); /* 黒いロゴを白に変更 */
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* メインビジュアル内のテキスト */
+#mainvisual p {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  margin: 0;
 }
