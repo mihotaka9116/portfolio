@@ -108,3 +108,29 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   bottom: 0;
   left: 50%;
   transform: translateX(-50
+/* --- 3. メインビジュアルの重なりを解消 --- */
+#mainvisual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 内容を中央に寄せる */
+  padding-bottom: 80px;    /* 下のSCROLLアニメーション用の余白を確保 */
+}
+
+/* 中央のロゴを少し上に持ち上げてSCROLLと距離を置く */
+#mainvisual img {
+  filter: brightness(0) invert(1);
+  width: 150px;
+  margin-bottom: 20px;
+  transform: translateY(-20px); /* 少しだけ上にずらす */
+}
+
+/* SCROLLの文字がロゴに被らないよう、位置を固定する */
+.scrolldown {
+  position: absolute;
+  bottom: 30px; /* 画面の一番下から30pxの位置に固定 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10; /* ロゴより手前に出す */
+}
