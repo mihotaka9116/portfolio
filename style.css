@@ -593,40 +593,37 @@ a, button, .btn {
     max-width: 300px; /* 横に広がりすぎないよう調整 */
   }
 }
-
-/* --- #mainvisualの修正案2 --- */
+/* --- メインビジュアルの確定版（抽象写真ver.） --- */
 #mainvisual {
   height: 60vh;
-  background: #4682b4; /* しっかりした水色背景 */
+  /* 画像の上にグラデーションを重ねて視認性を確保 */
+  /* 下記URL部分にお好みの抽象写真（Unsplashなど）のURLを入れてください */
+  background: 
+    linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.5)), 
+    url("https://i.imgur.com/UmLbDhC.jpeg") no-repeat center / cover;
+  
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  border-bottom: 3px solid var(--accent-gold); /* ゴールドの細いライン */
+  margin-bottom: 60px;
 }
 
-/* 幾何学的な模様を入れるとおしゃれになります */
-#mainvisual::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("https://i.imgur.com/UmLbDhC.jpeg") repeat center / 150px auto;
-  opacity: 0.1; /* ロゴを10%だけ浮かび上がらせる */
-  filter: brightness(0) invert(1); /* ロゴを白にする */
+/* メインビジュアル内のロゴやキャッチコピーを白くして読みやすくする */
+#mainvisual .site-title img {
+  filter: brightness(0) invert(1); /* ロゴを白抜きにする */
+  width: 150px;
+  margin-bottom: 20px;
 }
 
-/* --- #mainvisualの修正案3 --- */
-#mainvisual {
-  height: 60vh;
-  /* 背景に写真を設定（例：work-bg.jpg） */
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-              url("your-image.jpg") no-repeat center / cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#mainvisual p {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
-
 :root {
   --main-blue: #4682b4;
   --accent-gold: #9b7e46; /* 暗めのゴールド */
