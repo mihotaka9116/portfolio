@@ -140,3 +140,13 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   #mainvisual { height: 50vh; }
   #concept .img { max-width: 250px; }
 }
+
+@media screen and (max-width: 767px) {
+  #header li {
+    margin: 5px 10px; /* 左右の余白を調整 */
+  }
+  #header ul {
+    flex-wrap: wrap; /* 折り返しを許可 */
+    justify-content: center;
+  }
+}
