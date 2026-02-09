@@ -289,3 +289,32 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     filter: brightness(0) invert(1); /* 黒いロゴを白く反転させる */
     width: 120px;
 }
+
+/* WORKページの画像に対する修正 */
+.work-item img {
+    width: 100%;      /* 親要素の幅に合わせる */
+    height: auto;     /* アスペクト比を維持して高さを自動調整 */
+    display: block;    /* 画像の下に隙間ができるのを防ぐ */
+}
+
+/* 親要素に高さ制限がある場合は解除する */
+.work-item a {
+    height: auto;
+    display: block;
+    overflow: visible; /* 切れないようにする */
+}
+
+/* スキル項目の基本スタイル */
+.skill-item {
+    transition: all 0.3s ease; /* 動きを滑らかにする */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;   /* 元の背景色 */
+}
+
+/* マウスを重ねた（ホバー）時の動き */
+.skill-item:hover {
+    background-color: #f0f8ff; /* ① 背景色を変える（例：薄い青） */
+    transform: translateY(-10px); /* ② 上に10px移動して浮き上がらせる */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* ③ 影をつけて立体感を出す */
+}
