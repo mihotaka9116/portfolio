@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* --- 1. 変数と基本設定 --- */
+/* --- 1. 基本設定 --- */
 :root {
   --main-blue: #4682b4;
   --accent-gray: #708090;
@@ -29,19 +29,16 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 20px 0;
   margin: 20px auto;
 }
-.site-title img { width: 110px; }
+.site-title img { width: 100px; } /* 少し小さく */
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 25px; }
-#header a { color: var(--main-blue); text-decoration: none; transition: 0.3s; font-weight: bold; }
-#header a:hover { color: var(--accent-gray); }
+#header a { color: var(--main-blue); text-decoration: none; transition: 0.3s; font-size: 0.9rem; font-weight: bold; }
 
-#footer { background: var(--main-blue); color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
-
-/* --- 3. メインビジュアル（アニメーション統合） --- */
+/* --- 3. メインビジュアル --- */
 #mainvisual {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 65vh;
   min-height: 400px;
   background: 
     linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.5)), 
@@ -50,39 +47,34 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 3px solid var(--accent-gray);
-  margin-bottom: 80px;
+  padding-bottom: 60px;
 }
-#mainvisual img { filter: brightness(0) invert(1); width: 150px; margin-bottom: 20px; }
-#mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.2em; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+/* ロゴサイズを120pxに固定 */
+#mainvisual img { 
+  filter: brightness(0) invert(1); 
+  width: 120px; 
+  margin-bottom: 20px; 
+  transform: translateY(-20px);
+}
+#mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.2em; font-size: 0.9rem; }
 
-/* スクロールダウンアニメーション */
+/* スクロールアニメーション */
 .scrolldown {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    padding-bottom: 60px;
-}
-.scrolldown::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.3);
+    font-size: 0.65rem;
+    z-index: 10;
 }
 .scrolldown::before {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
     left: 50%;
     width: 1px;
-    height: 50px;
+    height: 45px;
     background: #fff;
     animation: scroll-anim 2s infinite;
 }
@@ -93,77 +85,58 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* --- 4. 共通セクションスタイル --- */
-.section-title {
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
-}
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50
-/* --- 3. メインビジュアルの重なりを解消 --- */
-#mainvisual {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* 内容を中央に寄せる */
-  padding-bottom: 80px;    /* 下のSCROLLアニメーション用の余白を確保 */
-}
-
-/* 中央のロゴを少し上に持ち上げてSCROLLと距離を置く */
-#mainvisual img {
-  filter: brightness(0) invert(1);
-  width: 150px;
-  margin-bottom: 20px;
-  transform: translateY(-20px); /* 少しだけ上にずらす */
-}
-
-/* SCROLLの文字がロゴに被らないよう、位置を固定する */
-.scrolldown {
-  position: absolute;
-  bottom: 30px; /* 画面の一番下から30pxの位置に固定 */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10; /* ロゴより手前に出す */
-}
-
-/* メインビジュアルのロゴ調整 */
-#mainvisual img {
-  width: 120px; /* 150pxから少し小さく */
-  height: auto;
-  margin-bottom: 20px;
-}
-
-/* CONCEPT写真の調整 */
+/* --- 4. CONCEPT --- */
+#concept { text-align: center; margin-bottom: 100px; }
+/* 写真サイズを300pxに制限 */
 #concept .img {
-  max-width: 300px; /* 380pxから300pxに縮小 */
+  max-width: 300px; 
   margin: 0 auto 30px;
 }
+#concept .img img { border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-/* SKILLアイコンの調整 */
+/* --- 5. SKILL --- */
+.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+.skill-item { flex: 1; min-width: 200px; max-width: 250px; text-align: center; }
+/* アイコンを40pxに縮小 */
 .skill-item img {
-  width: 40px; /* 50pxから40pxに縮小 */
-  margin-bottom: 10px;
+  width: 40px;
+  margin-bottom: 15px;
+  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1000%) hue-rotate(160deg);
 }
-.skill-item h3 {
-  font-size: 1rem; /* テキストも少し抑える */
-}
+.skill-item h3 { font-size: 1rem; margin-bottom: 10px; }
+.skill-item p { font-size: 0.85rem; line-height: 1.6; }
 
-/* WORKカードのサイズ調整 */
-.image-wrap img {
-  height: 200px; /* 250pxから200pxに低くする */
-  object-fit: cover;
-}
+/* --- 6. WORK --- */
 .goods-grid {
-  gap: 20px; /* 隙間を少し詰めて密度を上げる */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
+.image-wrap {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+/* 画像の高さを200pxに抑える */
+.image-wrap img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+}
+.work-caption { padding: 15px; font-size: 0.9rem; font-weight: bold; text-align: center; }
 
+/* --- 7. その他共通 --- */
+.section-title { text-align: center; font-size: 1.6rem; margin-bottom: 10px; position: relative; padding-bottom: 15px; }
+.section-title::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--accent-gray); }
+.section-title-en { text-align: center; display: block; font-size: 0.75rem; color: var(--accent-gray); margin-bottom: 40px; }
 
+#footer { background: var(--main-blue); color: #fff; text-align: center; padding: 30px 0; font-size: 0.8rem; }
+
+@media screen and (max-width: 767px) {
+  #header { flex-direction: column; }
+  #mainvisual { height: 50vh; }
+  #concept .img { max-width: 250px; }
+}
