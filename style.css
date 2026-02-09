@@ -216,3 +216,19 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     filter: saturate(1.2);  /* 鮮やかさをさらに20%アップ */
     box-shadow: 0 10px 30px rgba(112, 128, 144, 0.3); /* グレー系の影 */
 }
+
+/* WORKの実績画像の設定 */
+.image-wrap img {
+    width: 100%;
+    height: 250px;       /* 枠の高さは固定 */
+    object-fit: contain; /* 【重要】画像を切らずに全体を表示する */
+    background-color: #f4f7f9; /* 余白ができる場合に備えて薄いグレーを背景に */
+    border-radius: 4px;
+    transition: 0.4s ease;
+}
+
+/* ホバー時の演出（お好みで） */
+.image-wrap:hover img {
+    transform: scale(1.05);
+    background-color: #e0e6ed; /* ホバー時に背景を少し濃くして枠を強調 */
+}
