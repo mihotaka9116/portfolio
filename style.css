@@ -472,3 +472,23 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
         transform-origin: bottom;
     }
 }
+
+/* WORKセクションのカードをプロ仕様に整える */
+.image-wrap img {
+    width: 100%;
+    height: 250px;      /* ここで高さを統一 */
+    object-fit: cover;   /* 【重要】隙間なく、かつ上部が切れないように表示 */
+    object-position: top; /* もし上が切れる場合はここを center や top で微調整 */
+    border-radius: 4px 4px 0 0; /* 上側だけ角を丸くする */
+}
+
+.image-wrap {
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 軽い影で高級感を出す */
+    transition: 0.3s ease;
+}
+
+.image-wrap:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(112, 128, 144, 0.15);
+}
