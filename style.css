@@ -492,3 +492,28 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(112, 128, 144, 0.15);
 }
+
+/* WORKセクション：3枚の見た目を完全に統一する */
+.goods-grid .image-wrap {
+    height: 250px;           /* 枠の長さを固定 */
+    background-color: #eee;  /* 背景色を統一 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.goods-grid .image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* 余白を作らずに枠いっぱいに表示 */
+    object-position: top;    /* 画像の「上」を基準にする（これで顔やロゴが切れにくくなる） */
+}
+
+/* テキスト（キャプション）の調整 */
+.work-caption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: left;        /* 左揃えにして1・2枚目と合わせる */
+}
