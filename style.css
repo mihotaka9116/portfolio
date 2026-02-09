@@ -4,10 +4,11 @@
 :root {
   --main-blue: #4682b4;
   --accent-gray: #708090;  /* スレートグレー：落ち着いたアクセント */
-  --light-gray: #e0e6ed;   /* 境界線や背景用 */
+  --light-gray: #f4f7f9;   /* 境界線や背景用 */
   --hover-gray: #54626f;   /* ボタンホバー時：少し濃いグレー */
 }
 
+/* 共通設定 */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -32,12 +33,12 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .site-title img { width: 110px; }
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 25px; }
-#header a { color: var(--main-blue); text-decoration: none; transition: 0.3s; }
+#header a { color: var(--main-blue); text-decoration: none; transition: 0.3s; font-weight: bold; }
 #header a:hover { color: var(--accent-gray); }
 
 #footer { background: var(--main-blue); color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
 
-/* --- 3. メインビジュアル（背景写真あり） --- */
+/* --- 3. メインビジュアル --- */
 #mainvisual {
   width: 100%;
   height: 60vh;
@@ -49,8 +50,8 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 3px solid var(--accent-gray); /* ゴールドからグレーへ */
-  margin-bottom: 60px;
+  border-bottom: 3px solid var(--accent-gray); /* グレーのライン */
+  margin-bottom: 80px;
 }
 #mainvisual img { filter: brightness(0) invert(1); width: 150px; margin-bottom: 20px; }
 #mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.2em; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
@@ -74,65 +75,113 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   height: 2px;
   background-color: var(--accent-gray); /* グレーへ変更 */
 }
-.section-title-en { text-align: center; display: block; font-size: 0.8rem; margin-bottom: 40px; }
+.section-title-en { 
+  text-align: center; 
+  display: block; 
+  font-size: 0.8rem; 
+  margin-bottom: 40px; 
+  color: var(--accent-gray);
+}
 
 /* --- 5. CONCEPTセクション（写真サイズの調整） --- */
-#concept .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#concept {
   text-align: center;
-  gap: 30px;
+  margin-bottom: 100px;
 }
-/* 写真を一回り小さく調整 */
+/* HTMLの <div class="img"> に対応 */
+#concept .img {
+  max-width: 380px; /* 一回り小さく（以前の400〜500pxから縮小） */
+  margin: 0 auto 30px;
+}
 #concept .img img {
   width: 100%;
-  max-width: 400px; /* 500pxから400pxへ縮小 */
   height: auto;
   border-radius: 4px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* --- 6. ボタン（グレー基調） --- */
+/* --- 6. スキルセクション --- */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+.skill-item {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: center;
+  padding: 20px;
+  transition: 0.3s;
+}
+.skill-item:hover { 
+  background-color: rgba(112, 128, 144, 0.05); 
+  transform: translateY(-5px);
+}
+.skill-item img {
+  width: 50px;
+  margin-bottom: 15px;
+  /* アイコンをグレー寄りの水色に調整 */
+  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1000%) hue-rotate(160deg);
+}
+.skill-item:hover p { color: var(--accent-gray); }
+
+/* --- 7. ボタン（グレー基調・長方形） --- */
 .btn, .custom-btn, input[type="submit"] {
   display: inline-block;
   background-color: var(--accent-gray) !important;
   color: #fff !important;
-  padding: 12px 40px;
+  padding: 15px 50px;
   text-decoration: none;
   border: none;
-  border-radius: 0;
+  border-radius: 0; /* 長方形 */
+  font-weight: bold;
+  cursor: pointer;
   transition: 0.3s;
 }
 .btn:hover, input[type="submit"]:hover {
   background-color: var(--hover-gray) !important;
   transform: translateY(-2px);
-}
-
-/* --- 7. スキル・実績ホバー設定 --- */
-.skill-item:hover { background-color: rgba(112, 128, 144, 0.05); }
-.skill-item img {
-  width: 50px;
-  /* アイコンの色をグレー寄りの水色に */
-  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1000%) hue-rotate(160deg);
-}
-.skill-item:hover p { color: var(--accent-gray); }
-
-/* 実績写真のホバー影をグレー系に */
-.image-wrap:hover {
-  box-shadow: 0 15px 30px rgba(112, 128, 144, 0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* --- 8. コンタクトフォーム --- */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+.contact-form .item { margin-bottom: 20px; }
+.contact-form label { display: block; font-weight: bold; margin-bottom: 5px; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  color: var(--main-blue);
+}
 .contact-form input:focus, .contact-form textarea:focus {
   border-color: var(--accent-gray);
   outline: none;
 }
 
-/* --- 9. レスポンシブ --- */
+/* --- 9. アニメーション設定 --- */
+.js-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+.js-fade-up.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 10. レスポンシブ --- */
 @media screen and (max-width: 767px) {
   #header { flex-direction: column; padding: 20px 0; }
   #header ul { margin-top: 20px; }
   #mainvisual { height: 250px; }
-  #concept .img img { max-width: 300px; } /* スマホではさらに小さく */
+  #concept .img { max-width: 280px; } /* スマホでも一回り小さく */
 }
