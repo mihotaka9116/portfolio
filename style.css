@@ -37,8 +37,9 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 #footer { background: var(--main-blue); color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
 
-/* --- 3. メインビジュアル --- */
+/* --- 3. メインビジュアル（アニメーション統合） --- */
 #mainvisual {
+  position: relative;
   width: 100%;
   height: 60vh;
   min-height: 400px;
@@ -55,7 +56,44 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 #mainvisual img { filter: brightness(0) invert(1); width: 150px; margin-bottom: 20px; }
 #mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.2em; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
 
-/* --- 4. セクションタイトル --- */
+/* スクロールダウンアニメーション */
+.scrolldown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    padding-bottom: 60px;
+}
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.3);
+}
+.scrolldown::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 50px;
+    background: #fff;
+    animation: scroll-anim 2s infinite;
+}
+@keyframes scroll-anim {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* --- 4. 共通セクションスタイル --- */
 .section-title {
   text-align: center;
   font-size: 1.8rem;
@@ -69,451 +107,4 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 2px;
-  background-color: var(--accent-gray);
-}
-.section-title-en { 
-  text-align: center; 
-  display: block; 
-  font-size: 0.8rem; 
-  margin-bottom: 40px; 
-  color: var(--accent-gray);
-}
-
-/* --- 5. CONCEPTセクション（写真サイズの調整） --- */
-#concept {
-  text-align: center;
-  margin-bottom: 100px;
-}
-#concept .img {
-  max-width: 380px; /* 写真を一回り小さく表示 */
-  margin: 0 auto 30px;
-}
-#concept .img img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* --- 6. スキルセクション --- */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-}
-.skill-item {
-  flex: 1;
-  min-width: 250px;
-  max-width: 300px;
-  text-align: center;
-  padding: 20px;
-  transition: 0.3s;
-}
-.skill-item:hover { 
-  background-color: rgba(112, 128, 144, 0.05); 
-  transform: translateY(-5px);
-}
-.skill-item img {
-  width: 50px;
-  margin-bottom: 15px;
-  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1000%) hue-rotate(160deg);
-}
-
-/* --- 7. WORKセクション（画像が切れる問題を解決） --- */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-.image-wrap {
-  width: 100%;
-  /* 高さを固定せず、背景色をつけて枠の形を安定させる */
-  background-color: var(--light-gray);
-  border-radius: 4px;
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 250px;      /* 枠の高さを統一 */
-  object-fit: contain; /* 【重要】画像全体を枠内に収める。これで上部が切れません */
-  background-color: var(--light-gray);
-  display: block;
-  transition: 0.4s ease;
-}
-
-.image-wrap:hover img {
-  transform: scale(1.05); /* ホバー時に少しズーム */
-  filter: saturate(1.1);
-}
-
-.work-caption {
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-/* --- 8. ボタン・フォーム --- */
-.btn, .custom-btn, input[type="submit"] {
-  display: inline-block;
-  background-color: var(--accent-gray) !important;
-  color: #fff !important;
-  padding: 15px 50px;
-  text-decoration: none;
-  border: none;
-  border-radius: 0;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.btn:hover, input[type="submit"]:hover {
-  background-color: var(--hover-gray) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
-}
-.contact-form .item { margin-bottom: 20px; }
-.contact-form label { display: block; font-weight: bold; margin-bottom: 5px; }
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-/* --- 9. アニメーション・レスポンシブ --- */
-.js-fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-}
-.js-fade-up.is-show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media screen and (max-width: 767px) {
-  #header { flex-direction: column; padding: 20px 0; }
-  #header ul { margin-top: 20px; }
-  #mainvisual { height: 250px; }
-  #concept .img { max-width: 280px; }
-  .image-wrap img { height: 200px; } /* スマホでは高さを少し抑える */
-}
-
-  /* --- 7. WORKセクション（4枚以上の拡張対応版） --- */
-.goods-grid {
-  display: grid;
-  /* 画面幅に合わせて、最低280pxのカードを自動で並べる（3つや4つになっても自動調整されます） */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-.image-wrap {
-  width: 100%;
-  background-color: var(--light-gray);
-  border-radius: 8px; /* 少し角を丸くすると今風になります */
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  /* カード全体をリンクとして反応しやすくする */
-  display: flex;
-  flex-direction: column;
-}
-
-.image-wrap a {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 250px;       /* 枠の高さを統一してガタつきを防ぐ */
-  object-fit: contain;  /* 画像を切らずに収める */
-  background-color: var(--light-gray);
-  transition: 0.4s ease;
-}
-
-.image-wrap:hover {
-  transform: translateY(-5px); /* カードごと浮き上がらせる */
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.work-caption {
-  padding: 15px;      /* テキスト周りに余白を持たせる */
-  margin: 0;
-  font-weight: bold;
-  text-align: center;
-  background-color: #fff; /* テキスト部分は白背景にして読みやすく */
-  flex-grow: 1;           /* テキスト量が変わってもカードの高さを揃える */
-}
-
-/* 実績スペック情報のスタイル */
-.work-detail-meta {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 50px;
-  padding: 20px;
-  border-top: 1px solid var(--light-gray);
-  border-bottom: 1px solid var(--light-gray);
-}
-
-.meta-item span {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--accent-gray);
-  font-weight: bold;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-}
-
-.meta-item p {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--main-blue);
-}
-
-.project-description h3 {
-  font-size: 1.1rem;
-  color: var(--accent-gray);
-  margin: 30px 0 10px;
-  text-align: left;
-  border-left: 4px solid var(--accent-gray);
-  padding-left: 15px;
-}
-
-.project-description p, .project-description li {
-  text-align: left;
-  font-size: 0.95rem;
-  margin-bottom: 15px;
-}
-
-@media screen and (max-width: 767px) {
-  .work-detail-meta {
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
-  }
-}
-
-/* --- 詳細ページ：スペック情報のスタイル --- */
-.work-detail-meta {
-  display: flex;
-  justify-content: center;
-  gap: 60px; /* PCでは広めに余白を取る */
-  margin: 40px auto 60px;
-  padding: 30px 20px;
-  border-top: 1px solid var(--light-gray);
-  border-bottom: 1px solid var(--light-gray);
-  max-width: 800px;
-}
-
-.meta-item {
-  text-align: left;
-}
-
-.meta-item span {
-  display: block;
-  font-size: 0.7rem;
-  color: var(--accent-gray);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
-  text-transform: uppercase; /* Roleなどのラベルを大文字で引き締める */
-}
-
-.meta-item p {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--main-blue);
-  line-height: 1.4;
-}
-
-/* --- テキストボックス内の見出し調整 --- */
-.project-description h3 {
-  font-size: 1.1rem;
-  color: var(--accent-gray);
-  margin: 40px 0 15px;
-  text-align: left;
-  border-left: 3px solid var(--accent-gray); /* 左側に縦線を入れて見出しを強調 */
-  padding-left: 15px;
-}
-
-.project-description p, 
-.project-description li {
-  text-align: left;
-  font-size: 0.95rem;
-  color: var(--main-blue);
-}
-
-.project-description ul {
-  padding-left: 20px;
-  margin-top: 10px;
-}
-
-.project-description li {
-  margin-bottom: 10px;
-  list-style-type: square; /* リストを四角いポインタにしてモダンに */
-}
-
-/* センタリング用クラス */
-.project-description.center {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-/* --- レスポンシブ対応 --- */
-@media screen and (max-width: 767px) {
-  .work-detail-meta {
-    flex-direction: column; /* スマホでは縦並び */
-    gap: 25px;
-    padding: 20px;
-  }
-  
-  .work-detail-meta .meta-item {
-    text-align: center; /* スマホでは中央揃えが綺麗 */
-  }
-  
-  .project-description h3 {
-    font-size: 1rem;
-  }
-}
-
-/* メインビジュアルにスクロール誘導を追加 */
-#mainvisual {
-  position: relative; /* 矢印を配置する基準 */
-}
-
-#mainvisual::after {
-  content: "";
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  width: 2px;
-  height: 60px;
-  background: #fff;
-  animation: scroll-line 2s infinite;
-}
-
-@keyframes scroll-line {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  51% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
-
-/* --- スクロールダウンの装飾 --- */
-.scrolldown {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    padding-bottom: 60px; /* 線を出すための余白 */
-}
-
-/* 縦線のベース */
-.scrolldown::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.3); /* 下地の薄い線 */
-}
-
-/* 動く白い線のエフェクト */
-.scrolldown::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    height: 50px;
-    background: #fff;
-    animation: scroll-anim 2s infinite; /* 2秒ごとにループ */
-}
-
-@keyframes scroll-anim {
-    0% {
-        transform: scaleY(0);
-        transform-origin: top;
-    }
-    50% {
-        transform: scaleY(1);
-        transform-origin: top;
-    }
-    51% {
-        transform: scaleY(1);
-        transform-origin: bottom;
-    }
-    100% {
-        transform: scaleY(0);
-        transform-origin: bottom;
-    }
-}
-
-/* WORKセクションのカードをプロ仕様に整える */
-.image-wrap img {
-    width: 100%;
-    height: 250px;      /* ここで高さを統一 */
-    object-fit: cover;   /* 【重要】隙間なく、かつ上部が切れないように表示 */
-    object-position: top; /* もし上が切れる場合はここを center や top で微調整 */
-    border-radius: 4px 4px 0 0; /* 上側だけ角を丸くする */
-}
-
-.image-wrap {
-    background-color: #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 軽い影で高級感を出す */
-    transition: 0.3s ease;
-}
-
-.image-wrap:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(112, 128, 144, 0.15);
-}
-
-/* WORKセクション：3枚の見た目を完全に統一する */
-.goods-grid .image-wrap {
-    height: 250px;           /* 枠の長さを固定 */
-    background-color: #eee;  /* 背景色を統一 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.goods-grid .image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       /* 余白を作らずに枠いっぱいに表示 */
-    object-position: top;    /* 画像の「上」を基準にする（これで顔やロゴが切れにくくなる） */
-}
-
-/* テキスト（キャプション）の調整 */
-.work-caption {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-align: left;        /* 左揃えにして1・2枚目と合わせる */
-}
+  transform: translateX(-50
