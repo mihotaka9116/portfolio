@@ -211,3 +211,53 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   #concept .img { max-width: 280px; }
   .image-wrap img { height: 200px; } /* スマホでは高さを少し抑える */
 }
+
+  /* --- 7. WORKセクション（4枚以上の拡張対応版） --- */
+.goods-grid {
+  display: grid;
+  /* 画面幅に合わせて、最低280pxのカードを自動で並べる（3つや4つになっても自動調整されます） */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.image-wrap {
+  width: 100%;
+  background-color: var(--light-gray);
+  border-radius: 8px; /* 少し角を丸くすると今風になります */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  /* カード全体をリンクとして反応しやすくする */
+  display: flex;
+  flex-direction: column;
+}
+
+.image-wrap a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 250px;       /* 枠の高さを統一してガタつきを防ぐ */
+  object-fit: contain;  /* 画像を切らずに収める */
+  background-color: var(--light-gray);
+  transition: 0.4s ease;
+}
+
+.image-wrap:hover {
+  transform: translateY(-5px); /* カードごと浮き上がらせる */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.work-caption {
+  padding: 15px;      /* テキスト周りに余白を持たせる */
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+  background-color: #fff; /* テキスト部分は白背景にして読みやすく */
+  flex-grow: 1;           /* テキスト量が変わってもカードの高さを揃える */
+}
