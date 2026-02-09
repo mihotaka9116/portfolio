@@ -626,3 +626,54 @@ a, button, .btn {
   align-items: center;
   justify-content: center;
 }
+
+:root {
+  --main-blue: #4682b4;
+  --accent-gold: #9b7e46; /* 暗めのゴールド */
+  --light-gold: #d4af37;  /* ホバー時などの明るめゴールド */
+}
+
+.section-title::after {
+  background-color: var(--accent-gold); /* 青からゴールドに変更 */
+  width: 60px; /* 少し長めにすると優雅です */
+  height: 3px;
+}
+
+.btn, 
+.custom-btn,
+.contact-form .btn,
+input[type="submit"] {
+  background-color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  color: #fff;
+}
+
+/* ホバー時に少し明るく、または色を反転 */
+.btn:hover, 
+.contact-form .btn:hover {
+  background-color: transparent;
+  color: var(--accent-gold);
+  box-shadow: 0 10px 20px rgba(155, 126, 70, 0.2);
+}
+
+/* スキル項目のホバー時 */
+.skill-item:hover {
+  border: 1px solid rgba(155, 126, 70, 0.3); /* 薄くゴールドの枠線 */
+}
+
+/* アイコンの色をゴールドに変化させるフィルタ */
+.skill-item:hover img,
+.skill-item:hover svg {
+  /* ゴールド系の色に変更するフィルタ設定 */
+  filter: brightness(0) saturate(100%) invert(51%) sepia(43%) saturate(450%) hue-rotate(10deg) brightness(95%) contrast(90%);
+}
+
+.skill-item:hover p {
+  color: var(--accent-gold);
+}
+
+#mainvisual {
+  border-top: 4px solid var(--accent-gold); /* 上部に細いゴールドのライン */
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+              url("logo.svg") repeat center / 120px auto;
+}
