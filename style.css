@@ -261,3 +261,53 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   background-color: #fff; /* テキスト部分は白背景にして読みやすく */
   flex-grow: 1;           /* テキスト量が変わってもカードの高さを揃える */
 }
+
+/* 実績スペック情報のスタイル */
+.work-detail-meta {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+  padding: 20px;
+  border-top: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.meta-item span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--accent-gray);
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.meta-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--main-blue);
+}
+
+.project-description h3 {
+  font-size: 1.1rem;
+  color: var(--accent-gray);
+  margin: 30px 0 10px;
+  text-align: left;
+  border-left: 4px solid var(--accent-gray);
+  padding-left: 15px;
+}
+
+.project-description p, .project-description li {
+  text-align: left;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .work-detail-meta {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+}
