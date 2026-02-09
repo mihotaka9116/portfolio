@@ -186,94 +186,17 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   #concept .img { max-width: 280px; } /* スマホでも一回り小さく */
 }
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Work Detail - miho takahashi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
+/* 実績一覧の画像を枠いっぱいに綺麗に表示する */
+.image-wrap img {
+  width: 100%;
+  height: 250px;       /* 高さを揃える（お好みで調整） */
+  object-fit: cover;   /* 枠に合わせて自動トリミングして歪ませない */
+  border-radius: 4px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
 
-  <div class="detail-container">
-    <nav class="back-nav">
-      <a href="index.html">← Back To Top</a>
-    </nav>
-
-    <article class="detail-content">
-      <img src="logo.svg" alt="miho takahashi" class="main-visual-img fade-in">
-
-    <section class="work-section fade-in">
-  <h2 class="section-title">Visual Identity & Goods</h2>
-  <span class="section-title-en">ロゴ・ブランドグッズ制作</span>
-  
-  <div class="work-feature">
-    <div class="detail-text-box">
-      <p class="title">Personal Branding "miho takahashi"</p>
-      <p class="project-description">
-        自身のアイデンティティを視覚化したロゴデザイン。
-        単なるシンボルとしてだけでなく、マグカップやアパレルなどのプロダクトに展開した際の「リズム」と「親しみやすさ」を計算して設計しました。
-      </p>
-      <p class="skill-tags">Logo Design / Branding / Illustrator / Product Design</p>
-    </div>
-
-    <div class="goods-grid">
-      <div class="goods-item">
-        <div class="image-wrap"><img src="magcup.png" alt="Mag Cup"></div>
-        <p class="item-caption">01<span>Mag Cup</span></p>
-      </div>
-      <div class="goods-item">
-        <div class="image-wrap"><img src="hoodie.png" alt="Hoodie"></div>
-        <p class="item-caption">02<span>Hoodie</span></p>
-      </div>
-      </div>
-  </div>
-</section>
-
-      <section class="work-section fade-in">
-        <h2 class="section-title">Logo Goods Lineup</h2>
-        <span class="section-title-en">ロゴグッズ展開</span>
-        
-        <p class="project-description center">
-          「miho takahashi」のロゴが持つリズムを、日常生活に馴染むプロダクトへと展開しました。
-        </p>
-
-        <div class="goods-grid">
-          <div class="goods-item">
-            <div class="image-wrap"><img src="magcup.png" alt="Mag Cup"></div>
-            <p class="item-caption">01<span>Mag Cup</span></p>
-          </div>
-          <div class="goods-item">
-            <div class="image-wrap"><img src="magcupsoto.png" alt="Mag Cup"></div>
-            <p class="item-caption">01<span>Mag Cup (Outdoor)</span></p>
-          </div>
-          <div class="goods-item">
-            <div class="image-wrap"><img src="hoodie.png" alt="Hoodie"></div>
-            <p class="item-caption">02<span>Hoodie</span></p>
-          </div>
-          <div class="goods-item">
-            <div class="image-wrap"><img src="totebag.png" alt="Tote Bag"></div>
-            <p class="item-caption">03<span>Tote Bag</span></p>
-          </div>
-        </div>
-      </section>
-
-      <div class="cta-area fade-in">
-        <div class="cta-button-container">
-          <a href="index.html#contact" class="custom-btn">制作・デザインのご相談はこちら</a>
-        </div>
-      </div>
-    </article>
-  </div>
-
-  <footer id="footer">
-    <p>&copy; miho takahashi</p>
-  </footer>
-
-</body>
-</html>
+/* ホバー時に少し明るく、かつ浮き上がるエフェクト */
+.image-wrap:hover img {
+  transform: scale(1.03); /* わずかに拡大 */
+  filter: brightness(1.1); /* 鮮やかさを強調 */
+}
