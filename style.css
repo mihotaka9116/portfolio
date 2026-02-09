@@ -688,3 +688,74 @@ input[type="submit"] {
   align-items: center;
   justify-content: center;
 }
+
+/* --- 0. カラー変数の定義（管理しやすくするため冒頭に追加） --- */
+:root {
+  --main-blue: #4682b4;
+  --accent-gold: #9b7e46; /* 暗めのゴールド */
+  --light-gold: #c5a059;  /* ホバー時用 */
+  --bg-dark-overlay: rgba(0, 0, 0, 0.2); /* メインビジュアルの見栄え調整用 */
+}
+
+/* --- 4. セクションタイトル（下線をゴールドに） --- */
+.section-title::after {
+  background-color: var(--accent-gold); /* 青からゴールドへ変更 */
+  height: 3px; /* 少し太くして存在感を出す */
+}
+
+/* --- 4. トップページ（メインビジュアルの修正） --- */
+#mainvisual {
+  height: 60vh;
+  /* 白っぽさを抑えるため、薄いグレーとゴールドの微細なグラデーションを重ねる */
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+    url("logo.svg") repeat center / 120px auto;
+  background-color: #f4f4f4;
+  border-bottom: 2px solid var(--accent-gold); /* 下端にゴールドのライン */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- ボタン類（VIEW MORE / SEND等）をゴールドに --- */
+.btn, 
+.custom-btn,
+.contact-form .btn,
+input[type="submit"] {
+  background-color: var(--accent-gold) !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 4px; /* 長方形をご希望だったので角は最小限に */
+  transition: all 0.3s ease;
+}
+
+.btn:hover, 
+.contact-form .btn:hover {
+  background-color: var(--light-gold) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(155, 126, 70, 0.3);
+}
+
+/* --- スキル項目のホバー演出 --- */
+.skill-item:hover {
+  background-color: rgba(155, 126, 70, 0.05); /* 非常に薄いゴールド */
+  border: 1px solid rgba(155, 126, 70, 0.2);
+}
+
+.skill-item:hover p {
+  color: var(--accent-gold); /* ホバー時に文字色もゴールドに */
+}
+
+/* スキルアイコンのフィルター（ホバー時にゴールドへ） */
+.skill-item:hover img,
+.skill-item:hover svg {
+  /* アイコンをゴールドっぽく見せるフィルタ（元の色に依存しますが目安として） */
+  filter: brightness(0) saturate(100%) invert(51%) sepia(43%) saturate(450%) hue-rotate(10deg) brightness(95%) contrast(90%);
+}
+
+/* --- コンタクトフォームの調整 --- */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  border-color: var(--accent-gold); /* 入力中に枠線をゴールドに */
+  outline: none;
+}
