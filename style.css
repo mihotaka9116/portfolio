@@ -677,3 +677,14 @@ input[type="submit"] {
   background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
               url("logo.svg") repeat center / 120px auto;
 }
+
+/* --- #mainvisualの修正案3 --- */
+#mainvisual {
+  height: 60vh;
+  /* 背景に写真を設定（例：work-bg.jpg） */
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+              url("your-image.jpg") no-repeat center / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
