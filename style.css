@@ -178,3 +178,109 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 /* アニメーション用クラス */
 .js-fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s; }
 .js-fade-up.is-show { opacity: 1; transform: translateY(0); }
+
+/* --- 詳細ページ専用レイアウト --- */
+.detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.back-nav {
+  margin-bottom: 40px;
+}
+
+.back-nav a {
+  text-decoration: none;
+  color: var(--accent-gray);
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.back-nav a:hover {
+  color: var(--main-blue);
+}
+
+.main-visual-img {
+  width: 100%;
+  max-width: 400px; /* ロゴなので大きすぎないように調整 */
+  display: block;
+  margin: 0 auto 60px;
+}
+
+/* スペック情報の横並び設定 */
+.work-detail-meta {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+  padding: 30px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.meta-item span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--accent-gray);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.meta-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* テキストエリアの調整 */
+.detail-text-box {
+  max-width: 700px;
+  margin: 0 auto 80px;
+}
+
+.detail-text-box .title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* グッズ一覧のキャプション調整 */
+.goods-item {
+  text-align: center;
+}
+
+.item-caption {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--accent-gray);
+}
+
+.item-caption span {
+  display: block;
+  color: var(--main-blue);
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+
+/* お問い合わせボタンエリア */
+.cta-area {
+  margin-top: 100px;
+  text-align: center;
+  padding-top: 60px;
+  border-top: 1px solid #eee;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 767px) {
+  .work-detail-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+  }
+}
