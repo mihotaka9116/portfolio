@@ -265,3 +265,25 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     transform: scale(1.08);
 }
 
+/* WORKセクションの画像表示設定を上書き */
+.goods-grid .image-wrap {
+    height: auto;             /* 高さを固定しない（画像に合わせる） */
+    background: none;         /* 背景色も不要 */
+    overflow: visible;        /* 枠からはみ出さないように制限しない */
+}
+
+.goods-grid .image-wrap img {
+    width: 100%;             /* 横幅いっぱいに広げる */
+    height: auto;            /* 縦横比を維持して自動で高さを決める（これで上が切れない） */
+    object-fit: normal;      /* 特殊な切り取りを解除 */
+    display: block;          /* 画像の下に隙間ができないようにする */
+    border-radius: 8px;      /* 角丸はお好みで */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 軽い影をつけると背景と馴染みます */
+}
+
+/* ホバー時の設定 */
+.goods-grid .image-wrap:hover img {
+    transform: translateY(-5px); /* 切り取りではなく、画像ごと少し上に浮かす */
+    transition: 0.3s;
+}
+
