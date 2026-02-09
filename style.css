@@ -418,3 +418,57 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   51% { transform: scaleY(1); transform-origin: bottom; }
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
+
+/* --- スクロールダウンの装飾 --- */
+.scrolldown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    padding-bottom: 60px; /* 線を出すための余白 */
+}
+
+/* 縦線のベース */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.3); /* 下地の薄い線 */
+}
+
+/* 動く白い線のエフェクト */
+.scrolldown::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 50px;
+    background: #fff;
+    animation: scroll-anim 2s infinite; /* 2秒ごとにループ */
+}
+
+@keyframes scroll-anim {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
