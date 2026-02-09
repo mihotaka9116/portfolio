@@ -29,10 +29,13 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 20px 0;
   margin: 20px auto;
 }
-.site-title img { width: 100px; } /* 少し小さく */
+.site-title img, #header h1 img { width: 100px; } 
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 25px; }
 #header a { color: var(--main-blue); text-decoration: none; transition: 0.3s; font-size: 0.9rem; font-weight: bold; }
+#header a:hover { color: var(--accent-gray); }
+
+#footer { background: var(--main-blue); color: #fff; text-align: center; padding: 30px 0; font-size: 0.8rem; margin-top: 60px; }
 
 /* --- 3. メインビジュアル --- */
 #mainvisual {
@@ -49,8 +52,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   justify-content: center;
   padding-bottom: 60px;
 }
-/* ロゴサイズを120pxに固定 */
-#mainvisual img { 
+#mainvisual .mv-logo { 
   filter: brightness(0) invert(1); 
   width: 120px; 
   margin-bottom: 20px; 
@@ -85,19 +87,19 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* --- 4. CONCEPT --- */
+/* --- 4. 共通セクションスタイル --- */
+.section-title { text-align: center; font-size: 1.6rem; margin-bottom: 10px; position: relative; padding-bottom: 15px; }
+.section-title::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--accent-gray); }
+.section-title-en { text-align: center; display: block; font-size: 0.75rem; color: var(--accent-gray); margin-bottom: 40px; }
+
+/* --- 5. CONCEPT --- */
 #concept { text-align: center; margin-bottom: 100px; }
-/* 写真サイズを300pxに制限 */
-#concept .img {
-  max-width: 300px; 
-  margin: 0 auto 30px;
-}
+#concept .img { max-width: 300px; margin: 0 auto 30px; }
 #concept .img img { border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-/* --- 5. SKILL --- */
-.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+/* --- 6. SKILL --- */
+.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 100px; }
 .skill-item { flex: 1; min-width: 200px; max-width: 250px; text-align: center; }
-/* アイコンを40pxに縮小 */
 .skill-item img {
   width: 40px;
   margin-bottom: 15px;
@@ -106,11 +108,12 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .skill-item h3 { font-size: 1rem; margin-bottom: 10px; }
 .skill-item p { font-size: 0.85rem; line-height: 1.6; }
 
-/* --- 6. WORK --- */
+/* --- 7. WORK (Grid設定) --- */
 .goods-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
+  margin-bottom: 40px;
 }
 .image-wrap {
   background: #fff;
@@ -118,35 +121,60 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: 0.3s;
+  height: 100%;
 }
-/* 画像の高さを200pxに抑える */
+.image-wrap a { text-decoration: none; color: inherit; }
 .image-wrap img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   object-position: top;
 }
-.work-caption { padding: 15px; font-size: 0.9rem; font-weight: bold; text-align: center; }
+.work-caption { padding: 15px; font-size: 0.9rem; font-weight: bold; text-align: center; margin: 0; }
 
-/* --- 7. その他共通 --- */
-.section-title { text-align: center; font-size: 1.6rem; margin-bottom: 10px; position: relative; padding-bottom: 15px; }
-.section-title::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--accent-gray); }
-.section-title-en { text-align: center; display: block; font-size: 0.75rem; color: var(--accent-gray); margin-bottom: 40px; }
+/* --- 8. 詳細ページ用 (work.html) 特有パーツ --- */
+.detail-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.back-nav { margin-bottom: 30px; }
+.back-nav a { text-decoration: none; color: var(--accent-gray); font-weight: bold; font-size: 0.85rem; }
 
-#footer { background: var(--main-blue); color: #fff; text-align: center; padding: 30px 0; font-size: 0.8rem; }
+.work-detail-meta {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.meta-item span { display: block; font-size: 0.65rem; color: var(--accent-gray); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+.meta-item p { margin: 0; font-size: 0.85rem; font-weight: 600; }
 
+.project-description { text-align: left; max-width: 700px; margin: 0 auto 60px; }
+.project-description h3 { font-size: 1.1rem; border-left: 3px solid var(--accent-gray); padding-left: 10px; margin-top: 30px; }
+.project-description.center { text-align: center; }
+
+/* --- 9. CONTACTフォーム --- */
+.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
+.contact-form .item { margin-bottom: 20px; }
+.contact-form label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; }
+.btn { 
+  display: inline-block; background: var(--accent-gray); color: #fff; 
+  padding: 12px 40px; text-decoration: none; font-weight: bold; 
+  border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem;
+}
+.btn:hover { background: var(--hover-gray); }
+
+/* --- 10. レスポンシブ --- */
 @media screen and (max-width: 767px) {
-  #header { flex-direction: column; }
+  #header { flex-direction: column; padding: 10px 0; }
+  #header ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+  #header li { margin: 5px 10px; }
   #mainvisual { height: 50vh; }
   #concept .img { max-width: 250px; }
+  .work-detail-meta { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
 }
 
-@media screen and (max-width: 767px) {
-  #header li {
-    margin: 5px 10px; /* 左右の余白を調整 */
-  }
-  #header ul {
-    flex-wrap: wrap; /* 折り返しを許可 */
-    justify-content: center;
-  }
-}
+/* アニメーション用クラス */
+.js-fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+.js-fade-up.is-show { opacity: 1; transform: translateY(0); }
