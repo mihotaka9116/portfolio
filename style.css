@@ -284,3 +284,8 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     text-align: center;
   }
 }
+
+.mv-logo {
+    filter: brightness(0) invert(1); /* 黒いロゴを白く反転させる */
+    width: 120px;
+}
