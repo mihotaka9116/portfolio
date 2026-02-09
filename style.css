@@ -311,3 +311,87 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     align-items: flex-start;
   }
 }
+
+/* --- 詳細ページ：スペック情報のスタイル --- */
+.work-detail-meta {
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* PCでは広めに余白を取る */
+  margin: 40px auto 60px;
+  padding: 30px 20px;
+  border-top: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--light-gray);
+  max-width: 800px;
+}
+
+.meta-item {
+  text-align: left;
+}
+
+.meta-item span {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--accent-gray);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  text-transform: uppercase; /* Roleなどのラベルを大文字で引き締める */
+}
+
+.meta-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--main-blue);
+  line-height: 1.4;
+}
+
+/* --- テキストボックス内の見出し調整 --- */
+.project-description h3 {
+  font-size: 1.1rem;
+  color: var(--accent-gray);
+  margin: 40px 0 15px;
+  text-align: left;
+  border-left: 3px solid var(--accent-gray); /* 左側に縦線を入れて見出しを強調 */
+  padding-left: 15px;
+}
+
+.project-description p, 
+.project-description li {
+  text-align: left;
+  font-size: 0.95rem;
+  color: var(--main-blue);
+}
+
+.project-description ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.project-description li {
+  margin-bottom: 10px;
+  list-style-type: square; /* リストを四角いポインタにしてモダンに */
+}
+
+/* センタリング用クラス */
+.project-description.center {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* --- レスポンシブ対応 --- */
+@media screen and (max-width: 767px) {
+  .work-detail-meta {
+    flex-direction: column; /* スマホでは縦並び */
+    gap: 25px;
+    padding: 20px;
+  }
+  
+  .work-detail-meta .meta-item {
+    text-align: center; /* スマホでは中央揃えが綺麗 */
+  }
+  
+  .project-description h3 {
+    font-size: 1rem;
+  }
+}
