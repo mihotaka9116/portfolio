@@ -46,7 +46,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   /* 写真 + ネイビーの重なり */
   background: 
     linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.5)), 
-    url("https://i.imgur.com/UmLbDhC.jpeg") no-repeat center / cover;
+    url("https://i.imgur.com/evcd1KE.jpeg") no-repeat center / cover;
   display: flex;
   flex-direction: column;
   align-items: center;
