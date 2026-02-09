@@ -1,54 +1,26 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定 --- */
+/* --- 1. 変数と基本設定 --- */
+:root {
+  --main-blue: #4682b4;
+  --accent-gold: #9b7e46; /* 暗めのゴールド */
+  --light-gold: #d4af37;  /* ホバー時などの明るめゴールド */
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  color: #4682b4;
+  color: var(--main-blue);
   font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
   margin: 0;
   overflow-x: hidden;
+  letter-spacing: 0.03em;
 }
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 4. セクションタイトル（全デバイス共通で中央固定） --- */
-.section-title, .section-title-en {
-  text-align: center; 
-  display: block;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
-  margin-top: 0;
-}
-
-/* 下線の位置を中央に固定 */
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50% ; /* 親要素の真ん中から開始 */
-  transform: translateX(-50%); /* 自身の幅の半分だけ左に戻して完全中央へ */
-  width: 40px;
-  height: 2px;
-  background-color: #4682b4;
-}
-
-.section-title-en {
-  font-size: 0.8rem;
-  margin-bottom: 40px;
-}
-
-/* --- 3. ヘッダー・フッター --- */
+/* --- 2. ヘッダー・フッター --- */
 #header {
   width: 100%;
   max-width: 1000px;
@@ -58,669 +30,163 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 20px 0;
   margin: 20px auto;
 }
-
 .site-title img { width: 110px; }
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 25px; }
-#header a { color: #4682b4; text-decoration: none; }
+#header a { color: var(--main-blue); text-decoration: none; transition: 0.3s; }
+#header a:hover { color: var(--accent-gold); }
 
-#footer { background: #4682b4; color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
+#footer { background: var(--main-blue); color: #fff; text-align: center; padding: 40px 0; margin-top: 60px; }
 
-/* --- 4. トップページ（index.html）用 --- */
-#mainvisual {
-  width: 100%;
-  height: 400px;
-  background: #f9f9f9 url("logo.svg") repeat center / 120px auto;
-  margin-bottom: 60px;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 80px;
-  gap: 30px;
-  text-align: center;
-}
-.content .img img { height: 300px; object-fit: cover; border-radius: 8px; }
-.btn {
-  display: inline-block;
-  background-color: #4682b4;
-  color: #fff;
-  padding: 10px 30px;
-  text-decoration: none;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-
-
-/* お問い合わせ */
-#contact { padding: 80px 0; background-color: #fff; text-align: center; }
-.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form dt { font-weight: bold; margin-bottom: 8px; }
-.contact-form dd { margin: 0 0 25px 0; }
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 12px; border: 1px solid #e0e6ed; border-radius: 6px;
-}
-.parsed-btn input {
-  background: #4682b4; color: #fff; border: none; padding: 15px 60px; border-radius: 30px; cursor: pointer; display: block; margin: 20px auto 0;
-}
-
-
-/* --- 5. 詳細ページ（work.html）用 --- */
-/* 基本（スマホ・全デバイス共通の中央寄せ設定） */
-.detail-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center;
-}
-.main-visual-img {
-  max-width: 300px;
-  margin: 0 auto 40px;
-  display: block;
-}
-.goods-grid {
-  display: flex;
-  flex-direction: column; /* スマホでは縦並び */
-  align-items: center;
-  gap: 60px;
-  margin-bottom: 60px;
-}
-.goods-item {
-  width: 100%;
-  max-width: 550px; /* 写真のサイズ：一回り大きく */
-  text-align: center;
-}
-.image-wrap {
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-.image-wrap img { transition: transform 0.4s ease; width: 100%; display: block; }
-.goods-item:hover img { transform: scale(1.05); }
-.item-caption { font-weight: bold; color: #4682b4; }
-.custom-btn {
-  display: inline-block;
-  background-color: #4682b4;
-  color: #fff;
-  padding: 15px 40px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 30px;
-}
-
-/* --- 6. レスポンシブ調整（PC版：768px以上） --- */
-@media screen and (min-width: 768px) {
-  /* トップページ用 */
-  .content { flex-direction: row; justify-content: center; gap: 60px; }
-  .content:nth-of-type(even) { flex-direction: row-reverse; }
-  .content .text, .content .img { width: 45%; }
-  
-  .skills-grid { flex-direction: row; justify-content: space-between; }
-  .skill-item { width: 31%; }
-
-  /* 詳細ページ用（ここが重要！） */
-  .goods-grid { 
-    flex-direction: row; /* 横並びに強制 */
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 40px; 
-  }
-  .goods-item { 
-    width: 45%; /* 2列にする */
-    max-width: none; 
-  }
-}
-
-/* --- 8. スマホ版調整 --- */
-@media screen and (max-width: 767px) {
-  /* ヘッダー全体の余白を調整 */
-  #header {
-    flex-direction: column;
-    padding: 30px 0 0 0; /* 上の余白を少し増やし、下は0に */
-    gap: 30px; /* ロゴとナビの間の距離 */
-  }
-
-  /* ロゴのサイズ調整 */
-  .site-title img {
-    width: 80px;
-  }
-
-  /* ナビゲーション（メニュー）の設定 */
-  #header ul {
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 30px; /* ナビとメインビジュアルの間の距離 */
-  }
-
-  #header li {
-    margin: 0 10px;
-  }
-
-
-
-/* --- お問い合わせボタンを長方形にする --- */
-.btn, 
-input[type="submit"], 
-button {
-  border-radius: 0; /* 角丸を完全に削除 */
-  -webkit-appearance: none;    /* iOSでの自動角丸を防止 */
-}
-
-/* --- セクションが浮き上がるための準備設定 --- */
-.js-fade-up {
-  opacity: 0;                /* 最初は透明 */
-  transform: translateY(50px); /* 50px下に下げておく */
-  transition: opacity 1.2s ease, transform 1.2s ease; /* 1.2秒かけて動く */
-}
-
-/* 画面に入った時に付与されるクラス */
-.is-show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- CONCEPTセクションの画像修正 --- */
-
-#concept .img {
-  /* 画像の表示サイズを制限（ここが重要！） */
-  max-width: 500px; 
-  margin: 0 auto 30px; /* 中央寄せと下の余白 */
-  padding: 0;
-  background: none;
-  
-  /* 浮かび上がり設定 */
-  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-  position: relative;
-  top: 0;
-  cursor: pointer;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-/* マウスを乗せた時に浮かせる */
-#concept .img:hover {
-  transform: translateY(-12px); /* 上に動く */
-  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2) ; /* 水色系の影 */
-}
-
-/* 画像自体の設定 */
-#concept .img img {
-  width: 100%; /* 枠（500px）いっぱいに広げる */
-  height: auto;
-  display: block;
-  border-radius: 10px;
-}
-
-/* テキストの調整 */
-#concept p {
-  color: #4682b4;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* --- CONTACTセクションの調整 --- */
-
-#contact {
-  background-color: #fff; /* 背景は白 */
-  padding: 80px 0;
-}
-
-/* ラベル（Name, Emailなど）を水色にする */
-.contact-form label {
-  color: #4682b4;
-  font-weight: bold;
-  display: block;
-  text-align: left;
-  margin-bottom: 5px;
-}
-
-/* 入力欄の枠線を水色に、角を丸くする */
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-  border: 1px solid #bcd9f5; /* 薄い水色の枠線 */
-  border-radius: 8px;
-  padding: 10px;
-  width: 100%;
-  color: #4682b4;
-}
-
-/* 送信ボタンを浮かせる */
-.contact-form .btn {
-  background-color: #4682b4;
-  color: #fff;
-  border: none;
-  padding: 15px 60px;
-  font-weight: bold;
-  cursor: pointer;
-  display: inline-block;
-  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* 浮かび上がりの設定 */
-  margin-top: 30px;
-}
-
-/* 送信ボタンにマウスを乗せた時 */
-.contact-form .btn:hover {
-  transform: translateY(-8px); /* 8px浮き上がる */
-  box-shadow: 0 10px 20px rgba(70, 130, 180, 0.3); /* 水色の影 */
-}
-
-/* お問い合わせフォーム全体の幅を絞る */
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* --- 1. 全てのセクションタイトルを中央に --- */
-section h2, 
-#concept h2, 
-#skill h2, 
-#work h2, 
-#contact h2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 横方向の中央 */
-  justify-content: center;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 60px;
-}
-
-/* タイトルの下の棒（もしあれば）も中央に */
-section h2::after {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* --- 2. 全てのボタン（VIEW MORE / SEND等）を中央に --- */
-/* ボタンを包んでいるエリアを中央揃えにする */
-.container, 
-#work .container, 
-#contact .container {
-  text-align: center;
-}
-
-/* ボタン自体の配置を中央に固定 */
-.btn, 
-.view-detail-btn, 
-input[type="submit"] {
-  display: inline-block; /* blockではなくinline-blockで中央寄せを有効に */
-  margin-left: auto;
-  margin-right: auto;
-  float: none; /* 寄ってしまうのを防ぐ */
-}
-
-/* --- 3. コンセプトのテキストなども念のため中央に --- */
-#concept p, 
-#skill p {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-/* --- スキル全体の設定 --- */
-.skills-grid { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 30px; 
-  margin-top: 40px; 
-}
-
-.skill-item {
-  text-align: center; 
-  padding: 30px 20px; 
-  border-radius: 8px;
-  transition: transform 0.25s ease-out, background-color 0.25s ease-out;
-  -webkit-font-smoothing: antialiased; /* 文字のボケ防止 */
-}
-
-/* ボックス自体のホバー：少し浮いて背景に薄く色を付ける */
-.skill-item:hover { 
-  transform: translateY(-10px); 
-  background-color: rgba(70, 130, 180, 0.03); 
-}
-
-/* --- スキルアイコン：究極の鮮明化設定 --- */
-.skill-item .img, 
-.skill-item img,
-.skill-item svg {
-  width: 50px; 
-  height: 50px;
-  margin: 0 auto 15px; 
-  display: block;
-  object-fit: contain;
-
-  /* 1. 画像のエッジを物理的に立たせる（ぼやけ防止） */
-  image-rendering: -webkit-optimize-contrast; 
-  image-rendering: crisp-edges;
-  
-  /* 2. レンダリング時のボケを防ぐ（3Dアクセラレーション） */
-  backface-visibility: hidden;
-  transform: translateZ(0); 
-  will-change: transform; 
-
-  /* 3. 水色設定（SteelBlue #4682b4） */
-  /* 真っ黒にしてから青を乗せることで、元画像に左右されずクッキリします */
-  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(100%);
-  
-  transition: transform 0.25s ease-out, filter 0.25s ease-out;
-}
-
-/* アイコン単体のホバー：拡大せず移動(translate)のみで鮮明さを維持 */
-.skill-item:hover img,
-.skill-item:hover svg {
-  transform: translateY(-8px);
-  /* ホバー時は少しだけ濃い青に */
-  filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(2500%) hue-rotate(175deg) brightness(85%) contrast(110%);
-}
-
-/* スキル名のテキスト */
-.skill-item p {
-  color: #4682b4;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* スキル名の直後の説明テキストだけを少し細く、読みやすくする */
-.skill-item p + p {
-  font-weight: normal;
-  font-size: 0.9rem;
-  opacity: 0.9; /* わずかに透過させて色の強さを和らげる */
-}
-
-/* --- スキル全体の設定 --- */
-.skills-grid { 
-  display: flex; 
-  flex-direction: row;    /* 横並びに変更 */
-  flex-wrap: wrap;        /* 幅が狭くなったら折り返す */
-  justify-content: center; /* 中央寄せ */
-  gap: 30px; 
-  margin-top: 40px; 
-}
-
-/* 各スキル項目の幅調整 */
-.skill-item {
-  flex: 1;               /* 均等に広がる */
-  min-width: 250px;      /* 最低限の幅（これより狭くなると折り返す） */
-  max-width: 320px;      /* 広がりすぎ防止 */
-  text-align: center; 
-  padding: 30px 20px; 
-  border-radius: 8px;
-  transition: transform 0.25s ease-out, background-color 0.25s ease-out;
-}
-
-/* ふわっと表示される前の状態 */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-}
-
-/* 画面に入った時の状態 */
-.fade-in.is-active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* セクション間の余白を大胆に取る */
-section {
-  padding: 100px 0; /* 60pxや80pxから100px以上にアップ */
-}
-
-/* 文字の間隔（レタースペーシング）を微調整 */
-body {
-  letter-spacing: 0.03em;
-}
-
-
-.image-wrap {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.image-wrap:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(70, 130, 180, 0.2); /* SteelBlueの影 */
-}
-
-/* 全てのリンクのホバーを滑らかにする（共通設定） */
-a, button, .btn {
-  transition: all 0.3s ease;
-}
-
-/* Web実績のテキスト周り */
-.work-section {
-  margin-bottom: 120px;
-}
-
-.work-feature {
-  margin-top: 40px;
-  margin-bottom: 60px;
-}
-
-.detail-text-box .title {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #4682b4;
-  margin-bottom: 15px;
-}
-
-.skill-tags {
-  font-size: 0.8rem;
-  color: #88a6c1;
-  margin-top: 15px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-}
-
-.project-description.center {
-  max-width: 600px;
-  margin: 0 auto 40px;
-}
-
-@media screen and (min-width: 768px) {
-  .goods-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3列に固定 */
-    gap: 30px;
-  }
-  
-  .goods-item, .image-wrap {
-    width: 100%; /* 親のグリッド幅に合わせる */
-  }
-}
-
-/* --- アニメーションの設定を統一 --- */
-
-/* 1. 最初（隠れている時）の状態 */
-.js-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-}
-
-/* 2. 画面に現れた時（is-showクラスがついた時）の状態 */
-.js-fade-up.is-show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- 8. スマホ版調整 --- */
-@media screen and (max-width: 767px) {
-  /* ...他の設定... */
-
-  .goods-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); /* 1列に並べる */
-    gap: 40px; /* アイテム同士の縦の隙間を少し広げると見やすくなります */
-  }
-}
-
-/* --- 8. スマホ版調整 --- */
-@media screen and (max-width: 767px) {
-  
-  /* 実績（WORK）を1列に */
-  .goods-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); 
-    gap: 40px;
-  }
-
-  /* スキル（SKILL）を1列に */
-  .skills-grid {
-    display: flex;
-    flex-direction: column; /* 縦並びに変更 */
-    align-items: center;    /* 中央寄せ */
-    gap: 20px;
-  }
-  
-  .skill-item {
-    width: 100%;
-    max-width: 300px; /* 横に広がりすぎないよう調整 */
-  }
-}
-
-:root {
-  --main-blue: #4682b4;
-  --accent-gold: #9b7e46; /* 暗めのゴールド */
-  --light-gold: #d4af37;  /* ホバー時などの明るめゴールド */
-}
-
-.section-title::after {
-  background-color: var(--accent-gold); /* 青からゴールドに変更 */
-  width: 60px; /* 少し長めにすると優雅です */
-  height: 3px;
-}
-
-.btn, 
-.custom-btn,
-.contact-form .btn,
-input[type="submit"] {
-  background-color: var(--accent-gold);
-  border: 1px solid var(--accent-gold);
-  color: #fff;
-}
-
-/* ホバー時に少し明るく、または色を反転 */
-.btn:hover, 
-.contact-form .btn:hover {
-  background-color: transparent;
-  color: var(--accent-gold);
-  box-shadow: 0 10px 20px rgba(155, 126, 70, 0.2);
-}
-
-/* スキル項目のホバー時 */
-.skill-item:hover {
-  border: 1px solid rgba(155, 126, 70, 0.3); /* 薄くゴールドの枠線 */
-}
-
-/* アイコンの色をゴールドに変化させるフィルタ */
-.skill-item:hover img,
-.skill-item:hover svg {
-  /* ゴールド系の色に変更するフィルタ設定 */
-  filter: brightness(0) saturate(100%) invert(51%) sepia(43%) saturate(450%) hue-rotate(10deg) brightness(95%) contrast(90%);
-}
-
-.skill-item:hover p {
-  color: var(--accent-gold);
-}
-
-#mainvisual {
-  border-top: 4px solid var(--accent-gold); /* 上部に細いゴールドのライン */
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
-              url("logo.svg") repeat center / 120px auto;
-}
-
-
-
-/* --- ボタン類（VIEW MORE / SEND等）をゴールドに --- */
-.btn, 
-.custom-btn,
-.contact-form .btn,
-input[type="submit"] {
-  background-color: var(--accent-gold) !important;
-  color: #fff !important;
-  border: none;
-  border-radius: 4px; /* 長方形をご希望だったので角は最小限に */
-  transition: all 0.3s ease;
-}
-
-.btn:hover, 
-.contact-form .btn:hover {
-  background-color: var(--light-gold) !important;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(155, 126, 70, 0.3);
-}
-
-/* --- スキル項目のホバー演出 --- */
-.skill-item:hover {
-  background-color: rgba(155, 126, 70, 0.05); /* 非常に薄いゴールド */
-  border: 1px solid rgba(155, 126, 70, 0.2);
-}
-
-.skill-item:hover p {
-  color: var(--accent-gold); /* ホバー時に文字色もゴールドに */
-}
-
-/* スキルアイコンのフィルター（ホバー時にゴールドへ） */
-.skill-item:hover img,
-.skill-item:hover svg {
-  /* アイコンをゴールドっぽく見せるフィルタ（元の色に依存しますが目安として） */
-  filter: brightness(0) saturate(100%) invert(51%) sepia(43%) saturate(450%) hue-rotate(10deg) brightness(95%) contrast(90%);
-}
-
-/* --- コンタクトフォームの調整 --- */
-.contact-form input:focus, 
-.contact-form textarea:focus {
-  border-color: var(--accent-gold); /* 入力中に枠線をゴールドに */
-  outline: none;
-}
-
-  /* --- 0. カラー変数の定義（一番上に配置） --- */
-:root {
-  --main-blue: #4682b4;
-  --accent-gold: #9b7e46; /* 暗めのゴールド */
-  --light-gold: #d4af37;  /* ホバー時 */
-}
-
-/* --- 4. メインビジュアル確定版（整理後） --- */
+/* --- 3. メインビジュアル（抽象背景・確定版） --- */
 #mainvisual {
   width: 100%;
   height: 60vh;
   min-height: 400px;
-  /* 抽象写真＋暗めのオーバーレイ */
+  /* 写真 + ネイビーの重なり */
   background: 
     linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.5)), 
     url("https://i.imgur.com/UmLbDhC.jpeg") no-repeat center / cover;
-  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  
-  /* ゴールドの上下ライン */
   border-top: 4px solid var(--accent-gold);
   border-bottom: 3px solid var(--accent-gold);
   margin-bottom: 60px;
   overflow: hidden;
 }
 
-/* メインビジュアル内のロゴを白抜きにして目立たせる */
-#mainvisual .site-title img,
+/* メインビジュアル内のロゴを白抜きに */
 #mainvisual img {
-  filter: brightness(0) invert(1); /* 黒いロゴを白に変更 */
+  filter: brightness(0) invert(1);
   width: 150px;
-  height: auto;
   margin-bottom: 20px;
 }
 
-/* メインビジュアル内のテキスト */
 #mainvisual p {
   color: #fff;
   font-weight: bold;
   letter-spacing: 0.2em;
   text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  margin: 0;
+}
+
+/* --- 4. セクションタイトル --- */
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 15px;
+  margin: 0 auto 10px;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-gold);
+}
+.section-title-en {
+  text-align: center;
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 40px;
+}
+
+/* --- 5. ボタン（長方形・ゴールド） --- */
+.btn, .custom-btn, .contact-form .btn, input[type="submit"] {
+  display: inline-block;
+  background-color: var(--accent-gold) !important;
+  color: #fff !important;
+  padding: 12px 40px;
+  text-decoration: none;
+  border: none;
+  border-radius: 0; /* 完全に長方形 */
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+.btn:hover, .contact-form .btn:hover {
+  background-color: var(--light-gold) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(155, 126, 70, 0.3);
+}
+
+/* --- 6. スキルセクション --- */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+.skill-item {
+  flex: 1;
+  min-width: 250px;
+  max-width: 320px;
+  text-align: center;
+  padding: 30px 20px;
+  transition: 0.3s;
+}
+.skill-item:hover {
+  transform: translateY(-10px);
+  background-color: rgba(155, 126, 70, 0.05);
+}
+/* アイコンをホバーでゴールドに */
+.skill-item img {
+  width: 50px; height: 50px; margin-bottom: 15px;
+  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1900%) hue-rotate(165deg) brightness(90%) contrast(100%);
+  transition: 0.3s;
+}
+.skill-item:hover img {
+  filter: brightness(0) saturate(100%) invert(51%) sepia(43%) saturate(450%) hue-rotate(10deg) brightness(95%) contrast(90%);
+}
+
+/* --- 7. 実績セクション --- */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.image-wrap {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.4s;
+}
+.image-wrap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(70, 130, 180, 0.2);
+}
+
+/* --- 8. コンタクトフォーム --- */
+#contact { padding: 80px 0; background-color: #fff; text-align: center; }
+.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 12px; border: 1px solid #bcd9f5; border-radius: 4px;
+  color: var(--main-blue);
+}
+.contact-form input:focus { border-color: var(--accent-gold); outline: none; }
+
+/* --- 9. レスポンシブ --- */
+@media screen and (max-width: 767px) {
+  #header { flex-direction: column; gap: 20px; }
+  #header li { margin: 0 10px; }
+  #mainvisual { height: 250px; }
+}
+
+/* --- 10. アニメーション --- */
+.js-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1.2s;
+}
+.js-fade-up.is-show {
+  opacity: 1;
+  transform: translateY(0);
 }
