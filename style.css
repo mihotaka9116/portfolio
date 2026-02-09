@@ -240,3 +240,35 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     object-fit: cover;
     object-position: top; /* 上を基準にする設定 */
 }
+
+/* 実績一覧の画像エリアを修正 */
+.goods-grid .image-wrap {
+    width: 100%;
+    height: 250px;           /* 枠の高さは維持 */
+    background-color: #f4f7f9; /* 画像が収まった時にできる余白の色（サイトの背景色に合わせる） */
+    display: flex;           /* 画像を上下左右中央に配置するために追加 */
+    align-items: center;     /* 垂直方向中央 */
+    justify-content: center; /* 水平方向中央 */
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.goods-grid .image-wrap img {
+    width: 100%;             /* 横幅いっぱいに広げる */
+    height: 100%;            /* 縦幅いっぱいに広げる */
+    object-fit: contain;     /* 【最重要】画像を切らずに、枠内に収まるよう自動縮小する */
+    transition: 0.4s ease;
+}
+
+/* ホバー時に画像を少し大きく見せる（任意） */
+.goods-grid .image-wrap:hover img {
+    transform: scale(1.08);
+}
+
+.goods-grid .image-wrap {
+    height: auto; /* 高さを固定しない */
+}
+.goods-grid .image-wrap img {
+    height: auto; 
+    object-fit: normal; /* そのまま表示 */
+}
