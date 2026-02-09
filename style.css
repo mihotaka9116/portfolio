@@ -3,12 +3,11 @@
 /* --- 1. 変数と基本設定 --- */
 :root {
   --main-blue: #4682b4;
-  --accent-gray: #708090;  /* スレートグレー：落ち着いたアクセント */
-  --light-gray: #f4f7f9;   /* 境界線や背景用 */
-  --hover-gray: #54626f;   /* ボタンホバー時：少し濃いグレー */
+  --accent-gray: #708090;
+  --light-gray: #f4f7f9;
+  --hover-gray: #54626f;
 }
 
-/* 共通設定 */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -50,7 +49,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 3px solid var(--accent-gray); /* グレーのライン */
+  border-bottom: 3px solid var(--accent-gray);
   margin-bottom: 80px;
 }
 #mainvisual img { filter: brightness(0) invert(1); width: 150px; margin-bottom: 20px; }
@@ -73,7 +72,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   transform: translateX(-50%);
   width: 50px;
   height: 2px;
-  background-color: var(--accent-gray); /* グレーへ変更 */
+  background-color: var(--accent-gray);
 }
 .section-title-en { 
   text-align: center; 
@@ -88,9 +87,8 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   text-align: center;
   margin-bottom: 100px;
 }
-/* HTMLの <div class="img"> に対応 */
 #concept .img {
-  max-width: 380px; /* 一回り小さく（以前の400〜500pxから縮小） */
+  max-width: 380px; /* 写真を一回り小さく表示 */
   margin: 0 auto 30px;
 }
 #concept .img img {
@@ -123,12 +121,46 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .skill-item img {
   width: 50px;
   margin-bottom: 15px;
-  /* アイコンをグレー寄りの水色に調整 */
   filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1000%) hue-rotate(160deg);
 }
-.skill-item:hover p { color: var(--accent-gray); }
 
-/* --- 7. ボタン（グレー基調・長方形） --- */
+/* --- 7. WORKセクション（画像が切れる問題を解決） --- */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.image-wrap {
+  width: 100%;
+  /* 高さを固定せず、背景色をつけて枠の形を安定させる */
+  background-color: var(--light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 250px;      /* 枠の高さを統一 */
+  object-fit: contain; /* 【重要】画像全体を枠内に収める。これで上部が切れません */
+  background-color: var(--light-gray);
+  display: block;
+  transition: 0.4s ease;
+}
+
+.image-wrap:hover img {
+  transform: scale(1.05); /* ホバー時に少しズーム */
+  filter: saturate(1.1);
+}
+
+.work-caption {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* --- 8. ボタン・フォーム --- */
 .btn, .custom-btn, input[type="submit"] {
   display: inline-block;
   background-color: var(--accent-gray) !important;
@@ -136,7 +168,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 15px 50px;
   text-decoration: none;
   border: none;
-  border-radius: 0; /* 長方形 */
+  border-radius: 0;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -147,7 +179,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* --- 8. コンタクトフォーム --- */
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
@@ -158,16 +189,11 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .contact-form input, .contact-form textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--light-gray);
+  border: 1px solid #ddd;
   border-radius: 4px;
-  color: var(--main-blue);
-}
-.contact-form input:focus, .contact-form textarea:focus {
-  border-color: var(--accent-gray);
-  outline: none;
 }
 
-/* --- 9. アニメーション設定 --- */
+/* --- 9. アニメーション・レスポンシブ --- */
 .js-fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -178,112 +204,10 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   transform: translateY(0);
 }
 
-/* --- 10. レスポンシブ --- */
 @media screen and (max-width: 767px) {
   #header { flex-direction: column; padding: 20px 0; }
   #header ul { margin-top: 20px; }
   #mainvisual { height: 250px; }
-  #concept .img { max-width: 280px; } /* スマホでも一回り小さく */
+  #concept .img { max-width: 280px; }
+  .image-wrap img { height: 200px; } /* スマホでは高さを少し抑える */
 }
-
-/* 実績一覧の画像を枠いっぱいに綺麗に表示する */
-.image-wrap img {
-  width: 100%;
-  height: 250px;       /* 高さを揃える（お好みで調整） */
-  object-fit: cover;   /* 枠に合わせて自動トリミングして歪ませない */
-  border-radius: 4px;
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-/* ホバー時に少し明るく、かつ浮き上がるエフェクト */
-.image-wrap:hover img {
-  transform: scale(1.03); /* わずかに拡大 */
-  filter: brightness(1.1); /* 鮮やかさを強調 */
-}
-
-/* WORKセクションの画像表示設定 */
-.goods-grid .image-wrap img {
-    width: 100%;
-    height: 250px;       /* 他の実績と高さを揃える */
-    object-fit: cover;   /* 鮮やかな部分を中央に寄せて綺麗に表示 */
-    border-radius: 4px;
-    transition: 0.4s ease;
-}
-
-/* ホバー時に「中身を見たくなる」ような演出 */
-.goods-grid .image-wrap:hover img {
-    transform: scale(1.05); /* 少し拡大 */
-    filter: saturate(1.2);  /* 鮮やかさをさらに20%アップ */
-    box-shadow: 0 10px 30px rgba(112, 128, 144, 0.3); /* グレー系の影 */
-}
-
-/* WORKの実績画像の設定 */
-.image-wrap img {
-    width: 100%;
-    height: 250px;       /* 枠の高さは固定 */
-    object-fit: contain; /* 【重要】画像を切らずに全体を表示する */
-    background-color: #f4f7f9; /* 余白ができる場合に備えて薄いグレーを背景に */
-    border-radius: 4px;
-    transition: 0.4s ease;
-}
-
-/* ホバー時の演出（お好みで） */
-.image-wrap:hover img {
-    transform: scale(1.05);
-    background-color: #e0e6ed; /* ホバー時に背景を少し濃くして枠を強調 */
-}
-
-/* 上部を基準にして、枠いっぱいに表示する（下側が切れる） */
-.image-wrap img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    object-position: top; /* 上を基準にする設定 */
-}
-
-/* 実績一覧の画像エリアを修正 */
-.goods-grid .image-wrap {
-    width: 100%;
-    height: 250px;           /* 枠の高さは維持 */
-    background-color: #f4f7f9; /* 画像が収まった時にできる余白の色（サイトの背景色に合わせる） */
-    display: flex;           /* 画像を上下左右中央に配置するために追加 */
-    align-items: center;     /* 垂直方向中央 */
-    justify-content: center; /* 水平方向中央 */
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-.goods-grid .image-wrap img {
-    width: 100%;             /* 横幅いっぱいに広げる */
-    height: 100%;            /* 縦幅いっぱいに広げる */
-    object-fit: contain;     /* 【最重要】画像を切らずに、枠内に収まるよう自動縮小する */
-    transition: 0.4s ease;
-}
-
-/* ホバー時に画像を少し大きく見せる（任意） */
-.goods-grid .image-wrap:hover img {
-    transform: scale(1.08);
-}
-
-/* WORKセクションの画像表示設定を上書き */
-.goods-grid .image-wrap {
-    height: auto;             /* 高さを固定しない（画像に合わせる） */
-    background: none;         /* 背景色も不要 */
-    overflow: visible;        /* 枠からはみ出さないように制限しない */
-}
-
-.goods-grid .image-wrap img {
-    width: 100%;             /* 横幅いっぱいに広げる */
-    height: auto;            /* 縦横比を維持して自動で高さを決める（これで上が切れない） */
-    object-fit: normal;      /* 特殊な切り取りを解除 */
-    display: block;          /* 画像の下に隙間ができないようにする */
-    border-radius: 8px;      /* 角丸はお好みで */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 軽い影をつけると背景と馴染みます */
-}
-
-/* ホバー時の設定 */
-.goods-grid .image-wrap:hover img {
-    transform: translateY(-5px); /* 切り取りではなく、画像ごと少し上に浮かす */
-    transition: 0.3s;
-}
-
