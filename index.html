@@ -15,7 +15,7 @@
 <body>
 
     <header id="header">
-        <h1><img src="logo.svg" alt="miho takahashi" style="width: 120px;"></h1>
+        <h1><img src="logo.svg" alt="miho takahashi"></h1>
         <nav>
             <ul>
                 <li><a href="#concept">CONCEPT</a></li>
@@ -26,12 +26,13 @@
         </nav>
     </header>
 
-    <div id="mainvisual"></div>
+    <div id="mainvisual">
+        <img src="logo.svg" alt="logo" class="mv-logo">
+        <p>WEB DESIGN & CODING</p>
+        <div class="scrolldown"><span>SCROLL</span></div>
+    </div>
 
     <main>
-        <div id="mainvisual">
-    <div class="scrolldown"><span>SCROLL</span></div>
-</div>
         <section id="concept" class="js-fade-up">
             <div class="container">
                 <h2 class="section-title">CONCEPT</h2>
@@ -51,63 +52,66 @@
                 <div class="skills-grid">
                     <div class="skill-item">
                         <div class="img"><img src="illustrator.svg" alt="Illustrator"></div>
+                        <h3>Design</h3>
                         <p>Illustrator / Figma</p>
-                        <p>ロゴやアイコンのデザインが可能です。</p>
+                        <p>ロゴやアイコンのデザイン、プロトタイプ制作が可能です。</p>
                     </div>
                     <div class="skill-item">
-                        <div class="img"><img src="figma.svg" alt="Figma"></div>
-                        <p>Css</p>
-                        <p>Webサイトのプロトタイプ制作や、使いやすいUI設計が得意です。</p>
+                        <div class="img"><img src="figma.svg" alt="Coding"></div>
+                        <h3>Coding</h3>
+                        <p>HTML / CSS</p>
+                        <p>レスポンシブ対応や、セマンティックなコーディングを意識しています。</p>
                     </div>
                     <div class="skill-item">
                         <div class="img"><img src="javascript.svg" alt="JavaScript"></div>
-                        <p>JavaScript</p>
+                        <h3>JavaScript</h3>
+                        <p>jQuery / JS</p>
                         <p>動きのあるサイトや、便利な機能を実装することが可能です。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-    <section id="work" class="js-fade-up">
-    <div class="container">
-        <h2 class="section-title">WORK</h2>
-        <span class="section-title-en">実績</span>
-        
-        <div class="goods-grid">
-            <div class="image-wrap">
-                <a href="https://mihotaka9116.github.io/cafe/" target="_blank">
-                    <img src="work-cafe.png" alt="仙台・横浜カフェブック">
-                    <p class="work-caption">仙台・横浜カフェブック</p>
-                </a>
+        <section id="work" class="js-fade-up">
+            <div class="container">
+                <h2 class="section-title">WORK</h2>
+                <span class="section-title-en">実績</span>
+                
+                <div class="goods-grid">
+                    <div class="image-wrap">
+                        <a href="https://mihotaka9116.github.io/cafe/" target="_blank">
+                            <img src="work-cafe.png" alt="仙台・横浜カフェブック">
+                            <p class="work-caption">仙台・横浜カフェブック</p>
+                        </a>
+                    </div>
+
+                    <div class="image-wrap">
+                        <a href="#">
+                            <img src="work-01.png" alt="Coming Soon">
+                            <p class="work-caption">Project Name 01</p>
+                        </a>
+                    </div>
+
+                    <div class="image-wrap">
+                        <a href="#">
+                            <img src="work-02.png" alt="Coming Soon">
+                            <p class="work-caption">Project Name 02</p>
+                        </a>
+                    </div>
+
+                    <div class="image-wrap">
+                        <a href="./work.html">
+                            <img src="https://i.imgur.com/lAuvMDC.png" alt="Creative & Colorful">
+                            <p class="work-caption">Creative & Colorful</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="./work.html" class="btn">VIEW ALL WORKS</a>
+                </div>
             </div>
-
-            <div class="goods-grid">
-  <div class="image-wrap">
-    <a href="サイトURL" target="_blank">
-      <img src="work-01.png" alt="実績1の詳細">
-      <p class="work-caption">Project Name 01</p>
-    </a>
-  </div>
-
-  <div class="image-wrap">
-    <a href="サイトURL" target="_blank">
-      <img src="work-02.png" alt="実績2の詳細">
-      <p class="work-caption">Project Name 02</p>
-    </a>
-  </div>
-
-  <div class="image-wrap">
-    <a href="./work.html">
-      <img src="https://i.imgur.com/lAuvMDC.png" alt="Creative & Colorful">
-      <p class="work-caption">Creative & Colorful</p>
-    </a>
-  </div>
-</div>
-        </div> <div style="text-align: center; margin-top: 40px;">
-            <a href="./work.html" class="btn">VIEW ALL WORKS</a>
-        </div>
-    </div>
-</section>
+        </section>
 
         <section id="contact" class="js-fade-up">
             <div class="container">
@@ -126,7 +130,9 @@
                         <label>Message</label>
                         <textarea name="message" placeholder="ご相談内容をご記入ください"></textarea>
                     </div>
-                    <input type="submit" value="SEND MESSAGE" class="btn">
+                    <div style="text-align: center;">
+                        <input type="submit" value="SEND MESSAGE" class="btn">
+                    </div>
                 </form>
             </div>
         </section>
