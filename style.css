@@ -395,3 +395,26 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     font-size: 1rem;
   }
 }
+
+/* メインビジュアルにスクロール誘導を追加 */
+#mainvisual {
+  position: relative; /* 矢印を配置する基準 */
+}
+
+#mainvisual::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 2px;
+  height: 60px;
+  background: #fff;
+  animation: scroll-line 2s infinite;
+}
+
+@keyframes scroll-line {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
