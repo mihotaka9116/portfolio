@@ -265,10 +265,3 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     transform: scale(1.08);
 }
 
-.goods-grid .image-wrap {
-    height: auto; /* 高さを固定しない */
-}
-.goods-grid .image-wrap img {
-    height: auto; 
-    object-fit: normal; /* そのまま表示 */
-}
