@@ -20,7 +20,7 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー・フッター --- */
+/* --- 2. ヘッダー・ナビゲーション（PC基本） --- */
 #header {
   max-width: 1000px;
   display: flex;
@@ -29,13 +29,29 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 20px 0;
   margin: 20px auto;
 }
-.site-title img, #header h1 img { width: 100px; } 
-#header ul { display: flex; list-style: none; padding: 0; margin: 0; }
-#header li { margin-left: 25px; }
-#header a { color: var(--main-blue); text-decoration: none; transition: 0.3s; font-size: 0.9rem; font-weight: bold; }
-#header a:hover { color: var(--accent-gray); }
+#header h1 img { width: 100px; }
 
-#footer { background: var(--main-blue); color: #fff; text-align: center; padding: 30px 0; font-size: 0.8rem; margin-top: 60px; }
+/* ナビゲーション */
+.nav-menu ul {
+  display: flex; /* 横並び */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-menu li { margin-left: 25px; }
+.nav-menu a {
+  color: var(--main-blue);
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.nav-menu a:hover { color: var(--accent-gray); }
+
+/* PCではハンバーガーボタンを隠す */
+.hamburger-menu {
+  display: none;
+}
 
 /* --- 3. メインビジュアル --- */
 #mainvisual {
@@ -52,42 +68,38 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   justify-content: center;
   padding-bottom: 60px;
 }
-#mainvisual .mv-logo { 
-  filter: brightness(0) invert(1); 
-  width: 120px; 
-  margin-bottom: 20px; 
-  transform: translateY(-20px);
-}
+.mv-logo { filter: brightness(0) invert(1); width: 120px; margin-bottom: 20px; }
 #mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.2em; font-size: 0.9rem; }
 
 /* スクロールアニメーション */
 .scrolldown {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-size: 0.65rem;
-    z-index: 10;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 0.65rem;
+  z-index: 10;
 }
 .scrolldown::before {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    left: 50%;
-    width: 1px;
-    height: 45px;
-    background: #fff;
-    animation: scroll-anim 2s infinite;
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  width: 1px;
+  height: 45px;
+  background: #fff;
+  animation: scroll-anim 2s infinite;
 }
 @keyframes scroll-anim {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
 /* --- 4. 共通セクションスタイル --- */
+section { margin-top: 100px; }
 .section-title { text-align: center; font-size: 1.6rem; margin-bottom: 10px; position: relative; padding-bottom: 15px; }
 .section-title::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--accent-gray); }
 .section-title-en { text-align: center; display: block; font-size: 0.75rem; color: var(--accent-gray); margin-bottom: 40px; }
@@ -99,567 +111,11 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 /* --- 6. SKILL --- */
 .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 100px; }
-.skill-item { flex: 1; min-width: 200px; max-width: 250px; text-align: center; }
-.skill-item img {
-  width: 40px;
-  margin-bottom: 15px;
-  filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1000%) hue-rotate(160deg);
+.skill-item { 
+  flex: 1; min-width: 200px; max-width: 250px; text-align: center; 
+  background-color: #ffffff; transition: all 0.3s ease; border-radius: 10px; border: 1px solid #eee; padding: 20px;
 }
-.skill-item h3 { font-size: 1rem; margin-bottom: 10px; }
-.skill-item p { font-size: 0.85rem; line-height: 1.6; }
-
-/* --- 7. WORK (Grid設定) --- */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-bottom: 40px;
-}
-.image-wrap {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: 0.3s;
-  height: 100%;
-}
-.image-wrap a { text-decoration: none; color: inherit; }
-.image-wrap img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  object-position: top;
-}
-.work-caption { padding: 15px; font-size: 0.9rem; font-weight: bold; text-align: center; margin: 0; }
-
-/* --- 8. 詳細ページ用 (work.html) 特有パーツ --- */
-.detail-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-.back-nav { margin-bottom: 30px; }
-.back-nav a { text-decoration: none; color: var(--accent-gray); font-weight: bold; font-size: 0.85rem; }
-
-.work-detail-meta {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 40px 0;
-  padding: 20px 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-}
-.meta-item span { display: block; font-size: 0.65rem; color: var(--accent-gray); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
-.meta-item p { margin: 0; font-size: 0.85rem; font-weight: 600; }
-
-.project-description { text-align: left; max-width: 700px; margin: 0 auto 60px; }
-.project-description h3 { font-size: 1.1rem; border-left: 3px solid var(--accent-gray); padding-left: 10px; margin-top: 30px; }
-.project-description.center { text-align: center; }
-
-/* --- 9. CONTACTフォーム --- */
-.contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form .item { margin-bottom: 20px; }
-.contact-form label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
-.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; }
-.btn { 
-  display: inline-block; background: var(--accent-gray); color: #fff; 
-  padding: 12px 40px; text-decoration: none; font-weight: bold; 
-  border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem;
-}
-.btn:hover { background: var(--hover-gray); }
-
-/* --- 10. レスポンシブ --- */
-@media screen and (max-width: 767px) {
-  #header { flex-direction: column; padding: 10px 0; }
-  #header ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
-  #header li { margin: 5px 10px; }
-  #mainvisual { height: 50vh; }
-  #concept .img { max-width: 250px; }
-  .work-detail-meta { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
-}
-
-/* アニメーション用クラス */
-.js-fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s; }
-.js-fade-up.is-show { opacity: 1; transform: translateY(0); }
-
-/* --- 詳細ページ専用レイアウト --- */
-.detail-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
-
-.back-nav {
-  margin-bottom: 40px;
-}
-
-.back-nav a {
-  text-decoration: none;
-  color: var(--accent-gray);
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.back-nav a:hover {
-  color: var(--main-blue);
-}
-
-.main-visual-img {
-  width: 100%;
-  max-width: 400px; /* ロゴなので大きすぎないように調整 */
-  display: block;
-  margin: 0 auto 60px;
-}
-
-/* スペック情報の横並び設定 */
-.work-detail-meta {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 40px 0;
-  padding: 30px 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-}
-
-.meta-item span {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: bold;
-  color: var(--accent-gray);
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-.meta-item p {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-/* テキストエリアの調整 */
-.detail-text-box {
-  max-width: 700px;
-  margin: 0 auto 80px;
-}
-
-.detail-text-box .title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* グッズ一覧のキャプション調整 */
-.goods-item {
-  text-align: center;
-}
-
-.item-caption {
-  margin-top: 15px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: var(--accent-gray);
-}
-
-.item-caption span {
-  display: block;
-  color: var(--main-blue);
-  font-size: 0.95rem;
-  margin-top: 2px;
-}
-
-/* お問い合わせボタンエリア */
-.cta-area {
-  margin-top: 100px;
-  text-align: center;
-  padding-top: 60px;
-  border-top: 1px solid #eee;
-}
-
-/* レスポンシブ */
-@media screen and (max-width: 767px) {
-  .work-detail-meta {
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    text-align: center;
-  }
-}
-
-.mv-logo {
-    filter: brightness(0) invert(1); /* 黒いロゴを白く反転させる */
-    width: 120px;
-}
-
-/* WORKページの画像に対する修正 */
-.work-item img {
-    width: 100%;      /* 親要素の幅に合わせる */
-    height: auto;     /* アスペクト比を維持して高さを自動調整 */
-    display: block;    /* 画像の下に隙間ができるのを防ぐ */
-}
-
-/* 親要素に高さ制限がある場合は解除する */
-.work-item a {
-    height: auto;
-    display: block;
-    overflow: visible; /* 切れないようにする */
-}
-
-/* スキル項目の基本スタイル */
-.skill-item {
-    transition: all 0.3s ease; /* 動きを滑らかにする */
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;   /* 元の背景色 */
-}
-
-/* マウスを重ねた（ホバー）時の動き */
 .skill-item:hover {
-    background-color: #f0f8ff; /* ① 背景色を変える（例：薄い青） */
-    transform: translateY(-10px); /* ② 上に10px移動して浮き上がらせる */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* ③ 影をつけて立体感を出す */
+  background-color: #f9f9f9; transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
-
-/* 画像を囲む枠の修正 */
-.image-wrap {
-    width: 100%;
-    height: auto;      /* 高さを固定せず、中身に合わせる */
-    overflow: hidden;  /* はみ出しを防ぐ */
-    display: flex;     /* 中の画像を中央に配置しやすくする */
-    align-items: center;
-    justify-content: center;
-}
-
-/* 画像自体の設定 */
-.image-wrap img {
-    width: 100%;       /* 横幅いっぱいに広げる */
-    height: auto;      /* 比率を維持して高さを自動計算 */
-    display: block;    /* 画像の下にできる謎の隙間を消す */
-    object-fit: cover; /* 枠に合わせて綺麗に収める */
-}
-
-/* スキル項目の基本状態（index.html用） */
-.skill-item {
-    background-color: #ffffff; /* 元の背景色 */
-    transition: all 0.3s ease;  /* 動きを滑らかにする魔法の1行 */
-    border-radius: 10px;       /* 角を少し丸くすると今っぽくなります */
-    border: 1px solid #eee;    /* 軽い枠線 */
-}
-
-/* マウスを重ねたときの変化 */
-.skill-item:hover {
-    background-color: #f9f9f9; /* ① ほんのり色を変える */
-    transform: translateY(-10px); /* ② 上に10px浮き上がらせる */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* ③ 影を強くして立体感を出す */
-    border-color: #ccc;        /* 枠の色も少し濃くする */
-}
-
-/* --- ハンバーガーボタンのスタイル --- */
-.hamburger {
-  display: none; /* 初期状態は非表示 */
-  cursor: pointer;
-  width: 30px;
-  height: 25px;
-  position: relative;
-  z-index: 100;
-}
-
-.hamburger span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #333; /* 線の色 */
-  position: absolute;
-  transition: all 0.3s;
-}
-
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 11px; }
-.hamburger span:nth-child(3) { bottom: 0; }
-
-/* --- スマホ表示（ブレイクポイントは適宜調整） --- */
-@media screen and (max-width: 768px) {
-  .hamburger {
-    display: block; /* スマホで表示 */
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%; /* 画面の外に隠す */
-    width: 100%;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* メニューが開いた時 */
-  .nav-menu.is-active {
-    right: 0;
-  }
-
-  /* モバイル時のメニュー初期状態（画面外に隠す場合） */
-.nav-menu {
-  position: fixed;
-  top: 0;
-  right: -100%; /* 右側に隠しておく */
-  width: 100%;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s;
-}
-
-/* JavaScriptで active クラスがついた時の状態 */
-.nav-menu.active {
-  right: 0; /* 画面内に表示 */
-}
-  /* ボタンが「✕」になるアニメーション */
-  .hamburger.is-active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-  .hamburger.is-active span:nth-child(2) { opacity: 0; }
-  .hamburger.is-active span:nth-child(3) { transform: translateY(-12px) rotate(-45deg); }
-}
-
-/* --- ハンバーガーボタンの見た目 --- */
-.hamburger-menu {
-  display: block; /* スマホで表示 */
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 30px;
-  height: 24px;
-  cursor: pointer;
-  z-index: 100; /* 一番手前にくるように */
-}
-
-.hamburger-menu span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #333; /* 三本線の色 */
-  position: absolute;
-  transition: all 0.3s;
-}
-
-.hamburger-menu span:nth-child(1) { top: 0; }
-.hamburger-menu span:nth-child(2) { top: 11px; }
-.hamburger-menu span:nth-child(3) { bottom: 0; }
-
-/* --- メニュー本体の見た目（初期状態は隠す） --- */
-.nav-menu {
-  position: fixed;
-  top: 0;
-  right: -100%; /* 画面の右外に隠しておく */
-  width: 100%;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 99;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* メニューが開いた時（jsでクラスがついた時） */
-.nav-menu.active {
-  right: 0;
-}
-
-.nav-menu ul {
-  list-style: none;
-  text-align: center;
-}
-
-.nav-menu ul li {
-  margin: 20px 0;
-}
-
-/* --- ハンバーガーメニューの制御 --- */
-
-/* 1. 全体設定：PCではボタンを非表示にする */
-.hamburger-menu {
-  display: none; /* ← ここが重要：PCでは隠す */
-  cursor: pointer;
-  z-index: 2000;
-}
-
-/* 2. スマホ・タブレット表示の設定（768px以下） */
-@media screen and (max-width: 768px) {
-  /* PC用の既存ナビゲーションを隠す（もしheader内に直書きしている場合） */
-  #header ul {
-    display: none; 
-  }
-
-  /* ハンバーガーボタンを表示 */
-  .hamburger-menu {
-    display: block;
-    position: fixed;
-    top: 25px;
-    right: 20px;
-    width: 30px;
-    height: 24px;
-  }
-
-  .hamburger-menu span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--main-blue); /* サイトの色に合わせる */
-    position: absolute;
-    transition: all 0.3s;
-  }
-
-  .hamburger-menu span:nth-child(1) { top: 0; }
-  .hamburger-menu span:nth-child(2) { top: 11px; }
-  .hamburger-menu span:nth-child(3) { bottom: 0; }
-
-  /* ×印に変えるアニメーション */
-  .hamburger-menu.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-  .hamburger-menu.active span:nth-child(2) { opacity: 0; }
-  .hamburger-menu.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
-
-  /* メニュー本体の設定 */
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%; /* 画面の右外に隠す */
-    width: 100%;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
-    z-index: 1500;
-    display: flex; /* JavaScriptで制御しやすくするため */
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-  }
-
-  /* JavaScriptで active クラスがついた時の表示 */
-  .nav-menu.active {
-    right: 0;
-  }
-
-  .nav-menu ul {
-    display: block; /* 縦並びにする */
-    list-style: none;
-    padding: 0;
-  }
-
-  .nav-menu li {
-    margin: 30px 0;
-    margin-left: 0; /* PC用のマージンをリセット */
-    text-align: center;
-  }
-
-  .nav-menu a {
-    font-size: 1.4rem;
-    color: var(--main-blue);
-    font-weight: bold;
-    text-decoration: none;
-  }
-}
-
-/* --- ハンバーガーメニュー制御 --- */
-
-/* PCではボタンを隠す */
-.hamburger-menu {
-  display: none;
-}
-
-/* スマホ・タブレット表示（767px以下） */
-@media screen and (max-width: 767px) {
-  /* 元々のヘッダー内メニューを一旦消す */
-  #header ul {
-    display: none;
-  }
-
-  /* ハンバーガーボタンを表示 */
-  .hamburger-menu {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    height: 24px;
-    z-index: 2000;
-    cursor: pointer;
-  }
-
-  .hamburger-menu span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #4682b4; /* サイトのメインブルー */
-    position: absolute;
-    transition: all 0.3s;
-  }
-
-  .hamburger-menu span:nth-child(1) { top: 0; }
-  .hamburger-menu span:nth-child(2) { top: 11px; }
-  .hamburger-menu span:nth-child(3) { bottom: 0; }
-
-  /* クリックされて .active がついた時の三本線の動き(×印) */
-  .hamburger-menu.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-  .hamburger-menu.active span:nth-child(2) { opacity: 0; }
-  .hamburger-menu.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
-
-  /* メニュー本体を右側に隠しておく */
-  .nav-menu {
-    display: flex !important; /* display:noneを上書き */
-    position: fixed;
-    top: 0;
-    right: -100%; /* 画面の右外に隠す */
-    width: 80%; /* 画面の8割を覆う（お好みで100%に） */
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    z-index: 1500;
-    transition: all 0.5s ease;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* .active がついたら画面内に出す */
-  .nav-menu.active {
-    right: 0;
-  }
-
-  .nav-menu ul {
-    display: block !important;
-    list-style: none;
-    padding: 0;
-    text-align: center;
-  }
-
-  .nav-menu li {
-    margin: 30px 0;
-    margin-left: 0;
-  }
-
-  .nav-menu a {
-    font-size: 1.2rem;
-    color: #4682b4;
-    font-weight: bold;
-    text-decoration: none;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.getElementById('js-hamburger');
-  const nav = document.getElementById('js-nav');
-
-  // ボタンをクリックしたら active クラスを付け外しする
-  hamburger.addEventListener('click', function() {
-    hamburger.classList.toggle('active');
-    nav.classList.toggle('active');
-  });
-
-  // メニュー内のリンクをクリックしたらメニューを閉じる（ページ内リンク用）
-  const navLinks = document.querySelectorAll('#js-nav a');
-  navLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-      hamburger.classList.remove('active');
-      nav.classList.remove('active');
-    });
-  });
-});
+.skill-item img { width: 40px; margin-bottom: 15px; filter: brightness(0) saturate(100%) invert(48%) sepia(13%)
