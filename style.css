@@ -1,64 +1,131 @@
-/* --- 最終調整：PCとスマホの完全な出し分け --- */
+@charset "UTF-8";
 
-/* 1. PCサイズ（768px以上）の時の強制設定 */
-@media screen and (min-min-width: 768px) {
-  .nav-menu {
-    display: block !important;
-    position: static !important; /* 固定解除 */
-    width: auto !important;
-    height: auto !important;
-    background: none !important;
-  }
-  .nav-menu ul {
-    display: flex !important; /* 横並び強制 */
-  }
-  .hamburger-menu {
-    display: none !important; /* ボタンを絶対隠す */
-  }
+/* --- 1. 基本設定 --- */
+:root {
+  --main-blue: #4682b4;
+  --accent-gray: #708090;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  color: var(--main-blue);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-/* 2. スマホサイズ（767px以下）の時の強制設定 */
+/* --- 2. ヘッダー・PC用ナビ --- */
+#header {
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+#header h1 img { width: 100px; }
+
+/* PC用メニュー */
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-menu li { margin-left: 25px; }
+.nav-menu a {
+  color: var(--main-blue);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* PCではボタンを隠す */
+.hamburger-menu {
+  display: none;
+}
+
+/* --- 3. メインビジュアル・共通 --- */
+#mainvisual {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  background: linear-gradient(rgba(45,75,105,0.7), rgba(45,75,105,0.5)), url("https://i.imgur.com/Gp8lzjt.jpeg") no-repeat center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+section { margin-top: 80px; }
+
+/* --- 4. スマホ用レスポンシブ設定 (767px以下) --- */
 @media screen and (max-width: 767px) {
-  /* PC用のメニューを一旦消す（画面外へ） */
-  #header ul {
-    display: none; /* 通常の横並びを消す */
-  }
-
-  /* ハンバーガーボタンを強制表示 */
-  .hamburger-menu {
-    display: block !important;
-    visibility: visible !important;
-    position: fixed;
-    top: 25px;
-    right: 20px;
-    z-index: 2000;
-  }
-
-  .hamburger-menu span {
-    background-color: var(--main-blue) !important; /* 色を強制 */
-  }
-
-  /* スマホ用メニュー本体 */
-  .nav-menu {
-    display: flex !important;
+  /* 通常のナビを隠す */
+  #header .nav-menu {
+    display: block; /* 構造として存在はさせる */
     position: fixed;
     top: 0;
-    right: -100%; /* 隠す */
+    right: -100%; /* 画面外へ */
     width: 100%;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
-    z-index: 1500;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 100;
+    transition: 0.5s;
+    display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.5s;
   }
 
-  /* メニューが開いた時 */
-  .nav-menu.active {
+  /* メニューが開いたとき */
+  #header .nav-menu.active {
     right: 0;
   }
 
-  .nav-menu ul {
-    display: block !important; /* 縦並び */
+  #header .nav-menu ul {
+    flex-direction: column;
+    text-align: center;
   }
+
+  #header .nav-menu li {
+    margin: 20px 0;
+    margin-left: 0;
+  }
+
+  #header .nav-menu a {
+    font-size: 1.5rem;
+  }
+
+  /* ハンバーガーボタンを表示 */
+  .hamburger-menu {
+    display: block; /* ここで表示させる */
+    position: relative;
+    width: 30px;
+    height: 24px;
+    z-index: 200;
+    cursor: pointer;
+  }
+
+  .hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--main-blue);
+    position: absolute;
+    transition: 0.3s;
+  }
+
+  .hamburger-menu span:nth-child(1) { top: 0; }
+  .hamburger-menu span:nth-child(2) { top: 11px; }
+  .hamburger-menu span:nth-child(3) { bottom: 0; }
+
+  /* ×印に変形 */
+  .hamburger-menu.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+  .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+  .hamburger-menu.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 }
+
+/* 以下、SKILL, WORKなどの装飾は以前のままでOKですが、
+   JSコードがCSSに混じらないよう注意してください */
