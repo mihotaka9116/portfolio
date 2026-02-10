@@ -420,3 +420,57 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .hamburger.is-active span:nth-child(2) { opacity: 0; }
   .hamburger.is-active span:nth-child(3) { transform: translateY(-12px) rotate(-45deg); }
 }
+
+/* --- ハンバーガーボタンの見た目 --- */
+.hamburger-menu {
+  display: block; /* スマホで表示 */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 100; /* 一番手前にくるように */
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333; /* 三本線の色 */
+  position: absolute;
+  transition: all 0.3s;
+}
+
+.hamburger-menu span:nth-child(1) { top: 0; }
+.hamburger-menu span:nth-child(2) { top: 11px; }
+.hamburger-menu span:nth-child(3) { bottom: 0; }
+
+/* --- メニュー本体の見た目（初期状態は隠す） --- */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* 画面の右外に隠しておく */
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 99;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* メニューが開いた時（jsでクラスがついた時） */
+.nav-menu.active {
+  right: 0;
+}
+
+.nav-menu ul {
+  list-style: none;
+  text-align: center;
+}
+
+.nav-menu ul li {
+  margin: 20px 0;
+}
