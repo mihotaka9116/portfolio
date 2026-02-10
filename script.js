@@ -47,3 +47,19 @@ if (contactForm) {
     });
 }
 
+const hamburger = document.getElementById('js-hamburger');
+const nav = document.getElementById('js-nav');
+
+hamburger.addEventListener('click', function () {
+  hamburger.classList.toggle('is-active');
+  nav.classList.toggle('is-active');
+});
+
+// メニュー内のリンクをクリックしたらメニューを閉じる
+const navLinks = document.querySelectorAll('.nav-menu a');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('is-active');
+    nav.classList.remove('is-active');
+  });
+});
