@@ -63,3 +63,23 @@ navLinks.forEach(link => {
     nav.classList.remove('is-active');
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('js-hamburger');
+  const nav = document.getElementById('js-nav');
+
+  // ボタンクリックでメニュー開閉
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+
+  // メニュー内のリンクをクリックしたら閉じる（ページ内リンク対策）
+  const links = document.querySelectorAll('.nav-menu a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      nav.classList.remove('active');
+    });
+  });
+});
