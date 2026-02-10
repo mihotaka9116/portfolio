@@ -1,121 +1,64 @@
-@charset "UTF-8";
+/* --- 最終調整：PCとスマホの完全な出し分け --- */
 
-/* --- 1. 基本設定 --- */
-:root {
-  --main-blue: #4682b4;
-  --accent-gray: #708090;
-  --light-gray: #f4f7f9;
-  --hover-gray: #54626f;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  color: var(--main-blue);
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.8;
-  margin: 0;
-  overflow-x: hidden;
-}
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
-/* --- 2. ヘッダー・ナビゲーション（PC基本） --- */
-#header {
-  max-width: 1000px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-  margin: 20px auto;
-}
-#header h1 img { width: 100px; }
-
-/* ナビゲーション */
-.nav-menu ul {
-  display: flex; /* 横並び */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.nav-menu li { margin-left: 25px; }
-.nav-menu a {
-  color: var(--main-blue);
-  text-decoration: none;
-  transition: 0.3s;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-.nav-menu a:hover { color: var(--accent-gray); }
-
-/* PCではハンバーガーボタンを隠す */
-.hamburger-menu {
-  display: none;
+/* 1. PCサイズ（768px以上）の時の強制設定 */
+@media screen and (min-min-width: 768px) {
+  .nav-menu {
+    display: block !important;
+    position: static !important; /* 固定解除 */
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+  }
+  .nav-menu ul {
+    display: flex !important; /* 横並び強制 */
+  }
+  .hamburger-menu {
+    display: none !important; /* ボタンを絶対隠す */
+  }
 }
 
-/* --- 3. メインビジュアル --- */
-#mainvisual {
-  position: relative;
-  width: 100%;
-  height: 65vh;
-  min-height: 400px;
-  background: 
-    linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.5)), 
-    url("https://i.imgur.com/Gp8lzjt.jpeg") no-repeat center / cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 60px;
-}
-.mv-logo { filter: brightness(0) invert(1); width: 120px; margin-bottom: 20px; }
-#mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.2em; font-size: 0.9rem; }
+/* 2. スマホサイズ（767px以下）の時の強制設定 */
+@media screen and (max-width: 767px) {
+  /* PC用のメニューを一旦消す（画面外へ） */
+  #header ul {
+    display: none; /* 通常の横並びを消す */
+  }
 
-/* スクロールアニメーション */
-.scrolldown {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 0.65rem;
-  z-index: 10;
-}
-.scrolldown::before {
-  content: "";
-  position: absolute;
-  bottom: -50px;
-  left: 50%;
-  width: 1px;
-  height: 45px;
-  background: #fff;
-  animation: scroll-anim 2s infinite;
-}
-@keyframes scroll-anim {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  51% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
+  /* ハンバーガーボタンを強制表示 */
+  .hamburger-menu {
+    display: block !important;
+    visibility: visible !important;
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    z-index: 2000;
+  }
 
-/* --- 4. 共通セクションスタイル --- */
-section { margin-top: 100px; }
-.section-title { text-align: center; font-size: 1.6rem; margin-bottom: 10px; position: relative; padding-bottom: 15px; }
-.section-title::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--accent-gray); }
-.section-title-en { text-align: center; display: block; font-size: 0.75rem; color: var(--accent-gray); margin-bottom: 40px; }
+  .hamburger-menu span {
+    background-color: var(--main-blue) !important; /* 色を強制 */
+  }
 
-/* --- 5. CONCEPT --- */
-#concept { text-align: center; margin-bottom: 100px; }
-#concept .img { max-width: 300px; margin: 0 auto 30px; }
-#concept .img img { border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+  /* スマホ用メニュー本体 */
+  .nav-menu {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    right: -100%; /* 隠す */
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 1500;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+  }
 
-/* --- 6. SKILL --- */
-.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 100px; }
-.skill-item { 
-  flex: 1; min-width: 200px; max-width: 250px; text-align: center; 
-  background-color: #ffffff; transition: all 0.3s ease; border-radius: 10px; border: 1px solid #eee; padding: 20px;
+  /* メニューが開いた時 */
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    display: block !important; /* 縦並び */
+  }
 }
-.skill-item:hover {
-  background-color: #f9f9f9; transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-.skill-item img { width: 40px; margin-bottom: 15px; filter: brightness(0) saturate(100%) invert(48%) sepia(13%)
