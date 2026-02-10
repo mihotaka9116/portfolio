@@ -46,3 +46,24 @@ if (contactForm) {
         }, 1500);
     });
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('js-hamburger');
+  const nav = document.getElementById('js-nav');
+
+  // ハンバーガーボタンをクリックした時
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+
+  // メニュー内のリンクをクリックした時（メニューを閉じる）
+  const links = document.querySelectorAll('#js-nav a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      nav.classList.remove('active');
+    });
+  });
+});
