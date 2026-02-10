@@ -83,3 +83,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('js-hamburger');
+  const nav = document.getElementById('js-nav');
+
+  // メニュー開閉
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+
+    // リンククリックで閉じる
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+  }
+
+  // フェードインアニメーション
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.js-fade-up').forEach(el => observer.observe(el));
+});
