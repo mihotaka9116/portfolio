@@ -558,3 +558,108 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     text-decoration: none;
   }
 }
+
+/* --- ハンバーガーメニュー制御 --- */
+
+/* PCではボタンを隠す */
+.hamburger-menu {
+  display: none;
+}
+
+/* スマホ・タブレット表示（767px以下） */
+@media screen and (max-width: 767px) {
+  /* 元々のヘッダー内メニューを一旦消す */
+  #header ul {
+    display: none;
+  }
+
+  /* ハンバーガーボタンを表示 */
+  .hamburger-menu {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 24px;
+    z-index: 2000;
+    cursor: pointer;
+  }
+
+  .hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #4682b4; /* サイトのメインブルー */
+    position: absolute;
+    transition: all 0.3s;
+  }
+
+  .hamburger-menu span:nth-child(1) { top: 0; }
+  .hamburger-menu span:nth-child(2) { top: 11px; }
+  .hamburger-menu span:nth-child(3) { bottom: 0; }
+
+  /* クリックされて .active がついた時の三本線の動き(×印) */
+  .hamburger-menu.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+  .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+  .hamburger-menu.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+  /* メニュー本体を右側に隠しておく */
+  .nav-menu {
+    display: flex !important; /* display:noneを上書き */
+    position: fixed;
+    top: 0;
+    right: -100%; /* 画面の右外に隠す */
+    width: 80%; /* 画面の8割を覆う（お好みで100%に） */
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 1500;
+    transition: all 0.5s ease;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* .active がついたら画面内に出す */
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu ul {
+    display: block !important;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .nav-menu li {
+    margin: 30px 0;
+    margin-left: 0;
+  }
+
+  .nav-menu a {
+    font-size: 1.2rem;
+    color: #4682b4;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('js-hamburger');
+  const nav = document.getElementById('js-nav');
+
+  // ボタンをクリックしたら active クラスを付け外しする
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+
+  // メニュー内のリンクをクリックしたらメニューを閉じる（ページ内リンク用）
+  const navLinks = document.querySelectorAll('#js-nav a');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      nav.classList.remove('active');
+    });
+  });
+});
