@@ -10,6 +10,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
   color: var(--main-blue);
   font-family: 'Montserrat', sans-serif;
@@ -17,6 +18,7 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
@@ -29,6 +31,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 20px 0;
   margin: 20px auto;
 }
+
 .site-title img, #header h1 img { width: 100px; } 
 #header ul { display: flex; list-style: none; padding: 0; margin: 0; }
 #header li { margin-left: 25px; }
@@ -36,6 +39,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 #header a:hover { color: var(--accent-gray); }
 
 #footer { background: var(--main-blue); color: #fff; text-align: center; padding: 30px 0; font-size: 0.8rem; margin-top: 60px; }
+
 
 /* --- 3. メインビジュアル --- */
 #mainvisual {
@@ -52,12 +56,14 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   justify-content: center;
   padding-bottom: 60px;
 }
+
 #mainvisual .mv-logo { 
   filter: brightness(0) invert(1); 
   width: 120px; 
   margin-bottom: 20px; 
   transform: translateY(-20px);
 }
+
 #mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.2em; font-size: 0.9rem; }
 
 /* スクロールアニメーション */
@@ -70,6 +76,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     font-size: 0.65rem;
     z-index: 10;
 }
+
 .scrolldown::before {
     content: "";
     position: absolute;
@@ -80,6 +87,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     background: #fff;
     animation: scroll-anim 2s infinite;
 }
+
 @keyframes scroll-anim {
     0% { transform: scaleY(0); transform-origin: top; }
     50% { transform: scaleY(1); transform-origin: top; }
@@ -87,15 +95,18 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
+
 /* --- 4. 共通セクションスタイル --- */
 .section-title { text-align: center; font-size: 1.6rem; margin-bottom: 10px; position: relative; padding-bottom: 15px; }
 .section-title::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--accent-gray); }
 .section-title-en { text-align: center; display: block; font-size: 0.75rem; color: var(--accent-gray); margin-bottom: 40px; }
 
+
 /* --- 5. CONCEPT --- */
 #concept { text-align: center; margin-bottom: 100px; }
 #concept .img { max-width: 300px; margin: 0 auto 30px; }
 #concept .img img { border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
 
 /* --- 6. SKILL --- */
 .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 100px; }
@@ -105,8 +116,10 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-bottom: 15px;
   filter: brightness(0) saturate(100%) invert(48%) sepia(13%) saturate(1000%) hue-rotate(160deg);
 }
+
 .skill-item h3 { font-size: 1rem; margin-bottom: 10px; }
 .skill-item p { font-size: 0.85rem; line-height: 1.6; }
+
 
 /* --- 7. WORK (Grid設定) --- */
 .goods-grid {
@@ -115,6 +128,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   gap: 25px;
   margin-bottom: 40px;
 }
+
 .image-wrap {
   background: #fff;
   border-radius: 8px;
@@ -123,6 +137,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   transition: 0.3s;
   height: 100%;
 }
+
 .image-wrap a { text-decoration: none; color: inherit; }
 .image-wrap img {
   width: 100%;
@@ -130,6 +145,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   object-fit: cover;
   object-position: top;
 }
+
 .work-caption { padding: 15px; font-size: 0.9rem; font-weight: bold; text-align: center; margin: 0; }
 
 /* --- 8. 詳細ページ用 (work.html) 特有パーツ --- */
@@ -146,12 +162,14 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
+
 .meta-item span { display: block; font-size: 0.65rem; color: var(--accent-gray); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
 .meta-item p { margin: 0; font-size: 0.85rem; font-weight: 600; }
 
 .project-description { text-align: left; max-width: 700px; margin: 0 auto 60px; }
 .project-description h3 { font-size: 1.1rem; border-left: 3px solid var(--accent-gray); padding-left: 10px; margin-top: 30px; }
 .project-description.center { text-align: center; }
+
 
 /* --- 9. CONTACTフォーム --- */
 .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
@@ -164,6 +182,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   border: none; cursor: pointer; transition: 0.3s; font-size: 0.9rem;
 }
 .btn:hover { background: var(--hover-gray); }
+
 
 /* --- 10. レスポンシブ --- */
 @media screen and (max-width: 767px) {
@@ -178,6 +197,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 /* アニメーション用クラス */
 .js-fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s; }
 .js-fade-up.is-show { opacity: 1; transform: translateY(0); }
+
 
 /* --- 詳細ページ専用レイアウト --- */
 .detail-container {
@@ -339,9 +359,10 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 /* スキル項目の基本状態（index.html用） */
 .skill-item {
-    background-color: #ffffff; /* 元の背景色 */
-    transition: all 0.3s ease;  /* 動きを滑らかにする魔法の1行 */
-    border-radius: 10px;       /* 角を少し丸くすると今っぽくなります */
+    background-color: #ffffff; 
+  
+    transition: all 0.3s ease;  /* 動きを滑らかにする*/
+    border-radius: 10px;       
     border: 1px solid #eee;    /* 軽い枠線 */
 }
 
