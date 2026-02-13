@@ -148,28 +148,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 .work-caption { padding: 15px; font-size: 0.9rem; font-weight: bold; text-align: center; margin: 0; }
 
-/* --- 8. 詳細ページ用 (work.html) 特有パーツ --- */
-.detail-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-.back-nav { margin-bottom: 30px; }
-.back-nav a { text-decoration: none; color: var(--accent-gray); font-weight: bold; font-size: 0.85rem; }
-
-.work-detail-meta {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 40px 0;
-  padding: 20px 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-}
-
-.meta-item span { display: block; font-size: 0.65rem; color: var(--accent-gray); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
-.meta-item p { margin: 0; font-size: 0.85rem; font-weight: 600; }
-
-.project-description { text-align: left; max-width: 700px; margin: 0 auto 60px; }
-.project-description h3 { font-size: 1.1rem; border-left: 3px solid var(--accent-gray); padding-left: 10px; margin-top: 30px; }
-.project-description.center { text-align: center; }
-
 
 /* --- 9. CONTACTフォーム --- */
 .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
@@ -449,3 +427,27 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .hamburger-menu.active span:nth-child(2) { opacity: 0; }
   .hamburger-menu.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 }
+
+/* --- 8. 詳細ページ用 (work.html) 特有パーツ --- */
+.detail-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.back-nav { margin-bottom: 30px; }
+.back-nav a { text-decoration: none; color: var(--accent-gray); font-weight: bold; font-size: 0.85rem; }
+
+.work-detail-meta {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.meta-item span { display: block; font-size: 0.65rem; color: var(--accent-gray); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+.meta-item p { margin: 0; font-size: 0.85rem; font-weight: 600; }
+
+.project-description { text-align: left; max-width: 700px; margin: 0 auto 60px; }
+.project-description h3 { font-size: 1.1rem; border-left: 3px solid var(--accent-gray); padding-left: 10px; margin-top: 30px; }
+.project-description.center { text-align: center; }
+
+
