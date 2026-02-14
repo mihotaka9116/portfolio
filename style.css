@@ -474,3 +474,23 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding-bottom: 60px;
 }
 
+#footer {
+  /* メインビジュアルと同じ背景色とグラデーションを適用 */
+  background: 
+    linear-gradient(rgba(45, 75, 105, 0.8), rgba(45, 75, 105, 0.8)), 
+    #2d4b69; 
+    
+  color: #fff;
+  text-align: center;
+  padding: 40px 0; /* 少し上下の余白を広げると高級感が出ます */
+  font-size: 0.8rem;
+  margin-top: 60px;
+  
+  /* メインビジュアルにロゴを敷き詰めている場合、ここにも薄く入れるとおしゃれです */
+  /* background-image: 
+     linear-gradient(rgba(45, 75, 105, 0.8), rgba(45, 75, 105, 0.8)), 
+     url("https://i.imgur.com/Gp8lzjt.jpeg");
+     background-size: 100px;
+     background-repeat: repeat; */
+}
+
