@@ -450,4 +450,27 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .project-description h3 { font-size: 1.1rem; border-left: 3px solid var(--accent-gray); padding-left: 10px; margin-top: 30px; }
 .project-description.center { text-align: center; }
 
+/* --- 3. メインビジュアル (ロゴ敷き詰めVer.) --- */
+#mainvisual {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  min-height: 400px;
+  
+  /* 背景の設定を変更 */
+  background-color: #2d4b69; /* ベースの背景色 */
+  background-image: 
+    linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), /* 重ねる色（透過） */
+    url("https://i.imgur.com/Gp8lzjt.jpeg"); /* ロゴ画像 */
+  
+  background-repeat: repeat;    /* 画像を繰り返す */
+  background-position: center;
+  background-size: 150px;       /* ★ここが重要：1つのロゴのサイズを指定（お好みで調整） */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 60px;
+}
 
