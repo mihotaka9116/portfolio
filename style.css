@@ -461,7 +461,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   background-color: #2d4b69; /* ベースの背景色 */
   background-image: 
     linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), /* 重ねる色（透過） */
-    url("https://i.imgur.com/Gp8lzjt.jpeg"); /* ロゴ画像 */
+    url("logo.svg"); /* ロゴ画像 */
   
   background-repeat: repeat;    /* 画像を繰り返す */
   background-position: center;
