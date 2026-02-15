@@ -658,16 +658,17 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   }
 }
 
-/* --- 11. デザインシステムセクション (整理版) --- */
-.design-system {
+/* --- デザインシステムセクションの修正版 --- */
+#design-system, .design-system {
   padding: 80px 0;
-  background-color: #f4f7f9;
+  background-color: #f4f7f9 !important; /* 背景色を強制 */
   text-align: center;
+  display: block !important;
 }
 
 .design-description {
   margin-bottom: 40px;
-  color: #2D59A4; /* タイトル：ロイヤルブルー */
+  color: #2D59A4;
   font-weight: bold;
 }
 
@@ -687,19 +688,18 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   gap: 12px;
 }
 
-/* 丸の共通スタイル：PCで消えないようにdisplay:blockを強制 */
+/* 丸の形：ここを強力に指定します */
 .circle {
-  display: block !important;
-  width: 60px !important;
-  height: 60px !important;
-  border-radius: 50% !important;
-  margin: 0 auto !important;
+  display: block !important; /* 絶対に表示 */
+  width: 60px !important;    /* 横幅 */
+  height: 60px !important;   /* 高さ */
+  border-radius: 50% !important; /* 正円 */
+  margin: 0 auto 10px !important;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
-/* 各色の設定（!importantで確実に適用） */
+/* 各色の設定（色名に !important を付与） */
 .color-rose   { background-color: #E296B5 !important; }
 .color-green  { background-color: #99C35F !important; }
 .color-sky    { background-color: #6FB2E3 !important; }
