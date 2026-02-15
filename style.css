@@ -290,3 +290,11 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   .code-col { text-align: right; font-family: monospace; }
   .desc-col { grid-column: 1 / 3; border-top: 1px dashed #eee; padding-top: 10px; margin-top: 5px; color: #666; }
 }
+
+/* ロゴと完全一致させた最新カラーパレット */
+.c-rose   { background-color: #E597B9 !important; }
+.c-green  { background-color: #99C361 !important; }
+.c-sky    { background-color: #6EB1E4 !important; }
+.c-mint   { background-color: #B7E2D8 !important; }
+.c-orange { background-color: #F48451 !important; }
+.c-royal  { background-color: #2D59A3 !important; }
