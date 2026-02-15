@@ -716,3 +716,36 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   color: #708090;
   font-weight: bold;
 }
+
+/* --- 広告ブロック対策済みのカラーセクション --- */
+.apple-colors {
+  padding: 80px 0;
+  background-color: #f4f7f9 !important;
+  text-align: center;
+}
+
+.color-flex-box {
+  display: flex !important;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 丸の形を新クラス名で定義 */
+.color-ball {
+  display: block !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  margin: 0 auto 10px !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 色の指定 */
+.c-rose   { background-color: #E296B5 !important; }
+.c-green  { background-color: #99C35F !important; }
+.c-sky    { background-color: #6FB2E3 !important; }
+.c-orange { background-color: #F38450 !important; }
+.c-royal  { background-color: #2D59A4 !important; }
