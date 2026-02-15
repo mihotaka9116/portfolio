@@ -711,5 +711,15 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   color: #708090;
 }
 
+.circle {
+  display: block;      /* これを追加：ブロック要素として認識させる */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto;      /* 中央寄せ */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
 
 
