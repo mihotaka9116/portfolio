@@ -658,5 +658,58 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   }
 }
 
+/* デザインシステムセクションのスタイル */
+.design-system {
+  padding: 80px 0;
+  background-color: #f4f7f9; /* サイトのベースカラー */
+  text-align: center;
+}
+
+.design-description {
+  margin-bottom: 40px;
+  color: #2D59A4; /* タイトルはロイヤルブルー */
+  font-weight: bold;
+}
+
+.swatch-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* スマホで折り返すように */
+  gap: 30px;
+}
+
+.swatch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 丸の基本スタイル */
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* ほんのり影をつけて立体感を */
+  transition: transform 0.3s ease; /* ホバー時に動かす準備 */
+}
+
+.circle:hover {
+  transform: scale(1.1); /* マウスを乗せると少し大きく */
+}
+
+/* 各色の設定 */
+.color-rose   { background-color: #E296B5; }
+.color-green  { background-color: #99C35F; }
+.color-sky    { background-color: #6FB2E3; }
+.color-orange { background-color: #F38450; }
+.color-royal  { background-color: #2D59A4; }
+
+.color-code {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #708090;
+}
+
 
 
