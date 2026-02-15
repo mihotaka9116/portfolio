@@ -557,9 +557,49 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     z-index: 2100;
   }
 
-  /* メインコンテンツがヘッダーに隠れないよう調整 */
+  @media screen and (max-width: 767px) {
+  /* ヘッダー全体を縦並びに */
+  #header {
+    display: flex !important;
+    flex-direction: column !important; /* 縦に並べる */
+    align-items: center !important;    /* 左右中央揃え */
+    padding: 20px 0 !important;
+    height: auto !important;          /* 中身に合わせて広がる */
+    margin: 0 auto !important;
+    background-color: #fff;           /* 背景を白にしてコンテンツを見やすく */
+    position: relative !important;    /* 浮かせず、ページの一部として配置 */
+  }
+
+  /* ロゴ：上部に配置 */
+  #header h1 {
+    margin: 0 0 15px 0 !important;    /* 下に隙間を作る */
+  }
+
+  #header h1 img {
+    width: 140px !important;          /* ロゴを少し見やすく */
+  }
+
+  /* ハンバーガーメニュー：ロゴのすぐ下に配置 */
+  .hamburger-menu {
+    display: block !important;
+    position: static !important;      /* 浮かせず、ロゴの下に流す */
+    margin: 0 auto !important;        /* 中央寄せ */
+    width: 30px;
+    height: 24px;
+  }
+
+  /* メインビジュアルの余白調整 */
   #mainvisual {
-    margin-top: 70px;
+    margin-top: 0 !important;         /* ヘッダーが浮いていないので0でOK */
+    height: 50vh;
+  }
+
+  /* スマホ用ナビメニュー（開いた時）の調整 */
+  #header .nav-menu {
+    top: 120px; /* ロゴ＋メニューボタンの高さ分だけ下げる */
+    height: calc(100vh - 120px);
   }
 }
+
+
 
