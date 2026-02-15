@@ -494,3 +494,31 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
      background-repeat: repeat; */
 }
 
+/* --- 同意チェックボックスの調整 --- */
+.agreement-item {
+  display: flex;
+  align-items: center; /* 縦方向の中央 */
+  justify-content: center; /* 横方向の中央 */
+  gap: 10px; /* チェックボックスと文字の間隔 */
+  margin: 30px 0;
+}
+
+.agreement-item input[type="checkbox"] {
+  width: 18px; /* サイズ固定 */
+  height: 18px;
+  cursor: pointer;
+  margin: 0; /* 余計な余白を消す */
+}
+
+.agreement-item label {
+  margin-bottom: 0; /* Baseのlabel設定をリセット */
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+
+.agreement-item label a {
+  text-decoration: underline;
+  color: #333;
+}
+
