@@ -601,5 +601,62 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   }
 }
 
+@media screen and (max-width: 767px) {
+  /* ヘッダー全体を整える */
+  #header {
+    display: flex !important;
+    flex-direction: column !important; /* 縦並び */
+    align-items: center !important;
+    padding: 30px 0 15px !important;   /* 上にしっかり余白、下に少し余白 */
+    height: auto !important;
+    position: relative !important;    /* 浮かせない */
+    background-color: #fff;
+  }
+
+  /* ロゴ：サイズを固定して安定させる */
+  #header h1 {
+    margin: 0 0 20px 0 !important;   /* 下の線との間に適度な空間を作る */
+    line-height: 1;
+  }
+
+  #header h1 img {
+    width: 130px !important;
+    height: auto;
+    display: block;
+  }
+
+  /* ハンバーガーメニュー：3本線を「1つの塊」として中央に置く */
+  .hamburger-menu {
+    display: block !important;
+    position: relative !important;    /* staticではなく、基準を作るためのrelative */
+    width: 30px !important;
+    height: 22px !important;          /* 線の間隔を計算しやすくする高さ */
+    margin: 0 auto !important;
+    cursor: pointer;
+  }
+
+  /* 3本線の位置を強制的にリセットして整列 */
+  .hamburger-menu span {
+    left: 0 !important;
+    width: 100% !important;
+    height: 2px !important;
+    background-color: #4682b4 !important;
+  }
+
+  .hamburger-menu span:nth-child(1) { top: 0 !important; }
+  .hamburger-menu span:nth-child(2) { top: 10px !important; }
+  .hamburger-menu span:nth-child(3) { top: 20px !important; }
+
+  /* メニューが開いたときのアニメーション（中心で交差させる） */
+  .hamburger-menu.active span:nth-child(1) { transform: translateY(10px) rotate(45deg) !important; }
+  .hamburger-menu.active span:nth-child(2) { opacity: 0 !important; }
+  .hamburger-menu.active span:nth-child(3) { transform: translateY(-10px) rotate(-45deg) !important; }
+
+  /* コンテンツとの被り防止 */
+  #mainvisual {
+    margin-top: 0 !important;
+  }
+}
+
 
 
