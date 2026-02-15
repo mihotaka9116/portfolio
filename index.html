@@ -134,12 +134,12 @@
       <label for="message">メッセージ</label>
       <textarea id="message" name="your-message" class="expand-textarea" placeholder="クリックすると広がります" required></textarea>
     </div>
-    <div class="form-item" style="text-align: center; margin-bottom: 20px;">
-      <label style="display: inline-flex; align-items: center; cursor: pointer; font-size: 14px; color: #666;">
-        <input type="checkbox" name="agreement" required style="margin-right: 8px;">
-        <a href="privacy.html" target="_blank" style="color: #888; text-decoration: underline;">プライバシーポリシー</a>に同意する
-      </label>
-    </div>
+    <div class="form-item agreement-item">
+  <input type="checkbox" id="agreement" name="agreement" required>
+  <label for="agreement">
+    <a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>に同意する
+  </label>
+</div>
 
     <button type="submit" class="submit-btn">SEND MESSAGE</button>
   </form>
