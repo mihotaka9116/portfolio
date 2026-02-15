@@ -124,21 +124,30 @@
                         <label>Email</label>
                         <input type="email" name="email" placeholder="メールアドレス">
                     </div>
-                    <div class="item">
-                        <label>Message</label>
-                        <textarea name="message" placeholder="ご相談内容をご記入ください"></textarea>
-                    </div>
-                    <div style="text-align: center;">
-                        <input type="submit" value="SEND MESSAGE" class="btn">
+                    <div class="form-item" style="text-align: center; margin-bottom: 20px;">
+        <label style="display: inline-flex; align-items: center; cursor: pointer; font-size: 14px; color: #666;">
+          <input type="checkbox" name="agreement" required style="margin-right: 8px;">
+          <a href="privacy.html" target="_blank" style="color: #888; text-decoration: underline;">プライバシーポリシー</a>に同意する
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn">SEND MESSAGE</button>
                     </div>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer id="footer">
-        <p>&copy; 2026 miho takahashi All rights reserved.</p>
-    </footer>
+  <footer id="footer">
+  <div class="inner wrapper">
+    <div class="logo">
+      <img src="tlogo.svg" alt="Beauty">
+    </div>
+    <div class="footer-link" style="margin-bottom: 10px;">
+      <a href="privacy.html" style="font-size: 12px; color: #888; text-decoration: none;">プライバシーポリシー</a>
+    </div>
+    <p class="copyright">©2024 Miho Takahashi</p> </div>
+</footer>
 
 </body>
 </html>
