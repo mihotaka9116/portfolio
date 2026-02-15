@@ -658,7 +658,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   }
 }
 
-/* --- 11. デザインシステムセクション --- */
+/* --- 11. デザインシステムセクション (整理版) --- */
 .design-system {
   padding: 80px 0;
   background-color: #f4f7f9;
@@ -687,80 +687,19 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   gap: 12px;
 }
 
-/* 丸の共通スタイル（PCで見えるようにdisplay:blockを明示） */
-.circle {
-  display: block;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin: 0 auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-/* ★個別の色の設定（!importantを付けて上書きを防ぎます） */
-.color-rose   { background-color: #E296B5 !important; }
-.color-green  { background-color: #99C35F !important; }
-.color-sky    { background-color: #6FB2E3 !important; }
-.color-orange { background-color: #F38450 !important; }
-.color-royal  { background-color: #2D59A4 !important; }
-
-.circle:hover {
-  transform: scale(1.1);
-}
-
-.color-code {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #708090;
-  font-weight: bold;
-}
-
-  /*-------------------------------------------
-Design System (Color Swatch)
--------------------------------------------*/
-.design-system {
-  padding: 80px 0;
-  background-color: #f4f7f9;
-  text-align: center;
-}
-
-.design-description {
-  margin-bottom: 40px;
-  color: #2D59A4; /* タイトル：ロイヤルブルー */
-  font-weight: bold;
-}
-
-.swatch-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.swatch-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-/* 丸の共通スタイル：PCで消えないようにdisplay:blockを設定 */
+/* 丸の共通スタイル：PCで消えないようにdisplay:blockを強制 */
 .circle {
   display: block !important;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin: 0 auto;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  margin: 0 auto !important;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
   cursor: pointer;
 }
 
-/* 各色の設定（!importantで確実に色を適用） */
+/* 各色の設定（!importantで確実に適用） */
 .color-rose   { background-color: #E296B5 !important; }
 .color-green  { background-color: #99C35F !important; }
 .color-sky    { background-color: #6FB2E3 !important; }
@@ -777,5 +716,3 @@ Design System (Color Swatch)
   color: #708090;
   font-weight: bold;
 }
-
-
