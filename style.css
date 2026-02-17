@@ -406,3 +406,46 @@ html, body {
     font-size: 1.5rem;
   }
 }
+
+/* --- スクロールダウン：線が伸びるアニメーション --- */
+.scrolldown {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff; /* 文字を白に */
+  padding-bottom: 60px; /* 線の長さを確保 */
+}
+
+/* 縦線のベース */
+.scrolldown::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 1px;       /* 線の太さ */
+  height: 50px;     /* 線の長さ */
+  background: #fff; /* 線の色（白） */
+  transform: translateX(-50%);
+  animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
+}
+
+/* 伸びる動きのアニメーション設定 */
+@keyframes scroll-line {
+  0% {
+    transform: scale(1, 0) translateX(-50%);
+    transform-origin: 0 0;
+  }
+  50% {
+    transform: scale(1, 1) translateX(-50%);
+    transform-origin: 0 0;
+  }
+  50.1% {
+    transform: scale(1, 1) translateX(-50%);
+    transform-origin: 0 100%;
+  }
+  100% {
+    transform: scale(1, 0) translateX(-50%);
+    transform-origin: 0 100%;
+  }
+}
