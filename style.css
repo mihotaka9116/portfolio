@@ -449,3 +449,33 @@ html, body {
     transform-origin: 0 100%;
   }
 }
+
+/* 1. 親要素に基準点を作る */
+#mainvisual {
+  position: relative; /* ★これがないと、線がフッターまで逃げてしまいます */
+  height: 65vh;
+  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69 url("logo.svg") repeat;
+  background-size: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* 線がはみ出して隙間を作るのを防ぐ */
+}
+
+/* 2. 線の位置を微調整 */
+.scrolldown {
+  position: absolute;
+  bottom: 20px; /* #mainvisual の下から20pxの位置に固定 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;   /* 他の要素より上に表示 */
+}
+
+.scrolldown span {
+  display: block;
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 5px; /* 線との距離 */
+}
