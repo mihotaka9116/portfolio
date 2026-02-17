@@ -365,3 +365,44 @@ html, body {
 #header, #mainvisual, main, footer {
   width: 100%;
 }
+
+/* --- スマホ用メニューの表示設定 --- */
+@media screen and (max-width: 767px) {
+  /* メニューの初期状態：右側に隠す */
+  #js-nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 画面の外に隠す */
+    width: 100%;  /* 画面いっぱい */
+    height: 100vh;
+    background-color: rgba(45, 75, 105, 0.95); /* 背景色 */
+    z-index: 999; /* ヘッダーより背面に、コンテンツより前面に */
+    transition: all 0.5s ease; /* スライドのアニメーション */
+    
+    /* 中身を中央寄せにする */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* JSで 'active' クラスがついた時：画面に現れる */
+  #js-nav.active {
+    right: 0;
+  }
+
+  /* メニュー内のリストを縦並びにする */
+  #js-nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #js-nav li {
+    margin: 20px 0;
+  }
+
+  #js-nav a {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+}
