@@ -298,3 +298,70 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .c-mint   { background-color: #B7E2D8 !important; }
 .c-orange { background-color: #F48451 !important; }
 .c-royal  { background-color: #2D59A3 !important; }
+
+/* --- ハンバーガーメニューのスタイル追加 --- */
+.hamburger-menu {
+  display: none; /* デスクトップでは隠す */
+  cursor: pointer;
+  z-index: 9999;
+  position: relative;
+  width: 30px;
+  height: 24px;
+}
+
+.hamburger-menu span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-blue); /* 三本線の色 */
+  transition: all 0.3s;
+}
+
+.hamburger-menu span:nth-child(1) { top: 0; }
+.hamburger-menu span:nth-child(2) { top: 11px; }
+.hamburger-menu span:nth-child(3) { top: 22px; }
+
+/* スマホ用のレスポンシブ設定 */
+@media screen and (max-width: 767px) {
+  #header {
+    padding: 15px 20px; /* 左右に余白を作る（隙間対策） */
+    margin: 0;
+    width: 100%;
+  }
+
+  .hamburger-menu {
+    display: block; /* スマホで表示 */
+  }
+
+  .nav-menu {
+    display: none; /* JSで制御するまで隠す、または簡易的に非表示 */
+  }
+}
+
+/* --- メインビジュアルのテキストを白に --- */
+#mainvisual p {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 15px;
+}
+
+/* SCROLL部分も白にする場合 */
+.scrolldown span {
+  color: #ffffff;
+}
+.scrolldown::after {
+  background-color: #ffffff; /* 線の色 */
+}
+
+/* --- 隙間対策の強化 --- */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+#header, #mainvisual, main, footer {
+  width: 100%;
+}
