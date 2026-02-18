@@ -34,7 +34,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 #mainvisual {
   height: 65vh;
-  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69 url("logo.svg") repeat;
+  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69 url("mihotakahashicolor.svg") repeat;
   background-size: 150px;
   display: flex;
   flex-direction: column;
