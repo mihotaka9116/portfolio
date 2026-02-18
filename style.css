@@ -479,3 +479,8 @@ html, body {
   letter-spacing: 0.2em;
   margin-bottom: 5px; /* 線との距離 */
 }
+
+img.logo { /* ロゴのクラス名に合わせて変更してください */
+  image-rendering: -webkit-optimize-contrast; /* Safariでのコントラスト調整 */
+  shape-rendering: geometricPrecision;       /* 図形の描画精度を高める */
+}
