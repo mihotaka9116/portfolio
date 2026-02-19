@@ -848,3 +848,41 @@ main {
     font-weight: bold;
     font-size: 0.9rem;
 }
+
+/* --- ナビゲーションとメインロゴの最終調整 --- */
+
+/* 1. ナビを右寄せに固定（ABOUTページなどでのズレを防止） */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* ロゴ＝左、ナビ＝右 */
+    align-items: center;
+}
+
+.nav-menu ul {
+    display: flex;
+    justify-content: flex-end; /* 右側に寄せる */
+    gap: 30px;
+    list-style: none;
+}
+
+/* 2. ナビの文字色を本文の青に統一 */
+.nav-menu a {
+    color: var(--main-blue) !important; /* 他の設定に負けないよう強制 */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 3. メインビジュアルのロゴ（白くしない・元の色を活かす） */
+#mainvisual .mv-logo {
+    filter: none !important; /* 白反転を解除 */
+    width: 150px; /* お好みのサイズに調整してください */
+    height: auto;
+    /* 濃い背景で見えにくい場合は、少しだけ明るさを上げると綺麗です */
+    brightness: 1.2; 
+}
+
+/* 4. 不要な中央寄せ設定の上書き消去 */
+.nav-menu {
+    position: static; /* スマホ用設定が混ざらないように一旦リセット */
+    display: block;
+}
