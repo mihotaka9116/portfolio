@@ -886,3 +886,24 @@ main {
     position: static; /* スマホ用設定が混ざらないように一旦リセット */
     display: block;
 }
+
+/* --- ヘッダーの幅を本文と一致させる --- */
+.site-header .header-container {
+    max-width: 1000px; /* 本文と同じ最大幅 */
+    margin: 0 auto;    /* 画面の中央に寄せる */
+    padding: 0 40px;   /* 左右に程よい余白を作る（寄りすぎ防止） */
+    display: flex;
+    justify-content: space-between; /* ロゴは左、ナビは右 */
+}
+
+/* ナビゲーション自体の余白調整 */
+.nav-menu ul {
+    gap: 40px; /* 項目同士の間隔を少し広げて、バランスを取る */
+}
+
+/* スマホ表示の時は横幅をリセット */
+@media screen and (max-width: 767px) {
+    .site-header .header-container {
+        padding: 0 20px;
+    }
+}
