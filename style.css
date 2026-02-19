@@ -822,3 +822,39 @@ main {
     padding-top: 100px; /* ヘッダーの高さ分、コンテンツを下げる */
 }
 
+/* --- 2. ヘッダー・ナビを右寄せに固定 --- */
+.header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* これでロゴは左、ナビは右に固定されます */
+    align-items: center;
+    height: 70px;
+    padding: 0 20px;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ナビの色を本文の青（--main-blue）に統一 */
+.nav-menu a {
+    text-decoration: none;
+    color: var(--main-blue); 
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* --- メインビジュアル内のロゴを白くする --- */
+#mainvisual .mv-logo {
+    filter: brightness(0) invert(1); /* 黒いロゴ画像を白く反転 */
+    width: 120px;
+    height: auto;
+}
+
+/* 以前のCSSの下の方にある「justify-content: center;」の設定があれば削除してください */
+
