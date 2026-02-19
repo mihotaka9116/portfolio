@@ -907,3 +907,50 @@ main {
         padding: 0 20px;
     }
 }
+
+/* --- スマホ表示（767px以下）の決定版 --- */
+@media screen and (max-width: 767px) {
+    /* 1. ヘッダーの中身を整列 */
+    .header-container {
+        height: 60px;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between; /* ロゴを左、ボタンを右に */
+        align-items: center;
+        width: 100%;
+    }
+
+    /* 2. PC用のナビを完全に隠す（三本線メニューの中に入れるため） */
+    .nav-menu {
+        display: none; /* 一旦消します */
+    }
+
+    /* 3. ロゴのサイズをスマホ用に最適化 */
+    .site-logo img {
+        height: 24px; /* スマホでちょうど良いサイズ */
+        width: auto;
+    }
+
+    /* 4. メインビジュアルの文字サイズを調整 */
+    #mainvisual h2 {
+        font-size: 1.4rem;
+        padding: 0 20px;
+    }
+
+    #mainvisual p {
+        font-size: 0.8rem;
+    }
+
+    /* 5. スキルやワークの列を調整 */
+    .skills-grid, .goods-grid {
+        display: flex;
+        flex-direction: column; /* 縦一列に並べる */
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .skill-item, .image-wrap {
+        width: 90%; /* 画面幅いっぱいに近く */
+        max-width: none;
+    }
+}
