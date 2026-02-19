@@ -552,22 +552,7 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
 
 #contact { display: none; }
 
-/* アイコンごとに違う色（Design Identityの6色）を割り当てる例 */
 
-/* Designのアイコンをローズピンクに */
-.skill-item:nth-child(1) img {
-    filter: sepia(1) saturate(5) hue-rotate(300deg); /* ローズ系 */
-}
-
-/* Codingのアイコンをリーフグリーンに */
-.skill-item:nth-child(2) img {
-    filter: sepia(1) saturate(5) hue-rotate(50deg); /* グリーン系 */
-}
-
-/* JavaScriptのアイコンをコーラルオレンジに */
-.skill-item:nth-child(3) img {
-    filter: sepia(1) saturate(5) hue-rotate(340deg); /* オレンジ系 */
-}
 
 /* スキル全体のレイアウト */
 .skills-grid {
@@ -603,6 +588,38 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
 
 /* マウスを乗せた時に少しだけ大きくする（ちかちかしない程度の動き） */
 .skill-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- アイコン全体の設定（ちかちか防止） --- */
+.skill-item img {
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    filter: none; /* 一度フィルターをリセット */
+    opacity: 0.8; /* 少し透かすことで、蛍光色のキツさを抑えます */
+}
+
+/* --- アイコンごとの色設定（目に優しい色） --- */
+
+/* 左：Design (落ち着いたローズ) */
+.skill-item:nth-child(1) img {
+    filter: sepia(0.5) saturate(1.5) hue-rotate(320deg);
+}
+
+/* 真ん中：Coding (ここを優しいブルーグリーンに) */
+.skill-item:nth-child(2) img {
+    filter: sepia(0.5) saturate(1.2) hue-rotate(160deg);
+}
+
+/* 右：JavaScript (落ち着いたマスタード) */
+.skill-item:nth-child(3) img {
+    filter: sepia(0.5) saturate(1.5) hue-rotate(10deg);
+}
+
+/* マウスを乗せた時だけ、パキッと明るくする */
+.skill-item:hover img {
+    opacity: 1;
     transform: scale(1.1);
 }
 
