@@ -549,3 +549,5 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
     background: var(--main-blue);
     color: #fff;
 }
+
+#contact { display: none; }
