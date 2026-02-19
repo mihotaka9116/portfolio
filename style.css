@@ -551,3 +551,20 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
 }
 
 #contact { display: none; }
+
+/* アイコンごとに違う色（Design Identityの6色）を割り当てる例 */
+
+/* Designのアイコンをローズピンクに */
+.skill-item:nth-child(1) img {
+    filter: sepia(1) saturate(5) hue-rotate(300deg); /* ローズ系 */
+}
+
+/* Codingのアイコンをリーフグリーンに */
+.skill-item:nth-child(2) img {
+    filter: sepia(1) saturate(5) hue-rotate(50deg); /* グリーン系 */
+}
+
+/* JavaScriptのアイコンをコーラルオレンジに */
+.skill-item:nth-child(3) img {
+    filter: sepia(1) saturate(5) hue-rotate(340deg); /* オレンジ系 */
+}
