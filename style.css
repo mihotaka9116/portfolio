@@ -484,3 +484,68 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
   image-rendering: -webkit-optimize-contrast; /* Safariでのコントラスト調整 */
   shape-rendering: geometricPrecision;       /* 図形の描画精度を高める */
 }
+
+/* --- 7. ABOUTページ専用：経歴セクション --- */
+.profile-intro {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.career-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.career-item {
+    display: flex;
+    margin-bottom: 30px;
+    border-left: 3px solid var(--main-blue);
+    padding-left: 25px;
+    position: relative;
+}
+
+/* タイムラインの点 */
+.career-item::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background: var(--main-blue);
+    border-radius: 50%;
+}
+
+.career-date {
+    font-weight: bold;
+    min-width: 120px;
+    color: var(--main-blue);
+}
+
+.career-content h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.career-content p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* 戻るボタン */
+.back-home {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 10px 30px;
+    border: 1px solid var(--main-blue);
+    color: var(--main-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+.back-home:hover {
+    background: var(--main-blue);
+    color: #fff;
+}
