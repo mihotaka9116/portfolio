@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（色・フォント） --- */
+/* --- 1. 基本設定 --- */
 :root {
   --main-blue: #4682b4;
   --dark-navy: #2d4b69;
-  --light-gray: #f4f7f9;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,10 +15,9 @@ body {
   width: 100%;
 }
 
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+img { max-width: 100%; height: auto; }
 
-/* --- 2. ヘッダー共通 --- */
+/* --- 2. ヘッダー（ここがズレの原因でした） --- */
 .site-header {
   position: fixed;
   top: 0;
@@ -31,9 +29,9 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 .header-container {
-  max-width: 1000px; /* ★ここでナビが右に寄りすぎるのを防ぎます */
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 1000px; /* 本文の幅と一致させる */
+  margin: 0 auto;    /* 中央に配置 */
+  padding: 0 20px;   /* 左右の余白 */
   height: 70px;
   display: flex;
   justify-content: space-between; /* ロゴ左、ナビ右 */
@@ -45,83 +43,22 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   width: auto;
 }
 
-/* --- 3. ナビゲーション（PC用：768px以上） --- */
-@media screen and (min-width: 768px) {
-  .hamburger-menu { display: none !important; } /* PCでは三本線を隠す */
-  
-  .nav-menu ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-  }
-
-  .nav-menu a {
-    text-decoration: none;
-    color: var(--main-blue);
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
+/* --- 3. ナビゲーション --- */
+.nav-menu ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
 }
 
-/* --- 4. ナビゲーション（スマホ用：767px以下） --- */
-@media screen and (max-width: 767px) {
-  .header-container { height: 60px; }
-  
-  .hamburger-menu {
-    display: block !important;
-    cursor: pointer;
-    width: 30px;
-    height: 24px;
-    position: relative;
-    z-index: 1001;
-  }
-
-  .hamburger-menu span {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: var(--main-blue);
-    transition: 0.3s;
-  }
-  .hamburger-menu span:nth-child(1) { top: 0; }
-  .hamburger-menu span:nth-child(2) { top: 11px; }
-  .hamburger-menu span:nth-child(3) { top: 22px; }
-
-  /* スマホメニュー：初期は右に隠す */
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100vh;
-    background: rgba(45, 75, 105, 0.98);
-    transition: 0.5s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-
-  .nav-menu.active { right: 0; } /* JSで動く */
-
-  .nav-menu ul {
-    flex-direction: column;
-    gap: 40px;
-    list-style: none;
-    text-align: center;
-  }
-
-  .nav-menu a {
-    color: #fff !important;
-    font-size: 1.5rem;
-    text-decoration: none;
-  }
+.nav-menu a {
+  text-decoration: none;
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
-/* --- 5. メインビジュアル & コンテンツ調整 --- */
+/* --- 4. メインビジュアル --- */
 #mainvisual {
-  padding-top: 70px;
   height: 65vh;
   background: var(--dark-navy);
   display: flex;
@@ -129,29 +66,27 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   align-items: center;
   justify-content: center;
   color: #fff;
-}
-
-main { padding-top: 20px; } /* ヘッダーの下からコンテンツを開始 */
-
-/* スキル・ワークの並びをスマホで1列に */
-.skills-grid, .goods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 20px 0;
-}
-
-@media screen and (max-width: 767px) {
-  .skills-grid, .goods-grid {
-    grid-template-columns: 1fr;
-    padding: 0 20px;
-  }
-}
-
-/* フッター（共通） */
-#footer {
-  background: var(--dark-navy);
-  color: #fff;
-  padding: 50px 20px;
   text-align: center;
 }
+
+.mv-logo { width: 120px; margin-bottom: 20px; }
+
+/* --- 5. スマホ用の最小限の設定 --- */
+@media screen and (max-width: 767px) {
+  .header-container { height: 60px; }
+  
+  /* スマホでのナビは、いったん横並びのまま小さく表示 */
+  .nav-menu ul {
+    gap: 15px;
+  }
+  .nav-menu a {
+    font-size: 0.75rem;
+  }
+  
+  /* スマホで三本線が必要な場合は、ここに追加設定が必要です */
+  .hamburger-menu { display: none; } 
+}
+
+/* 各セクションの余白 */
+section { padding: 60px 0; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
