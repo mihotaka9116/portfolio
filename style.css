@@ -18,7 +18,7 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー（ABOUTのズレもここで解消） --- */
+/* --- 2. ヘッダー設定（当時のまま） --- */
 .site-header {
     position: fixed;
     top: 0;
@@ -30,13 +30,14 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 .header-container {
-    max-width: 1000px; /* ★ここでナビが右に寄りすぎるのを防ぎます */
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 70px;
+    padding: 0 20px;
+    /* ABOUTのズレ防止用（ここだけ1行足しました） */
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .site-logo img {
@@ -61,7 +62,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 #mainvisual {
   position: relative;
   height: 65vh;
-  /* 前の綺麗なリピート背景を復活 */
   background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69 url("logo.svg") repeat;
   background-size: 150px;
   display: flex;
@@ -71,29 +71,32 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   color: #fff;
 }
 
+#mainvisual .mv-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
 #mainvisual p {
   font-weight: 700;
   letter-spacing: 0.1em;
-  margin-top: 15px;
 }
 
-/* --- 4. スキル・ワーク --- */
-.skills-grid, .goods-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  padding: 40px 0;
-}
+/* --- 4. スキル・コンセプト等の装飾 --- */
+.apple-colors { padding: 80px 0; background-color: #f4f7f9; text-align: center; }
+.color-flex-box { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
+.color-ball { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-.skill-item {
-  width: 200px;
-  text-align: center;
-}
+.c-rose   { background-color: #E296B5; }
+.c-green  { background-color: #99C35F; }
+.c-sky    { background-color: #6FB2E3; }
+.c-mint   { background-color: #A7D6CA; }
+.c-orange { background-color: #F38450; }
+.c-royal  { background-color: #2D59A4; }
 
 /* --- 5. お問い合わせフォームを隠す --- */
 #contact {
-  display: none;
+  display: none !important;
 }
 
 /* --- 6. フッター --- */
@@ -102,15 +105,32 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   color: #ffffff;
   text-align: center;
   padding: 50px 0;
+  margin-top: 80px;
 }
 
-#footer a { color: #fff; text-decoration: none; margin: 0 10px; font-size: 11px; }
+#footer a { color: #ffffff; text-decoration: none; opacity: 0.8; margin: 0 10px; }
 
-/* --- 7. スマホ用調整（崩れを防ぐ最小限） --- */
-@media screen and (max-width: 767px) {
-  .header-container { height: 60px; }
-  .site-logo img { height: 28px; }
-  .nav-menu ul { gap: 15px; }
-  .nav-menu a { font-size: 0.75rem; }
-  #mainvisual { height: 50vh; background-size: 100px; }
+/* --- 7. スクロールダウン（動く線） --- */
+.scrolldown {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.scrolldown span { display: block; color: #fff; font-size: 0.7rem; letter-spacing: 0.2em; margin-bottom: 50px; }
+.scrolldown::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  height: 50px;
+  background: #fff;
+  animation: scroll-line 2s infinite;
+}
+@keyframes scroll-line {
+  0% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 0; }
+  50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
+  50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
+  100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
 }
