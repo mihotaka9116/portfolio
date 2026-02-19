@@ -623,3 +623,42 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
     transform: scale(1.1);
 }
 
+/* ヘッダー全体のデザイン */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 少し影をつけて境界を出す */
+}
+
+/* メニューの並び方 */
+.nav-menu ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+    list-style: none;
+}
+
+/* リンク文字のデザイン */
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.3s;
+}
+
+/* マウスを乗せた時の色（Design Identityから1色選ぶと◎） */
+.nav-menu a:hover {
+    color: var(--main-blue);
+}
+
+/* 今いるページのリンクだけ色を変える */
+.nav-menu a.current {
+    color: var(--main-blue);
+}
+
