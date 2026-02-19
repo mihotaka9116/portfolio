@@ -848,13 +848,3 @@ main {
     font-weight: bold;
     font-size: 0.9rem;
 }
-
-/* --- メインビジュアル内のロゴを白くする --- */
-#mainvisual .mv-logo {
-    filter: brightness(0) invert(1); /* 黒いロゴ画像を白く反転 */
-    width: 120px;
-    height: auto;
-}
-
-/* 以前のCSSの下の方にある「justify-content: center;」の設定があれば削除してください */
-
