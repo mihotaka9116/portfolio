@@ -568,3 +568,41 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
 .skill-item:nth-child(3) img {
     filter: sepia(1) saturate(5) hue-rotate(340deg); /* オレンジ系 */
 }
+
+/* スキル全体のレイアウト */
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* アイコン同士の間隔 */
+    flex-wrap: wrap; /* スマホで縦に並ぶように */
+    margin-top: 50px;
+}
+
+.skill-item {
+    width: 200px; /* ひとつひとつの幅 */
+    text-align: center;
+}
+
+/* アイコンを大きく、安定させる設定 */
+.skill-item .img {
+    width: 100px;  /* ここで大きさを調整（前より大きくしました） */
+    height: 100px;
+    margin: 0 auto 20px; /* 下に余白を作る */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-item img {
+    width: 100%;  /* 枠いっぱいに広げる */
+    height: auto;
+    /* ちかちか防止：複雑なfilterを一度リセット */
+    filter: none; 
+    transition: transform 0.3s ease; /* ふんわり動く設定 */
+}
+
+/* マウスを乗せた時に少しだけ大きくする（ちかちかしない程度の動き） */
+.skill-item:hover img {
+    transform: scale(1.1);
+}
+
