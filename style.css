@@ -1696,3 +1696,46 @@ main {
     transform: none !important;    /* 動かさない */
     visibility: visible !important;
 }
+
+/* --- 真っ白・消える現象を解決する設定 --- */
+
+/* 1. まずは最初から見えるようにしておく（安全策） */
+.js-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* 2. もしアニメーションをさせたい場合でも、一度表示されたら消さない設定 */
+.js-fade-up.is-show,
+.js-fade-up.is-active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* 3. mainタグに十分な高さを確保する（背景に埋もれるのを防ぐ） */
+main {
+    display: block !important;
+    min-height: 100vh;
+    padding-top: 100px; /* ヘッダーに被らないように調整 */
+}
+
+@media screen and (max-width: 767px) {
+    /* メニューが背後に隠れないようにする */
+    #js-nav {
+        display: flex !important; /* 強制的に表示の準備をする */
+        position: fixed;
+        top: 0;
+        right: -100%; /* 通常は右に隠す */
+        width: 100%;
+        height: 100vh;
+        z-index: 9998;
+        background-color: rgba(45, 75, 105, 0.98);
+        transition: right 0.5s ease;
+    }
+
+    /* activeクラスがついたら画面に出てくる */
+    #js-nav.active {
+        right: 0 !important;
+    }
+}
