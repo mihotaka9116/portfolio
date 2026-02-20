@@ -1342,3 +1342,34 @@ main {
     transform: scale(1.1);
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
 }
+
+/* --- 5. SKILL アイコンのくすみを消してカラフルに塗り分け --- */
+
+.skill-item img {
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    opacity: 1 !important; /* 不透明度を100%にしてくすみを解消 */
+    /* ここでは filter: none を指定しない（後の個別設定を活かすため） */
+}
+
+/* 1つ目：Design (元の色を活かす、または微調整) */
+.skill-item:nth-child(1) img {
+    filter: saturate(1.5) !important; 
+}
+
+/* 2つ目：Coding (オレンジを緑〜ブルー系へ) */
+.skill-item:nth-child(2) img {
+    filter: hue-rotate(140deg) saturate(1.5) !important; 
+}
+
+/* 3つ目：JavaScript (オレンジを青〜紫系へ) */
+.skill-item:nth-child(3) img {
+    filter: hue-rotate(200deg) saturate(1.5) !important;
+}
+
+/* ホバー時の演出：少し大きくして影を強調 */
+.skill-item:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)) !important;
+}
