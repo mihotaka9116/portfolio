@@ -1708,3 +1708,16 @@ section h2 + p,
     margin-right: auto;
     text-align: left; /* 文字の開始位置を揃える */
 }
+
+/* --- フェードインアニメーションの基本 --- */
+.js-fade-up {
+  opacity: 0;
+  transform: translateY(30px); /* 30px下に下げておく */
+  transition: opacity 0.8s, transform 0.8s; /* 0.8秒かけて動く */
+}
+
+/* クラスがついた時の状態 */
+.js-fade-up.is-show {
+  opacity: 1;
+  transform: translateY(0); /* 元の位置に戻る */
+}
