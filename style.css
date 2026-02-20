@@ -698,7 +698,7 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
     height: auto;
     transition: all 0.3s ease;
     filter: none; /* 一度フィルターをリセット */
-    opacity: 0.8; /* 少し透かすことで、蛍光色のキツさを抑えます */
+    
 }
 
 /* --- アイコンごとの色設定（目に優しい色） --- */
@@ -1283,4 +1283,28 @@ main {
     padding: 0 15px;
     font-size: 0.9rem;
   }
+}
+
+/* --- 5. SKILL アイコンのくすみを解消 --- */
+
+.skill-item img {
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    /* フィルターと透明度をリセットして、元の色を出す */
+    filter: none !important; 
+    opacity: 1 !important;
+}
+
+/* アイコンごとの個別のフィルター設定（もしあれば）を無効化 */
+.skill-item:nth-child(1) img,
+.skill-item:nth-child(2) img,
+.skill-item:nth-child(3) img {
+    filter: none !important;
+}
+
+/* マウスを乗せた時の演出：少し大きくし、影をつけて強調する */
+.skill-item:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); /* 影をつけて少し浮いた感じに */
 }
