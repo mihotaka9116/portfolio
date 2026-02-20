@@ -857,34 +857,43 @@ main {
 }
 
 
-/* --- タイムラインのドットをmihoさんの5色でループさせる --- */
+/* =================================================
+   ABOUTページ：STORYセクションをカラフルにする
+   ================================================== */
 
-/* 1番目：ローズピンク */
-.career-item:nth-child(5n+1)::before {
-    background-color: #E597B9 !important;
+/* 1. 左側の縦線を細く・薄くして、ドットを際立たせる */
+.career-timeline .career-item {
+    border-left: 2px solid #eee !important;
+    padding-left: 30px;
+    margin-bottom: 50px;
 }
 
-/* 2番目：リーフグリーン */
-.career-item:nth-child(5n+2)::before {
-    background-color: #99C361 !important;
-}
+/* 2. ドットの色と、日付（.career-date）の色を5色でループさせる */
 
-/* 3番目：スカイブルー */
-.career-item:nth-child(5n+3)::before {
-    background-color: #6EB1E4 !important;
-}
+/* 1つ目：ローズピンク */
+.career-item:nth-child(5n+1)::before { background-color: #E597B9 !important; }
+.career-item:nth-child(5n+1) .career-date { color: #E597B9 !important; }
 
-/* 4番目：コーラルオレンジ */
-.career-item:nth-child(5n+4)::before {
-    background-color: #F48451 !important;
-}
+/* 2つ目：リーフグリーン */
+.career-item:nth-child(5n+2)::before { background-color: #99C361 !important; }
+.career-item:nth-child(5n+2) .career-date { color: #99C361 !important; }
 
-/* 5番目：ロイヤルブルー (またはミントグリーン) */
-.career-item:nth-child(5n+5)::before {
-    background-color: #2D59A3 !important; 
-}
+/* 3つ目：スカイブルー */
+.career-item:nth-child(5n+3)::before { background-color: #6EB1E4 !important; }
+.career-item:nth-child(5n+3) .career-date { color: #6EB1E4 !important; }
 
-/* 左側の縦線の色も、少し薄いグレーにするとドットが引き立ちます */
-.career-item {
-    border-left: 3px solid #eee; 
+/* 4つ目：コーラルオレンジ */
+.career-item:nth-child(5n+4)::before { background-color: #F48451 !important; }
+.career-item:nth-child(5n+4) .career-date { color: #F48451 !important; }
+
+/* 5つ目：ロイヤルブルー */
+.career-item:nth-child(5n+5)::before { background-color: #2D59A3 !important; }
+.career-item:nth-child(5n+5) .career-date { color: #2D59A3 !important; }
+
+/* ドットの大きさや位置の微調整 */
+.career-item::before {
+    left: -11px; /* 線の太さに合わせて位置調整 */
+    width: 19px;
+    height: 19px;
+    top: 4px;
 }
