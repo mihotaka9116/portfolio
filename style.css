@@ -1308,3 +1308,37 @@ main {
     transform: scale(1.1);
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); /* 影をつけて少し浮いた感じに */
 }
+
+/* --- 5. SKILL アイコンをカラフルに塗り分ける --- */
+
+.skill-item img {
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    opacity: 1; /* くすみを消す */
+}
+
+/* 元のオレンジ色を基準に、色相を回転させて別の色を作ります
+   値（deg）を変えることでお好みの色に調整可能です
+*/
+
+/* 1つ目：そのままのオレンジ、もしくは微調整 */
+.skill-item:nth-child(1) img {
+    filter: hue-rotate(0deg) saturate(1.2); 
+}
+
+/* 2つ目：オレンジから「緑〜ブルーグリーン」へ回転 */
+.skill-item:nth-child(2) img {
+    filter: hue-rotate(140deg) saturate(1.2); 
+}
+
+/* 3つ目：オレンジから「青〜紫」へ回転 */
+.skill-item:nth-child(3) img {
+    filter: hue-rotate(200deg) saturate(1.2);
+}
+
+/* ホバー時の演出：少し大きくして影をつける */
+.skill-item:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
+}
