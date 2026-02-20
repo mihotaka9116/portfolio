@@ -67,3 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+$(function () {
+  // ハンバーガーメニューのクリックイベント
+  $('#js-hamburger').on('click', function () {
+    $(this).toggleClass('active'); // 三本線を×にするためのクラス
+    $('#js-nav').toggleClass('active'); // メニューを出すためのクラス
+  });
+
+  // メニュー内のリンクをクリックしたらメニューを閉じる
+  // (これがないと、リンクを押してもメニューが開いたままになります)
+  $('#js-nav a').on('click', function () {
+    $('#js-hamburger').removeClass('active');
+    $('#js-nav').removeClass('active');
+  });
+});
