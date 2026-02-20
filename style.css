@@ -1689,3 +1689,10 @@ main {
    3. ABOUTページ：STORYセクションのアイコン位置微調整
    ================================================== */
 @media screen and (min-width:
+
+/* もし opacity: 0; があったら、1 に書き換えて強制表示させる */
+.js-fade-up {
+    opacity: 1 !important;        /* 0から1へ変更 */
+    transform: none !important;    /* 動かさない */
+    visibility: visible !important;
+}
