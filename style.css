@@ -10,21 +10,22 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   color: var(--main-blue);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
   line-height: 1.8;
   overflow-x: hidden;
+  width: 100%;
 }
 
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 統合ヘッダー設定 --- */
+/* --- ヘッダー --- */
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95); /* 少し濃くして文字を読みやすく */
+    background: rgba(255, 255, 255, 0.95);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -33,612 +34,200 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
-    height: 70px; /* ヘッダーの高さを固定 */
+    height: 70px;
     display: flex;
-    justify-content: space-between; /* ロゴを左、ナビを右 */
-    align-items: center;           /* ★上下中央をぴったり合わせる */
-}
-
-/* ロゴのサイズ調整（ここが重要！） */
-.site-logo {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin: 0;
-}
-
-.site-logo a {
-    display: block;
-    line-height: 0; /* 画像の周りの余計な隙間を消す */
 }
 
 .site-logo img {
-    height: 35px; /* ★ここでロゴの大きさを自由に調整してください */
+    height: 30px;
     width: auto;
     transition: opacity 0.3s;
+    image-rendering: -webkit-optimize-contrast;
 }
 
-.site-logo img:hover {
-    opacity: 0.7;
-}
-
-/* デスクトップ用ナビゲーション */
 .nav-menu ul {
     display: flex;
     gap: 30px;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
+    color: var(--main-blue);
     font-weight: bold;
     font-size: 0.9rem;
-    transition: color 0.3s;
+    transition: opacity 0.3s;
 }
 
-/* --- ハンバーガーメニュー（スマホ用） --- */
-.hamburger-menu {
-    display: none; /* デスクトップでは隠す */
-    cursor: pointer;
-    z-index: 1001;
-    width: 30px;
-    height: 20px;
+.nav-menu a.current {
+    border-bottom: 2px solid var(--main-blue);
+    padding-bottom: 4px;
+}
+
+/* --- メインビジュアル --- */
+#mainvisual {
     position: relative;
-}
-
-.hamburger-menu span {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: var(--main-blue);
-    transition: all 0.3s;
-}
-
-.hamburger-menu span:nth-child(1) { top: 0; }
-.hamburger-menu span:nth-child(2) { top: 9px; }
-.hamburger-menu span:nth-child(3) { top: 18px; }
-
-/* --- スマホ用レスポンシブ設定 --- */
-@media screen and (max-width: 767px) {
-    .header-container {
-        height: 60px; /* スマホではヘッダーを少しスリムに */
-    }
-
-    .site-logo img {
-        height: 28px; /* スマホではロゴも少し小さく */
-    }
-
-    .hamburger-menu {
-        display: block; /* スマホで三本線を表示 */
-    }
-
-    /* スマホ用メニュー（右からスライドイン） */
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%; /* 初期状態は画面外 */
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(45, 75, 105, 0.98);
-        z-index: 999;
-        transition: 0.5s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nav-menu.active {
-        right: 0; /* JSでactiveクラスがつくと表示 */
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .nav-menu a {
-        color: #fff;
-        font-size: 1.5rem;
-    }
-}
-/* --- 3. デザインシステム（5色の丸） --- */
-.apple-colors {
-  padding: 80px 0;
-  background-color: #f4f7f9;
-  text-align: center;
-}
-.color-flex-box {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-.color-ball {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin: 0 auto 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease; /* 浮き上がるアニメーション */
-}
-.color-ball:hover { transform: translateY(-10px); }
-
-/* 色指定 */
-.c-rose   { background-color: #E296B5; }
-.c-green  { background-color: #99C35F; }
-.c-sky    { background-color: #6FB2E3; }
-.c-orange { background-color: #F38450; }
-.c-royal  { background-color: #2D59A4; }
-
-/* --- 4. CONCEPT（画像の巨大化防止） --- */
-#concept { padding: 80px 0; text-align: center; }
-#concept .img { max-width: 300px; margin: 0 auto 30px; } /* ここでサイズを固定 */
-#concept .img img { border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-/* --- 5. SKILL（アイコンの色と浮き上がり） --- */
-.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 0; }
-.skill-item {
-  flex: 1; min-width: 200px; max-width: 250px; text-align: center;
-  padding: 20px; border-radius: 10px; border: 1px solid #eee;
-  transition: all 0.3s ease;
-}
-.skill-item:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-
-.skill-item img {
-  width: 40px; margin-bottom: 15px;
-  /* アイコンを文字色の青にする魔法のフィルタ */
-  filter: invert(49%) sepia(16%) saturate(1484%) hue-rotate(167deg) brightness(89%) contrast(85%);
-}
-
-/* --- 6. WORK --- */
-.goods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-.image-wrap { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-.image-wrap img { width: 100%; height: 200px; object-fit: cover; }
-
-#footer {
-  /* 背景をメインビジュアルと同じ深い紺色に */
-  background-color: #2d4b69 !important; 
-  
-  /* 文字を白くして読みやすく */
-  color: #ffffff !important;
-  
-  text-align: center;
-  padding: 50px 0;
-  margin-top: 80px;
-}
-
-/* フッター内のリンク（プライバシーポリシーなど）も白くする */
-#footer a {
-  color: #ffffff !important;
-  text-decoration: none;
-  opacity: 0.8;
-  transition: 0.3s;
-}
-
-#footer a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-/* フッターのロゴ（tlogo.svg）を白く反転させる場合 */
-#footer .logo img {
-  filter: brightness(0) invert(1);
-  width: 100px;
-  margin-bottom: 20px;
-}
-
-/* コピーライトの文字色調整 */
-.copyright {
-  color: rgba(255, 255, 255, 0.6) !important;
-  margin-top: 20px;
-}
-/* --- CONTACTセクション全体 --- */
-#contact {
-  padding: 80px 0;
-  background-color: #fff;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1); /* ほんのり青い影 */
-}
-
-/* 各入力項目のまとまり */
-.form-item {
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-/* ラベルのデザイン */
-.form-item label {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--main-blue);
-  margin-bottom: 8px;
-}
-
-/* 入力欄（一行＆複数行共通） */
-.form-item input[type="text"],
-.form-item input[type="email"],
-.form-item textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 2px solid #e0e7ed;
-  border-radius: 6px;
-  background-color: #fcfdfe;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-/* 入力中（フォーカス時）の演出 */
-.form-item input:focus,
-.form-item textarea:focus {
-  border-color: var(--main-blue);
-  background-color: #fff;
-  box-shadow: 0 0 8px rgba(70, 130, 180, 0.2);
-}
-
-/* メッセージ入力欄の高さ調整 */
-.form-item textarea {
-  min-height: 150px;
-  resize: vertical; /* ユーザーが縦に広げられるようにする */
-}
-
-/* 同意チェックボックス部分 */
-.agreement-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 30px 0;
-  font-size: 0.85rem;
-}
-
-.agreement-item input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* 送信ボタンのブラッシュアップ */
-.submit-btn {
-  display: block;
-  width: 100%; /* スマホでも押しやすい全幅 */
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 16px 0;
-  background-color: var(--main-blue);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  border: none;
-  border-radius: 50px; /* 丸みのあるボタン */
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(70, 130, 180, 0.3);
-}
-
-.submit-btn:hover {
-  background-color: var(--hover-gray);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(70, 130, 180, 0.4);
-}
-
-/* 追加：ミントグリーンの色指定 */
-.c-mint { background-color: #A7D6CA !important; }
-
-/* 表全体のスタイル */
-.color-details-table {
-  max-width: 900px;
-  margin: 60px auto 0;
-  border-top: 2px solid var(--main-blue);
-  background: #fff;
-}
-
-.detail-header, .detail-row {
-  display: grid;
-  grid-template-columns: 100px 60px 120px 1fr;
-  padding: 15px 20px;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-}
-
-.detail-header {
-  background-color: #f8fabb; /* 表の見出しに少し色をつける */
-  font-weight: bold;
-  font-size: 0.85rem;
-  color: var(--main-blue);
-}
-
-.detail-row {
-  font-size: 0.9rem;
-  transition: background-color 0.2s;
-}
-
-.detail-row:hover {
-  background-color: #fcfdfe; /* マウスを乗せると少し色が変わる */
-}
-
-.chip {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* スマホ用の表示調整 */
-@media screen and (max-width: 767px) {
-  .detail-header { display: none; }
-  .detail-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 20px;
-  }
-  .char-col { font-weight: bold; color: var(--main-blue); }
-  .code-col { text-align: right; font-family: monospace; }
-  .desc-col { grid-column: 1 / 3; border-top: 1px dashed #eee; padding-top: 10px; margin-top: 5px; color: #666; }
-}
-
-/* ロゴと完全一致させた最新カラーパレット */
-.c-rose   { background-color: #E597B9 !important; }
-.c-green  { background-color: #99C361 !important; }
-.c-sky    { background-color: #6EB1E4 !important; }
-.c-mint   { background-color: #B7E2D8 !important; }
-.c-orange { background-color: #F48451 !important; }
-.c-royal  { background-color: #2D59A3 !important; }
-
-/* --- ハンバーガーメニューのスタイル追加 --- */
-.hamburger-menu {
-  display: none; /* デスクトップでは隠す */
-  cursor: pointer;
-  z-index: 9999;
-  position: relative;
-  width: 30px;
-  height: 24px;
-}
-
-.hamburger-menu span {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: var(--main-blue); /* 三本線の色 */
-  transition: all 0.3s;
-}
-
-.hamburger-menu span:nth-child(1) { top: 0; }
-.hamburger-menu span:nth-child(2) { top: 11px; }
-.hamburger-menu span:nth-child(3) { top: 22px; }
-
-/* スマホ用のレスポンシブ設定 */
-@media screen and (max-width: 767px) {
-  #header {
-    padding: 15px 20px; /* 左右に余白を作る（隙間対策） */
-    margin: 0;
-    width: 100%;
-  }
-
-  .hamburger-menu {
-    display: block; /* スマホで表示 */
-  }
-
-  .nav-menu {
-    display: none; /* JSで制御するまで隠す、または簡易的に非表示 */
-  }
-}
-
-/* --- メインビジュアルのテキストを白に --- */
-#mainvisual p {
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-top: 15px;
-}
-
-/* SCROLL部分も白にする場合 */
-.scrolldown span {
-  color: #ffffff;
-}
-.scrolldown::after {
-  background-color: #ffffff; /* 線の色 */
-}
-
-/* --- 隙間対策の強化 --- */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  position: relative;
-}
-
-#header, #mainvisual, main, footer {
-  width: 100%;
-}
-
-/* --- スマホ用メニューの表示設定 --- */
-@media screen and (max-width: 767px) {
-  /* メニューの初期状態：右側に隠す */
-  #js-nav {
-    position: fixed;
-    top: 0;
-    right: -100%; /* 画面の外に隠す */
-    width: 100%;  /* 画面いっぱい */
-    height: 100vh;
-    background-color: rgba(45, 75, 105, 0.95); /* 背景色 */
-    z-index: 999; /* ヘッダーより背面に、コンテンツより前面に */
-    transition: all 0.5s ease; /* スライドのアニメーション */
-    
-    /* 中身を中央寄せにする */
+    height: 65vh;
+    background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-  }
+    justify-content: center;
+    overflow: hidden;
+}
 
-  /* JSで 'active' クラスがついた時：画面に現れる */
-  #js-nav.active {
-    right: 0;
-  }
+#mainvisual .mv-logo {
+    filter: brightness(0) invert(1);
+    width: 120px;
+    height: auto;
+}
 
-  /* メニュー内のリストを縦並びにする */
-  #js-nav ul {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #js-nav li {
-    margin: 20px 0;
-  }
-
-  #js-nav a {
+.scrolldown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #fff;
-    font-size: 1.5rem;
-  }
-}
-
-/* --- スクロールダウン：線が伸びるアニメーション --- */
-.scrolldown {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff; /* 文字を白に */
-  padding-bottom: 60px; /* 線の長さを確保 */
-}
-
-/* 縦線のベース */
-.scrolldown::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 1px;       /* 線の太さ */
-  height: 50px;     /* 線の長さ */
-  background: #fff; /* 線の色（白） */
-  transform: translateX(-50%);
-  animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
-}
-
-/* 伸びる動きのアニメーション設定 */
-@keyframes scroll-line {
-  0% {
-    transform: scale(1, 0) translateX(-50%);
-    transform-origin: 0 0;
-  }
-  50% {
-    transform: scale(1, 1) translateX(-50%);
-    transform-origin: 0 0;
-  }
-  50.1% {
-    transform: scale(1, 1) translateX(-50%);
-    transform-origin: 0 100%;
-  }
-  100% {
-    transform: scale(1, 0) translateX(-50%);
-    transform-origin: 0 100%;
-  }
-}
-
-/* 1. 親要素に基準点を作る */
-#mainvisual {
-  position: relative; /* ★これがないと、線がフッターまで逃げてしまいます */
-  height: 65vh;
-  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69 url("logo.svg") repeat;
-  background-size: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* 線がはみ出して隙間を作るのを防ぐ */
-}
-
-/* 2. 線の位置を微調整 */
-.scrolldown {
-  position: absolute;
-  bottom: 20px; /* #mainvisual の下から20pxの位置に固定 */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;   /* 他の要素より上に表示 */
+    z-index: 2;
+    text-align: center;
 }
 
 .scrolldown span {
-  display: block;
-  color: #fff;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  margin-bottom: 5px; /* 線との距離 */
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 5px;
 }
 
-img.logo { /* ロゴのクラス名に合わせて変更してください */
-  image-rendering: -webkit-optimize-contrast; /* Safariでのコントラスト調整 */
-  shape-rendering: geometricPrecision;       /* 図形の描画精度を高める */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    width: 1px;
+    height: 50px;
+    background: #fff;
+    transform: translateX(-50%);
+    animation: scroll-line 2s infinite;
 }
 
-/* --- 7. ABOUTページ専用：経歴セクション --- */
-.profile-intro {
-    max-width: 700px;
-    margin: 0 auto 60px;
-    text-align: center;
+@keyframes scroll-line {
+    0% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 0; }
+    50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
+    50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
+    100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
 }
 
+/* --- ABOUT・STORY (タイムライン) --- */
 .career-timeline {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 0;
+    margin: 50px auto;
 }
 
 .career-item {
     display: flex;
-    margin-bottom: 30px;
-    border-left: 3px solid var(--main-blue);
-    padding-left: 25px;
+    margin-bottom: 50px;
+    border-left: 2px solid #eee !important; /* 縦線を薄く */
+    padding-left: 30px;
     position: relative;
 }
 
-/* タイムラインの点 */
+/* ドットの共通設定 */
 .career-item::before {
     content: "";
     position: absolute;
-    left: -9px;
-    top: 0;
-    width: 15px;
-    height: 15px;
-    background: var(--main-blue);
+    left: -11px;
+    top: 4px;
+    width: 19px;
+    height: 19px;
     border-radius: 50%;
+    z-index: 1;
 }
+
+/* 5色ループ (ドットと日付の色) */
+.career-item:nth-child(5n+1)::before { background-color: #E597B9 !important; }
+.career-item:nth-child(5n+1) .career-date { color: #E597B9 !important; }
+
+.career-item:nth-child(5n+2)::before { background-color: #99C361 !important; }
+.career-item:nth-child(5n+2) .career-date { color: #99C361 !important; }
+
+.career-item:nth-child(5n+3)::before { background-color: #6EB1E4 !important; }
+.career-item:nth-child(5n+3) .career-date { color: #6EB1E4 !important; }
+
+.career-item:nth-child(5n+4)::before { background-color: #F48451 !important; }
+.career-item:nth-child(5n+4) .career-date { color: #F48451 !important; }
+
+.career-item:nth-child(5n+5)::before { background-color: #2D59A3 !important; }
+.career-item:nth-child(5n+5) .career-date { color: #2D59A3 !important; }
 
 .career-date {
     font-weight: bold;
     min-width: 120px;
-    color: var(--main-blue);
+    font-size: 0.95rem;
 }
 
-.career-content h4 {
-    margin-bottom: 5px;
-    font-size: 1.1rem;
+.career-content h4 { margin-bottom: 5px; font-size: 1.1rem; color: #333; }
+.career-content p { font-size: 0.9rem; color: #555; }
+
+/* --- SKILL --- */
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 40px 0;
 }
 
-.career-content p {
-    font-size: 0.9rem;
-    color: #555;
+.skill-item {
+    width: 230px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
 }
+
+.skill-item:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+.skill-item .img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-item img {
+    width: 100%;
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+/* スキルアイコンの色 */
+.skill-item:nth-child(1) img { filter: sepia(0.5) saturate(1.5) hue-rotate(320deg); }
+.skill-item:nth-child(2) img { filter: sepia(0.5) saturate(1.2) hue-rotate(160deg); }
+.skill-item:nth-child(3) img { filter: sepia(0.5) saturate(1.5) hue-rotate(10deg); }
+
+.skill-item:hover img { opacity: 1; transform: scale(1.1); }
+
+/* --- FOOTER --- */
+#footer {
+    background-color: #2d4b69 !important;
+    color: #ffffff !important;
+    text-align: center;
+    padding: 50px 0;
+    margin-top: 80px;
+}
+
+#footer a { color: #fff; text-decoration: none; }
+.copyright { color: rgba(255, 255, 255, 0.6); margin-top: 20px; font-size: 0.8rem; }
 
 /* 戻るボタン */
 .back-home {
     display: inline-block;
-    margin-top: 50px;
     padding: 10px 30px;
     border: 1px solid var(--main-blue);
     color: var(--main-blue);
@@ -646,353 +235,11 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
     border-radius: 50px;
     transition: 0.3s;
 }
-.back-home:hover {
-    background: var(--main-blue);
-    color: #fff;
+.back-home:hover { background: var(--main-blue); color: #fff; }
+
+/* スマホ用設定 */
+@media screen and (max-width: 767px) {
+    .nav-menu { display: none; } /* ハンバーガーメニューJS実装用 */
+    .career-item { flex-direction: column; }
+    .career-date { margin-bottom: 10px; }
 }
-
-#contact { display: none; }
-
-
-
-/* スキル全体のレイアウト */
-.skills-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* アイコン同士の間隔 */
-    flex-wrap: wrap; /* スマホで縦に並ぶように */
-    margin-top: 50px;
-}
-
-.skill-item {
-    width: 200px; /* ひとつひとつの幅 */
-    text-align: center;
-}
-
-/* アイコンを大きく、安定させる設定 */
-.skill-item .img {
-    width: 100px;  /* ここで大きさを調整（前より大きくしました） */
-    height: 100px;
-    margin: 0 auto 20px; /* 下に余白を作る */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.skill-item img {
-    width: 100%;  /* 枠いっぱいに広げる */
-    height: auto;
-    /* ちかちか防止：複雑なfilterを一度リセット */
-    filter: none; 
-    transition: transform 0.3s ease; /* ふんわり動く設定 */
-}
-
-/* マウスを乗せた時に少しだけ大きくする（ちかちかしない程度の動き） */
-.skill-item:hover img {
-    transform: scale(1.1);
-}
-
-/* --- アイコン全体の設定（ちかちか防止） --- */
-.skill-item img {
-    width: 100%;
-    height: auto;
-    transition: all 0.3s ease;
-    filter: none; /* 一度フィルターをリセット */
-    opacity: 0.8; /* 少し透かすことで、蛍光色のキツさを抑えます */
-}
-
-/* --- アイコンごとの色設定（目に優しい色） --- */
-
-/* 左：Design (落ち着いたローズ) */
-.skill-item:nth-child(1) img {
-    filter: sepia(0.5) saturate(1.5) hue-rotate(320deg);
-}
-
-/* 真ん中：Coding (ここを優しいブルーグリーンに) */
-.skill-item:nth-child(2) img {
-    filter: sepia(0.5) saturate(1.2) hue-rotate(160deg);
-}
-
-/* 右：JavaScript (落ち着いたマスタード) */
-.skill-item:nth-child(3) img {
-    filter: sepia(0.5) saturate(1.5) hue-rotate(10deg);
-}
-
-/* マウスを乗せた時だけ、パキッと明るくする */
-.skill-item:hover img {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* ヘッダー全体のデザイン */
-.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 少し影をつけて境界を出す */
-}
-
-/* メニューの並び方 */
-.nav-menu ul {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 20px 0;
-    list-style: none;
-}
-
-/* リンク文字のデザイン */
-.nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    transition: color 0.3s;
-}
-
-/* マウスを乗せた時の色（Design Identityから1色選ぶと◎） */
-.nav-menu a:hover {
-    color: var(--main-blue);
-}
-
-/* 今いるページのリンクだけ色を変える */
-.nav-menu a.current {
-    color: var(--main-blue);
-}
-
-/* --- ヘッダー固定と色の統一 --- */
-.site-header {
-    position: fixed; /* 画面の一番上に固定 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95); /* 背後が少し透ける白 */
-    z-index: 1000; /* コンテンツより前面に */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 軽い影で境界を出す */
-}
-
-.header-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 70px; /* ヘッダーの高さを固定 */
-    display: flex;
-    justify-content: space-between; /* ロゴ左、ナビ右 */
-    align-items: center; /* 上下中央をぴったり合わせる */
-}
-
-/* ロゴのサイズ調整 */
-.site-logo img {
-    height: 30px; /* 大きすぎたロゴをシュッとさせました */
-    width: auto;
-    vertical-align: middle;
-}
-
-/* ナビのリンク色を本文の色（--main-blue）に合わせる */
-.nav-menu ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: var(--main-blue); /* 本文の色と統一 */
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    transition: opacity 0.3s;
-}
-
-.nav-menu a:hover {
-    opacity: 0.6; /* マウスを乗せた時にふわっとさせる */
-}
-
-/* 今見ているページの強調（about.htmlではABOUTに class="current" を付与） */
-.nav-menu a.current {
-    border-bottom: 2px solid var(--main-blue); /* 下線をつけて強調 */
-    padding-bottom: 4px;
-}
-
-/* メインコンテンツがヘッダーに隠れないようにする */
-main {
-    padding-top: 100px; /* ヘッダーの高さ分、コンテンツを下げる */
-}
-
-/* --- 2. ヘッダー・ナビを右寄せに固定 --- */
-.header-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between; /* これでロゴは左、ナビは右に固定されます */
-    align-items: center;
-    height: 70px;
-    padding: 0 20px;
-}
-
-.nav-menu ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-/* ナビの色を本文の青（--main-blue）に統一 */
-.nav-menu a {
-    text-decoration: none;
-    color: var(--main-blue); 
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-/* --- メインビジュアル内のロゴを白くする --- */
-#mainvisual .mv-logo {
-    filter: brightness(0) invert(1); /* 黒いロゴ画像を白く反転 */
-    width: 120px;
-    height: auto;
-}
-
-/* タイムラインのドットを5色でループさせる */
-
-/* 1番目：ローズピンク */
-.timeline li:nth-child(5n+1)::before {
-    background-color: #E296B5;
-}
-
-/* 2番目：リーフグリーン */
-.timeline li:nth-child(5n+2)::before {
-    background-color: #99C35F;
-}
-
-/* 3番目：スカイブルー */
-.timeline li:nth-child(5n+3)::before {
-    background-color: #6FB2E3;
-}
-
-/* 4番目：コーラルオレンジ */
-.timeline li:nth-child(5n+4)::before {
-    background-color: #F38450;
-}
-
-/* 5番目：ミントグリーン */
-.timeline li:nth-child(5n+5)::before {
-    
-
-/* --- タイムラインのドットをmihoさんの5色でループさせる --- */
-
-/* 1番目：ローズピンク */
-.career-item:nth-child(5n+1)::before {
-    background-color: #E597B9 !important;
-}
-
-/* 2番目：リーフグリーン */
-.career-item:nth-child(5n+2)::before {
-    background-color: #99C361 !important;
-}
-
-/* 3番目：スカイブルー */
-.career-item:nth-child(5n+3)::before {
-    background-color: #6EB1E4 !important;
-}
-
-/* 4番目：コーラルオレンジ */
-.career-item:nth-child(5n+4)::before {
-    background-color: #F48451 !important;
-}
-
-/* 5番目：ロイヤルブルー (またはミントグリーン) */
-.career-item:nth-child(5n+5)::before {
-    background-color: #2D59A3 !important; 
-}
-
-/* 左側の縦線の色も、少し薄いグレーにするとドットが引き立ちます */
-.career-item {
-    border-left: 3px solid #eee; 
-}
-
-/* =================================================
-   ABOUTページ：経歴タイムラインのカラフル設定
-   ================================================== */
-
-/* 1. 縦線の色を薄くしてドットを引き立てる */
-.career-timeline .career-item {
-    border-left: 3px solid #eee !important;
-    margin-bottom: 40px; /* 少し間隔を広げるとより綺麗です */
-}
-
-/* 2. ドットをmihoさんの5色パレットでループさせる */
-
-/* 1番目：ローズピンク */
-.career-item:nth-child(5n+1)::before {
-    background-color: #E597B9 !important;
-}
-
-/* 2番目：リーフグリーン */
-.career-item:nth-child(5n+2)::before {
-    background-color: #99C361 !important;
-}
-
-/* 3番目：スカイブルー */
-    .career-item:nth-child(5n+3)::before {
-    background-color: #6EB1E4 !important;
-}
-
-/* 4番目：コーラルオレンジ */
-.career-item:nth-child(5n+4)::before {
-    background-color: #F48451 !important;
-}
-
-/* 5番目：ロイヤルブルー */
-.career-item:nth-child(5n+5)::before {
-    background-color: #2D59A3 !important;
-}
-
-/* 3. 以前の古い設定や途切れた記述の干渉を防ぐためのリセット */
-.timeline li::before { display: none !important; }
-
-/* =================================================
-   ABOUTページ：STORYセクションをカラフルにする
-   ================================================== */
-
-/* 1. 左側の縦線を細く・薄くして、ドットを際立たせる */
-.career-timeline .career-item {
-    border-left: 2px solid #eee !important;
-    padding-left: 30px;
-    margin-bottom: 50px;
-}
-
-/* 2. ドットの色と、日付（.career-date）の色を5色でループさせる */
-
-/* 1つ目：ローズピンク */
-.career-item:nth-child(5n+1)::before { background-color: #E597B9 !important; }
-.career-item:nth-child(5n+1) .career-date { color: #E597B9 !important; }
-
-/* 2つ目：リーフグリーン */
-.career-item:nth-child(5n+2)::before { background-color: #99C361 !important; }
-.career-item:nth-child(5n+2) .career-date { color: #99C361 !important; }
-
-/* 3つ目：スカイブルー */
-.career-item:nth-child(5n+3)::before { background-color: #6EB1E4 !important; }
-.career-item:nth-child(5n+3) .career-date { color: #6EB1E4 !important; }
-
-/* 4つ目：コーラルオレンジ */
-.career-item:nth-child(5n+4)::before { background-color: #F48451 !important; }
-.career-item:nth-child(5n+4) .career-date { color: #F48451 !important; }
-
-/* 5つ目：ロイヤルブルー */
-.career-item:nth-child(5n+5)::before { background-color: #2D59A3 !important; }
-.career-item:nth-child(5n+5) .career-date { color: #2D59A3 !important; }
-
-/* ドットの大きさや位置の微調整 */
-.career-item::before {
-    left: -11px; /* 線の太さに合わせて位置調整 */
-    width: 19px;
-    height: 19px;
-    top: 4px;
-}
-
-
