@@ -880,7 +880,38 @@ main {
 
 /* 5番目：ミントグリーン */
 .timeline li:nth-child(5n+5)::before {
-    background-color: #A7D6CA;
+    
+
+/* --- タイムラインのドットをmihoさんの5色でループさせる --- */
+
+/* 1番目：ローズピンク */
+.career-item:nth-child(5n+1)::before {
+    background-color: #E597B9 !important;
+}
+
+/* 2番目：リーフグリーン */
+.career-item:nth-child(5n+2)::before {
+    background-color: #99C361 !important;
+}
+
+/* 3番目：スカイブルー */
+.career-item:nth-child(5n+3)::before {
+    background-color: #6EB1E4 !important;
+}
+
+/* 4番目：コーラルオレンジ */
+.career-item:nth-child(5n+4)::before {
+    background-color: #F48451 !important;
+}
+
+/* 5番目：ロイヤルブルー (またはミントグリーン) */
+.career-item:nth-child(5n+5)::before {
+    background-color: #2D59A3 !important; 
+}
+
+/* 左側の縦線の色も、少し薄いグレーにするとドットが引き立ちます */
+.career-item {
+    border-left: 3px solid #eee; 
 }
 
 
