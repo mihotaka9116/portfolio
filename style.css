@@ -1036,3 +1036,63 @@ main {
         left: -21px;
     }
 }
+
+/* --- タイムライン：アイコンと丸の最終調整 --- */
+
+/* 1. 縦線と全体の余白を調整 */
+.career-timeline .career-item {
+    border-left: 3px solid #eee !important; /* 線を少し太く */
+    padding-left: 50px !important;         /* テキストを右に寄せて重なり防止 */
+    margin-bottom: 70px !important;
+    position: relative;
+}
+
+/* 2. 丸のサイズと形を強制固定 */
+.career-item::before {
+    content: "";
+    position: absolute;
+    left: -26px !important;  /* 線の位置に合わせる (-width/2 - 線幅) */
+    top: 0 !important;
+    width: 50px !important;   /* 前よりさらに大きく */
+    height: 50px !important;  /* 前よりさらに大きく */
+    border-radius: 50% !important; /* 強制的に正円にする */
+    background-size: 65% !important; /* アイコンを丸の65%の大きさに（四角い端が隠れる） */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border: 3px solid #fff !important; /* 白い枠を太くしてクッキリさせる */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+    z-index: 10 !important;
+}
+
+/* 3. 各アイコンの背景色と画像（!importantで古い設定を無効化） */
+.career-item:nth-child(1)::before {
+    background-color: #E597B9 !important;
+    background-image: url("cupcake.svg") !important;
+}
+
+.career-item:nth-child(2)::before {
+    background-color: #99C361 !important;
+    background-image: url("tyaki.svg") !important;
+}
+
+.career-item:nth-child(3)::before {
+    background-color: #6EB1E4 !important;
+    background-image: url("woman.svg") !important;
+}
+
+/* 日付の位置を調整 */
+.career-date {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* スマホ用の微調整（さらにズレを防ぐ） */
+@media screen and (max-width: 767px) {
+    .career-timeline .career-item {
+        padding-left: 55px !important;
+    }
+    .career-item::before {
+        left: -26px !important;
+    }
+}
