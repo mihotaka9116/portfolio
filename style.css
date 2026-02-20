@@ -856,31 +856,6 @@ main {
     height: auto;
 }
 
-/* タイムラインのドットを5色でループさせる */
-
-/* 1番目：ローズピンク */
-.timeline li:nth-child(5n+1)::before {
-    background-color: #E296B5;
-}
-
-/* 2番目：リーフグリーン */
-.timeline li:nth-child(5n+2)::before {
-    background-color: #99C35F;
-}
-
-/* 3番目：スカイブルー */
-.timeline li:nth-child(5n+3)::before {
-    background-color: #6FB2E3;
-}
-
-/* 4番目：コーラルオレンジ */
-.timeline li:nth-child(5n+4)::before {
-    background-color: #F38450;
-}
-
-/* 5番目：ミントグリーン */
-.timeline li:nth-child(5n+5)::before {
-    
 
 /* --- タイムラインのドットをmihoさんの5色でループさせる --- */
 
