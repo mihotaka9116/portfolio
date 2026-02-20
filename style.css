@@ -933,3 +933,52 @@ main {
 .nav-menu a:hover::after {
     transform: scaleX(1);  /* マウスを乗せると100%の長さに */
 }
+
+/* --- タイムラインの丸にアイコンを入れる設定 --- */
+
+.career-item::before {
+    content: "";
+    position: absolute;
+    left: -11px;
+    top: 4px;
+    width: 24px; /* アイコンが見えやすいよう少し大きくしました */
+    height: 24px;
+    border-radius: 50%;
+    z-index: 2;
+    background-size: 70%; /* アイコンの大きさを調整 */
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid white; /* 縁取りをつけるとアイコンが引き立ちます */
+}
+
+/* 1番目：物語の原点 (カップケーキ) */
+.career-item:nth-child(1)::before {
+    background-color: #E597B9 !important;
+    background-image: url("cupcake.svg");
+}
+
+/* 2番目：学生時代 (茶器) */
+.career-item:nth-child(2)::before {
+    background-color: #99C361 !important;
+    background-image: url("tyaki.svg");
+}
+
+/* 3番目：2017 - 2025 (女性/コールセンター) */
+.career-item:nth-child(3)::before {
+    background-color: #6EB1E4 !important;
+    background-image: url("woman.svg");
+    background-size: 60%; /* woman.svgだけ少し小さくしたい場合はここで調整 */
+}
+
+/* 縦線の位置を、少し大きな丸に合わせて微調整 */
+.career-timeline .career-item {
+    border-left: 2px solid #eee !important;
+    padding-left: 35px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* 縦線の起点を調整（丸の中心を通るように） */
+.career-item::before {
+    left: -13px; 
+}
