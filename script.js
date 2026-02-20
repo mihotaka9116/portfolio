@@ -56,3 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+window.addEventListener('scroll', function() {
+  const fadeUp = document.querySelectorAll('.js-fade-up');
+  
+  for (let i = 0; i < fadeUp.length; i++) {
+    const info = fadeUp[i].getBoundingClientRect(); // 要素の位置を取得
+    const triggerPoint = 150; // 画面下からどのくらいで発動させるか
+
+    if (info.top < window.innerHeight - triggerPoint) {
+      fadeUp[i].classList.add('is-show');
+    }
+  }
+});
