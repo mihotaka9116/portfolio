@@ -1445,3 +1445,47 @@ section h2 + p,
 .profile-intro h2 {
     text-align: center;
 }
+
+/* --- セクションタイトルと本文をすべて中央寄せ --- */
+
+/* 1. タイトル(h2)と、その直後の説明文を中央へ */
+section h2, 
+#concept h2, 
+#story h2, 
+#skill h2, 
+#work h2, 
+#contact h2 {
+    text-align: center !important;
+    width: 100%;
+}
+
+/* 2. セクション内のリード文（「私について」などの日本語部分） */
+section h2 + p,
+.profile-intro p {
+    text-align: center !important;
+    max-width: 700px; /* 読みやすい幅に制限 */
+    margin: 0 auto 40px !important; /* 中央に配置し、下に余白を作る */
+}
+
+/* 3. CONCEPTセクションのメインテキスト */
+#concept .concept-text, 
+#concept p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 4. SKILLセクションの導入文 */
+.skills-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 文章ブロックを中央に寄せつつ、文字は読みやすく左揃えにする場合 */
+.career-content p, 
+#concept p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* 文字の開始位置を揃える */
+}
