@@ -1579,3 +1579,24 @@ main {
 .career-item::before {
     image-rendering: -webkit-optimize-contrast; /* 拡大時のボケを抑える */
 }
+
+@media screen and (max-width: 767px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 最初は画面の右に隠しておく */
+    width: 100%;
+    height: 100vh;
+    background: rgba(45, 75, 105, 0.95);
+    transition: all 0.5s;
+    display: flex !important; /* display: none は絶対に使わない */
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  /* JSでactiveがついたら、右からスライドしてくる */
+  .nav-menu.active {
+    right: 0;
+  }
+}
