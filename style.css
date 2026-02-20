@@ -1159,3 +1159,44 @@ main {
         height: 55px !important;
     }
 }
+
+/* --- STORYセクション：スマホ表示の最適化 --- */
+
+@media screen and (max-width: 767px) {
+    /* 1. タイムライン全体の余白を広げる */
+    .career-timeline {
+        padding: 20px 10px !important;
+    }
+
+    /* 2. 縦線と文章の間隔をさらに広げる（アイコンが被らないように） */
+    .career-timeline .career-item {
+        padding-left: 65px !important; /* ここを広げて文字を右に逃がす */
+        margin-bottom: 50px !important;
+        border-left: 2px solid #eee !important;
+    }
+
+    /* 3. スマホではアイコンを少しだけ小さく（50px）してスッキリさせる */
+    .career-item::before {
+        width: 50px !important;
+        height: 50px !important;
+        left: -26px !important; /* 丸のサイズの半分をマイナスにする */
+        top: -5px !important;   /* 文字の高さに合わせる */
+    }
+
+    /* 4. タイトル（h4）や日付が窮屈にならないように調整 */
+    .career-content h4 {
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+        margin-top: 5px;
+    }
+
+    .career-date {
+        font-size: 0.85rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    .career-content p {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+    }
+}
