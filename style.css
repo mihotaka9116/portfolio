@@ -1204,3 +1204,53 @@ main {
         padding: 0 15px;
     }
 }
+
+/* --- 2. STORYセクション（PC：横並び） --- */
+.career-timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 0; /* 上下の余白を少し増やしました */
+}
+
+.career-timeline .career-item {
+  border-left: 3px solid #eee !important; /* 線を少しだけ太くして安定感を */
+  padding-left: 70px !important;  /* アイコンが大きくなった分、文字をさらに右へ */
+  margin-bottom: 90px !important; /* アイコン同士の間隔を広く */
+  position: relative;
+  min-height: 100px; /* アイコンがはみ出さないよう高さを確保 */
+}
+
+/* PC用アイコン設定（さらに大きく調整） */
+.career-item::before {
+  content: "";
+  position: absolute;
+  /* アイコンサイズ 80px の半分(40px) + 線幅の半分 くらいをマイナスに設定 */
+  left: -41.5px !important; 
+  top: -10px !important;
+  
+  width: 80px !important;  /* 60pxから80pxへサイズアップ */
+  height: 80px !important;
+  
+  background-color: transparent !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  
+  /* アイコンをくっきりさせる影 */
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+  z-index: 10 !important;
+  transition: transform 0.3s ease; /* ホバー時の動き用 */
+}
+
+/* マウスを乗せた時に少し浮かせる演出（お好みで） */
+.career-item:hover::before {
+  transform: scale(1.1);
+}
+
+/* アイコン画像の割り当て */
+.career-item:nth-child(1)::before { background-image: url("cupcake.svg") !important; }
+.career-item:nth-child(2)::before { background-image: url("tyaki.svg") !important; }
+.career-item:nth-child(3)::before { background-image: url("woman.svg") !important; }
