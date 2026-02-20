@@ -1417,3 +1417,31 @@ main {
 .skill-item:nth-child(3):hover img {
     filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
 }
+
+/* --- セクションタイトルをすべて中央寄せ --- */
+
+/* h2タグ（CONCEPT, STORY, SKILL, WORK, CONTACTなど） */
+section h2, 
+#concept h2, 
+#story h2, 
+#skills h2, 
+#work h2, 
+#contact h2,
+.about-section h2 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+}
+
+/* タイトルの下にある日本語のサブタイトル（もしあれば） */
+section h2 + p,
+.section-title + p {
+    text-align: center !important;
+    margin-bottom: 40px;
+}
+
+/* STORYセクション（ABOUTページ）のタイトルを囲む要素がある場合 */
+.profile-intro h2 {
+    text-align: center;
+}
