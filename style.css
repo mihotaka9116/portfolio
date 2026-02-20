@@ -1373,3 +1373,47 @@ main {
     transform: scale(1.1);
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)) !important;
 }
+
+/* --- 5. SKILL アイコン：色を固定して影だけ追加 --- */
+
+.skill-item img {
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    opacity: 1 !important;
+}
+
+/* 各アイコンの色設定（ホバー時もこの色を維持します） */
+
+/* 1つ目：Design */
+.skill-item:nth-child(1) img {
+    filter: saturate(1.5) !important; 
+}
+
+/* 2つ目：Coding */
+.skill-item:nth-child(2) img {
+    filter: hue-rotate(140deg) saturate(1.5) !important; 
+}
+
+/* 3つ目：JavaScript */
+.skill-item:nth-child(3) img {
+    filter: hue-rotate(200deg) saturate(1.5) !important;
+}
+
+/* --- ホバー設定：色（filter）はそのまま、変形と影だけ加える --- */
+.skill-item:hover img {
+    transform: scale(1.1);
+}
+
+/* ホバーした時も、各アイコンに設定した filter を消さないように個別に影を追加 */
+.skill-item:nth-child(1):hover img {
+    filter: saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
+}
+
+.skill-item:nth-child(2):hover img {
+    filter: hue-rotate(140deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
+}
+
+.skill-item:nth-child(3):hover img {
+    filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
+}
