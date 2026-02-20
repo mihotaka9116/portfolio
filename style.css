@@ -1160,43 +1160,47 @@ main {
     }
 }
 
-/* --- STORYセクション：スマホ表示の最適化 --- */
-
+/* --- STORYセクション：スマホで縦並びにする --- */
 @media screen and (max-width: 767px) {
-    /* 1. タイムライン全体の余白を広げる */
-    .career-timeline {
-        padding: 20px 10px !important;
-    }
-
-    /* 2. 縦線と文章の間隔をさらに広げる（アイコンが被らないように） */
+    /* 1. 左側の縦線を消してスッキリさせる */
     .career-timeline .career-item {
-        padding-left: 65px !important; /* ここを広げて文字を右に逃がす */
-        margin-bottom: 50px !important;
-        border-left: 2px solid #eee !important;
+        border-left: none !important;
+        padding-left: 0 !important;
+        margin-bottom: 60px !important;
+        display: flex;
+        flex-direction: column; /* 縦並びに変更 */
+        align-items: center;    /* 中央寄せ */
+        text-align: center;      /* 文章も中央寄せ */
     }
 
-    /* 3. スマホではアイコンを少しだけ小さく（50px）してスッキリさせる */
+    /* 2. アイコンを文章の上に配置 */
     .career-item::before {
-        width: 50px !important;
-        height: 50px !important;
-        left: -26px !important; /* 丸のサイズの半分をマイナスにする */
-        top: -5px !important;   /* 文字の高さに合わせる */
+        position: static !important; /* 固定位置を解除 */
+        margin-bottom: 20px !important; /* アイコン下の余白 */
+        width: 80px !important;  /* スマホで見栄えがするように少し大きく */
+        height: 80px !important;
+        display: block;
     }
 
-    /* 4. タイトル（h4）や日付が窮屈にならないように調整 */
-    .career-content h4 {
-        font-size: 1rem !important;
-        line-height: 1.4 !important;
-        margin-top: 5px;
-    }
-
+    /* 3. 日付とタイトルの調整 */
     .career-date {
-        font-size: 0.85rem !important;
-        margin-bottom: 2px !important;
+        display: block;
+        font-size: 0.9rem !important;
+        margin-bottom: 10px !important;
+        color: var(--main-blue);
     }
 
+    .career-content h4 {
+        font-size: 1.2rem !important;
+        margin-bottom: 15px !important;
+        padding: 0 10px;
+    }
+
+    /* 4. 本文の調整 */
     .career-content p {
-        font-size: 0.85rem !important;
-        line-height: 1.6 !important;
+        text-align: left; /* 文章だけは左揃えが読みやすいです */
+        font-size: 0.9rem !important;
+        line-height: 1.8 !important;
+        padding: 0 15px;
     }
 }
