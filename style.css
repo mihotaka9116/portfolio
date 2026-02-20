@@ -1749,4 +1749,32 @@ main {
     padding: 80px 0;
 }
 
-/* #contact { display: none; } */ の
+/* #contact { display: none; } */ 
+
+/* --- メインコンテンツを強制的に表示させる --- */
+main {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* フェードイン待ちで止まっている要素をすべて解除 */
+.js-fade-up, 
+.career-item, 
+.skill-item, 
+.profile-intro {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    display: block !important; /* または flex (要素に合わせて) */
+}
+
+/* CONTACTセクションが消える設定を上書き */
+#contact {
+    display: block !important;
+}
+
+/* コンテンツがヘッダーの下に潜り込まないように余白を確保 */
+.container {
+    margin-top: 80px; 
+}
