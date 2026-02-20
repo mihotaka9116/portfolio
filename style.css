@@ -13,18 +13,19 @@ body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.8;
   overflow-x: hidden;
+  width: 100%;
 }
 
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 統合ヘッダー設定 --- */
+/* --- 2. ヘッダー・ナビゲーション --- */
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95); /* 少し濃くして文字を読みやすく */
+    background: rgba(255, 255, 255, 0.95);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -33,1201 +34,118 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
-    height: 70px; /* ヘッダーの高さを固定 */
-    display: flex;
-    justify-content: space-between; /* ロゴを左、ナビを右 */
-    align-items: center;           /* ★上下中央をぴったり合わせる */
-}
-
-/* ロゴのサイズ調整（ここが重要！） */
-.site-logo {
-    display: flex;
-    align-items: center;
-    margin: 0;
-}
-
-.site-logo a {
-    display: block;
-    line-height: 0; /* 画像の周りの余計な隙間を消す */
-}
-
-.site-logo img {
-    height: 35px; /* ★ここでロゴの大きさを自由に調整してください */
-    width: auto;
-    transition: opacity 0.3s;
-}
-
-.site-logo img:hover {
-    opacity: 0.7;
-}
-
-/* デスクトップ用ナビゲーション */
-.nav-menu ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-/* --- ハンバーガーメニュー（スマホ用） --- */
-.hamburger-menu {
-    display: none; /* デスクトップでは隠す */
-    cursor: pointer;
-    z-index: 1001;
-    width: 30px;
-    height: 20px;
-    position: relative;
-}
-
-.hamburger-menu span {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: var(--main-blue);
-    transition: all 0.3s;
-}
-
-.hamburger-menu span:nth-child(1) { top: 0; }
-.hamburger-menu span:nth-child(2) { top: 9px; }
-.hamburger-menu span:nth-child(3) { top: 18px; }
-
-/* --- スマホ用レスポンシブ設定 --- */
-@media screen and (max-width: 767px) {
-    .header-container {
-        height: 60px; /* スマホではヘッダーを少しスリムに */
-    }
-
-    .site-logo img {
-        height: 28px; /* スマホではロゴも少し小さく */
-    }
-
-    .hamburger-menu {
-        display: block; /* スマホで三本線を表示 */
-    }
-
-    /* スマホ用メニュー（右からスライドイン） */
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%; /* 初期状態は画面外 */
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(45, 75, 105, 0.98);
-        z-index: 999;
-        transition: 0.5s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nav-menu.active {
-        right: 0; /* JSでactiveクラスがつくと表示 */
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .nav-menu a {
-        color: #fff;
-        font-size: 1.5rem;
-    }
-}
-/* --- 3. デザインシステム（5色の丸） --- */
-.apple-colors {
-  padding: 80px 0;
-  background-color: #f4f7f9;
-  text-align: center;
-}
-.color-flex-box {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-.color-ball {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin: 0 auto 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease; /* 浮き上がるアニメーション */
-}
-.color-ball:hover { transform: translateY(-10px); }
-
-/* 色指定 */
-.c-rose   { background-color: #E296B5; }
-.c-green  { background-color: #99C35F; }
-.c-sky    { background-color: #6FB2E3; }
-.c-orange { background-color: #F38450; }
-.c-royal  { background-color: #2D59A4; }
-
-/* --- 4. CONCEPT（画像の巨大化防止） --- */
-#concept { padding: 80px 0; text-align: center; }
-#concept .img { max-width: 300px; margin: 0 auto 30px; } /* ここでサイズを固定 */
-#concept .img img { border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-/* --- 5. SKILL（アイコンの色と浮き上がり） --- */
-.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 0; }
-.skill-item {
-  flex: 1; min-width: 200px; max-width: 250px; text-align: center;
-  padding: 20px; border-radius: 10px; border: 1px solid #eee;
-  transition: all 0.3s ease;
-}
-.skill-item:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-
-.skill-item img {
-  width: 40px; margin-bottom: 15px;
-  /* アイコンを文字色の青にする魔法のフィルタ */
-  filter: invert(49%) sepia(16%) saturate(1484%) hue-rotate(167deg) brightness(89%) contrast(85%);
-}
-
-/* --- 6. WORK --- */
-.goods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-.image-wrap { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-.image-wrap img { width: 100%; height: 200px; object-fit: cover; }
-
-#footer {
-  /* 背景をメインビジュアルと同じ深い紺色に */
-  background-color: #2d4b69 !important; 
-  
-  /* 文字を白くして読みやすく */
-  color: #ffffff !important;
-  
-  text-align: center;
-  padding: 50px 0;
-  margin-top: 80px;
-}
-
-/* フッター内のリンク（プライバシーポリシーなど）も白くする */
-#footer a {
-  color: #ffffff !important;
-  text-decoration: none;
-  opacity: 0.8;
-  transition: 0.3s;
-}
-
-#footer a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-/* フッターのロゴ（tlogo.svg）を白く反転させる場合 */
-#footer .logo img {
-  filter: brightness(0) invert(1);
-  width: 100px;
-  margin-bottom: 20px;
-}
-
-/* コピーライトの文字色調整 */
-.copyright {
-  color: rgba(255, 255, 255, 0.6) !important;
-  margin-top: 20px;
-}
-/* --- CONTACTセクション全体 --- */
-#contact {
-  padding: 80px 0;
-  background-color: #fff;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1); /* ほんのり青い影 */
-}
-
-/* 各入力項目のまとまり */
-.form-item {
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-/* ラベルのデザイン */
-.form-item label {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--main-blue);
-  margin-bottom: 8px;
-}
-
-/* 入力欄（一行＆複数行共通） */
-.form-item input[type="text"],
-.form-item input[type="email"],
-.form-item textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 2px solid #e0e7ed;
-  border-radius: 6px;
-  background-color: #fcfdfe;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-/* 入力中（フォーカス時）の演出 */
-.form-item input:focus,
-.form-item textarea:focus {
-  border-color: var(--main-blue);
-  background-color: #fff;
-  box-shadow: 0 0 8px rgba(70, 130, 180, 0.2);
-}
-
-/* メッセージ入力欄の高さ調整 */
-.form-item textarea {
-  min-height: 150px;
-  resize: vertical; /* ユーザーが縦に広げられるようにする */
-}
-
-/* 同意チェックボックス部分 */
-.agreement-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 30px 0;
-  font-size: 0.85rem;
-}
-
-.agreement-item input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* 送信ボタンのブラッシュアップ */
-.submit-btn {
-  display: block;
-  width: 100%; /* スマホでも押しやすい全幅 */
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 16px 0;
-  background-color: var(--main-blue);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  border: none;
-  border-radius: 50px; /* 丸みのあるボタン */
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(70, 130, 180, 0.3);
-}
-
-.submit-btn:hover {
-  background-color: var(--hover-gray);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(70, 130, 180, 0.4);
-}
-
-/* 追加：ミントグリーンの色指定 */
-.c-mint { background-color: #A7D6CA !important; }
-
-/* 表全体のスタイル */
-.color-details-table {
-  max-width: 900px;
-  margin: 60px auto 0;
-  border-top: 2px solid var(--main-blue);
-  background: #fff;
-}
-
-.detail-header, .detail-row {
-  display: grid;
-  grid-template-columns: 100px 60px 120px 1fr;
-  padding: 15px 20px;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-}
-
-.detail-header {
-  background-color: #f8fabb; /* 表の見出しに少し色をつける */
-  font-weight: bold;
-  font-size: 0.85rem;
-  color: var(--main-blue);
-}
-
-.detail-row {
-  font-size: 0.9rem;
-  transition: background-color 0.2s;
-}
-
-.detail-row:hover {
-  background-color: #fcfdfe; /* マウスを乗せると少し色が変わる */
-}
-
-.chip {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* スマホ用の表示調整 */
-@media screen and (max-width: 767px) {
-  .detail-header { display: none; }
-  .detail-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 20px;
-  }
-  .char-col { font-weight: bold; color: var(--main-blue); }
-  .code-col { text-align: right; font-family: monospace; }
-  .desc-col { grid-column: 1 / 3; border-top: 1px dashed #eee; padding-top: 10px; margin-top: 5px; color: #666; }
-}
-
-/* ロゴと完全一致させた最新カラーパレット */
-.c-rose   { background-color: #E597B9 !important; }
-.c-green  { background-color: #99C361 !important; }
-.c-sky    { background-color: #6EB1E4 !important; }
-.c-mint   { background-color: #B7E2D8 !important; }
-.c-orange { background-color: #F48451 !important; }
-.c-royal  { background-color: #2D59A3 !important; }
-
-/* --- ハンバーガーメニューのスタイル追加 --- */
-.hamburger-menu {
-  display: none; /* デスクトップでは隠す */
-  cursor: pointer;
-  z-index: 9999;
-  position: relative;
-  width: 30px;
-  height: 24px;
-}
-
-.hamburger-menu span {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: var(--main-blue); /* 三本線の色 */
-  transition: all 0.3s;
-}
-
-.hamburger-menu span:nth-child(1) { top: 0; }
-.hamburger-menu span:nth-child(2) { top: 11px; }
-.hamburger-menu span:nth-child(3) { top: 22px; }
-
-/* スマホ用のレスポンシブ設定 */
-@media screen and (max-width: 767px) {
-  #header {
-    padding: 15px 20px; /* 左右に余白を作る（隙間対策） */
-    margin: 0;
-    width: 100%;
-  }
-
-  .hamburger-menu {
-    display: block; /* スマホで表示 */
-  }
-
-  .nav-menu {
-    display: none; /* JSで制御するまで隠す、または簡易的に非表示 */
-  }
-}
-
-/* --- メインビジュアルのテキストを白に --- */
-#mainvisual p {
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-top: 15px;
-}
-
-/* SCROLL部分も白にする場合 */
-.scrolldown span {
-  color: #ffffff;
-}
-.scrolldown::after {
-  background-color: #ffffff; /* 線の色 */
-}
-
-/* --- 隙間対策の強化 --- */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  position: relative;
-}
-
-#header, #mainvisual, main, footer {
-  width: 100%;
-}
-
-/* --- スマホ用メニューの表示設定 --- */
-@media screen and (max-width: 767px) {
-  /* メニューの初期状態：右側に隠す */
-  #js-nav {
-    position: fixed;
-    top: 0;
-    right: -100%; /* 画面の外に隠す */
-    width: 100%;  /* 画面いっぱい */
-    height: 100vh;
-    background-color: rgba(45, 75, 105, 0.95); /* 背景色 */
-    z-index: 999; /* ヘッダーより背面に、コンテンツより前面に */
-    transition: all 0.5s ease; /* スライドのアニメーション */
-    
-    /* 中身を中央寄せにする */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* JSで 'active' クラスがついた時：画面に現れる */
-  #js-nav.active {
-    right: 0;
-  }
-
-  /* メニュー内のリストを縦並びにする */
-  #js-nav ul {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #js-nav li {
-    margin: 20px 0;
-  }
-
-  #js-nav a {
-    color: #fff;
-    font-size: 1.5rem;
-  }
-}
-
-/* --- スクロールダウン：線が伸びるアニメーション --- */
-.scrolldown {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff; /* 文字を白に */
-  padding-bottom: 60px; /* 線の長さを確保 */
-}
-
-/* 縦線のベース */
-.scrolldown::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 1px;       /* 線の太さ */
-  height: 50px;     /* 線の長さ */
-  background: #fff; /* 線の色（白） */
-  transform: translateX(-50%);
-  animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
-}
-
-/* 伸びる動きのアニメーション設定 */
-@keyframes scroll-line {
-  0% {
-    transform: scale(1, 0) translateX(-50%);
-    transform-origin: 0 0;
-  }
-  50% {
-    transform: scale(1, 1) translateX(-50%);
-    transform-origin: 0 0;
-  }
-  50.1% {
-    transform: scale(1, 1) translateX(-50%);
-    transform-origin: 0 100%;
-  }
-  100% {
-    transform: scale(1, 0) translateX(-50%);
-    transform-origin: 0 100%;
-  }
-}
-
-/* 1. 親要素に基準点を作る */
-#mainvisual {
-  position: relative; /* ★これがないと、線がフッターまで逃げてしまいます */
-  height: 65vh;
-  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69 url("logo.svg") repeat;
-  background-size: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* 線がはみ出して隙間を作るのを防ぐ */
-}
-
-/* 2. 線の位置を微調整 */
-.scrolldown {
-  position: absolute;
-  bottom: 20px; /* #mainvisual の下から20pxの位置に固定 */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;   /* 他の要素より上に表示 */
-}
-
-.scrolldown span {
-  display: block;
-  color: #fff;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  margin-bottom: 5px; /* 線との距離 */
-}
-
-img.logo { /* ロゴのクラス名に合わせて変更してください */
-  image-rendering: -webkit-optimize-contrast; /* Safariでのコントラスト調整 */
-  shape-rendering: geometricPrecision;       /* 図形の描画精度を高める */
-}
-
-/* --- 7. ABOUTページ専用：経歴セクション --- */
-.profile-intro {
-    max-width: 700px;
-    margin: 0 auto 60px;
-    text-align: center;
-}
-
-.career-timeline {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-.career-item {
-    display: flex;
-    margin-bottom: 30px;
-    border-left: 3px solid var(--main-blue);
-    padding-left: 25px;
-    position: relative;
-}
-
-/* タイムラインの点 */
-.career-item::before {
-    content: "";
-    position: absolute;
-    left: -9px;
-    top: 0;
-    width: 15px;
-    height: 15px;
-    background: var(--main-blue);
-    border-radius: 50%;
-}
-
-.career-date {
-    font-weight: bold;
-    min-width: 120px;
-    color: var(--main-blue);
-}
-
-.career-content h4 {
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.career-content p {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* 戻るボタン */
-.back-home {
-    display: inline-block;
-    margin-top: 50px;
-    padding: 10px 30px;
-    border: 1px solid var(--main-blue);
-    color: var(--main-blue);
-    text-decoration: none;
-    border-radius: 50px;
-    transition: 0.3s;
-}
-.back-home:hover {
-    background: var(--main-blue);
-    color: #fff;
-}
-
-/* スキル全体のレイアウト */
-.skills-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* アイコン同士の間隔 */
-    flex-wrap: wrap; /* スマホで縦に並ぶように */
-    margin-top: 50px;
-}
-
-.skill-item {
-    width: 200px; /* ひとつひとつの幅 */
-    text-align: center;
-}
-
-/* アイコンを大きく、安定させる設定 */
-.skill-item .img {
-    width: 100px;  /* ここで大きさを調整（前より大きくしました） */
-    height: 100px;
-    margin: 0 auto 20px; /* 下に余白を作る */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.skill-item img {
-    width: 100%;  /* 枠いっぱいに広げる */
-    height: auto;
-    /* ちかちか防止：複雑なfilterを一度リセット */
-    filter: none; 
-    transition: transform 0.3s ease; /* ふんわり動く設定 */
-}
-
-/* マウスを乗せた時に少しだけ大きくする（ちかちかしない程度の動き） */
-.skill-item:hover img {
-    transform: scale(1.1);
-}
-
-/* --- アイコン全体の設定（ちかちか防止） --- */
-.skill-item img {
-    width: 100%;
-    height: auto;
-    transition: all 0.3s ease;
-    filter: none; /* 一度フィルターをリセット */
-    
-}
-
-/* --- アイコンごとの色設定（目に優しい色） --- */
-
-/* 左：Design (落ち着いたローズ) */
-.skill-item:nth-child(1) img {
-    filter: sepia(0.5) saturate(1.5) hue-rotate(320deg);
-}
-
-/* 真ん中：Coding (ここを優しいブルーグリーンに) */
-.skill-item:nth-child(2) img {
-    filter: sepia(0.5) saturate(1.2) hue-rotate(160deg);
-}
-
-/* 右：JavaScript (落ち着いたマスタード) */
-.skill-item:nth-child(3) img {
-    filter: sepia(0.5) saturate(1.5) hue-rotate(10deg);
-}
-
-/* マウスを乗せた時だけ、パキッと明るくする */
-.skill-item:hover img {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* ヘッダー全体のデザイン */
-.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 少し影をつけて境界を出す */
-}
-
-/* メニューの並び方 */
-.nav-menu ul {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 20px 0;
-    list-style: none;
-}
-
-/* リンク文字のデザイン */
-.nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    transition: color 0.3s;
-}
-
-/* マウスを乗せた時の色（Design Identityから1色選ぶと◎） */
-.nav-menu a:hover {
-    color: var(--main-blue);
-}
-
-/* 今いるページのリンクだけ色を変える */
-.nav-menu a.current {
-    color: var(--main-blue);
-}
-
-/* --- ヘッダー固定と色の統一 --- */
-.site-header {
-    position: fixed; /* 画面の一番上に固定 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95); /* 背後が少し透ける白 */
-    z-index: 1000; /* コンテンツより前面に */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 軽い影で境界を出す */
-}
-
-.header-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 70px; /* ヘッダーの高さを固定 */
-    display: flex;
-    justify-content: space-between; /* ロゴ左、ナビ右 */
-    align-items: center; /* 上下中央をぴったり合わせる */
-}
-
-/* ロゴのサイズ調整 */
-.site-logo img {
-    height: 30px; /* 大きすぎたロゴをシュッとさせました */
-    width: auto;
-    vertical-align: middle;
-}
-
-/* ナビのリンク色を本文の色（--main-blue）に合わせる */
-.nav-menu ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: var(--main-blue); /* 本文の色と統一 */
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    transition: opacity 0.3s;
-}
-
-.nav-menu a:hover {
-    opacity: 0.6; /* マウスを乗せた時にふわっとさせる */
-}
-
-/* 今見ているページの強調（about.htmlではABOUTに class="current" を付与） */
-.nav-menu a.current {
-    border-bottom: 2px solid var(--main-blue); /* 下線をつけて強調 */
-    padding-bottom: 4px;
-}
-
-/* メインコンテンツがヘッダーに隠れないようにする */
-main {
-    padding-top: 100px; /* ヘッダーの高さ分、コンテンツを下げる */
-}
-
-/* --- 2. ヘッダー・ナビを右寄せに固定 --- */
-.header-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between; /* これでロゴは左、ナビは右に固定されます */
-    align-items: center;
     height: 70px;
-    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-logo img {
+    height: 30px;
+    width: auto;
+    transition: opacity 0.3s;
 }
 
 .nav-menu ul {
     display: flex;
     gap: 30px;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
-/* ナビの色を本文の青（--main-blue）に統一 */
 .nav-menu a {
     text-decoration: none;
-    color: var(--main-blue); 
+    color: var(--main-blue);
     font-weight: bold;
     font-size: 0.9rem;
-}
-
-/* --- メインビジュアル内のロゴを白くする --- */
-#mainvisual .mv-logo {
-    filter: brightness(0) invert(1); /* 黒いロゴ画像を白く反転 */
-    width: 120px;
-    height: auto;
-}
-
-
-/* =================================================
-   ABOUTページ：STORYセクションをカラフルにする
-   ================================================== */
-
-/* 1. 左側の縦線を細く・薄くして、ドットを際立たせる */
-.career-timeline .career-item {
-    border-left: 2px solid #eee !important;
-    padding-left: 30px;
-    margin-bottom: 50px;
-}
-
-/* 2. ドットの色と、日付（.career-date）の色を5色でループさせる */
-
-/* 1つ目：ローズピンク */
-.career-item:nth-child(5n+1)::before { background-color: #E597B9 !important; }
-.career-item:nth-child(5n+1) .career-date { color: #E597B9 !important; }
-
-/* 2つ目：リーフグリーン */
-.career-item:nth-child(5n+2)::before { background-color: #99C361 !important; }
-.career-item:nth-child(5n+2) .career-date { color: #99C361 !important; }
-
-/* 3つ目：スカイブルー */
-.career-item:nth-child(5n+3)::before { background-color: #6EB1E4 !important; }
-.career-item:nth-child(5n+3) .career-date { color: #6EB1E4 !important; }
-
-/* 4つ目：コーラルオレンジ */
-.career-item:nth-child(5n+4)::before { background-color: #F48451 !important; }
-.career-item:nth-child(5n+4) .career-date { color: #F48451 !important; }
-
-/* 5つ目：ロイヤルブルー */
-.career-item:nth-child(5n+5)::before { background-color: #2D59A3 !important; }
-.career-item:nth-child(5n+5) .career-date { color: #2D59A3 !important; }
-
-/* ドットの大きさや位置の微調整 */
-.career-item::before {
-    left: -11px; /* 線の太さに合わせて位置調整 */
-    width: 19px;
-    height: 19px;
-    top: 4px;
-}
-
-/* --- ナビゲーションの下線設定の修正 --- */
-
-/* 1. ABOUT（現在のページ）の下線を消す */
-.nav-menu a.current {
-    border-bottom: none !important; /* 下線を削除 */
-    color: var(--main-blue);        /* 色だけ変える（またはそのまま） */
-}
-
-/* 2. マウスを重ねた時に下線が出るようにする */
-.nav-menu a {
-    text-decoration: none;
-    position: relative; /* 下線の位置の基準 */
+    position: relative;
     padding-bottom: 4px;
+    transition: opacity 0.3s;
 }
 
-.nav-menu a:hover {
-    opacity: 1; /* 透けないようにする */
-}
-
-/* マウスホバー時に下線を表示（アニメーション付き） */
 .nav-menu a::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1px;           /* 線の太さ */
+    height: 1px;
     background: var(--main-blue);
-    transform: scaleX(0);  /* 最初は長さを0に */
-    transition: transform 0.3s ease; /* 0.3秒でスッと伸びる */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 .nav-menu a:hover::after {
-    transform: scaleX(1);  /* マウスを乗せると100%の長さに */
+    transform: scaleX(1);
 }
 
-/* --- タイムラインの丸にアイコンを入れる設定 --- */
+/* --- 3. メインビジュアル & スクロール --- */
+#mainvisual {
+    position: relative;
+    height: 65vh;
+    background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
-.career-item::before {
-    content: "";
+#mainvisual p {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.scrolldown {
     position: absolute;
-    left: -11px;
-    top: 4px;
-    width: 24px; /* アイコンが見えやすいよう少し大きくしました */
-    height: 24px;
-    border-radius: 50%;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
     z-index: 2;
-    background-size: 70%; /* アイコンの大きさを調整 */
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 2px solid white; /* 縁取りをつけるとアイコンが引き立ちます */
+    text-align: center;
 }
 
-/* 1番目：物語の原点 (カップケーキ) */
-.career-item:nth-child(1)::before {
-    background-color: #E597B9 !important;
-    background-image: url("cupcake.svg");
-}
-
-/* 2番目：学生時代 (茶器) */
-.career-item:nth-child(2)::before {
-    background-color: #99C361 !important;
-    background-image: url("tyaki.svg");
-}
-
-/* 3番目：2017 - 2025 (女性/コールセンター) */
-.career-item:nth-child(3)::before {
-    background-color: #6EB1E4 !important;
-    background-image: url("woman.svg");
-    background-size: 60%; /* woman.svgだけ少し小さくしたい場合はここで調整 */
-}
-
-/* 縦線の位置を、少し大きな丸に合わせて微調整 */
-.career-timeline .career-item {
-    border-left: 2px solid #eee !important;
-    padding-left: 35px;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-/* 縦線の起点を調整（丸の中心を通るように） */
-.career-item::before {
-    left: -13px; 
-}
-
-/* --- タイムライン全体の調整 --- */
-.career-timeline .career-item {
-    border-left: 2px solid #eee !important;
-    padding-left: 45px; /* 丸を大きくしたので左の余白を広げました */
-    margin-bottom: 60px;
-    position: relative;
-    min-height: 80px; /* アイコンとテキストが重ならないよう最低の高さを確保 */
-}
-
-/* --- タイムラインの丸（アイコンを入れる場所） --- */
-.career-item::before {
-    content: "";
-    position: absolute;
-    left: -21px; /* 線の位置に合わせて調整（丸の半径分） */
-    top: 0;
-    width: 40px;  /* 丸のサイズを大きくしました */
-    height: 40px; /* 丸のサイズを大きくしました */
-    border-radius: 50%; /* ここで正円にしています */
-    z-index: 2;
-    background-size: 60%; /* 中のアイコンの大きさを調整（お好みで70%などに） */
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 2px solid #fff; /* 白い縁取りでクッキリさせます */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 軽い影で浮かせて見やすく */
-}
-
-/* 1番目：物語の原点 (カップケーキ) */
-.career-item:nth-child(1)::before {
-    background-color: #E597B9 !important;
-    background-image: url("cupcake.svg");
-}
-
-/* 2番目：学生時代 (茶器) */
-.career-item:nth-child(2)::before {
-    background-color: #99C361 !important;
-    background-image: url("tyaki.svg");
-}
-
-/* 3番目：2017 - 2025 (女性) */
-.career-item:nth-child(3)::before {
-    background-color: #6EB1E4 !important;
-    background-image: url("woman.svg");
-}
-
-/* スマホ表示の微調整 */
-@media screen and (max-width: 767px) {
-    .career-timeline .career-item {
-        padding-left: 50px;
-    }
-    .career-item::before {
-        left: -21px;
-    }
-}
-
-/* --- タイムライン：アイコンと丸の最終調整 --- */
-
-/* 1. 縦線と全体の余白を調整 */
-.career-timeline .career-item {
-    border-left: 3px solid #eee !important; /* 線を少し太く */
-    padding-left: 50px !important;         /* テキストを右に寄せて重なり防止 */
-    margin-bottom: 70px !important;
-    position: relative;
-}
-
-/* 2. 丸のサイズと形を強制固定 */
-.career-item::before {
-    content: "";
-    position: absolute;
-    left: -26px !important;  /* 線の位置に合わせる (-width/2 - 線幅) */
-    top: 0 !important;
-    width: 50px !important;   /* 前よりさらに大きく */
-    height: 50px !important;  /* 前よりさらに大きく */
-    border-radius: 50% !important; /* 強制的に正円にする */
-    background-size: 65% !important; /* アイコンを丸の65%の大きさに（四角い端が隠れる） */
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    border: 3px solid #fff !important; /* 白い枠を太くしてクッキリさせる */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
-    z-index: 10 !important;
-}
-
-/* 3. 各アイコンの背景色と画像（!importantで古い設定を無効化） */
-.career-item:nth-child(1)::before {
-    background-color: #E597B9 !important;
-    background-image: url("cupcake.svg") !important;
-}
-
-.career-item:nth-child(2)::before {
-    background-color: #99C361 !important;
-    background-image: url("tyaki.svg") !important;
-}
-
-.career-item:nth-child(3)::before {
-    background-color: #6EB1E4 !important;
-    background-image: url("woman.svg") !important;
-}
-
-/* 日付の位置を調整 */
-.career-date {
+.scrolldown span {
     display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
     margin-bottom: 5px;
-    font-weight: bold;
 }
 
-/* スマホ用の微調整（さらにズレを防ぐ） */
-@media screen and (max-width: 767px) {
-    .career-timeline .career-item {
-        padding-left: 55px !important;
-    }
-    .career-item::before {
-        left: -26px !important;
-    }
-}
-
-/* --- タイムライン：アイコン画像そのものを丸く大きく表示する --- */
-
-/* 1. 縦線とテキストの余白（アイコンを大きくしたので少し広げます） */
-.career-timeline .career-item {
-    border-left: 2px solid #eee !important;
-    padding-left: 60px !important; 
-    margin-bottom: 80px !important;
-    position: relative;
-    min-height: 70px;
-}
-
-/* 2. アイコンの設定（背景の丸を消し、画像自体を丸くする） */
-.career-item::before {
+.scrolldown::after {
     content: "";
     position: absolute;
-    /* 位置：丸のサイズの半分＋線幅くらい左に寄せる */
-    left: -31px !important; 
-    top: -10px !important; /* 少し上にずらして文字と高さを合わせる */
-    
-    /* サイズ：さらに大きく 60px */
-    width: 60px !important;
-    height: 60px !important;
-    
-    /* 背景の丸を消し、画像を表示 */
-    background-color: transparent !important; /* 背景色を透明に */
-    background-size: contain !important;      /* 画像を枠いっぱいに */
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    
-    /* 画像そのものを丸く切り抜く */
-    border-radius: 50% !important;
-    overflow: hidden !important;
-    
-    /* 軽い影をつけて見やすくする（お好みで） */
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    z-index: 10 !important;
+    bottom: -40px;
+    left: 50%;
+    width: 1px;
+    height: 50px;
+    background: #fff;
+    transform: translateX(-50%);
+    animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
 }
 
-/* 3. 各アイテムに画像を割り当て */
-.career-item:nth-child(1)::before {
-    background-image: url("cupcake.svg") !important;
+@keyframes scroll-line {
+    0% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 0; }
+    50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
+    50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
+    100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
 }
 
-.career-item:nth-child(2)::before {
-    background-image: url("tyaki.svg") !important;
-}
+/* --- 4. ABOUT：STORY（タイムライン） --- */
+main { padding-top: 100px; }
 
-.career-item:nth-child(3)::before {
-    background-image: url("woman.svg") !important;
-}
-
-/* スマホ表示の調整 */
-@media screen and (max-width: 767px) {
-    .career-timeline .career-item {
-        padding-left: 70px !important;
-    }
-    .career-item::before {
-        left: -31px !important;
-        width: 55px !important;
-        height: 55px !important;
-    }
-}
-
-/* --- STORYセクション：スマホで縦並びにする --- */
-@media screen and (max-width: 767px) {
-    /* 1. 左側の縦線を消してスッキリさせる */
-    .career-timeline .career-item {
-        border-left: none !important;
-        padding-left: 0 !important;
-        margin-bottom: 60px !important;
-        display: flex;
-        flex-direction: column; /* 縦並びに変更 */
-        align-items: center;    /* 中央寄せ */
-        text-align: center;      /* 文章も中央寄せ */
-    }
-
-    /* 2. アイコンを文章の上に配置 */
-    .career-item::before {
-        position: static !important; /* 固定位置を解除 */
-        margin-bottom: 20px !important; /* アイコン下の余白 */
-        width: 80px !important;  /* スマホで見栄えがするように少し大きく */
-        height: 80px !important;
-        display: block;
-    }
-
-    /* 3. 日付とタイトルの調整 */
-    .career-date {
-        display: block;
-        font-size: 0.9rem !important;
-        margin-bottom: 10px !important;
-        color: var(--main-blue);
-    }
-
-    .career-content h4 {
-        font-size: 1.2rem !important;
-        margin-bottom: 15px !important;
-        padding: 0 10px;
-    }
-
-    /* 4. 本文の調整 */
-    .career-content p {
-        text-align: left; /* 文章だけは左揃えが読みやすいです */
-        font-size: 0.9rem !important;
-        line-height: 1.8 !important;
-        padding: 0 15px;
-    }
-}
-
-/* --- STORYセクション：PC/スマホ出し分け調整 --- */
-
-/* 1. 全体共通のアイコン画像割り当て */
-.career-item:nth-child(1)::before { background-image: url("cupcake.svg") !important; }
-.career-item:nth-child(2)::before { background-image: url("tyaki.svg") !important; }
-.career-item:nth-child(3)::before { background-image: url("woman.svg") !important; }
-
-/* 2. PC版：今のレイアウトとサイズを維持 */
-@media screen and (min-width: 768px) {
-  .career-timeline {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 0;
-  }
-
-  .career-timeline .career-item {
+.career-timeline .career-item {
     border-left: 3px solid #eee !important;
     padding-left: 70px !important;
     margin-bottom: 90px !important;
     position: relative;
-    min-height: 100px;
-  }
+}
 
-  .career-item::before {
+.career-item::before {
     content: "";
     position: absolute;
-    left: -41.5px !important; /* 80pxのアイコンを中央に配置 */
+    left: -41.5px !important;
     top: -10px !important;
     width: 80px !important;
     height: 80px !important;
@@ -1236,579 +154,62 @@ main {
     background-position: center !important;
     background-repeat: no-repeat !important;
     border-radius: 50% !important;
-    overflow: hidden !important;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
     z-index: 10 !important;
-    transition: transform 0.3s ease;
-  }
-
-  .career-item:hover::before {
-    transform: scale(1.1);
-  }
 }
 
-/* 3. スマホ版：アイコンサイズ維持＋線なし中央寄せ */
-@media screen and (max-width: 767px) {
-  .career-timeline .career-item {
-    border-left: none !important; /* ★スマホでは縦線を消す */
-    padding-left: 0 !important;
-    margin-bottom: 60px !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+.career-item:nth-child(1)::before { background-image: url("cupcake.svg") !important; }
+.career-item:nth-child(2)::before { background-image: url("tyaki.svg") !important; }
+.career-item:nth-child(3)::before { background-image: url("woman.svg") !important; }
 
-  .career-item::before {
-    content: "";
-    position: static !important; /* ★浮遊を解除して中央に配置 */
-    margin-bottom: 20px !important;
-    width: 80px !important; /* サイズはそのまま */
-    height: 80px !important;
-    background-color: transparent !important;
-    background-size: contain !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    border-radius: 50% !important;
-    display: block;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-  }
-
-  .career-content p {
-    text-align: left; /* 本文は左揃えにして読みやすく */
-    padding: 0 15px;
-    font-size: 0.9rem;
-  }
-}
-
-/* --- 5. SKILL アイコンのくすみを解消 --- */
+/* --- 5. SKILL アイコン設定 --- */
+.skills-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; }
+.skill-item { width: 200px; text-align: center; }
 
 .skill-item img {
-    width: 100%;
-    height: auto;
-    transition: all 0.3s ease;
-    /* フィルターと透明度をリセットして、元の色を出す */
-    filter: none !important; 
-    opacity: 1 !important;
-}
-
-/* アイコンごとの個別のフィルター設定（もしあれば）を無効化 */
-.skill-item:nth-child(1) img,
-.skill-item:nth-child(2) img,
-.skill-item:nth-child(3) img {
-    filter: none !important;
-}
-
-/* マウスを乗せた時の演出：少し大きくし、影をつけて強調する */
-.skill-item:hover img {
-    transform: scale(1.1);
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); /* 影をつけて少し浮いた感じに */
-}
-
-/* --- 5. SKILL アイコンをカラフルに塗り分ける --- */
-
-.skill-item img {
-    width: 100%;
-    height: auto;
-    transition: all 0.3s ease;
-    opacity: 1; /* くすみを消す */
-}
-
-/* 元のオレンジ色を基準に、色相を回転させて別の色を作ります
-   値（deg）を変えることでお好みの色に調整可能です
-*/
-
-/* 1つ目：そのままのオレンジ、もしくは微調整 */
-.skill-item:nth-child(1) img {
-    filter: hue-rotate(0deg) saturate(1.2); 
-}
-
-/* 2つ目：オレンジから「緑〜ブルーグリーン」へ回転 */
-.skill-item:nth-child(2) img {
-    filter: hue-rotate(140deg) saturate(1.2); 
-}
-
-/* 3つ目：オレンジから「青〜紫」へ回転 */
-.skill-item:nth-child(3) img {
-    filter: hue-rotate(200deg) saturate(1.2);
-}
-
-/* ホバー時の演出：少し大きくして影をつける */
-.skill-item:hover img {
-    transform: scale(1.1);
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
-}
-
-/* --- 5. SKILL アイコンのくすみを消してカラフルに塗り分け --- */
-
-.skill-item img {
-    width: 100%;
-    height: auto;
-    transition: all 0.3s ease;
-    opacity: 1 !important; /* 不透明度を100%にしてくすみを解消 */
-    /* ここでは filter: none を指定しない（後の個別設定を活かすため） */
-}
-
-/* 1つ目：Design (元の色を活かす、または微調整) */
-.skill-item:nth-child(1) img {
-    filter: saturate(1.5) !important; 
-}
-
-/* 2つ目：Coding (オレンジを緑〜ブルー系へ) */
-.skill-item:nth-child(2) img {
-    filter: hue-rotate(140deg) saturate(1.5) !important; 
-}
-
-/* 3つ目：JavaScript (オレンジを青〜紫系へ) */
-.skill-item:nth-child(3) img {
-    filter: hue-rotate(200deg) saturate(1.5) !important;
-}
-
-/* ホバー時の演出：少し大きくして影を強調 */
-.skill-item:hover img {
-    transform: scale(1.1);
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)) !important;
-}
-
-/* --- 5. SKILL アイコン：色を固定して影だけ追加 --- */
-
-.skill-item img {
-    width: 100%;
+    width: 100px;
     height: auto;
     transition: all 0.3s ease;
     opacity: 1 !important;
 }
 
-/* 各アイコンの色設定（ホバー時もこの色を維持します） */
+.skill-item:nth-child(1) img { filter: saturate(1.5) !important; }
+.skill-item:nth-child(2) img { filter: hue-rotate(140deg) saturate(1.5) !important; }
+.skill-item:nth-child(3) img { filter: hue-rotate(200deg) saturate(1.5) !important; }
 
-/* 1つ目：Design */
-.skill-item:nth-child(1) img {
-    filter: saturate(1.5) !important; 
-}
+.skill-item:hover img { transform: scale(1.1); }
+.skill-item:nth-child(1):hover img { filter: saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important; }
+.skill-item:nth-child(2):hover img { filter: hue-rotate(140deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important; }
+.skill-item:nth-child(3):hover img { filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important; }
 
-/* 2つ目：Coding */
-.skill-item:nth-child(2) img {
-    filter: hue-rotate(140deg) saturate(1.5) !important; 
-}
-
-/* 3つ目：JavaScript */
-.skill-item:nth-child(3) img {
-    filter: hue-rotate(200deg) saturate(1.5) !important;
-}
-
-/* --- ホバー設定：色（filter）はそのまま、変形と影だけ加える --- */
-.skill-item:hover img {
-    transform: scale(1.1);
-}
-
-/* ホバーした時も、各アイコンに設定した filter を消さないように個別に影を追加 */
-.skill-item:nth-child(1):hover img {
-    filter: saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
-}
-
-.skill-item:nth-child(2):hover img {
-    filter: hue-rotate(140deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
-}
-
-.skill-item:nth-child(3):hover img {
-    filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
-}
-
-/* --- セクションタイトルをすべて中央寄せ --- */
-
-/* h2タグ（CONCEPT, STORY, SKILL, WORK, CONTACTなど） */
-section h2, 
-#concept h2, 
-#story h2, 
-#skills h2, 
-#work h2, 
-#contact h2,
-.about-section h2 {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 100%;
-}
-
-/* タイトルの下にある日本語のサブタイトル（もしあれば） */
-section h2 + p,
-.section-title + p {
-    text-align: center !important;
-    margin-bottom: 40px;
-}
-
-/* STORYセクション（ABOUTページ）のタイトルを囲む要素がある場合 */
-.profile-intro h2 {
+/* --- 6. フッター --- */
+#footer {
+    background-color: #2d4b69 !important;
+    color: #ffffff !important;
     text-align: center;
+    padding: 50px 0;
+    margin-top: 80px;
 }
 
-/* --- セクションタイトルと本文をすべて中央寄せ --- */
-
-/* 1. タイトル(h2)と、その直後の説明文を中央へ */
-section h2, 
-#concept h2, 
-#story h2, 
-#skill h2, 
-#work h2, 
-#contact h2 {
-    text-align: center !important;
-    width: 100%;
+/* --- 7. コンテンツ表示の強制保障（最重要） --- */
+.js-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
 }
 
-/* 2. セクション内のリード文（「私について」などの日本語部分） */
-section h2 + p,
-.profile-intro p {
-    text-align: center !important;
-    max-width: 700px; /* 読みやすい幅に制限 */
-    margin: 0 auto 40px !important; /* 中央に配置し、下に余白を作る */
-}
-
-/* 3. CONCEPTセクションのメインテキスト */
-#concept .concept-text, 
-#concept p {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-/* 4. SKILLセクションの導入文 */
-.skills-intro {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* 文章ブロックを中央に寄せつつ、文字は読みやすく左揃えにする場合 */
-.career-content p, 
-#concept p {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left; /* 文字の開始位置を揃える */
-}
-
-/* --- メイン・アバウト共通：セクション内をすべて中央寄せ --- */
-
-/* 1. 全てのセクションのタイトルと本文を中央に */
-section, 
-#introduction, 
-#concept, 
-#work, 
-#contact,
-.about-section {
-    text-align: center !important;
-}
-
-/* 2. 本文（pタグ）の幅を整えて中央に置く */
-section p, 
-#introduction p, 
-#concept p {
-    text-align: center !important;
-    max-width: 800px; /* 広がりすぎないように制限 */
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-bottom: 20px;
-    line-height: 2; /* 行間を少し広げて読みやすく */
-}
-
-/* 3. INTRODUCTIONセクションの調整（index.html） */
-#introduction .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* 4. WORKセクション（index.html）のボタンなど */
-#work .view-more,
-#work a[href*="work.html"] {
-    display: inline-block;
-    margin: 30px auto 0;
-}
-
-/* 5. CONTACTセクション（index.html）の説明文 */
-#contact p {
-    margin-bottom: 30px;
-}
-
-/* スマホでの余白調整 */
+/* スマホ対応 */
 @media screen and (max-width: 767px) {
-    section p, 
-    #introduction p, 
-    #concept p {
-        padding: 0 15px; /* 画面端に文字がくっつかないように */
-        text-align: center !important;
-    }
-}
-
-/* --- 5. SKILL アイコン：ホバー時の影設定（続き） --- */
-.skill-item:nth-child(3):hover img {
-    filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
-}
-
-/* --- 2026年 最終調整：全体の余白とスクロールの衝突回避 --- */
-html {
-    scroll-behavior: smooth; /* ページ内リンクでスルスル動くように */
-}
-
-/* ヘッダーの高さ分、アンカーリンクの着地地点を調整 */
-#concept, #work, #skill, #story {
-    scroll-margin-top: 100px;
-}
-
-/* ページ最下部、フッターとコンテンツの間の調整 */
-main {
-    padding-bottom: 60px;
-}
-
-/* メニューが開いている時（activeクラス時）の三本線の変化 */
-#js-hamburger.active span:nth-child(1) {
-    top: 11px;
-    transform: rotate(45deg);
-}
-#js-hamburger.active span:nth-child(2) {
-    opacity: 0; /* 真ん中の線を消す */
-}
-#js-hamburger.active span:nth-child(3) {
-    top: 11px;
-    transform: rotate(-45deg);
-}
-
-.career-item::before {
-    image-rendering: -webkit-optimize-contrast; /* 拡大時のボケを抑える */
-}
-
-@media screen and (max-width: 767px) {
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%; /* 最初は画面の右に隠しておく */
-    width: 100%;
-    height: 100vh;
-    background: rgba(45, 75, 105, 0.95);
-    transition: all 0.5s;
-    display: flex !important; /* display: none は絶対に使わない */
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-
-  /* JSでactiveがついたら、右からスライドしてくる */
-  .nav-menu.active {
-    right: 0;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  /* 初期状態：画面の右側に隠す */
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%; 
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(45, 75, 105, 0.98); /* 背景色 */
-    transition: 0.5s;
-    display: flex !important; /* 絶対に隠さない。位置(right)で制御する */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-
-  /* JavaScriptで .active が付いたとき、画面内にスライドさせる */
-  .nav-menu.active {
-    right: 0;
-  }
-}
-
-/* =================================================
-   1. スマホメニュー（ハンバーガー）の最終修正
-   ================================================== */
-@media screen and (max-width: 767px) {
-    /* ハンバーガーボタンを表示させる */
-    .hamburger-menu {
-        display: block !important;
-        position: relative;
-        z-index: 9999; /* 最前面に */
-    }
-
-    /* メニュー本体の基本設定（右側に隠しておく） */
-    #js-nav {
-        display: flex !important; /* display: none を上書き */
-        position: fixed;
-        top: 0;
-        right: -100%; /* 画面の外へ */
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(45, 75, 105, 0.98) !important;
-        z-index: 9998;
-        transition: all 0.5s ease;
+    .career-timeline .career-item {
+        border-left: none !important;
+        padding-left: 0 !important;
+        display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        text-align: center;
     }
-
-    /* JSで .active クラスがついたら画面内にスライド */
-    #js-nav.active {
-        right: 0 !important;
+    .career-item::before {
+        position: static !important;
+        margin-bottom: 20px !important;
     }
-
-    /* ボタンが active になった時の三本線の変形（×印にする） */
-    .hamburger-menu.active span:nth-child(1) {
-        transform: translateY(11px) rotate(45deg);
-    }
-    .hamburger-menu.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger-menu.active span:nth-child(3) {
-        transform: translateY(-11px) rotate(-45deg);
-    }
-}
-
-/* =================================================
-   2. 真っ白対策：ふわっと表示（フェードイン）の強制設定
-   ================================================== */
-/* JSが動かなくても最悪見えるように、初期値を設定 */
-.js-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-/* JSが検知した時、またはJSが動かない環境へのバックアップ */
-.js-fade-up.is-active, 
-.js-fade-up.is-show {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-/* =================================================
-   3. ABOUTページ：STORYセクションのアイコン位置微調整
-   ================================================== */
-@media screen and (min-width:
-
-/* もし opacity: 0; があったら、1 に書き換えて強制表示させる */
-.js-fade-up {
-    opacity: 1 !important;        /* 0から1へ変更 */
-    transform: none !important;    /* 動かさない */
-    visibility: visible !important;
-}
-
-/* --- 真っ白・消える現象を解決する設定 --- */
-
-/* 1. まずは最初から見えるようにしておく（安全策） */
-.js-fade-up {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-}
-
-/* 2. もしアニメーションをさせたい場合でも、一度表示されたら消さない設定 */
-.js-fade-up.is-show,
-.js-fade-up.is-active {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-/* 3. mainタグに十分な高さを確保する（背景に埋もれるのを防ぐ） */
-main {
-    display: block !important;
-    min-height: 100vh;
-    padding-top: 100px; /* ヘッダーに被らないように調整 */
-}
-
-@media screen and (max-width: 767px) {
-    /* メニューが背後に隠れないようにする */
-    #js-nav {
-        display: flex !important; /* 強制的に表示の準備をする */
-        position: fixed;
-        top: 0;
-        right: -100%; /* 通常は右に隠す */
-        width: 100%;
-        height: 100vh;
-        z-index: 9998;
-        background-color: rgba(45, 75, 105, 0.98);
-        transition: right 0.5s ease;
-    }
-
-    /* activeクラスがついたら画面に出てくる */
-    #js-nav.active {
-        right: 0 !important;
-    }
-}
-
-/* --- ABOUTページの表示不具合を解消する --- */
-.js-fade-up {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-}
-
-/* もしCONTACTが表示されない場合はここを確認 */
-#contact {
-    display: block !important; /* display: none を上書きして強制表示 */
-    padding: 80px 0;
-}
-
-/* #contact { display: none; } */ 
-
-/* --- メインコンテンツを強制的に表示させる --- */
-main {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* フェードイン待ちで止まっている要素をすべて解除 */
-.js-fade-up, 
-.career-item, 
-.skill-item, 
-.profile-intro {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-    display: block !important; /* または flex (要素に合わせて) */
-}
-
-/* CONTACTセクションが消える設定を上書き */
-#contact {
-    display: block !important;
-}
-
-/* コンテンツがヘッダーの下に潜り込まないように余白を確保 */
-.container {
-    margin-top: 80px; 
-}
-
-/* JSのフェードインを強制解除して表示させる */
-.js-fade-up {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-}
-
-/* ついでに、前のCSSで消えていたCONTACTも復活させる */
-#contact {
-    display: block !important;
-}
-
-/* --- 末尾の修正と強制表示設定 --- */
-
-/* 途切れていた箇所の完成版 */
-.skill-item:nth-child(3):hover img {
-    filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
-}
-
-/* 重要：JavaScriptのフェードイン（js-fade-up）が原因で消えるのを防ぐ
-   これを入れると、ABOUTの中身が確実に表示されます 
-*/
-.js-fade-up {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-}
-
-/* 念のためメインコンテンツの表示を保証 */
-main.container {
-    display: block !important;
-    padding-top: 100px;
 }
