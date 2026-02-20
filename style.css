@@ -1542,3 +1542,40 @@ section p,
         text-align: center !important;
     }
 }
+
+/* --- 5. SKILL アイコン：ホバー時の影設定（続き） --- */
+.skill-item:nth-child(3):hover img {
+    filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
+}
+
+/* --- 2026年 最終調整：全体の余白とスクロールの衝突回避 --- */
+html {
+    scroll-behavior: smooth; /* ページ内リンクでスルスル動くように */
+}
+
+/* ヘッダーの高さ分、アンカーリンクの着地地点を調整 */
+#concept, #work, #skill, #story {
+    scroll-margin-top: 100px;
+}
+
+/* ページ最下部、フッターとコンテンツの間の調整 */
+main {
+    padding-bottom: 60px;
+}
+
+/* メニューが開いている時（activeクラス時）の三本線の変化 */
+#js-hamburger.active span:nth-child(1) {
+    top: 11px;
+    transform: rotate(45deg);
+}
+#js-hamburger.active span:nth-child(2) {
+    opacity: 0; /* 真ん中の線を消す */
+}
+#js-hamburger.active span:nth-child(3) {
+    top: 11px;
+    transform: rotate(-45deg);
+}
+
+.career-item::before {
+    image-rendering: -webkit-optimize-contrast; /* 拡大時のボケを抑える */
+}
