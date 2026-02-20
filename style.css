@@ -1205,52 +1205,82 @@ main {
     }
 }
 
-/* --- 2. STORYセクション（PC：横並び） --- */
-.career-timeline {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 60px 0; /* 上下の余白を少し増やしました */
-}
+/* --- STORYセクション：PC/スマホ出し分け調整 --- */
 
-.career-timeline .career-item {
-  border-left: 3px solid #eee !important; /* 線を少しだけ太くして安定感を */
-  padding-left: 70px !important;  /* アイコンが大きくなった分、文字をさらに右へ */
-  margin-bottom: 90px !important; /* アイコン同士の間隔を広く */
-  position: relative;
-  min-height: 100px; /* アイコンがはみ出さないよう高さを確保 */
-}
-
-/* PC用アイコン設定（さらに大きく調整） */
-.career-item::before {
-  content: "";
-  position: absolute;
-  /* アイコンサイズ 80px の半分(40px) + 線幅の半分 くらいをマイナスに設定 */
-  left: -41.5px !important; 
-  top: -10px !important;
-  
-  width: 80px !important;  /* 60pxから80pxへサイズアップ */
-  height: 80px !important;
-  
-  background-color: transparent !important;
-  background-size: contain !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  
-  /* アイコンをくっきりさせる影 */
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-  z-index: 10 !important;
-  transition: transform 0.3s ease; /* ホバー時の動き用 */
-}
-
-/* マウスを乗せた時に少し浮かせる演出（お好みで） */
-.career-item:hover::before {
-  transform: scale(1.1);
-}
-
-/* アイコン画像の割り当て */
+/* 1. 全体共通のアイコン画像割り当て */
 .career-item:nth-child(1)::before { background-image: url("cupcake.svg") !important; }
 .career-item:nth-child(2)::before { background-image: url("tyaki.svg") !important; }
 .career-item:nth-child(3)::before { background-image: url("woman.svg") !important; }
+
+/* 2. PC版：今のレイアウトとサイズを維持 */
+@media screen and (min-width: 768px) {
+  .career-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 0;
+  }
+
+  .career-timeline .career-item {
+    border-left: 3px solid #eee !important;
+    padding-left: 70px !important;
+    margin-bottom: 90px !important;
+    position: relative;
+    min-height: 100px;
+  }
+
+  .career-item::before {
+    content: "";
+    position: absolute;
+    left: -41.5px !important; /* 80pxのアイコンを中央に配置 */
+    top: -10px !important;
+    width: 80px !important;
+    height: 80px !important;
+    background-color: transparent !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    z-index: 10 !important;
+    transition: transform 0.3s ease;
+  }
+
+  .career-item:hover::before {
+    transform: scale(1.1);
+  }
+}
+
+/* 3. スマホ版：アイコンサイズ維持＋線なし中央寄せ */
+@media screen and (max-width: 767px) {
+  .career-timeline .career-item {
+    border-left: none !important; /* ★スマホでは縦線を消す */
+    padding-left: 0 !important;
+    margin-bottom: 60px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .career-item::before {
+    content: "";
+    position: static !important; /* ★浮遊を解除して中央に配置 */
+    margin-bottom: 20px !important;
+    width: 80px !important; /* サイズはそのまま */
+    height: 80px !important;
+    background-color: transparent !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 50% !important;
+    display: block;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  }
+
+  .career-content p {
+    text-align: left; /* 本文は左揃えにして読みやすく */
+    padding: 0 15px;
+    font-size: 0.9rem;
+  }
+}
