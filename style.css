@@ -1790,3 +1790,25 @@ main {
 #contact {
     display: block !important;
 }
+
+/* --- 末尾の修正と強制表示設定 --- */
+
+/* 途切れていた箇所の完成版 */
+.skill-item:nth-child(3):hover img {
+    filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
+}
+
+/* 重要：JavaScriptのフェードイン（js-fade-up）が原因で消えるのを防ぐ
+   これを入れると、ABOUTの中身が確実に表示されます 
+*/
+.js-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* 念のためメインコンテンツの表示を保証 */
+main.container {
+    display: block !important;
+    padding-top: 100px;
+}
