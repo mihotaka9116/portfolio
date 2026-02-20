@@ -897,3 +897,39 @@ main {
     height: 19px;
     top: 4px;
 }
+
+/* --- ナビゲーションの下線設定の修正 --- */
+
+/* 1. ABOUT（現在のページ）の下線を消す */
+.nav-menu a.current {
+    border-bottom: none !important; /* 下線を削除 */
+    color: var(--main-blue);        /* 色だけ変える（またはそのまま） */
+}
+
+/* 2. マウスを重ねた時に下線が出るようにする */
+.nav-menu a {
+    text-decoration: none;
+    position: relative; /* 下線の位置の基準 */
+    padding-bottom: 4px;
+}
+
+.nav-menu a:hover {
+    opacity: 1; /* 透けないようにする */
+}
+
+/* マウスホバー時に下線を表示（アニメーション付き） */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;           /* 線の太さ */
+    background: var(--main-blue);
+    transform: scaleX(0);  /* 最初は長さを0に */
+    transition: transform 0.3s ease; /* 0.3秒でスッと伸びる */
+}
+
+.nav-menu a:hover::after {
+    transform: scaleX(1);  /* マウスを乗せると100%の長さに */
+}
