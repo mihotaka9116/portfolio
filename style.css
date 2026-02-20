@@ -1096,3 +1096,66 @@ main {
         left: -26px !important;
     }
 }
+
+/* --- タイムライン：アイコン画像そのものを丸く大きく表示する --- */
+
+/* 1. 縦線とテキストの余白（アイコンを大きくしたので少し広げます） */
+.career-timeline .career-item {
+    border-left: 2px solid #eee !important;
+    padding-left: 60px !important; 
+    margin-bottom: 80px !important;
+    position: relative;
+    min-height: 70px;
+}
+
+/* 2. アイコンの設定（背景の丸を消し、画像自体を丸くする） */
+.career-item::before {
+    content: "";
+    position: absolute;
+    /* 位置：丸のサイズの半分＋線幅くらい左に寄せる */
+    left: -31px !important; 
+    top: -10px !important; /* 少し上にずらして文字と高さを合わせる */
+    
+    /* サイズ：さらに大きく 60px */
+    width: 60px !important;
+    height: 60px !important;
+    
+    /* 背景の丸を消し、画像を表示 */
+    background-color: transparent !important; /* 背景色を透明に */
+    background-size: contain !important;      /* 画像を枠いっぱいに */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    
+    /* 画像そのものを丸く切り抜く */
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    
+    /* 軽い影をつけて見やすくする（お好みで） */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    z-index: 10 !important;
+}
+
+/* 3. 各アイテムに画像を割り当て */
+.career-item:nth-child(1)::before {
+    background-image: url("cupcake.svg") !important;
+}
+
+.career-item:nth-child(2)::before {
+    background-image: url("tyaki.svg") !important;
+}
+
+.career-item:nth-child(3)::before {
+    background-image: url("woman.svg") !important;
+}
+
+/* スマホ表示の調整 */
+@media screen and (max-width: 767px) {
+    .career-timeline .career-item {
+        padding-left: 70px !important;
+    }
+    .career-item::before {
+        left: -31px !important;
+        width: 55px !important;
+        height: 55px !important;
+    }
+}
