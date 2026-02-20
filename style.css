@@ -651,10 +651,6 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
     color: #fff;
 }
 
-#contact { display: none; }
-
-
-
 /* スキル全体のレイアウト */
 .skills-grid {
     display: flex;
@@ -1739,3 +1735,18 @@ main {
         right: 0 !important;
     }
 }
+
+/* --- ABOUTページの表示不具合を解消する --- */
+.js-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* もしCONTACTが表示されない場合はここを確認 */
+#contact {
+    display: block !important; /* display: none を上書きして強制表示 */
+    padding: 80px 0;
+}
+
+/* #contact { display: none; } */ の
