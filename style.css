@@ -982,3 +982,57 @@ main {
 .career-item::before {
     left: -13px; 
 }
+
+/* --- タイムライン全体の調整 --- */
+.career-timeline .career-item {
+    border-left: 2px solid #eee !important;
+    padding-left: 45px; /* 丸を大きくしたので左の余白を広げました */
+    margin-bottom: 60px;
+    position: relative;
+    min-height: 80px; /* アイコンとテキストが重ならないよう最低の高さを確保 */
+}
+
+/* --- タイムラインの丸（アイコンを入れる場所） --- */
+.career-item::before {
+    content: "";
+    position: absolute;
+    left: -21px; /* 線の位置に合わせて調整（丸の半径分） */
+    top: 0;
+    width: 40px;  /* 丸のサイズを大きくしました */
+    height: 40px; /* 丸のサイズを大きくしました */
+    border-radius: 50%; /* ここで正円にしています */
+    z-index: 2;
+    background-size: 60%; /* 中のアイコンの大きさを調整（お好みで70%などに） */
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid #fff; /* 白い縁取りでクッキリさせます */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 軽い影で浮かせて見やすく */
+}
+
+/* 1番目：物語の原点 (カップケーキ) */
+.career-item:nth-child(1)::before {
+    background-color: #E597B9 !important;
+    background-image: url("cupcake.svg");
+}
+
+/* 2番目：学生時代 (茶器) */
+.career-item:nth-child(2)::before {
+    background-color: #99C361 !important;
+    background-image: url("tyaki.svg");
+}
+
+/* 3番目：2017 - 2025 (女性) */
+.career-item:nth-child(3)::before {
+    background-color: #6EB1E4 !important;
+    background-image: url("woman.svg");
+}
+
+/* スマホ表示の微調整 */
+@media screen and (max-width: 767px) {
+    .career-timeline .career-item {
+        padding-left: 50px;
+    }
+    .career-item::before {
+        left: -21px;
+    }
+}
