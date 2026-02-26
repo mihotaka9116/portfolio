@@ -1722,10 +1722,26 @@ section h2 + p,
   transform: translateY(0); /* 元の位置に戻る */
 }
 
-/* 「ストーリー」や「スキル」セクションの中の文章を狙い撃ちする場合 */
-.story-content p, 
-.skills-content p {
+/* STORYセクションの説明文を中央寄せ */
+.profile-intro p {
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 800px; /* 読みやすい幅に制限 */
+    margin: 0 auto 40px; /* 中央配置しつつ下の余白を作る */
+}
+
+/* 経歴詳細（career-content）内の文章も中央にしたい場合 */
+.career-content p {
+    text-align: center;
+}
+
+/* SKILLセクションの見出し下の説明文 */
+#skills .container > p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 個々のスキルアイテム内のテキスト */
+.skill-item p {
+    text-align: center;
+    margin-top: 10px;
 }
