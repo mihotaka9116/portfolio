@@ -1755,3 +1755,27 @@ section h2 + p,
 .skill-item p {
     text-align: center;
 }
+
+/* --- ABOUTページの全文章を強制的に中央寄せ --- */
+
+/* STORY（歩み）の文章 */
+.career-content, 
+.career-content h4, 
+.career-content p {
+    text-align: center !important;
+}
+
+/* SKILL（スキル）の文章 */
+.skill-item, 
+.skill-item h3, 
+.skill-item p {
+    text-align: center !important;
+}
+
+/* タイムラインの形を中央寄せに最適化 */
+@media screen and (min-width: 768px) {
+    .career-item {
+        justify-content: center;
+        text-align: center;
+    }
+}
