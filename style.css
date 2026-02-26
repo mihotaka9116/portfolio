@@ -1661,12 +1661,8 @@ section h2 + p,
     margin-bottom: 40px;
 }
 
-/* STORYセクション（ABOUTページ）のタイトルを囲む要素がある場合 */
-.profile-intro h2 {
-    text-align: center;
-}
 
-/* --- セクションタイトルと本文をすべて中央寄せ --- */
+
 
 /* 1. タイトル(h2)と、その直後の説明文を中央へ */
 section h2, 
@@ -1721,4 +1717,9 @@ section h2 + p,
 .js-fade-up.is-show {
   opacity: 1;
   transform: translateY(0); /* 元の位置に戻る */
+}
+
+/* STORYセクション（ABOUTページ）のタイトルを囲む要素がある場合 */
+.profile-intro h2 {
+    text-align: center;
 }
