@@ -1723,3 +1723,12 @@ section h2 + p,
 .profile-intro h2 {
     text-align: center;
 }
+
+/* Introductionの文章が入るボックス */
+#introduction .container div {
+  max-width: 700px;
+  margin: 30px auto; 
+  text-align: left; /* ★ここを左寄せに */
+  line-height: 2;
+  padding: 0 10px; /* スマホで端がくっつかないように */
+}
