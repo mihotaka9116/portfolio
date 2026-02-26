@@ -1745,3 +1745,13 @@ section h2 + p,
     text-align: center;
     margin-top: 10px;
 }
+
+/* タイムライン（STORY）の文章を中央寄せ */
+.career-content {
+    text-align: center;
+}
+
+/* スキル（SKILL）の文章を中央寄せ */
+.skill-item p {
+    text-align: center;
+}
