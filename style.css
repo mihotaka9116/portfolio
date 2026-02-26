@@ -159,3 +159,51 @@ main { padding-top: 100px; min-height: 80vh; }
   }
   .career-item::before { position: static; margin-bottom: 20px; }
 }
+
+/* =================================================
+   1. STORY：アイコンを丸く・縁取り
+   ================================================== */
+.career-item::before {
+    background-color: #fff !important; 
+    border-radius: 50% !important;     /* 完全に丸く */
+    border: 2px solid #eee !important; /* 縁取り */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+    background-size: 70% !important;   /* 中の画像を少し小さくして余白を作る */
+}
+
+/* =================================================
+   2. SKILL：アイコンの色を個別に変更
+   ================================================== */
+/* 1つ目：Design (ローズ) */
+.skill-item:nth-child(1) img {
+    filter: sepia(0.5) saturate(1.5) hue-rotate(320deg) !important;
+}
+/* 2つ目：Coding (ブルーグリーン) */
+.skill-item:nth-child(2) img {
+    filter: sepia(0.5) saturate(1.2) hue-rotate(160deg) !important;
+}
+/* 3つ目：JavaScript (マスタード) */
+.skill-item:nth-child(3) img {
+    filter: sepia(0.5) saturate(1.5) hue-rotate(10deg) !important;
+}
+
+/* =================================================
+   3. FOOTER：アイコンを白く・小さく
+   ================================================== */
+#footer .logo img {
+    filter: brightness(0) invert(1) !important; /* 画像を白く反転 */
+    width: 80px !important;                     /* サイズを小さく (お好みで調整) */
+    height: auto;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+/* フッター内のリンクも白く統一 */
+#footer a {
+    color: #ffffff !important;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+#footer a:hover {
+    opacity: 1;
+}
