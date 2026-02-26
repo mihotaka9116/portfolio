@@ -1779,3 +1779,8 @@ section h2 + p,
         text-align: center;
     }
 }
+
+.profile-intro div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
