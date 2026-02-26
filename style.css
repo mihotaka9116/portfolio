@@ -1703,7 +1703,7 @@ section h2 + p,
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    text-align: left; /* 文字の開始位置を揃える */
+  
 }
 
 /* --- フェードインアニメーションの基本 --- */
