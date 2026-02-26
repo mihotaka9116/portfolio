@@ -1721,11 +1721,3 @@ section h2 + p,
   opacity: 1;
   transform: translateY(0); /* 元の位置に戻る */
 }
-
-/* 「ストーリー」や「スキル」セクションの中の文章を狙い撃ちする場合 */
-.story-content p, 
-.skills-content p {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
