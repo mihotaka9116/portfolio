@@ -150,6 +150,7 @@ main {
     padding-left: 70px !important;
     margin-bottom: 90px !important;
     position: relative;
+    align-items: csnter;
 }
 
 .career-item::before {
