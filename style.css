@@ -1,142 +1,96 @@
-@charset "UTF-8";
-
-/* --- 1. 基本設定 --- */
-:root {
-  --main-blue: #4682b4;
-  --accent-gray: #708090;
-  --light-gray: #f4f7f9;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  color: var(--main-blue);
-  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-  line-height: 1.8;
-  overflow-x: hidden;
-  width: 100%;
-}
-
-/* --- 2. 共通ヘッダー（ナビを左右に完全分離） --- */
-.site-header {
-  position: fixed;
-  top: 0; left: 0; width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.header-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px; 
-  height: 70px;
-  display: flex !important;
-  justify-content: space-between !important; /* ★ロゴ左・ナビ右に振り分け */
-  align-items: center;
-}
-
-.site-logo img { height: 30px; width: auto; display: block; }
-
-.nav-menu ul {
-  display: flex !important;
-  gap: 30px;
-  list-style: none;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: var(--main-blue);
-  font-weight: bold;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-}
-
-/* --- 3. メインビジュアル（紺タイル背景を復元） --- */
+/* --- 7. INDEX用 メインビジュアル（高さを短く調整） --- */
 #mainvisual {
-  position: relative; height: 100vh;
+  position: relative; 
+  height: 60vh; /* ★100vhから60vh（画面の6割程度）に短縮 */
+  min-height: 400px; /* あまりに潰れすぎないように最低高さを設定 */
   background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69 url("logo.svg") repeat;
   background-size: 150px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
   text-align: center;
+  padding-top: 70px; /* ヘッダー分を考慮 */
 }
-.mv-logo { filter: brightness(0) invert(1); width: 180px; margin-bottom: 20px; }
-#mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.1em; }
 
-.scrolldown { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: #fff; padding-bottom: 60px; }
+/* メインビジュアル内のロゴサイズも少しコンパクトに */
+.mv-logo { 
+  filter: brightness(0) invert(1); 
+  width: 140px; /* 180pxから140pxへ少し縮小 */
+  margin-bottom: 15px; 
+}
+
+#mainvisual p { 
+  color: #fff; 
+  font-weight: bold; 
+  letter-spacing: 0.1em; 
+  font-size: 1rem;
+}
+
+/* スクロールアニメーションの位置調整 */
+.scrolldown { 
+  position: absolute; 
+  bottom: 15px; /* 下に詰めすぎないよう微調整 */
+  left: 50%; 
+  transform: translateX(-50%); 
+  color: #fff; 
+  padding-bottom: 40px; 
+}
+
+.scrolldown span {
+  font-size: 0.6rem;
+}
+
 .scrolldown::after {
-  content: ""; position: absolute; bottom: 0; left: 50%; width: 1px; height: 50px; background: #fff;
-  animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
-}
-@keyframes scroll-line {
-  0% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 0; }
-  50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
-  50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
-  100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
+  height: 30px; /* 線も少し短くしてコンパクトに */
 }
 
-/* --- 4. 見出し設定（すぐ下に配置するための調整） --- */
-.section-title { text-align: center; font-size: 2.2rem; letter-spacing: 0.1em; margin-bottom: 0; }
-.section-title-en { 
-  display: block; text-align: center; color: var(--accent-gray); 
-  font-size: 0.8rem; margin-bottom: 15px; /* ここの余白を詰める */
+/* --- 6. SKILL（アイコンサイズ修正と配置調整） --- */
+#skill {
+  padding: 60px 0;
 }
 
-/* --- 5. コンセプト表（確実に表示させる） --- */
-.color-details-table {
-  display: block !important;
-  max-width: 850px;
-  margin: 10px auto 80px !important; /* 見出しのすぐ下に配置 */
-  border-top: 2px solid var(--main-blue);
-  background: #fff;
+.skills-grid { 
+  display: flex; 
+  justify-content: center; 
+  gap: 30px; 
+  flex-wrap: wrap; 
+  margin-top: 10px !important; /* 見出しのすぐ下に */
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.detail-header, .detail-row {
-  display: grid;
-  grid-template-columns: 140px 60px 120px 1fr;
-  padding: 15px 20px;
+
+.skill-item { 
+  width: 260px; /* 横幅を抑えて3つ並びやすく */
+  text-align: center; 
+  padding: 15px;
+}
+
+/* 巨大化を防ぐ設定 */
+.skill-item .img {
+  width: 90px;      /* アイコンを囲む枠のサイズ */
+  height: 90px;
+  margin: 0 auto 15px;
+  display: flex;
   align-items: center;
-  border-bottom: 1px solid #eee;
-  text-align: left;
+  justify-content: center;
 }
-.detail-header { background-color: #f8fabb; font-weight: bold; font-size: 0.8rem; }
-.chip { display: inline-block; width: 24px; height: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
-/* 各カラーチップの色 */
-.c-rose { background-color: #E597B9; }
-.c-green { background-color: #99C361; }
-.c-sky { background-color: #6EB1E4; }
-.c-mint { background-color: #B7E2D8; }
-.c-orange { background-color: #F48451; }
-.c-royal { background-color: #2D59A3; }
-
-/* --- 6. 実績(WORK) セクション --- */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
+.skill-item img { 
+  width: 100%;      /* 枠いっぱいに広げる */
+  height: auto; 
+  max-width: 80px;  /* ここで最大サイズを固定 ★ */
+  object-fit: contain;
 }
-.image-wrap img { width: 100%; border-radius: 8px; transition: 0.3s; }
-.image-wrap:hover img { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.work-caption { margin-top: 10px; font-weight: bold; text-align: center; }
 
-/* --- 7. FOOTER（白・ロゴ小） --- */
-#footer {
-  background-color: #2d4b69 !important;
-  color: #fff !important;
-  text-align: center;
-  padding: 40px 0;
+.skill-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--main-blue);
 }
-#footer .logo img {
-  filter: brightness(0) invert(1) !important;
-  width: 60px !important;
-  margin-bottom: 15px;
-}
-#footer a { color: #fff !important; text-decoration: none; font-size: 11px; opacity: 0.7; }
 
-/* --- 8. スマホ対応 --- */
-@media screen and (max-width: 767px) {
-  .header-container { padding: 0 20px; }
-  .detail-header { display: none; }
-  .detail-row { grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px; }
-  .desc-col { grid-column: 1 / 3; border-top: 1px dashed #eee; padding-top: 10px; }
+.skill-item p {
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
