@@ -1732,3 +1732,24 @@ section h2 + p,
   line-height: 2;
   padding: 0 10px; /* スマホで端がくっつかないように */
 }
+
+/* --- 強制的に左寄せにする設定 --- */
+
+/* 1. はじめに（Introduction）の文章 */
+#introduction div p {
+  text-align: left !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 700px; /* 文章の横幅を制限して読みやすく */
+}
+
+/* 2. スキル（SKILL）の説明文 */
+.skill-item p {
+  text-align: left !important;
+  display: block !important;
+  padding: 0 10px; /* 枠の端に文字がくっつかないように */
+}
+
+/* スキルのタイトルも左にする場合は以下を追加（中央のままなら不要です） */
+/* .skill-item h3 { text-align: left !important; padding-left: 10px; } */
