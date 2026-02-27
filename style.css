@@ -420,10 +420,10 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 #footer {
   /* 背景をメインビジュアルと同じ深い紺色に */
-  background-color: #2d4b69 !important; 
+  background-color: #2d4b69; 
   
   /* 文字を白くして読みやすく */
-  color: #ffffff !important;
+  color: #ffffff;
   
   text-align: center;
   padding: 50px 0;
@@ -432,7 +432,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 /* フッター内のリンク（プライバシーポリシーなど）も白くする */
 #footer a {
-  color: #ffffff !important;
+  color: #ffffff;
   text-decoration: none;
   opacity: 0.8;
   transition: 0.3s;
@@ -1271,33 +1271,33 @@ main {
 .career-item::before {
     content: "";
     position: absolute;
-    left: -26px !important;  /* 線の位置に合わせる (-width/2 - 線幅) */
-    top: 0 !important;
-    width: 50px !important;   /* 前よりさらに大きく */
-    height: 50px !important;  /* 前よりさらに大きく */
-    border-radius: 50% !important; /* 強制的に正円にする */
-    background-size: 65% !important; /* アイコンを丸の65%の大きさに（四角い端が隠れる） */
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    border: 3px solid #fff !important; /* 白い枠を太くしてクッキリさせる */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
-    z-index: 10 !important;
+    left: -26px;  /* 線の位置に合わせる (-width/2 - 線幅) */
+    top: 0;
+    width: 50px;   /* 前よりさらに大きく */
+    height: 50px;  /* 前よりさらに大きく */
+    border-radius: 50%; /* 強制的に正円にする */
+    background-size: 65%; /* アイコンを丸の65%の大きさに（四角い端が隠れる） */
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid #fff; /* 白い枠を太くしてクッキリさせる */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 10;
 }
 
 /* 3. 各アイコンの背景色と画像（!importantで古い設定を無効化） */
 .career-item:nth-child(1)::before {
-    background-color: #E597B9 !important;
-    background-image: url("cupcake.svg") !important;
+    background-color: #E597B9;
+    background-image: url("cupcake.svg");
 }
 
 .career-item:nth-child(2)::before {
-    background-color: #99C361 !important;
-    background-image: url("tyaki.svg") !important;
+    background-color: #99C361;
+    background-image: url("tyaki.svg");
 }
 
 .career-item:nth-child(3)::before {
-    background-color: #6EB1E4 !important;
-    background-image: url("woman.svg") !important;
+    background-color: #6EB1E4;
+    background-image: url("woman.svg");
 }
 
 /* 日付の位置を調整 */
@@ -1310,10 +1310,10 @@ main {
 /* スマホ用の微調整（さらにズレを防ぐ） */
 @media screen and (max-width: 767px) {
     .career-timeline .career-item {
-        padding-left: 55px !important;
+        padding-left: 55px;
     }
     .career-item::before {
-        left: -26px !important;
+        left: -26px;
     }
 }
 
@@ -1321,9 +1321,9 @@ main {
 
 /* 1. 縦線とテキストの余白（アイコンを大きくしたので少し広げます） */
 .career-timeline .career-item {
-    border-left: 2px solid #eee !important;
-    padding-left: 60px !important; 
-    margin-bottom: 80px !important;
+    border-left: 2px solid #eee;
+    padding-left: 60px; 
+    margin-bottom: 80px;
     position: relative;
     min-height: 70px;
 }
@@ -1333,45 +1333,45 @@ main {
     content: "";
     position: absolute;
     /* 位置：丸のサイズの半分＋線幅くらい左に寄せる */
-    left: -31px !important; 
-    top: -10px !important; /* 少し上にずらして文字と高さを合わせる */
+    left: -31px; 
+    top: -10px; /* 少し上にずらして文字と高さを合わせる */
     
     /* サイズ：さらに大きく 60px */
-    width: 60px !important;
-    height: 60px !important;
+    width: 60px;
+    height: 60px;
     
     /* 背景の丸を消し、画像を表示 */
-    background-color: transparent !important; /* 背景色を透明に */
-    background-size: contain !important;      /* 画像を枠いっぱいに */
-    background-position: center !important;
-    background-repeat: no-repeat !important;
+    background-color: transparent; /* 背景色を透明に */
+    background-size: contain;      /* 画像を枠いっぱいに */
+    background-position: center;
+    background-repeat: no-repeat;
     
     /* 画像そのものを丸く切り抜く */
-    border-radius: 50% !important;
-    overflow: hidden !important;
+    border-radius: 50%;
+    overflow: hidden;
     
-    /* 軽い影をつけて見やすくする（お好みで） */
+    /* 軽い影をつけて見やすくする */
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    z-index: 10 !important;
+    z-index: 10;
 }
 
 /* 3. 各アイテムに画像を割り当て */
 .career-item:nth-child(1)::before {
-    background-image: url("cupcake.svg") !important;
+    background-image: url("cupcake.svg");
 }
 
 .career-item:nth-child(2)::before {
-    background-image: url("tyaki.svg") !important;
+    background-image: url("tyaki.svg");
 }
 
 .career-item:nth-child(3)::before {
-    background-image: url("woman.svg") !important;
+    background-image: url("woman.svg");
 }
 
 /* スマホ表示の調整 */
 @media screen and (max-width: 767px) {
     .career-timeline .career-item {
-        padding-left: 70px !important;
+        padding-left: 70px;
     }
     .career-item::before {
         left: -31px !important;
