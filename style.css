@@ -146,9 +146,9 @@ main {
 
 /* --- 5. ABOUT：STORY（タイムライン） --- */
 .career-timeline .career-item {
-    border-left: 3px solid #eee !important;
-    padding-left: 70px !important;
-    margin-bottom: 90px !important;
+    border-left: 3px solid #eee;
+    padding-left: 70px;
+    margin-bottom: 90px;
     position: relative;
     align-items: csnter;
 }
@@ -156,36 +156,36 @@ main {
 .career-item::before {
     content: "";
     position: absolute;
-    left: -41.5px !important;
-    top: -10px !important;
-    width: 80px !important;
-    height: 80px !important;
-    background-color: transparent !important;
-    background-size: contain !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    border-radius: 50% !important;
+    left: -41.5px;
+    top: -10px;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-    z-index: 10 !important;
+    z-index: 10;
 }
 
-.career-item:nth-child(1)::before { background-image: url("cupcake.svg") !important; }
-.career-item:nth-child(2)::before { background-image: url("tyaki.svg") !important; }
-.career-item:nth-child(3)::before { background-image: url("woman.svg") !important; }
+.career-item:nth-child(1)::before { background-image: url("cupcake.svg") ; }
+.career-item:nth-child(2)::before { background-image: url("tyaki.svg") ; }
+.career-item:nth-child(3)::before { background-image: url("woman.svg"); }
 
 /* スマホ用タイムライン（中央寄せ） */
 @media screen and (max-width: 767px) {
     .career-timeline .career-item {
-        border-left: none !important;
-        padding-left: 0 !important;
+        border-left: none !;
+        padding-left: 0 !;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
     .career-item::before {
-        position: static !important;
-        margin-bottom: 20px !important;
+        position: static !;
+        margin-bottom: 20px;
     }
 }
 
@@ -197,12 +197,12 @@ main {
     width: 100px;
     height: auto;
     transition: all 0.3s ease;
-    opacity: 1 !important;
+    opacity: 1;
 }
 
-.skill-item:nth-child(1) img { filter: saturate(1.5) !important; }
-.skill-item:nth-child(2) img { filter: hue-rotate(140deg) saturate(1.5) !important; }
-.skill-item:nth-child(3) img { filter: hue-rotate(200deg) saturate(1.5) !important; }
+.skill-item:nth-child(1) img { filter: saturate(1.5) !; }
+.skill-item:nth-child(2) img { filter: hue-rotate(140deg) saturate(1.5); }
+.skill-item:nth-child(3) img { filter: hue-rotate(200deg) saturate(1.5); }
 
 .skill-item:hover img { transform: scale(1.1); }
 .skill-item:nth-child(1):hover img { filter: saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important; }
@@ -211,8 +211,8 @@ main {
 
 /* --- 7. フッター --- */
 #footer {
-    background-color: #2d4b69 !important;
-    color: #ffffff !important;
+    background-color: #2d4b69;
+    color: #ffffff;
     text-align: center;
     padding: 50px 0;
     margin-top: 80px;
@@ -452,7 +452,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 /* コピーライトの文字色調整 */
 .copyright {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(255, 255, 255, 0.6);
   margin-top: 20px;
 }
 /* --- CONTACTセクション全体 --- */
@@ -556,7 +556,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 /* 追加：ミントグリーンの色指定 */
-.c-mint { background-color: #A7D6CA !important; }
+.c-mint { background-color: #A7D6CA; }
 
 /* 表全体のスタイル */
 .color-details-table {
@@ -613,12 +613,12 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 }
 
 /* ロゴと完全一致させた最新カラーパレット */
-.c-rose   { background-color: #E597B9 !important; }
-.c-green  { background-color: #99C361 !important; }
-.c-sky    { background-color: #6EB1E4 !important; }
-.c-mint   { background-color: #B7E2D8 !important; }
-.c-orange { background-color: #F48451 !important; }
-.c-royal  { background-color: #2D59A3 !important; }
+.c-rose   { background-color: #E597B9; }
+.c-green  { background-color: #99C361; }
+.c-sky    { background-color: #6EB1E4; }
+.c-mint   { background-color: #B7E2D8; }
+.c-orange { background-color: #F48451; }
+.c-royal  { background-color: #2D59A3; }
 
 /* --- ハンバーガーメニューのスタイル追加 --- */
 .hamburger-menu {
@@ -1083,7 +1083,7 @@ main {
 
 /* 1. 左側の縦線を細く・薄くして、ドットを際立たせる */
 .career-timeline .career-item {
-    border-left: 2px solid #eee !important;
+    border-left: 2px solid #eee;
     padding-left: 30px;
     margin-bottom: 50px;
 }
@@ -1091,24 +1091,24 @@ main {
 /* 2. ドットの色と、日付（.career-date）の色を5色でループさせる */
 
 /* 1つ目：ローズピンク */
-.career-item:nth-child(5n+1)::before { background-color: #E597B9 !important; }
-.career-item:nth-child(5n+1) .career-date { color: #E597B9 !important; }
+.career-item:nth-child(5n+1)::before { background-color: #E597B9; }
+.career-item:nth-child(5n+1) .career-date { color: #E597B9; }
 
 /* 2つ目：リーフグリーン */
-.career-item:nth-child(5n+2)::before { background-color: #99C361 !important; }
-.career-item:nth-child(5n+2) .career-date { color: #99C361 !important; }
+.career-item:nth-child(5n+2)::before { background-color: #99C361; }
+.career-item:nth-child(5n+2) .career-date { color: #99C361; }
 
 /* 3つ目：スカイブルー */
-.career-item:nth-child(5n+3)::before { background-color: #6EB1E4 !important; }
-.career-item:nth-child(5n+3) .career-date { color: #6EB1E4 !important; }
+.career-item:nth-child(5n+3)::before { background-color: #6EB1E4; }
+.career-item:nth-child(5n+3) .career-date { color: #6EB1E4; }
 
 /* 4つ目：コーラルオレンジ */
-.career-item:nth-child(5n+4)::before { background-color: #F48451 !important; }
-.career-item:nth-child(5n+4) .career-date { color: #F48451 !important; }
+.career-item:nth-child(5n+4)::before { background-color: #F48451; }
+.career-item:nth-child(5n+4) .career-date { color: #F48451; }
 
 /* 5つ目：ロイヤルブルー */
-.career-item:nth-child(5n+5)::before { background-color: #2D59A3 !important; }
-.career-item:nth-child(5n+5) .career-date { color: #2D59A3 !important; }
+.career-item:nth-child(5n+5)::before { background-color: #2D59A3; }
+.career-item:nth-child(5n+5) .career-date { color: #2D59A3; }
 
 /* ドットの大きさや位置の微調整 */
 .career-item::before {
@@ -1122,7 +1122,7 @@ main {
 
 /* 1. ABOUT（現在のページ）の下線を消す */
 .nav-menu a.current {
-    border-bottom: none !important; /* 下線を削除 */
+    border-bottom: none; /* 下線を削除 */
     color: var(--main-blue);        /* 色だけ変える（またはそのまま） */
 }
 
@@ -1173,26 +1173,26 @@ main {
 
 /* 1番目：物語の原点 (カップケーキ) */
 .career-item:nth-child(1)::before {
-    background-color: #E597B9 !important;
+    background-color: #E597B9;
     background-image: url("cupcake.svg");
 }
 
 /* 2番目：学生時代 (茶器) */
 .career-item:nth-child(2)::before {
-    background-color: #99C361 !important;
+    background-color: #99C361;
     background-image: url("tyaki.svg");
 }
 
 /* 3番目：2017 - 2025 (女性/コールセンター) */
 .career-item:nth-child(3)::before {
-    background-color: #6EB1E4 !important;
+    background-color: #6EB1E4;
     background-image: url("woman.svg");
     background-size: 60%; /* woman.svgだけ少し小さくしたい場合はここで調整 */
 }
 
 /* 縦線の位置を、少し大きな丸に合わせて微調整 */
 .career-timeline .career-item {
-    border-left: 2px solid #eee !important;
+    border-left: 2px solid #eee;
     padding-left: 35px;
     margin-bottom: 50px;
     position: relative;
@@ -1205,7 +1205,7 @@ main {
 
 /* --- タイムライン全体の調整 --- */
 .career-timeline .career-item {
-    border-left: 2px solid #eee !important;
+    border-left: 2px solid #eee;
     padding-left: 45px; /* 丸を大きくしたので左の余白を広げました */
     margin-bottom: 60px;
     position: relative;
@@ -1231,19 +1231,19 @@ main {
 
 /* 1番目：物語の原点 (カップケーキ) */
 .career-item:nth-child(1)::before {
-    background-color: #E597B9 !important;
+    background-color: #E597B9;
     background-image: url("cupcake.svg");
 }
 
 /* 2番目：学生時代 (茶器) */
 .career-item:nth-child(2)::before {
-    background-color: #99C361 !important;
+    background-color: #99C361;
     background-image: url("tyaki.svg");
 }
 
 /* 3番目：2017 - 2025 (女性) */
 .career-item:nth-child(3)::before {
-    background-color: #6EB1E4 !important;
+    background-color: #6EB1E4;
     background-image: url("woman.svg");
 }
 
@@ -1261,9 +1261,9 @@ main {
 
 /* 1. 縦線と全体の余白を調整 */
 .career-timeline .career-item {
-    border-left: 3px solid #eee !important; /* 線を少し太く */
-    padding-left: 50px !important;         /* テキストを右に寄せて重なり防止 */
-    margin-bottom: 70px !important;
+    border-left: 3px solid #eee; /* 線を少し太く */
+    padding-left: 50px;         /* テキストを右に寄せて重なり防止 */
+    margin-bottom: 70px;
     position: relative;
 }
 
