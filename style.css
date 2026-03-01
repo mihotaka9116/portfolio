@@ -2378,4 +2378,23 @@ h1, h2, h3 {
     text-transform: none !important;
 }
 
+/* ヘッダーコンテナを画面いっぱいに広げる */
+.header-container {
+    max-width: 100% !important; /* 1000pxの制限を解除 */
+    padding: 0 40px;            /* 画面端に密着しすぎないよう適度な余白を */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+/* PC用ナビゲーションの文字間隔や位置の微調整 */
+.nav-menu ul {
+    gap: 40px; /* リンク同士の間隔を少し広げる */
+}
+
+/* ついでに：もしロゴが小さく感じたらここで調整 */
+.site-logo img {
+    height: 35px; /* お好みのサイズに */
+}
 
