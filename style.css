@@ -2085,3 +2085,27 @@ section h2 + p,
     background-color: #f5f7f9 !important; /* 背景色があるとサイズが揃って見えます */
     height: 350px !important; /* 全体の高さはここで統一 */
 }
+
+/* --- スマホ表示（画面幅 767px 以下）のとき --- */
+@media screen and (max-width: 767px) {
+    
+    /* 1. グリッドを強制的に 1列 に変更 */
+    .goods-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* 1列（全幅）にする */
+        gap: 40px !important;                 /* 写真と写真の上下の間隔 */
+        padding: 0 10px !important;           /* 左右に少し余白を作る */
+    }
+
+    /* 2. スマホでの枠の高さを調整（お好みで） */
+    .image-wrap {
+        height: 250px !important; /* スマホで見やすい高さに固定 */
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* 3. 画像の下にある文字の間隔を少し詰める */
+    .work-text-content {
+        padding: 15px 0 30px !important;
+    }
+}
