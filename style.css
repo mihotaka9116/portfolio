@@ -1987,3 +1987,101 @@ section h2 + p,
     background-color: #f5f7f9 !important; /* 背景色があるとサイズが揃って見えます */
     height: 350px !important; /* 全体の高さはここで統一 */
 }
+
+/* WORKの画像：大きさを「枠」に対して一回り小さく制限する */
+.image-wrap img {
+    /* 1. 枠いっぱいに広がらないよう、最大サイズを「90%」くらいに抑える */
+    max-width: 90% !important; 
+    max-height: 90% !important;
+    
+    /* 2. もし画像が枠より小さければ、そのままの大きさで表示 */
+    width: auto !important;
+    height: auto !important;
+    
+    /* 3. 枠の真ん中に配置 */
+    object-fit: contain !important; 
+    margin: auto !important; 
+    
+    display: block !important;
+}
+
+/* 枠側の設定（再確認） */
+.image-wrap {
+    display: flex !important;
+    align-items: center !important;   /* 上下中央 */
+    justify-content: center !important; /* 左右中央 */
+    background-color: #f5f7f9 !important; /* 背景色があるとサイズが揃って見えます */
+    height: 350px !important; /* 全体の高さはここで統一 */
+}/* WORKの画像：大きさを「枠」に対して一回り小さく制限する */
+.image-wrap img {
+    /* 1. 枠いっぱいに広がらないよう、最大サイズを「90%」くらいに抑える */
+    max-width: 90% !important; 
+    max-height: 90% !important;
+    
+    /* 2. もし画像が枠より小さければ、そのままの大きさで表示 */
+    width: auto !important;
+    height: auto !important;
+    
+    /* 3. 枠の真ん中に配置 */
+    object-fit: contain !important; 
+    margin: auto !important; 
+    
+    display: block !important;
+}
+
+/* 枠側の設定（再確認） */
+.image-wrap {
+    display: flex !important;
+    align-items: center !important;   /* 上下中央 */
+    justify-content: center !important; /* 左右中央 */
+    background-color: #f5f7f9 !important; /* 背景色があるとサイズが揃って見えます */
+    height: 350px !important; /* 全体の高さはここで統一 */
+}/* WORKの画像：大きさを「枠」に対して一回り小さく制限する */
+.image-wrap img {
+    /* 1. 枠いっぱいに広がらないよう、最大サイズを「90%」くらいに抑える */
+    max-width: 90% !important; 
+    max-height: 90% !important;
+    
+    /* 2. もし画像が枠より小さければ、そのままの大きさで表示 */
+    width: auto !important;
+    height: auto !important;
+    
+    /* 3. 枠の真ん中に配置 */
+    object-fit: contain !important; 
+    margin: auto !important; 
+    
+    display: block !important;
+}
+
+/* 枠側の設定（再確認） */
+.image-wrap {
+    display: flex !important;
+    align-items: center !important;   /* 上下中央 */
+    justify-content: center !important; /* 左右中央 */
+    background-color: #f5f7f9 !important; /* 背景色があるとサイズが揃って見えます */
+    height: 350px !important; /* 全体の高さはここで統一 */
+}/* WORKの画像：大きさを「枠」に対して一回り小さく制限する */
+.image-wrap img {
+    /* 1. 枠いっぱいに広がらないよう、最大サイズを「90%」くらいに抑える */
+    max-width: 90% !important; 
+    max-height: 90% !important;
+    
+    /* 2. もし画像が枠より小さければ、そのままの大きさで表示 */
+    width: auto !important;
+    height: auto !important;
+    
+    /* 3. 枠の真ん中に配置 */
+    object-fit: contain !important; 
+    margin: auto !important; 
+    
+    display: block !important;
+}
+
+/* 枠側の設定（再確認） */
+.image-wrap {
+    display: flex !important;
+    align-items: center !important;   /* 上下中央 */
+    justify-content: center !important; /* 左右中央 */
+    background-color: #f5f7f9 !important; /* 背景色があるとサイズが揃って見えます */
+    height: 350px !important; /* 全体の高さはここで統一 */
+}
