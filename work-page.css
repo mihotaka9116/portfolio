@@ -2491,3 +2491,104 @@ section h2 + p,
         gap: 20px;
     }
 }
+
+/* =================================================
+   GOODS詳細：テキスト・フォント装飾
+==================================================== */
+
+/* 1. セクションタイトルの装飾（中央の下線） */
+.detail-text-box .title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--main-blue);
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    position: relative;
+    display: inline-block; /* 文字幅に合わせる */
+    letter-spacing: 0.1em;
+}
+
+/* タイトルの下に短い装飾線を入れる */
+.detail-text-box .title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--main-blue);
+    border-radius: 2px;
+}
+
+/* 2. 商品名と価格のスタイル（画像の下） */
+.item-caption {
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* 商品カテゴリー（小さな文字） */
+.item-caption .category {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--accent-gray);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+/* 商品名（メイン） */
+.item-caption span {
+    display: block;
+    font-size: 1.2rem; /* ★一回り大きく */
+    font-weight: 700;
+    color: var(--main-blue);
+    line-height: 1.4;
+}
+
+/* 価格（もしあれば追加用） */
+.item-price {
+    display: block;
+    margin-top: 8px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* 3. 本文テキスト（説明文）の読みやすさ向上 */
+.project-description {
+    font-size: 1rem;
+    color: #444; /* 少しだけ濃くして可読性を上げる */
+    line-height: 2; /* 行間をゆったりと */
+    text-align: center;
+}
+
+/* 箇条書き（ul/li）の装飾 */
+.project-description ul li {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: #555;
+    position: relative;
+    padding-left: 1.5em;
+}
+
+/* リストの「●」を細い線やひし形にするとオシャレ */
+.project-description ul li::before {
+    content: "◇"; /* ひし形で少し上品に */
+    position: absolute;
+    left: 0;
+    color: var(--main-blue);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* 4. スマホ時のフォントサイズ調整 */
+@media screen and (max-width: 767px) {
+    .detail-text-box .title {
+        font-size: 1.4rem;
+    }
+    .item-caption span {
+        font-size: 1.1rem;
+    }
+}
