@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+/* =================================================
+   WORK (LOGOグッズ) ページ専用スタイル
+   ※他のページのスタイルに干渉しません
+==================================================== */
+
+/* レイアウトの土台 */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#work {
+    padding: 100px 0 60px; /* ヘッダーの下に余白を作る */
+}
+
+/* --- 4つの制作物を並べるグリッド --- */
+.goods-grid {
+    display: grid;
+    /* PCではきっちり2列に分ける */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* アイテム間の隙間 */
+    margin-top: 40px;
+}
+
+/* 各アイテムの画像枠 */
+.image-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: #eee; /* 画像読み込み前の色 */
+}
+
+.image-wrap img {
+    width: 100%;
+    height: 350px;    /* 画像の高さを固定して揃える */
+    object-fit: cover; /* 枠に合わせて自動トリミング */
+    display: block;
+}
+
+/* テキスト部分 */
+.work-text-content {
+    padding: 15px 0;
+}
+
+.work-text-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #4682b4; /* メインカラー */
+}
+
+.work-text-content p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- フッターのロゴを小さく白く --- */
+#footer .logo img {
+    width: 70px !important;      /* 強制的に小さく */
+    height: auto !important;
+    filter: brightness(0) invert(1) !important; /* 強制的に白く */
+    margin-bottom: 15px;
+}
+
+/* --- スマホ表示 (768px以下) --- */
+@media screen and (max-width: 768px) {
+    .goods-grid {
+        grid-template-columns: 1fr; /* 1列に切り替え */
+        gap: 30px;
+    }
+
+    .image-wrap img {
+        height: 250px; /* スマホでは少し高さを低くする */
+    }
+}
