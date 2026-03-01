@@ -2191,7 +2191,7 @@ section h2 + p,
 /* 英語タイトル（例：WORK, CONCEPT） */
 .section-title {
     font-size: 3rem;     /* かなり大きくして主役に */
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 5px;  /* 下の日本語との隙間を詰める */
     letter-spacing: 0.1em;
 }
@@ -2223,6 +2223,6 @@ section h2 + p,
 
 .back-home:hover {
     background-color: #E296B5; /* ローズピンク */
-    color: #fff !important;
+    color: #fff;
     border-color: #E296B5;
 }
