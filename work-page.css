@@ -2056,3 +2056,298 @@ section h2 + p,
 .custom-btn:hover {
     background: #2d4b69; /* 少し濃い青へ */
 }
+
+/* --- STORYセクション：PC/スマホ共通設定 --- */
+.career-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* 各アイコンの画像指定（共通） */
+.career-item:nth-child(1)::before { background-image: url("cupcake.svg"); }
+.career-item:nth-child(2)::before { background-image: url("tyaki.svg"); }
+.career-item:nth-child(3)::before { background-image: url("woman.svg"); }
+
+/* --- PC版（768px以上）：左側に線とアイコン --- */
+@media screen and (min-width: 768px) {
+    .career-item {
+        border-left: 3px solid #eee; /* 左の縦線 */
+        padding-left: 70px;
+        margin-bottom: 90px;
+        position: relative;
+        min-height: 100px;
+        display: block; /* 横並びを解除 */
+    }
+
+    .career-item::before {
+        content: "";
+        position: absolute;
+        left: -41.5px; /* 線の真ん中にアイコンを配置 */
+        top: -10px;
+        width: 80px;
+        height: 80px;
+        background-color: transparent;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        z-index: 10;
+    }
+}
+
+/* --- スマホ版（767px以下）：中央寄せ --- */
+@media screen and (max-width: 767px) {
+    .career-item {
+        border-left: none; /* 線を消す */
+        padding-left: 0;
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: column; /* 縦に並べる */
+        align-items: center;    /* 中央寄せ */
+        text-align: center;
+    }
+
+    .career-item::before {
+        content: "";
+        display: block;
+        width: 100px; /* スマホでは少し大きく見せる */
+        height: 100px;
+        margin-bottom: 20px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    }
+
+    .career-content p {
+        text-align: left; /* 長い文章は左揃えが読みやすい */
+        padding: 0 10px;
+    }
+}
+
+/* =================================================
+   WORK詳細ページ (Goods) 専用スタイル
+==================================================== */
+
+/* 1. 全体コンテナ */
+.detail-container {
+    max-width: 1000px; /* 少し広く取る */
+    margin: 0 auto;
+    padding: 120px 20px 80px; /* ヘッダー分の余白 */
+    text-align: center; /* ★基本のテキストをセンター寄せに */
+}
+
+/* 2. 戻るナビゲーション（センター配置） */
+.back-nav {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center; /* ★センター配置 */
+}
+.back-nav a {
+    text-decoration: none;
+    color: var(--main-blue);
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border: 1px solid var(--main-blue); /* 枠線をつける */
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+.back-nav a:hover {
+    background-color: var(--main-blue);
+    color: #fff !important;
+}
+
+/* 3. メインロゴ（センター配置） */
+.main-visual-img {
+    display: block;
+    max-width: 300px; /* ★ロゴを一回り大きく */
+    height: auto;
+    margin: 0 auto 80px; /* ★センター配置 */
+}
+
+/* セクションタイトル（センター配置） */
+.section-title,
+.section-title-en {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+/* 4. メタ情報（センター配置に変更） */
+.work-detail-meta {
+    display: flex;
+    justify-content: center; /* ★センターに集める */
+    gap: 40px; /* 間隔を広げる */
+    margin: 50px auto;
+    max-width: 700px;
+    padding: 30px;
+    background: var(--light-gray);
+    border-radius: 12px;
+}
+.meta-item {
+    text-align: center; /* ★テキストセンター */
+}
+.meta-item span {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--accent-gray);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.meta-item p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* 5. テキストボックス（センター配置） */
+.detail-text-box {
+    max-width: 750px;
+    margin: 0 auto 80px; /* ★センター配置 */
+}
+.detail-text-box .title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: var(--main-blue);
+    /* センター配置なので左線を消して、下線にする */
+    border-left: none;
+    padding-left: 0;
+    border-bottom: 2px solid var(--main-blue);
+    display: inline-block; /* 文字幅の下線に */
+    padding-bottom: 10px;
+}
+
+/* 説明文（センター配置） */
+.project-description {
+    text-align: center; /* ★基本センター寄せ */
+    line-height: 1.8;
+}
+
+.project-description h3 {
+    font-size: 1.2rem;
+    margin: 40px 0 15px;
+    color: var(--main-blue);
+}
+
+/* リスト（センター配置の中の左揃え） */
+.project-description ul {
+    list-style: none;
+    padding-left: 0;
+    display: inline-block; /* ★リスト全体をセンターに */
+    text-align: left;      /* ★リストの中身は左揃え */
+    margin-top: 10px;
+}
+.project-description li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+.project-description li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    color: var(--main-blue);
+    font-size: 0.8em;
+}
+
+/* 6. グッズグリッド（画像拡大） */
+.goods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列固定 */
+    gap: 50px; /* ★間隔を広く */
+    margin: 60px 0;
+}
+
+.goods-item {
+    text-align: center;
+}
+
+.image-wrap {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1; /* 正方形 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); /* 軽い影 */
+}
+
+.image-wrap img {
+    width: 95%; /* ★枠いっぱいまで拡大（object-fitと合わせる） */
+    height: 95%;
+    object-fit: contain; /* 商品全体が見えるように */
+    padding: 10px; /* ★余白を減らして画像を大きく */
+    transition: transform 0.5s ease;
+}
+
+.goods-item:hover img {
+    transform: scale(1.08); /* ホバーで少し大きく */
+}
+
+/* キャプション */
+.item-caption {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: bold;
+}
+.item-caption span {
+    display: block;
+    font-size: 1.1rem; /* ★文字も少し大きく */
+    color: var(--main-blue);
+    margin-top: 4px;
+}
+
+/* 7. CTAエリア */
+.cta-area {
+    margin: 100px 0 60px;
+    text-align: center;
+}
+.custom-btn {
+    display: inline-block;
+    background: var(--main-blue);
+    color: #fff;
+    padding: 20px 50px; /* ★ボタンも大きく */
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(70, 130, 180, 0.2);
+}
+.custom-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--hover-blue); /* 少し濃い青へ */
+    box-shadow: 0 15px 30px rgba(70, 130, 180, 0.3);
+}
+
+/* スマホ表示の調整（767px以下） */
+@media screen and (max-width: 767px) {
+    .detail-container {
+        padding-top: 100px;
+    }
+    .main-visual-img {
+        max-width: 200px; /* スマホではロゴを少し小さく */
+        margin-bottom: 60px;
+    }
+    .work-detail-meta {
+        flex-direction: column; /* 縦並び */
+        gap: 20px;
+        padding: 20px;
+    }
+    .goods-grid {
+        grid-template-columns: 1fr; /* 1列 */
+        gap: 40px;
+    }
+    .detail-text-box .title {
+        font-size: 1.3rem;
+    }
+}
