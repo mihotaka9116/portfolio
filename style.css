@@ -2125,7 +2125,7 @@ section h2 + p,
 
 /* 左上のロゴを大きくする */
 .site-logo img {
-    width: 180px; /* お好みに合わせて数値を増やしてください（例: 200px） */
+    width: 170px; /* お好みに合わせて数値を増やしてください（例: 200px） */
     height: auto;
 }
 
@@ -2133,7 +2133,7 @@ section h2 + p,
 #mainvisual .mv-logo {
     display: block;
     margin: 0 auto 20px; /* 左右をautoにすることで中央になります */
-    width: 300px;        /* メインのロゴサイズもお好みで調整してください */
+    width: 250px;        /* メインのロゴサイズもお好みで調整してください */
     /* もしこれでも左に寄って見える場合は、margin-leftを少し足して調整します */
     /* margin-left: 55% !important; */ 
 }
@@ -2151,7 +2151,7 @@ section h2 + p,
 
 /* メニュー同士の間隔を広げる */
 .nav-menu ul {
-    gap: 30px;            /* メニューごとの隙間を広げます */
+    gap: 25px;            /* メニューごとの隙間を広げます */
 }
 
 /* 「ロゴマークを形作る6つの色彩」というテキスト */
@@ -2191,7 +2191,7 @@ section h2 + p,
 /* 英語タイトル（例：WORK, CONCEPT） */
 .section-title {
     font-size: 3rem;     /* かなり大きくして主役に */
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 5px;  /* 下の日本語との隙間を詰める */
     letter-spacing: 0.1em;
 }
@@ -2203,4 +2203,26 @@ section h2 + p,
     color: #888;         /* 少し薄い色にする */
     font-weight: 400;
     margin-bottom: 30px; /* 下のコンテンツとの間隔 */
+}
+
+/* 左上のロゴマークを大きくする */
+.site-logo img {
+    width: 170px; /* 前回の調整と同じサイズに設定 */
+    height: auto;
+}
+
+/* ついでにナビゲーションも少し大きくする場合 */
+.nav-menu ul li a {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.header-container {
+    padding: 20px 0; /* 上下の余白を少し広げる */
+}
+
+.back-home:hover {
+    background-color: #E296B5; /* ローズピンク */
+    color: #fff !important;
+    border-color: #E296B5;
 }
