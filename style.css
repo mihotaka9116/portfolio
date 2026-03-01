@@ -1839,3 +1839,71 @@ section h2 + p,
     flex-direction: column !important;
     height: 100% !important; /* カード全体の高さを揃える */
 }
+
+@charset "UTF-8";
+
+/* =================================================
+   WORKセクション：完全整列・画像切れ防止
+==================================================== */
+
+/* 1. PCで2列に強制固定 */
+.goods-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 2列 */
+    gap: 60px 40px !important; /* 縦・横の隙間 */
+    margin-top: 50px !important;
+}
+
+/* 2. 画像の「枠」を完全に同じ高さにする */
+.image-wrap {
+    width: 100% !important;
+    height: 400px !important; /* ★ここで全画像の高さを400pxに統一 */
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    background-color: #f8f9fa !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+    display: block !important;
+}
+
+/* 3. 画像の「中身」を調整（左側を切らさない） */
+.image-wrap img {
+    width: 100% !important;
+    height: 100% !important; /* 枠いっぱいに広げる */
+    
+    /* 【重要】ここがポイントです */
+    object-fit: cover !important;    /* 枠を埋めるように切り抜く */
+    object-position: left top !important; /* ★中心ではなく「左上」を基準にする */
+    
+    display: block !important;
+    transition: transform 0.4s ease !important;
+}
+
+/* ホバー時のズーム演出 */
+.image-wrap:hover img {
+    transform: scale(1.05) !important;
+}
+
+/* 4. カード下のテキストも中央に揃える */
+.work-text-content {
+    padding: 20px 0 !important;
+    text-align: center !important;
+}
+
+.work-text-content h3 {
+    font-size: 1.2rem !important;
+    color: #4682b4 !important;
+    margin-bottom: 8px !important;
+}
+
+/* --- スマホ表示 (768px以下で1列に) --- */
+@media screen and (max-width: 768px) {
+    .goods-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 500px !important;
+        margin: 40px auto 0 !important;
+    }
+
+    .image-wrap {
+        height: 280px !important; /* スマホでは少し高さを抑える */
+    }
+}
