@@ -2109,3 +2109,16 @@ section h2 + p,
         padding: 15px 0 30px !important;
     }
 }
+
+.back-nav a {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid var(--main-blue);
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+.back-nav a:hover {
+    background: var(--main-blue);
+    color: #fff !important;
+    text-decoration: none;
+}
