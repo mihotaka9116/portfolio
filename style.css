@@ -2226,3 +2226,53 @@ section h2 + p,
     color: #fff;
     border-color: #E296B5;
 }
+
+/* --- 1. 左上のロゴとヘッダーの調整 --- */
+.header-container {
+    height: 80px; /* ロゴを大きくするため、少し高さを広げます */
+}
+
+.site-logo img {
+    height: 45px !important; /* 前回の30pxから一回り大きくしました */
+    width: auto;
+}
+
+/* --- 2. ナビゲーションを大きくする --- */
+.nav-menu ul {
+    gap: 40px; /* メニュー同士の間隔を広げます */
+}
+
+.nav-menu a {
+    font-size: 1.1rem; /* 0.9remから大きく */
+    font-weight: 700;
+}
+
+/* --- 3. セクションタイトルの強弱（英語大・日本語小） --- */
+/* 英語タイトル（ABOUT, STORYなど） */
+.section-title {
+    font-size: 2.8rem; /* パッと目を引く大きさ */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--main-blue);
+    margin-bottom: 0px; /* 日本語との距離を詰める */
+    text-transform: uppercase;
+}
+
+/* 日本語タイトル（私について、歩みなど） */
+.section-title-en {
+    display: block;
+    font-size: 0.9rem; /* 小さく控えめに */
+    color: #888;       /* 少しグレーにして奥行きを出す */
+    font-weight: 400;
+    margin-top: -5px;           /* 英語タイトルに近づける */
+    margin-bottom: 40px;
+}
+
+/* --- 4. 6つの色彩（CONCEPT）のテキスト色調整 --- */
+.design-description {
+    color: #E597B9; /* ロゴのピンクに合わせる */
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
