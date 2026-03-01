@@ -1753,3 +1753,17 @@ section h2 + p,
 
 /* スキルのタイトルも左にする場合は以下を追加（中央のままなら不要です） */
 /* .skill-item h3 { text-align: left !important; padding-left: 10px; } */
+
+/* 実績リストの画像サイズを統一する */
+.image-wrap img {
+    width: 100%;       /* 横幅は親要素（grid）に合わせる */
+    height: 250px;     /* ここで高さを好きな数値で固定します */
+    object-fit: cover; /* 重要：アスペクト比を保ったまま、枠に合わせて切り抜く */
+    object-position: center top; /* 切り抜く位置（中央上部を基準にする） */
+}
+
+/* ついでにマウスを乗せた時の動きを入れるとプロっぽくなります */
+.image-wrap img:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+}
