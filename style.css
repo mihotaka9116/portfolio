@@ -2250,9 +2250,9 @@ section h2 + p,
 /* --- 3. セクションタイトルの強弱（英語大・日本語小） --- */
 /* 英語タイトル（ABOUT, STORYなど） */
 .section-title {
-    font-size: 2.8rem; /* パッと目を引く大きさ */
+    font-size: 2.5rem; /* パッと目を引く大きさ */
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 0.1em;
     color: var(--main-blue);
     margin-bottom: 0px; /* 日本語との距離を詰める */
