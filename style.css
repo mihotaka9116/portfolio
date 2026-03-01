@@ -1907,3 +1907,57 @@ section h2 + p,
         height: 280px !important; /* スマホでは少し高さを抑える */
     }
 }
+
+/* =================================================
+   WORK：画像を一切切らずに（Fitさせて）並べる
+==================================================== */
+
+/* 1. 画像の「外枠」の設定 */
+.image-wrap {
+    width: 100% !important;
+    height: 350px !important; /* 全体の高さを統一 */
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    
+    /* ★画像が足りない部分を薄いグレーで埋める（余白を作る） */
+    background-color: #f0f4f8 !important; 
+    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+    display: flex !important;
+    align-items: center !important; /* 上下中央 */
+    justify-content: center !important; /* 左右中央 */
+}
+
+/* 2. 画像の「中身」の設定 */
+.image-wrap img {
+    /* ★ここがポイント：切らずに「収める」 */
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;  /* 横がはみ出さない */
+    max-height: 100% !important; /* 縦もはみ出さない */
+    
+    object-fit: contain !important; /* 全体を表示する設定 */
+    
+    display: block !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* ホバー時に少し浮き上がらせる */
+.image-wrap:hover img {
+    transform: scale(1.03) !important;
+}
+
+/* 3. グリッドの微調整（2列） */
+.goods-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 50px 30px !important;
+    margin-top: 40px !important;
+}
+
+/* スマホ表示 */
+@media screen and (max-width: 768px) {
+    .image-wrap {
+        height: 220px !important; /* スマホでは高さを控えめに */
+    }
+}
