@@ -1,77 +1,80 @@
 @charset "UTF-8";
 
 /* =================================================
-   WORK (LOGOグッズ) ページ専用スタイル
-   ※他のページのスタイルに干渉しません
+   WORK (LOGOグッズ) ページ専用：独立スタイル
 ==================================================== */
 
-/* レイアウトの土台 */
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
+/* レイアウトの土台をリセット・固定 */
 #work {
-    padding: 100px 0 60px; /* ヘッダーの下に余白を作る */
+    padding: 120px 0 80px; /* ヘッダーとの重なりを回避 */
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* --- 4つの制作物を並べるグリッド --- */
+/* --- 2カラム・グリッド配置 --- */
 .goods-grid {
     display: grid;
-    /* PCではきっちり2列に分ける */
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px; /* アイテム間の隙間 */
+    /* PC環境では強制的に2列に固定 */
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 40px 30px; /* 縦・横の隙間 */
     margin-top: 40px;
 }
 
-/* 各アイテムの画像枠 */
+/* 各制作物のカードデザイン */
 .image-wrap {
     width: 100%;
+    border-radius: 4px;
     overflow: hidden;
-    background: #eee; /* 画像読み込み前の色 */
+    background-color: #f9f9f9;
 }
 
+/* 画像の高さを強制的に揃える */
 .image-wrap img {
-    width: 100%;
-    height: 350px;    /* 画像の高さを固定して揃える */
-    object-fit: cover; /* 枠に合わせて自動トリミング */
+    width: 100% !important;
+    height: 400px !important; /* PCでの見栄えを重視した高さ */
+    object-fit: cover !important; /* 画像の比率を保ったまま枠を埋める */
     display: block;
 }
 
-/* テキスト部分 */
+/* テキスト部分の装飾 */
 .work-text-content {
-    padding: 15px 0;
+    padding: 20px 0;
+    text-align: left;
 }
 
 .work-text-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #4682b4; /* メインカラー */
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #4682b4; /* メインブルー */
 }
 
 .work-text-content p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
 }
 
-/* --- フッターのロゴを小さく白く --- */
+/* --- フッターロゴの強制上書き --- */
 #footer .logo img {
-    width: 70px !important;      /* 強制的に小さく */
+    width: 60px !important;      /* 小さく固定 */
     height: auto !important;
-    filter: brightness(0) invert(1) !important; /* 強制的に白く */
-    margin-bottom: 15px;
+    filter: brightness(0) invert(1) !important; /* 強制的に白く反転 */
+    margin: 0 auto 20px !important;
+    display: block;
 }
 
-/* --- スマホ表示 (768px以下) --- */
+/* --- スマホ表示 (768px以下で1列に切り替え) --- */
 @media screen and (max-width: 768px) {
+    #work {
+        padding-top: 100px;
+    }
+
     .goods-grid {
-        grid-template-columns: 1fr; /* 1列に切り替え */
-        gap: 30px;
+        grid-template-columns: 1fr !important; /* 縦1列に */
+        gap: 40px;
     }
 
     .image-wrap img {
-        height: 250px; /* スマホでは少し高さを低くする */
+        height: 280px !important; /* スマホでは高さを抑える */
     }
 }
