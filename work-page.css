@@ -1910,3 +1910,114 @@ section h2 + p,
         grid-template-columns: 1fr;
     }
 }
+
+/* --- WORK DETAIL ページ専用 --- */
+
+/* 全体の余白調整 */
+.detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 20px 60px; /* ヘッダーの高さを考慮 */
+}
+
+/* 戻るボタンの装飾 */
+.back-nav {
+    margin-bottom: 40px;
+}
+.back-nav a {
+    text-decoration: none;
+    color: var(--main-blue);
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.back-nav a:hover {
+    opacity: 0.6;
+}
+
+/* メタ情報（Role/Duration/Tools）の横並び */
+.work-detail-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 40px 0;
+    padding: 30px;
+    background: var(--light-gray);
+    border-radius: 12px;
+}
+.meta-item span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--accent-gray);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.meta-item p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* グッズグリッド（2カラム並列） */
+.goods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.goods-item {
+    text-align: center;
+}
+
+.image-wrap {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1; /* 正方形にする */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.image-wrap img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain; /* 商品が切れないように */
+    transition: transform 0.5s ease;
+}
+
+.goods-item:hover img {
+    transform: scale(1.08); /* ホバーで少し大きく */
+}
+
+.item-caption {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: bold;
+}
+.item-caption span {
+    display: block;
+    font-size: 1rem;
+    color: var(--main-blue);
+}
+
+/* CTAエリア */
+.cta-area {
+    margin: 80px 0;
+    text-align: center;
+}
+
+/* スマホ表示の調整 */
+@media screen and (max-width: 767px) {
+    .work-detail-meta {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .goods-grid {
+        grid-template-columns: 1fr; /* 1カラムにする */
+    }
+}
