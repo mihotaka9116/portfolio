@@ -1,270 +1,131 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO | miho takahashi</title>
-    <meta name="description" content="制作したサイトを紹介するポートフォリオサイトです。">
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
-</head>
-    <body>
-    <header class="site-header">
-        <div class="header-container">
-            <h1 class="site-logo">
-                <a href="index.html"><img src="logo.svg" alt="Portfolio"></a>
-            </h1>
+@charset "UTF-8";
 
-            <nav class="nav-menu" id="js-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="current">About</a></li>
-                    <li><a href="index.html#work">Work</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
+/* --- 1. 基本設定 --- */
+:root {
+  --main-blue: #4682b4;
+  --hover-blue: #2d4b69;
+  --accent-gray: #708090;
+  --light-gray: #f4f7f9;
+}
 
-            <div class="hamburger-menu" id="js-hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
-    <body>
-    
-  <div id="mainvisual">
-        <div class="mainvisual-inner">
-            <img src="logo.svg" alt="logo" class="mv-logo">
-            <p>WEB DESIGN & CODING</p>
-        </div>
-        <div class="scrolldown"><span>SCROLL</span></div>
-    </div>
-    <main>
-    <section id="introduction" class="js-fade-up" style="padding: 80px 0 40px; text-align: center;">
-        <div class="container">
-            <h2 class="section-title">Introduction</h2>
-            <span class="section-title-en">はじめに</span>
-            <div style="max-width: 700px; margin: 30px auto; text-align: left; line-height: 2;">
-                <p>
-                    はじめまして、髙橋と申します。このサイトをご覧いただき、ありがとうございます。<br>
-                    私は、2025年の10月から職業訓練校でWebデザインについて学びはじめました。<br>
-                    今まで「Illustrator」や「HTML」といった名前を聞いたことはあったものの、デザインとは全く縁のない生活を送っていました。<br>
-                    書店でWebデザインの本をめくってみたこともありましたが、見たことのない英単語が並び、そっと本を閉じたのを覚えています。<br>
-                    今回、ふとしたことがきっかけで遠野職業訓練校に入校し、Webデザインの基礎を学ぶことができ、本当によかったと思っています。<br>
-                    学びの入口に立ったばかりですが、「使いやすさ」と「想いが伝わるデザイン」の両立を大切にし、制作に取り組んでいます。このサイトでは、私の制作物をご紹介させていただきます。
-                </p>
-            </div>
-        </div>
-    </section>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  color: var(--main-blue);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+  width: 100%;
+}
 
-    <section id="concept" class="apple-colors js-fade-up">
-        <div class="container">
-            <h2 class="section-title">Consept</h2>
-            <span class="section-title-en">コンセプト</span>
-            <p class="design-description">ロゴマークを形作る6つの色彩</p>
+img { max-width: 100%; height: auto; vertical-align: bottom; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-            <div class="brand-story-text">
-                <p>
-                    ロゴマークに使用している6つの色は、制作の過程で直感的に心が動いたものを選択し、使用しました。<br>
-                    ローズピンクを多めに使用することで、温かみのある雰囲気に仕上がりました。
-        
-                </p>
-            </div>
+/* --- 2. 共通パーツ（ヘッダー・MV） --- */
+.site-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-            <div class="color-flex-box">
-                <div class="swatch-item">
-                    <div class="color-ball c-rose"></div>
-                    <span class="color-code">#E296B5</span>
-                </div>
-                <div class="swatch-item">
-                    <div class="color-ball c-green"></div>
-                    <span class="color-code">#99C35F</span>
-                </div>
-                <div class="swatch-item">
-                    <div class="color-ball c-sky"></div>
-                    <span class="color-code">#6FB2E3</span>
-                </div>
-                <div class="swatch-item">
-                    <div class="color-ball c-mint"></div>
-                    <span class="color-code">#A7D6CA</span>
-                </div>
-                <div class="swatch-item">
-                    <div class="color-ball c-orange"></div>
-                    <span class="color-code">#F38450</span>
-                </div>
-                <div class="swatch-item">
-                    <div class="color-ball c-royal"></div>
-                    <span class="color-code">#2D59A4</span>
-                </div>
-            </div>
+.header-container {
+    max-width: 1000px; margin: 0 auto; padding: 0 20px;
+    height: 70px; display: flex; justify-content: space-between; align-items: center;
+}
 
-          <div class="color-details-table">
-  <div class="detail-header">
-    <span class="char-col">文字</span>
-    <span class="color-col">色</span>
-    <span class="code-col">コード</span>
-    <span class="desc-col">印象・役割</span>
-  </div>
-  
-  <div class="detail-row">
-    <div class="char-col">m / i / h / t / a　</div> <div class="color-col"><span class="chip c-rose"></span></div>
-    <div class="code-col">#E597B9</div>
-    <div class="desc-col">ローズピンク。優しさや親しみやすさ。</div>
-  </div>
+.nav-menu ul { display: flex; gap: 30px; list-style: none; }
+.nav-menu a { text-decoration: none; color: var(--main-blue); font-weight: bold; font-size: 0.9rem; }
 
-  <div class="detail-row">
-    <div class="char-col">k</div> <div class="color-col"><span class="chip c-green"></span></div>
-    <div class="code-col">#99C361</div>
-    <div class="desc-col">リーフグリーン。成長やフレッシュな印象。</div>
-  </div>
+#mainvisual {
+    position: relative; height: 65vh;
+    background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), #2d4b69;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
 
-  <div class="detail-row">
-    <div class="char-col">o</div>
-    <div class="color-col"><span class="chip c-sky"></span></div>
-    <div class="code-col">#6EB1E4</div>
-    <div class="desc-col">スカイブルー。誠実さと開放感。</div>
-  </div>
+#mainvisual .mv-logo { filter: brightness(0) invert(1); width: 120px; margin-bottom: 20px; }
+#mainvisual p { color: #fff; font-weight: 700; }
 
-  <div class="detail-row">
-    <div class="char-col">a / h</div>
-    <div class="color-col"><span class="chip c-mint"></span></div>
-    <div class="code-col">#B7E2D8</div>
-    <div class="desc-col">ミントグリーン。清潔感とモダンな雰囲気。</div>
-  </div>
+/* --- 3. CONCEPT（復活：画像・色玉・表） --- */
+#concept { padding: 80px 0; text-align: center; background-color: #fff; }
 
-  <div class="detail-row">
-    <div class="char-col">a</div>
-    <div class="color-col"><span class="chip c-orange"></span></div>
-    <div class="code-col">#F48451</div>
-    <div class="desc-col">コーラルオレンジ。明るさとポジティブなエネルギー。</div>
-  </div>
+.color-flex-box {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 40px 0;
+}
 
-  <div class="detail-row">
-    <div class="char-col">s</div>
-    <div class="color-col"><span class="chip c-royal"></span></div>
-    <div class="code-col">#2D59A3</div>
-    <div class="desc-col">ロイヤルブルー。知性とプロフェッショナルな信頼感。</div>
-  </div>
-</div>
-</section>
-      <section id="work" class="js-fade-up">
-    <div class="container">
-        <h2 class="section-title">WORK</h2>
-        <span class="section-title-en">実績</span>
+.color-ball {
+    width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-        <div class="work-intro">
-            <p>職業訓練校での学びを通じて制作した作品です。<br>
-               一つひとつコンセプトを大切に作り上げました。</p>
-        </div>
+/* 色指定 */
+.c-rose   { background-color: #E597B9; }
+.c-green  { background-color: #99C361; }
+.c-sky    { background-color: #6EB1E4; }
+.c-mint   { background-color: #B7E2D8; }
+.c-orange { background-color: #F48451; }
+.c-royal  { background-color: #2D59A3; }
 
-       <div class="goods-grid">
-    <div class="image-wrap">
-        <a href="work.html">
-            <img src="logo-goods-capture.png" alt="LOGO GOODS">
-            <div class="work-text-content">
-                <p class="work-caption">LOGO GOODS</p>
-                <p class="work-desc-detail">ロゴ展開・グッズ制作 / デザイン</p>
-                <p class="work-point" style="font-size: 13px; color: #666; margin-top: 5px; line-height: 1.4;">
-                    【Point】自作ロゴを基にTシャツやマグカップなどのグッズ展開を考案。ブランドの統一感を意識しました。
-                </p>
-            </div>
-        </a>
-    </div>
+/* 表のスタイル */
+.color-details-table {
+    max-width: 900px; margin: 60px auto 0; border-top: 2px solid var(--main-blue);
+}
 
-    <div class="image-wrap">
-        <a href="https://mihotaka9116.github.io/creative/">
-            <img src="capture.png" alt="Creative & Colorful">
-            <div class="work-text-content">
-                <p class="work-caption">Creative & Colorful</p>
-                <p class="work-desc-detail">Webサイト制作 / 自主制作</p>
-                <p class="work-point" style="font-size: 13px; color: #666; margin-top: 5px; line-height: 1.4;">
-                    【Point】グリッドレイアウトを用い、情報の整理と視覚的な楽しさを両立。動きのあるデザインに挑戦しました。
-                </p>
-            </div>
-        </a>
-    </div>
+.detail-header, .detail-row {
+    display: grid; grid-template-columns: 120px 60px 120px 1fr;
+    padding: 15px 20px; align-items: center; border-bottom: 1px solid #eee; text-align: left;
+}
 
-    <div class="image-wrap">
-        <a href="https://mihotaka9116.github.io/yamabudouami/">
-            <img src="budouamicapture.png" alt="山葡萄のかごバッグ 遠野">
-            <div class="work-text-content">
-                <p class="work-caption">山葡萄のかごバッグ 遠野</p>
-                <p class="work-desc-detail">Webサイト制作 / 自主制作</p>
-                <p class="work-point" style="font-size: 13px; color: #666; margin-top: 5px; line-height: 1.4;">
-                    【Point】岩手の伝統工芸の魅力を伝えるため、和の配色と余白を活かした「魅せる」レイアウトを採用しました。
-                </p>
-            </div>
-        </a>
-    </div>
+.detail-header { background-color: #f8fabb; font-weight: bold; font-size: 0.85rem; }
+.chip { display: inline-block; width: 24px; height: 24px; border-radius: 4px; }
 
-   <div class="image-wrap">
-    <a href="https://mihotaka9116.github.io/moderncording/">
-        <img src="retreat.png" alt="Tohno Modern Retreat">
-        <div class="work-text-content">
-            <p class="work-caption">Tohno Modern Retreat/p>
-            <p class="work-desc-detail">Webサイト制作 / 自主制作（架空）</p>
-            <p class="work-point">
-                【Point】架空の民泊サイトを構築。タイポグラフィの配置と余白のバランスにこだわり、情報の視認性を高めています。
-            </p>
-        </div>
-    </a>
-</div>
-        </a>
-    </div>
-</div>
-</section>
-        
-      <section id="contact" class="js-fade-up">
-            <div class="container">
-                <h2 class="section-title">CONTACT</h2>
-                <span class="section-title-en">お問い合わせ</span>
+/* --- 4. WORK（4作品グリッド） --- */
+.goods-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; margin-top: 40px;
+}
+.image-wrap { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.image-wrap img { width: 100%; height: 240px; object-fit: cover; }
 
-                <div class="contact-form">
-                    <form action="https://ssgform.com/s/rI0UaMqc0NXO" method="post">
-                        <div class="form-item">
-                            <label for="name">お名前</label>
-                            <input type="text" id="name" name="your-name" required>
-                        </div>
-                        <div class="form-item">
-                            <label for="email">メールアドレス</label>
-                            <input type="email" id="email" name="your-email" required>
-                        </div>
-                        <div class="form-item">
-                            <label for="message">メッセージ</label>
-                            <textarea id="message" name="your-message" class="expand-textarea" placeholder="クリックすると広がります" required></textarea>
-                        </div>
-                        <div class="form-item agreement-item">
-                            <input type="checkbox" id="agreement" name="agreement" required>
-                            <label for="agreement">
-                                <a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>に同意する
-                            </label>
-                        </div>
+/* --- 5. CONTACT（ブラッシュアップ） --- */
+#contact { padding: 80px 0; background-color: #f4f7f9; text-align: center; }
+.contact-form {
+    max-width: 600px; margin: 40px auto; padding: 40px;
+    background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.form-item { margin-bottom: 25px; text-align: left; }
+.form-item label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 0.9rem; }
+.form-item input, .form-item textarea {
+    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit;
+}
+.submit-btn {
+    width: 100%; max-width: 300px; padding: 15px; border: none; border-radius: 50px;
+    background: #ccc; color: #fff; font-weight: bold; cursor: not-allowed;
+}
 
-                        <button type="submit" class="submit-btn" disabled style="background-color: #ccc; cursor: not-allowed;">
-                            現在受付停止中です
-                        </button>
-                        <p style="font-size: 12px; color: #f48451; margin-top: 10px; text-align: center;">
-                            ※ポートフォリオ公開準備中のため、現在お問い合わせは受け付けておりません。
-                        </p>
-                    </form>
-                </div> </div> </section>
-    </main>
+/* --- 6. FOOTER（ロゴを小さく白く） --- */
+#footer {
+    background-color: #2d4b69; color: #fff;
+    padding: 50px 0 20px; text-align: center;
+}
 
-    <footer id="footer">
-        <div class="inner wrapper">
-            <div class="logo">
-                <img src="logo.svg" alt="Beauty">
-            </div>
-            <div class="footer-link" style="margin-bottom: 10px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-                <a href="privacy.html" target="_blank" rel="noopener noreferrer" style="font-size: 11px; color: #888; text-decoration: none;">プライバシーポリシー</a>
-                <a href="tokusho.html" target="_blank" rel="noopener noreferrer" style="font-size: 11px; color: #888; text-decoration: none;">特定商取引法に基づく表記</a>
-                <a href="kiyaku.html" target="_blank" rel="noopener noreferrer" style="font-size: 11px; color: #888; text-decoration: none;">利用規約</a>
-            </div>
-            <p class="copyright" style="font-size: 10px; color: #aaa;">©2026 Miho Takahashi</p>
-        </div>
-    </footer>
-</body>
-</html>
+#footer .logo img {
+    width: 80px; /* 小さく設定 */
+    height: auto;
+    filter: brightness(0) invert(1); /* 白く反転 */
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.footer-link a {
+    color: #fff; font-size: 11px; text-decoration: none; margin: 0 10px; opacity: 0.7;
+}
+.footer-link a:hover { opacity: 1; }
+.copyright { font-size: 10px; margin-top: 20px; opacity: 0.5; }
+
+/* スマホ調整 */
+@media screen and (max-width: 767px) {
+    .detail-header { display: none; }
+    .detail-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .desc-col { grid-column: 1 / 3; border-top: 1px dashed #eee; padding-top: 10px; }
+}
