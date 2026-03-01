@@ -2021,3 +2021,38 @@ section h2 + p,
         grid-template-columns: 1fr; /* 1カラムにする */
     }
 }
+
+.main-visual-img {
+    display: block;
+    max-width: 250px; /* ロゴが主張しすぎない絶妙なサイズ */
+    margin: 0 auto 60px;
+    padding-top: 40px;
+}
+
+.image-wrap {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.goods-item:hover .image-wrap {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(70, 130, 180, 0.1); /* ほんのり青い影 */
+}
+
+.custom-btn {
+    background: var(--main-blue);
+    color: #fff;
+    padding: 18px 40px;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.custom-btn:hover {
+    background: #2d4b69; /* 少し濃い青へ */
+}
