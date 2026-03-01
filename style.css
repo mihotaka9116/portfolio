@@ -2361,11 +2361,4 @@ section h2 + p,
        HTMLの記述通りに出したい場合は none が正解です */
 }
 
-/* すべてのセクションタイトル、ナビ、メインビジュアルのテキスト */
-.section-title-en,
-.nav-menu a,
-#mainvisual p {
-    text-transform: none !important; /* 強制的に大文字化を解除 */
-    /* もし意図的に「最初だけ大文字」にしたい場合は capitalize を使いますが、
-       HTMLの記述通りに出したい場合は none が正解です */
-}
+
