@@ -2492,3 +2492,36 @@ section h2 + p,
     }
 }
 
+/* --- 6. WORK (画像サイズを完全に統一する) --- */
+.goods-grid {
+    display: grid;
+    /* 画面幅に合わせて自動調整。1行に3〜4枚並ぶ設定 */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 30px; 
+}
+
+.image-wrap {
+    width: 100%;
+    /* ★ここが重要：高さを200px（またはお好みの高さ）に固定 */
+    height: 200px; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: #f8f8f8; /* 画像がない時の背景色 */
+}
+
+.image-wrap img {
+    width: 100%;
+    height: 100%;
+    /* ★ここが重要：画像の比率を無視して枠いっぱいに収め、はみ出た分をカット */
+    object-fit: cover; 
+    /* 画像の中央を表示 */
+    object-position: center; 
+    transition: transform 0.3s ease;
+}
+
+/* ホバーした時に少しズームする演出（お好みで） */
+.image-wrap:hover img {
+    transform: scale(1.05);
+}
+
