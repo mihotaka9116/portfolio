@@ -1814,3 +1814,28 @@ section h2 + p,
         height: 250px; /* スマホでは高さを抑える */
     }
 }
+
+/* WORKの画像をすべて同じ大きさの「枠」に収める */
+.image-wrap img {
+    width: 100% !important;
+    
+    /* 1. 高さを「380px」で完全に固定する */
+    /* もし一回り大きくしたいなら「450px」などに上げてください */
+    height: 380px !important; 
+    
+    /* 2. 比率が違う画像を、枠いっぱいに「切り抜き」して収める魔法の1行 */
+    /* これがないと画像が上下にギュッと潰れてしまいます */
+    object-fit: cover !important; 
+    
+    /* 画像の表示位置を「上」に合わせる（PC画面の上端を見せるため） */
+    object-position: top !important; 
+    
+    display: block !important;
+}
+
+/* ついでにカード自体の高さも揃えて、下のテキスト開始位置を合わせる */
+.image-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important; /* カード全体の高さを揃える */
+}
