@@ -2279,7 +2279,7 @@ section h2 + p,
 
 /* 英語タイトル（WORK, ABOUT, CONCEPTなど）の調整 */
 .section-title {
-    font-size: 2rem;    /* 2.8remから2remへ小さく */
+    font-size: 1.8rem;    /* 2.8remから2remへ小さく */
     font-weight: 600;   /* 800（極太）から600（中太）へ */
     letter-spacing: 0.15em;        /* 文字の間隔を少し広げてヌケ感を出す */
     color: var(--main-blue);
