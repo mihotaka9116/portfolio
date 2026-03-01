@@ -52,6 +52,15 @@
     line-height: 1.6 !important;
 }
 
+/* --- フッターロゴを小さく・白く --- */
+#footer .logo img {
+    width: 60px !important;      /* 小さく上品なサイズ */
+    height: auto !important;
+    filter: brightness(0) invert(1) !important; /* 黒ロゴを真っ白に */
+    margin: 0 auto 15px !important;
+    display: block !important;
+}
+
 /* --- スマホ表示 (768px以下で1列に) --- */
 @media screen and (max-width: 768px) {
     .goods-grid {
