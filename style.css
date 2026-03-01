@@ -2122,3 +2122,34 @@ section h2 + p,
     color: #fff !important;
     text-decoration: none;
 }
+
+/* 左上のロゴを大きくする */
+.site-logo img {
+    width: 180px; /* お好みに合わせて数値を増やしてください（例: 200px） */
+    height: auto;
+}
+
+/* メインビジュアルのロゴを中央へ */
+#mainvisual .mv-logo {
+    display: block;
+    margin: 0 auto 20px; /* 左右をautoにすることで中央になります */
+    width: 300px;        /* メインのロゴサイズもお好みで調整してください */
+    /* もしこれでも左に寄って見える場合は、margin-leftを少し足して調整します */
+    /* margin-left: 55% !important; */ 
+}
+
+#mainvisual {
+    text-align: center; /* 文字も中央に揃えます */
+}
+
+/* ナビゲーションの文字を大きくする */
+.nav-menu ul li a {
+    font-size: 1.1rem;    /* 1remから少し大きくします */
+    font-weight: 700;     /* 太字にすると存在感が出ます */
+    padding: 10px 15px;   /* クリックしやすくするために余白を広げます */
+}
+
+/* メニュー同士の間隔を広げる */
+.nav-menu ul {
+    gap: 30px;            /* メニューごとの隙間を広げます */
+}
