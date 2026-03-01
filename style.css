@@ -1767,3 +1767,61 @@ section h2 + p,
     opacity: 0.8;
     transition: 0.3s;
 }
+
+/* WORKセクション：画像サイズと切り抜き設定 */
+.image-wrap img {
+    width: 100%;
+    height: 250px;       /* 全ての画像高さを250pxで固定 */
+    object-fit: cover;    /* 縦横比を保ったまま枠に合わせて切り抜く */
+    object-position: center top; /* 切り抜く位置を中央上部に固定 */
+    transition: 0.3s;
+}
+
+.image-wrap a:hover img {
+    opacity: 0.8;
+}
+
+/* 実績内の「制作ポイント」用のスタイル */
+.work-point {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: left;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* タイムラインのアイコン表示修正 */
+@media screen and (min-width: 768px) {
+    .career-timeline .career-item {
+        border-left: 3px solid #eee !important;
+        padding-left: 70px !important;
+        margin-bottom: 90px !important;
+        position: relative;
+    }
+
+    .career-item::before {
+        content: "";
+        position: absolute;
+        left: -41.5px !important; /* 80pxのアイコンを線の中央に */
+        top: -10px !important;
+        width: 80px !important;
+        height: 80px !important;
+        background-color: transparent !important;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+        z-index: 10;
+    }
+}
+
+.image-wrap img {
+    width: 100%;
+    height: 250px;       /* 4つ全ての高さをここで統一 */
+    object-fit: cover;    /* 縦横比を崩さず、枠いっぱいに表示 */
+    object-position: center; /* 画像の中央を基準に切り抜き */
+}
