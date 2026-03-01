@@ -64,6 +64,16 @@ window.addEventListener('scroll', function() {
     const info = fadeUp[i].getBoundingClientRect(); // 要素の位置を取得
     const triggerPoint = 150; // 画面下からどのくらいで発動させるか
 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
     if (info.top < window.innerHeight - triggerPoint) {
       fadeUp[i].classList.add('is-show');
     }
