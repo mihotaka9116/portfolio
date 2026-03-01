@@ -2351,3 +2351,143 @@ section h2 + p,
         font-size: 1.3rem;
     }
 }
+
+/* =================================================
+   GOODS詳細ページ カスタム（中央配置 & 画像拡大）
+==================================================== */
+
+/* 1. 全体コンテナのセンター寄せ */
+.detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 120px 20px 80px;
+    text-align: center; /* ★中身をすべて中央へ */
+}
+
+/* 2. 戻るボタンのセンター配置 */
+.back-nav {
+    display: flex;
+    justify-content: center; /* ★中央に配置 */
+    margin-bottom: 60px;
+}
+
+.back-nav a {
+    text-decoration: none;
+    color: var(--main-blue);
+    font-weight: bold;
+    padding: 10px 30px;
+    border: 1px solid var(--main-blue);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.back-nav a:hover {
+    background: var(--main-blue);
+    color: #fff !important;
+}
+
+/* 3. メインロゴ（GOODSページ上部）の拡大と中央配置 */
+.main-visual-img {
+    display: block;
+    max-width: 320px; /* ★一回り大きく（以前より+20pxほど） */
+    width: 80%;       /* スマホでハミ出さない設定 */
+    height: auto;
+    margin: 0 auto 60px; /* ★中央に配置 */
+}
+
+/* 4. メタ情報（Client, Yearなど）の中央配置 */
+.work-detail-meta {
+    display: flex;
+    justify-content: center; /* ★中央寄せ */
+    gap: 40px;
+    margin: 40px auto;
+    background: var(--light-gray);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+}
+
+/* 5. GOODS画像の枠とサイズの拡大 */
+.goods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列 */
+    gap: 40px;
+    margin: 60px 0;
+}
+
+.image-wrap {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    aspect-ratio: 1 / 1; /* 正方形を維持 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0; /* 余白を消して画像を大きく */
+}
+
+.image-wrap img {
+    width: 100%;    /* ★枠いっぱいに広げる */
+    height: 100%;
+    object-fit: cover; /* ★隙間なく表示（商品全体を見せたいなら contain に変更） */
+    transition: transform 0.5s ease;
+}
+
+/* 画像をホバーした時の動き */
+.image-wrap:hover img {
+    transform: scale(1.05);
+}
+
+/* 6. 商品説明テキストの中央配置 */
+.detail-text-box {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    text-align: center;
+}
+
+.project-description {
+    text-align: center;
+}
+
+/* リスト項目だけは左揃えの方が見やすいので「中央にある左揃え」にする */
+.project-description ul {
+    display: inline-block;
+    text-align: left;
+    list-style: none;
+    padding: 0;
+}
+
+/* 7. お問い合わせボタン（CTA）の強調 */
+.cta-area {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.custom-btn {
+    display: inline-block;
+    background-color: var(--main-blue);
+    color: #fff;
+    padding: 18px 60px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(70, 130, 180, 0.2);
+    transition: 0.3s;
+}
+
+.custom-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(70, 130, 180, 0.3);
+}
+
+/* スマホ表示の調整 */
+@media screen and (max-width: 767px) {
+    .goods-grid {
+        grid-template-columns: 1fr; /* 1列にする */
+    }
+    .work-detail-meta {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
