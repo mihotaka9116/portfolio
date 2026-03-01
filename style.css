@@ -2325,3 +2325,47 @@ section h2 + p,
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ヘッダーコンテナの微調整 */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px; /* 左右の余白を少し広めに確保 */
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative; /* 基準点 */
+}
+
+/* ハンバーガーメニュー自体を右端に固定 */
+.hamburger-menu {
+    display: none; /* PCでは隠す */
+}
+
+@media screen and (max-width: 767px) {
+    .hamburger-menu {
+        display: block;
+        margin-left: auto; /* 左側にマージンを押し出し、右に寄せる */
+        position: relative;
+        right: 0; /* 右端からの距離を0に */
+        z-index: 10000; /* ロゴなどより前面に */
+    }
+}
+
+/* すべてのセクションタイトル、ナビ、メインビジュアルのテキスト */
+.section-title-en,
+.nav-menu a,
+#mainvisual p {
+    text-transform: none !important; /* 強制的に大文字化を解除 */
+    /* もし意図的に「最初だけ大文字」にしたい場合は capitalize を使いますが、
+       HTMLの記述通りに出したい場合は none が正解です */
+}
+
+/* すべてのセクションタイトル、ナビ、メインビジュアルのテキスト */
+.section-title-en,
+.nav-menu a,
+#mainvisual p {
+    text-transform: none !important; /* 強制的に大文字化を解除 */
+    /* もし意図的に「最初だけ大文字」にしたい場合は capitalize を使いますが、
+       HTMLの記述通りに出したい場合は none が正解です */
+}
