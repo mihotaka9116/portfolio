@@ -2525,3 +2525,37 @@ section h2 + p,
     transform: scale(1.05);
 }
 
+/* --- 6. WORK (画像サイズと比率を統一) --- */
+.goods-grid { 
+    display: grid; 
+    /* 画面幅に合わせて自動で1行の枚数を調整 */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 30px; 
+}
+
+.image-wrap { 
+    width: 100%;
+    /* ★高さを200pxに固定（他の画像と合わせる） */
+    height: 200px; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    background-color: #f8f8f8; /* 画像読み込み前の色 */
+}
+
+.image-wrap img { 
+    width: 100%; 
+    height: 100%; /* 親要素の高さ(200px)いっぱいに広げる */
+    /* ★ここが最重要：比率を維持したまま、枠を埋めるようにトリミング */
+    object-fit: cover; 
+    /* 画像の中心を基準に切り抜く */
+    object-position: center; 
+    transition: transform 0.3s ease;
+    vertical-align: bottom;
+}
+
+/* マウスを乗せた時のズーム演出 */
+.image-wrap:hover img {
+    transform: scale(1.05);
+}
+
