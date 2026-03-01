@@ -2153,3 +2153,54 @@ section h2 + p,
 .nav-menu ul {
     gap: 30px;            /* メニューごとの隙間を広げます */
 }
+
+/* 「ロゴマークを形作る6つの色彩」というテキスト */
+.design-description {
+    color: #E296B5; /* ロゴのローズピンクに合わせる場合 */
+    /* もし落ち着かせたいなら #555 などの濃いグレーがおすすめです */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* その下の説明文（ブランドストーリー） */
+.brand-story-text p {
+    color: #444; /* 真っ黒より少し薄くすると読みやすくなります */
+    line-height: 1.8;
+}
+
+/* WORKセクション全体を中央に寄せる */
+#work {
+    text-align: center;
+}
+
+/* タイトル下の説明文（ワークイントロ）の幅を整えて真ん中に */
+.work-intro {
+    max-width: 600px;
+    margin: 0 auto 40px; /* 左右autoで中央配置、下に40px空ける */
+    text-align: center;   /* 中の文字も中央に */
+}
+
+/* 実績のグリッド（画像一覧）を中央に寄せる */
+.goods-grid {
+    display: flex;
+    justify-content: center; /* 横方向の中央揃え */
+    flex-wrap: wrap;         /* 折り返し許可 */
+    gap: 30px;               /* 画像同士の隙間 */
+}
+
+/* 英語タイトル（例：WORK, CONCEPT） */
+.section-title {
+    font-size: 3rem;     /* かなり大きくして主役に */
+    font-weight: 800;
+    margin-bottom: 5px;  /* 下の日本語との隙間を詰める */
+    letter-spacing: 0.1em;
+}
+
+/* 日本語タイトル（例：実績、コンセプト） */
+.section-title-en {
+    display: block;      /* 改行させる */
+    font-size: 0.9rem;   /* 小さくする */
+    color: #888;         /* 少し薄い色にする */
+    font-weight: 400;
+    margin-bottom: 30px; /* 下のコンテンツとの間隔 */
+}
