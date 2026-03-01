@@ -2297,3 +2297,31 @@ section h2 + p,
     display: block;
     text-align: center;
 }
+
+/* 実績セクションの説明文を中央寄せ */
+.work-intro, 
+#work p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px; /* 左右をautoにして中央へ、下に余白を作る */
+    line-height: 1.8;
+}
+
+/* 「ロゴマークを形作る6つの色彩」のタイトル色 */
+.design-description, 
+#concept h3 {
+    color: #E597B9 !important; /* ロゴのローズピンク */
+    text-align: center;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+/* その下の説明文（ロゴマークに使用している〜） */
+.brand-story-text p,
+#concept p {
+    color: #4682b4 !important; /* メインのブルー、または #555（濃いグレー） */
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
