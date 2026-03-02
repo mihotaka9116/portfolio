@@ -2439,3 +2439,15 @@ body.about-page main {
     padding: 0;
 }
 
+.work-intro {
+    text-align: center; /* 文字を中央に */
+    margin: 30px auto 50px; /* 上下に余白を作り、左右は自動（中央） */
+    width: 100%; /* 横幅いっぱい使って中央判定させる */
+}
+
+.work-intro p {
+    display: inline-block; 
+  　text-align: left;      /* 2行になった時、文章の書き出しは揃える） */
+    line-height: 1.8;
+}
+
