@@ -3012,3 +3012,43 @@ section h2 + p,
     transform: translateX(-50%);
     animation: scroll-line 2.0s infinite;
 }
+
+/* --- SCROLLアニメーションの修正 --- */
+.scrolldown {
+    position: absolute;
+    bottom: 30px; /* 位置を微調整 */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* 文字を白に */
+.scrolldown span {
+    display: block;
+    color: #ffffff !important;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* 縦線を「白い1pxの線」に固定 */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    width: 1px !important;    /* 太さを1pxに強制 */
+    height: 50px !important;  /* 長さを50pxに強制 */
+    background: #ffffff !important; /* 背景色(線の色)を白に強制 */
+    transform: translateX(-50%);
+    animation: scroll-line 2.0s cubic-bezier(0.76, 0, 0.3, 1) infinite !important;
+}
+
+/* アニメーションの定義（伸び縮み） */
+@keyframes scroll-line {
+    0% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 0; }
+    50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
+    50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
+    100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
+}
