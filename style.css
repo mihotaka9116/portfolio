@@ -1,85 +1,18 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（変数・リセット） --- */
+/* --- 1. 基本設定 --- */
 :root {
   --main-blue: #4682b4;
   --dark-blue: #2d4b69;
-  --accent-gray: #708090;
   --light-gray: #f4f7f9;
-  /* ロゴ・タイムライン用カラーパレット */
-  --c-rose: #E597B9;
-  --c-green: #99C361;
-  --c-sky: #6EB1E4;
-  --c-mint: #B7E2D8;
-  --c-orange: #F48451;
-  --c-royal: #2D59A3;
+  --c-rose: #E597B9; --c-green: #99C361; --c-sky: #6EB1E4;
+  --c-mint: #B7E2D8; --c-orange: #F48451; --c-royal: #2D59A3;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+body { color: var(--main-blue); font-family: 'Montserrat', sans-serif; line-height: 1.8; overflow-x: hidden; }
 
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-body {
-  color: var(--main-blue);
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.8;
-}
-
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
-/* --- 2. ヘッダー --- */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.header-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.site-logo img { height: 30px; width: auto; }
-
-/* ナビゲーション（PC） */
-.nav-menu ul { display: flex; gap: 30px; list-style: none; }
-.nav-menu a {
-  text-decoration: none;
-  color: var(--main-blue);
-  font-weight: bold;
-  font-size: 0.9rem;
-  position: relative;
-  padding-bottom: 4px;
-  transition: opacity 0.3s;
-}
-
-.nav-menu a::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%; height: 1px;
-  background: var(--main-blue);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.nav-menu a:hover::after { transform: scaleX(1); }
-.nav-menu a.current { color: var(--main-blue); }
-
-/* --- 3. メインビジュアル --- */
+/* --- 2. メインビジュアル & ロゴ中央寄せ --- */
 #mainvisual {
   position: relative;
   height: 65vh;
@@ -87,173 +20,120 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   background-size: 150px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* 左右中央 */
+  justify-content: center; /* 上下中央 */
+  text-align: center;
 }
 
 #mainvisual .mv-logo {
   filter: brightness(0) invert(1);
   width: 120px;
+  margin: 0 auto; /* 念のため追加 */
 }
 
-#mainvisual p {
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-top: 15px;
-}
-
-/* スクロールアニメーション */
-.scrolldown {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  padding-bottom: 60px;
-}
-
-.scrolldown::after {
-  content: "";
-  position: absolute;
-  bottom: 0; left: 50%;
-  width: 1px; height: 50px;
-  background: #fff;
-  transform: translateX(-50%);
-  animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
-}
-
-@keyframes scroll-line {
-  0% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 0; }
-  50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
-  50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
-  100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
-}
-
-/* --- 4. 共通セクション設定 --- */
-main { padding-top: 70px; }
-section { padding: 100px 0; text-align: center; }
-
-/* --- 5. ABOUT：タイムライン --- */
-.career-timeline { max-width: 800px; margin: 0 auto; padding: 40px 0; }
-
-.career-item {
-  border-left: 3px solid #eee;
-  padding-left: 70px;
-  margin-bottom: 90px;
+/* --- 3. セクションタイトル（英語の上に日本語を重ねる） --- */
+.section-title {
   position: relative;
+  display: inline-block;
+  margin-bottom: 60px;
+  text-align: center;
+  width: 100%;
+}
+
+.section-title .en {
+  display: block;
+  font-size: 3rem;
+  opacity: 0.1;
+  letter-spacing: 0.2em;
+}
+
+.section-title .ja {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* これで真ん中に来ます */
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* --- 4. WORK（横並び） --- */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動で横並び */
+  gap: 25px;
+  padding: 20px;
+}
+
+/* --- 5. 色彩の表 (Color Palette) --- */
+.color-details-table {
+  max-width: 900px;
+  margin: 60px auto 0;
+  border-top: 2px solid var(--main-blue);
+}
+
+.detail-header, .detail-row {
+  display: grid;
+  grid-template-columns: 100px 60px 120px 1fr; /* 表の列幅を固定 */
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
   text-align: left;
 }
 
-.career-item::before {
-  content: "";
-  position: absolute;
-  left: -41.5px;
-  top: -10px;
-  width: 80px; height: 80px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-  z-index: 10;
+.detail-header { background: #f8fabb; font-weight: bold; }
+
+/* --- 6. コンタクトフォーム --- */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: left;
 }
 
-.career-item:nth-child(1)::before { background-image: url("cupcake.svg"); }
-.career-item:nth-child(2)::before { background-image: url("tyaki.svg"); }
-.career-item:nth-child(3)::before { background-image: url("woman.svg"); }
+.form-item { margin-bottom: 25px; }
+.form-item label { display: block; margin-bottom: 8px; font-weight: bold; }
 
-/* --- 6. SKILL --- */
-.skills-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; }
-.skill-item { width: 200px; text-align: center; transition: transform 0.3s; }
-.skill-item:hover { transform: translateY(-10px); }
-
-.skill-item img {
-  width: 100px; height: 100px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  backface-visibility: hidden;
+.form-item input[type="text"],
+.form-item input[type="email"],
+.form-item textarea {
+  width: 100%; /* 横幅いっぱい */
+  padding: 12px;
+  border: 2px solid #e0e7ed;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-/* アイコン色（マイルドな色合い） */
-.skill-item:nth-child(1) img { filter: sepia(0.5) saturate(1.5) hue-rotate(320deg); }
-.skill-item:nth-child(2) img { filter: sepia(0.5) saturate(1.2) hue-rotate(160deg); }
-.skill-item:nth-child(3) img { filter: sepia(0.5) saturate(1.5) hue-rotate(10deg); }
-
-/* --- 7. カラーパレット定義 --- */
-.c-rose   { background-color: var(--c-rose); }
-.c-green  { background-color: var(--c-green); }
-.c-sky    { background-color: var(--c-sky); }
-.c-mint   { background-color: var(--c-mint); }
-.c-orange { background-color: var(--c-orange); }
-.c-royal  { background-color: var(--c-royal); }
-
-/* --- 8. フッター --- */
-#footer {
-  background-color: var(--dark-blue);
+.submit-btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 16px;
+  background: var(--main-blue);
   color: #fff;
-  text-align: center;
-  padding: 50px 0;
-  margin-top: 80px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-#footer a { color: #fff; text-decoration: none; opacity: 0.8; transition: 0.3s; }
-#footer a:hover { opacity: 1; text-decoration: underline; }
+/* --- 7. フッター（ロゴ削除） --- */
+#footer .logo, 
+#footer .logo img {
+  display: none; /* フッターのロゴを完全に消す */
+}
 
-/* --- 9. レスポンシブ (スマホ) --- */
+/* --- 8. レスポンシブ調整 --- */
 @media screen and (max-width: 767px) {
-  /* ハンバーガーメニュー表示 */
-  .hamburger-menu {
-    display: block;
-    cursor: pointer;
-    z-index: 9999;
-    width: 30px; height: 24px;
-    position: relative;
+  /* 表をスマホで見やすく */
+  .detail-header { display: none; }
+  .detail-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
-
-  .hamburger-menu span {
-    display: block;
-    position: absolute;
-    width: 100%; height: 2px;
-    background-color: var(--main-blue);
-    transition: all 0.3s;
-  }
-  .hamburger-menu span:nth-child(1) { top: 0; }
-  .hamburger-menu span:nth-child(2) { top: 11px; }
-  .hamburger-menu span:nth-child(3) { top: 22px; }
-
-  /* スマホナビ */
-  .nav-menu {
-    position: fixed;
-    top: 0; right: -100%;
-    width: 100%; height: 100vh;
-    background-color: rgba(45, 75, 105, 0.98);
-    z-index: 9998;
-    transition: 0.5s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-menu.active { right: 0; }
-  .nav-menu ul { flex-direction: column; gap: 40px; }
-  .nav-menu a { color: #fff; font-size: 1.5rem; }
-
-  /* タイムラインを縦並びに */
-  .career-timeline .career-item {
-    border-left: none;
-    padding-left: 0;
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .career-item::before {
-    position: static;
-    margin-bottom: 20px;
-    width: 80px; height: 80px;
-  }
+  .desc-col { grid-column: 1 / 3; }
+  
+  /* タイトルサイズ調整 */
+  .section-title .en { font-size: 2rem; }
 }
