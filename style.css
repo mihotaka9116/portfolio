@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-/* --- 1. Design Variables & Base --- */
+/* --- 1. 変数と基本設定 --- */
 :root {
   --main-blue: #4682b4;
-  --hover-blue: #2d4b69;
-  --light-bg: #f4f7f9;
-  /* Design Identity Colors */
+  --dark-blue: #2d4b69;
+  --light-gray: #f4f7f9;
+  /* デザインシステム（ロゴと一致させた最新カラー） */
   --c-rose: #E597B9;
   --c-green: #99C361;
   --c-sky: #6EB1E4;
@@ -15,23 +15,21 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; width: 100%; position: relative; }
 
 body {
   color: var(--main-blue);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
   line-height: 1.8;
-  overflow-x: hidden;
-  width: 100%;
 }
 
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. Fixed Header & Nav --- */
+/* --- 2. 統合ヘッダー (PC・スマホ共通) --- */
 .site-header {
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 0; left: 0; width: 100%;
   background: rgba(255, 255, 255, 0.95);
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -49,7 +47,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 
 .site-logo img { height: 30px; width: auto; }
 
-/* Nav Links with Underline Animation */
+/* ナビゲーション */
 .nav-menu ul { display: flex; gap: 30px; list-style: none; }
 .nav-menu a {
   text-decoration: none;
@@ -58,8 +56,12 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   font-size: 0.9rem;
   position: relative;
   padding-bottom: 4px;
+  transition: opacity 0.3s;
 }
 
+.nav-menu a:hover { opacity: 0.7; }
+
+/* ホバー時の下線アニメーション */
 .nav-menu a::after {
   content: '';
   position: absolute;
@@ -68,10 +70,9 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
-
 .nav-menu a:hover::after { transform: scaleX(1); }
 
-/* --- 3. Responsive Menu (Hamburger) --- */
+/* --- 3. ハンバーガーメニュー --- */
 .hamburger-menu {
   display: none;
   cursor: pointer;
@@ -87,9 +88,8 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   width: 100%;
   height: 2px;
   background-color: var(--main-blue);
-  transition: 0.3s;
+  transition: all 0.3s;
 }
-
 .hamburger-menu span:nth-child(1) { top: 0; }
 .hamburger-menu span:nth-child(2) { top: 11px; }
 .hamburger-menu span:nth-child(3) { top: 22px; }
@@ -100,18 +100,20 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     position: fixed;
     top: 0; right: -100%;
     width: 100%; height: 100vh;
-    background: rgba(45, 75, 105, 0.98);
+    background-color: rgba(45, 75, 105, 0.98);
+    z-index: 999;
+    transition: 0.5s ease;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    transition: 0.5s;
+    justify-content: center;
   }
   .nav-menu.active { right: 0; }
-  .nav-menu ul { flex-direction: column; text-align: center; }
+  .nav-menu ul { flex-direction: column; gap: 40px; }
   .nav-menu a { color: #fff; font-size: 1.5rem; }
 }
 
-/* --- 4. About: Career Timeline --- */
+/* --- 4. ABOUT：STORY (タイムライン) --- */
 .career-timeline .career-item {
   border-left: 3px solid #eee;
   padding-left: 70px;
@@ -122,55 +124,57 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .career-item::before {
   content: "";
   position: absolute;
-  left: -41.5px; top: -10px;
+  left: -41.5px; /* 80pxのアイコンを中央に */
+  top: -10px;
   width: 80px; height: 80px;
+  background-color: transparent;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 50%;
   filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
   z-index: 10;
+  transition: transform 0.3s ease;
 }
 
-/* Timeline Icons */
+.career-item:hover::before { transform: scale(1.1); }
+
 .career-item:nth-child(1)::before { background-image: url("cupcake.svg"); }
 .career-item:nth-child(2)::before { background-image: url("tyaki.svg"); }
 .career-item:nth-child(3)::before { background-image: url("woman.svg"); }
 
 @media screen and (max-width: 767px) {
   .career-timeline .career-item {
-    border-left: none;
-    padding-left: 0;
+    border-left: none !important;
+    padding-left: 0 !important;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .career-item::before { position: static; margin-bottom: 20px; }
+  .career-item::before { position: static !important; margin-bottom: 20px; }
 }
 
-/* --- 5. Skill Icons (Vibrant & Interactive) --- */
-.skills-grid {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
+/* --- 5. SKILL (アイコン) --- */
+.skills-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; }
+.skill-item { width: 200px; text-align: center; transition: all 0.3s; }
+.skill-item:hover { transform: translateY(-10px); }
 
-.skill-item { width: 200px; text-align: center; }
 .skill-item img {
   width: 100px;
+  filter: none !important;
+  opacity: 1 !important;
   transition: transform 0.3s ease;
-  filter: none; /* Removed the "dull" filters */
 }
-
 .skill-item:hover img { transform: scale(1.1); }
 
-/* --- 6. Footer --- */
+/* --- 6. フッター --- */
 #footer {
-  background-color: var(--hover-blue);
+  background-color: var(--dark-blue);
   color: #ffffff;
   text-align: center;
   padding: 50px 0;
   margin-top: 80px;
 }
+#footer a { color: #fff; text-decoration: none; opacity: 0.8; }
+#footer a:hover { opacity: 1; text-decoration: underline; }
