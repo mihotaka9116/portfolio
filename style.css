@@ -145,3 +145,46 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   
   .section-title .en { font-size: 2.8rem; }
 }
+
+/* --- 全セクション共通：重なりタイトルデザイン --- */
+.section-title {
+  position: relative;
+  display: block;
+  margin: 0 auto 80px; /* タイトル下の余白 */
+  text-align: center;
+  width: 100%;
+}
+
+/* 背後の薄い英語タイトル */
+.section-title .en {
+  display: block;
+  font-size: clamp(2.5rem, 10vw, 4rem); /* 画面幅に合わせてサイズが自動調整されます */
+  opacity: 0.1; /* 薄さ（0.1 = 10%） */
+  letter-spacing: 0.15em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--main-blue);
+}
+
+/* 中央に重なる日本語タイトル */
+.section-title .ja {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 完全に真ん中に重ねる魔法のコード */
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  color: var(--main-blue);
+}
+
+/* スマホ用のサイズ微調整 */
+@media screen and (max-width: 767px) {
+  .section-title .en {
+    font-size: 2.8rem;
+  }
+  .section-title .ja {
+    font-size: 1rem;
+  }
+}
