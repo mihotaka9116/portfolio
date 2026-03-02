@@ -78,7 +78,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
     transform: scaleX(1);
 }
 
-/* --- 3. ハンバーガーメニュー（重要修正） --- */
+/* --- 3. ハンバーガーメニュー --- */
 .hamburger-menu {
     display: none; /* PCでは隠す */
     cursor: pointer;
@@ -2145,13 +2145,13 @@ section h2 + p,
 /* ナビゲーションの文字を大きくする */
 .nav-menu ul li a {
     font-size: 1.1rem;    /* 1remから少し大きくします */
-    font-weight: 700;     /* 太字にすると存在感が出ます */
+    font-weight: 600;     /* 太字にすると存在感が出ます */
     padding: 10px 15px;   /* クリックしやすくするために余白を広げます */
 }
 
 /* メニュー同士の間隔を広げる */
 .nav-menu ul {
-    gap: 25px;            /* メニューごとの隙間を広げます */
+    gap: 20px;            /* メニューごとの隙間を広げます */
 }
 
 /* 「ロゴマークを形作る6つの色彩」というテキスト */
