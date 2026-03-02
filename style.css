@@ -3616,23 +3616,23 @@ main {
 #mainvisual {
     position: relative;
     height: 65vh;
-    /* 背景色をフッターと同じ紺色に。その上にロゴ画像をリピート配置 */
-    background: #2d4b69 url("logo.svg") repeat;
-    background-size: 150px; /* ロゴの大きさ。お好みで調整してください */
+    /* フッターと同じ色 (#2d4b69) をベースにする */
+    background-color: #2d4b69; 
     
-    /* 背景の紺色とロゴ画像を馴染ませる設定（画像が明るすぎる場合はここを調整） */
-    background-blend-mode: normal; 
+    /* 紺色の半透明レイヤーをロゴの上に重ねて、トーンを落とす */
+    background-image: 
+        linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.7)), 
+        url("logo.svg");
     
+    background-repeat: repeat;
+    background-size: 150px;
+    
+    /* 背景画像と背景色を掛け合わせて暗く沈める */
+    background-blend-mode: multiply; 
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-
-/* メインビジュアル中央に配置するロゴ（もしあれば）を白く際立たせる */
-#mainvisual .mv-logo {
-    filter: brightness(0) invert(1);
-    width: 150px;
-    height: auto;
 }
