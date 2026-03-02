@@ -5,9 +5,9 @@
   --main-blue: #4682b4;
   --dark-blue: #2d4b69;
   --light-gray: #f4f7f9;
-  /* タイムラインや表用（アイコンはHTML優先） */
-  --c-rose: #E597B9; --c-green: #99C361; --c-sky: #6EB1E4;
-  --c-mint: #B7E2D8; --c-orange: #F48451; --c-royal: #2D59A3;
+  /* 表やチップ用の色定義 */
+  --c-rose: #E296B5; --c-green: #99C35F; --c-sky: #6FB2E3;
+  --c-mint: #A7D6CA; --c-orange: #F38450; --c-royal: #2D59A4;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,7 +15,7 @@ body { color: var(--main-blue); font-family: 'Montserrat', sans-serif; line-heig
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 2. ヘッダー：ナビ左右分割 --- */
+/* --- 2. ヘッダー：左ロゴ・右ナビ（ABOUT共通） --- */
 .site-header {
   position: fixed;
   top: 0; left: 0;
@@ -35,41 +35,65 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   justify-content: space-between;
 }
 
-.nav-menu-left ul, .nav-menu-right ul {
+.site-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.nav-menu-right ul {
   display: flex;
   gap: 30px;
   list-style: none;
 }
 
-.nav-menu-left a, .nav-menu-right a {
+.nav-menu-right a {
   text-decoration: none;
   color: var(--main-blue);
   font-weight: bold;
   font-size: 0.85rem;
   letter-spacing: 0.1em;
+  transition: opacity 0.3s;
 }
 
-.site-logo img { height: 40px; width: auto; }
+.nav-menu-right a:hover {
+  opacity: 0.6;
+}
 
-/* --- 3. メインビジュアル --- */
+/* --- 3. メインビジュアル（ABOUTページ風の明るい配色へ） --- */
 #mainvisual {
   position: relative;
   height: 70vh;
-  background: linear-gradient(rgba(45, 75, 105, 0.5), rgba(45, 75, 105, 0.3)), var(--dark-blue) url("logo.svg") repeat;
-  background-size: 150px;
+  /* 暗い背景から明るいグレーに変更 */
+  background: var(--light-gray);
   display: flex;
   align-items: center; 
   justify-content: center;
   text-align: center;
+  margin-top: 80px; /* ヘッダーの高さ分下げる */
 }
 
 #mainvisual .mv-logo {
-  filter: brightness(0) invert(1);
+  /* 白抜きフィルタを解除してカラーロゴに */
+  filter: none;
   width: 140px;
   margin: 0 auto 20px;
 }
 
-#mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.1em; }
+#mainvisual p { 
+  color: var(--dark-blue); 
+  font-weight: bold; 
+  letter-spacing: 0.1em; 
+}
+
+/* スクロールダウンの矢印 */
+.scrolldown {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--main-blue);
+}
 
 /* --- 4. セクションタイトル（共通・重ねデザイン） --- */
 .section-title {
@@ -100,7 +124,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   letter-spacing: 0.3em;
 }
 
-/* --- 5. 色彩アイコン（6つの丸）のエフェクト再現 --- */
+/* --- 5. 色彩アイコン（ホバーエフェクト再現） --- */
 .color-flex-box {
   display: flex;
   justify-content: center;
@@ -109,24 +133,23 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-top: 40px;
 }
 
-/* アイコン（丸）のベース設定 */
+.swatch-item {
+  text-align: center;
+  cursor: pointer;
+}
+
 .color-ball {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   margin: 0 auto 10px;
-  /* HTMLのインラインスタイル（background-color）が最優先で適用されます */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  /* アニメーションのスムーズさ */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backface-visibility: hidden; /* ちかちか防止 */
 }
 
-/* ★マウスで重ねると少し浮くエフェクトの完全再現 */
+/* ホバー時に浮き上がる効果 */
 .swatch-item:hover .color-ball {
-  /* 上に10px移動 */
   transform: translateY(-10px);
-  /* 影を濃くして、浮いているように見せる */
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
@@ -135,14 +158,12 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   color: #333;
 }
 
-/* --- 6. WORK（実績）横並び --- */
+/* --- 6. WORK（実績） --- */
 .goods-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto 80px;
-  padding: 0 20px;
+  margin-bottom: 80px;
 }
 
 .image-wrap {
@@ -155,8 +176,9 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 .image-wrap:hover { transform: translateY(-5px); }
 .image-wrap img { width: 100%; height: 200px; object-fit: cover; }
 .work-text-content { padding: 20px; text-align: left; }
+.work-text-content h3 { font-size: 1.1rem; margin-bottom: 5px; }
 
-/* --- 7. お問い合わせフォーム --- */
+/* --- 7. お問い合わせフォーム（幅の制限） --- */
 #contact form {
   max-width: 600px;
   margin: 0 auto;
@@ -170,89 +192,39 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background: #fff;
 }
 
-/* --- 8. フッター（ロゴ消去） --- */
-#footer .logo { display: none; }
-#footer { background: var(--dark-blue); padding: 50px 0; }
+.agreement-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.agreement-item input { width: auto; }
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* --- 8. フッター --- */
+#footer {
+  background: var(--dark-blue);
+  padding: 50px 0;
+  text-align: center;
+}
+#footer .logo { display: none; } /* フッターロゴは非表示 */
 
 /* --- 9. レスポンシブ --- */
 @media screen and (max-width: 767px) {
   .header-container { height: 70px; }
-  .nav-menu-left, .nav-menu-right { display: none; } /* スマホ用ナビは別途JS等で制御 */
-}
-
-/* --- 2. ヘッダー：左ロゴ・右ナビレイアウト --- */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.header-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* ロゴを左、ナビを右に振り分け */
-}
-
-/* 左側のロゴ */
-.site-logo {
-  flex-shrink: 0;
-}
-
-.site-logo img {
-  height: 40px; /* ABOUTページのサイズ感に合わせる */
-  width: auto;
-  display: block;
-}
-
-/* 右側のナビゲーション */
-.nav-menu-right {
-  display: flex;
-  align-items: center;
-}
-
-.nav-menu-right ul {
-  display: flex;
-  gap: 30px; /* メニュー間の余白 */
-  list-style: none;
-}
-
-.nav-menu-right a {
-  text-decoration: none;
-  color: var(--main-blue);
-  font-weight: bold;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  transition: opacity 0.3s;
-  padding: 10px 0;
-}
-
-.nav-menu-right a:hover {
-  opacity: 0.6;
-}
-
-/* ※左側のナビ(HOME/ABOUT)が不要な場合は、HTMLから nav-menu-left を削除してください */
-.nav-menu-left {
-  display: none;
-}
-
-/* --- レスポンシブ：スマホ設定 --- */
-@media screen and (max-width: 767px) {
-  .header-container {
-    height: 70px;
-  }
-  
-  /* スマホではナビを非表示（ハンバーガーメニュー等にする場合） */
-  .nav-menu-right {
-    display: none;
-  }
+  /* スマホナビ（必要に応じてハンバーガーメニューへ） */
+  .nav-menu-right { display: none; }
 }
