@@ -3657,3 +3657,56 @@ main {
         padding-top: 10px;
     }
 }
+
+/* テーブル全体のコンテナ */
+.color-details-table {
+    max-width: 900px; /* テーブルの最大幅を固定すると綺麗です */
+    margin: 40px auto;
+    border-top: 1px solid #ddd;
+}
+
+/* ヘッダー行とデータ行に共通の横並び設定 */
+.detail-header, .detail-row {
+    display: flex;
+    align-items: center; /* これで上下（垂直方向）のズレを解消します */
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;    /* 基本は左寄せ */
+}
+
+/* ヘッダーのみ太字・グレー背景にする（お好みで） */
+.detail-header {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* 各カラムの横幅をパーセントで固定してズレを防ぐ */
+.char-col { 
+    width: 15%; 
+}
+.chip-col { 
+    width: 10%; 
+    display: flex;
+    justify-content: center; /* 色チップを列の中央に配置 */
+}
+.code-col { 
+    width: 20%; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+}
+.desc-col { 
+    width: 55%; 
+    font-size: 0.85rem; 
+    line-height: 1.6;
+    padding-left: 10px; /* コードとの間に少しゆとりを */
+}
+
+/* 色チップ（丸い形）の設定 */
+.chip {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
