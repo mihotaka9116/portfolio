@@ -3441,7 +3441,7 @@ main {
     height: 65vh;
     /* 紺色を消し、白背景にロゴを敷き詰める */
     background: #ffffff url("logo.svg") repeat;
-    background-size: 120px; /* ロゴの大きさはお好みで調整 */
+    background-size: 130px; /* ロゴの大きさはお好みで調整 */
     
     display: flex;
     flex-direction: column;
@@ -3492,10 +3492,10 @@ main {
     text-align: center;
     
     /* 余計な背景色やサイズ設定をリセット */
-    background: none !important; 
-    width: auto !important;
-    height: auto !important;
-    padding: 0 !important;
+    background: none; 
+    width: auto;
+    height: auto;
+    padding: 0;
 }
 
 .scrolldown span {
@@ -3507,10 +3507,10 @@ main {
     margin-bottom: 45px; /* 線との距離 */
     
     /* もしここにも背景色がついていたら消す */
-    background: none !important;
+    background: none;
 }
 
-/* 縦線の設定（念のため再掲） */
+/* 縦線の設定 */
 .scrolldown::after {
     content: "";
     position: absolute;
