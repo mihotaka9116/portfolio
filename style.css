@@ -3579,3 +3579,81 @@ main {
         font-size: 14px;   /* スマホでは少し小さくするなど */
     }
 }
+
+/* --- カラー詳細テーブルの共通設定 --- */
+.color-details-table {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* 各カラムの幅（PC用） */
+.char-col { width: 15%; font-weight: bold; }
+.chip-col { width: 10%; text-align: center; }
+.code-col { width: 15%; font-family: monospace; color: #666; }
+.desc-col { width: 60%; font-size: 0.9rem; line-height: 1.6; }
+
+/* 色の見本（チップ）のサイズ */
+.chip {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+/* --- 【重要】スマホ用のレスポンシブ設定 (画面幅768px以下) --- */
+@media screen and (max-width: 768px) {
+    /* ヘッダー（項目名）を隠す */
+    .detail-header {
+        display: none;
+    }
+
+    /* 1行分を1つの「カード」のように見せる */
+    .detail-row {
+        flex-direction: column; /* 縦に並べる */
+        align-items: flex-start; /* 左寄せ */
+        padding: 20px 15px;
+        position: relative;
+    }
+
+    /* 各カラムの幅を100%にする */
+    .char-col, .chip-col, .code-col, .desc-col {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    /* 名称を少し大きく、色と横並びにする工夫 */
+    .char-col {
+        font-size: 1.1rem;
+        color: #2d59a4; /* Royalの紺色 */
+        margin-bottom: 5px;
+    }
+
+    /* 色チップとコードを横に並べる */
+    .chip-col {
+        display: inline-block;
+        width: auto;
+        margin-right: 10px;
+    }
+    .code-col {
+        display: inline-block;
+        width: auto;
+        font-size: 0.85rem;
+    }
+
+    /* 説明文の余白を調整 */
+    .desc-col {
+        margin-top: 5px;
+        font-size: 0.85rem;
+        color: #444;
+        border-top: 1px dashed #eee;
+        padding-top: 10px;
+    }
+}
