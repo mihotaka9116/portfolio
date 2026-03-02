@@ -3549,3 +3549,14 @@ main {
     letter-spacing: 0.2em;
     margin: 0;         /* 余計な余白をリセット */
 }
+
+/* セクションタイトルの英語部分を「先頭のみ大文字」にする */
+.section-title .en {
+    display: block;      /* 1行で表示させるため（既存の設定にあればそのままでOK） */
+    text-transform: capitalize; /* 各単語の先頭を大文字にする */
+    
+    /* 念のため、もとのHTMLが全部大文字で書かれている場合に備えて */
+    /* text-transform: capitalize は「小文字で書かれたもの」に効くため、
+       一度すべて小文字にしてから先頭を大文字にする指定をセットにします */
+    font-variant: normal; 
+}
