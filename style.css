@@ -3065,3 +3065,41 @@ section h2 + p,
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
+
+/* --- ハンバーガーメニュー：三本線の動き --- */
+#js-hamburger.active span:nth-child(1) {
+    top: 11px;
+    transform: rotate(45deg);
+}
+#js-hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+#js-hamburger.active span:nth-child(3) {
+    top: 11px;
+    transform: rotate(-45deg);
+}
+
+/* --- スマホ用ナビゲーションの動作を安定させる --- */
+@media screen and (max-width: 767px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 閉じてる時は画面の外 */
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(45, 75, 105, 0.98);
+        z-index: 999;
+        transition: right 0.5s ease; /* スライドのアニメーション */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden; /* 2回目以降に消えないための保険 */
+    }
+
+    /* メニューが開いた時（JSで active がついた時） */
+    .nav-menu.active {
+        right: 0 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+}
