@@ -2822,3 +2822,40 @@ section h2 + p,
         right: 0;
     }
 }
+
+/* --- 明るいメインビジュアル（変更前風） --- */
+#mainvisual {
+    position: relative;
+    height: 80vh; /* 高さを少しゆったりめに */
+    background-color: #f4f7f9; /* 紺から、清潔感のある薄いグレーへ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-blue); /* 文字色を紺から青に戻す */
+    text-align: center;
+    margin-top: 70px;
+}
+
+/* ロゴは加工せず、そのままの色で見せる */
+.mv-logo-color {
+    width: 180px; /* 少し大きめに配置 */
+    margin-bottom: 25px;
+    filter: none; /* フィルターを解除 */
+}
+
+#mainvisual p {
+    color: var(--main-blue);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+/* スクロールダウンの線と文字も青にする */
+.scrolldown {
+    color: var(--main-blue);
+}
+
+.scrolldown::after {
+    background: var(--main-blue); /* 線を青に */
+}
