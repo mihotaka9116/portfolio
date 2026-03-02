@@ -192,3 +192,97 @@ body {
     color: #fff !important; /* リンクも白に */
     opacity: 0.7;
 }
+
+/* --- メインビジュアルの設定 --- */
+#mainvisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ビューポートの高さいっぱいにする例 */
+  /* 背景色の指定があればここに追加（例：濃い青） */
+  /* background-color: #2d4b69; */
+  position: relative;
+}
+
+.mainvisual-inner {
+  text-align: center;
+}
+
+/* メインビジュアル内のロゴを白くする */
+.mv-logo-color {
+  /* 黒を白に反転させるフィルター */
+  filter: brightness(0) invert(1);
+  
+  /* サイズ調整（必要に応じて） */
+  width: 150px; /* 例 */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+#mainvisual p {
+  /* 文字色も白に（背景が濃い場合） */
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* スクロールダウン矢印（もしあれば）も白に */
+.scrolldown span {
+  color: #ffffff;
+}
+.scrolldown::after {
+  background-color: #ffffff;
+}
+
+/* --- スクロールダウン全体の文字を白に --- */
+.scrolldown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.scrolldown span {
+    display: block;
+    color: #ffffff; /* 文字を白に */
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* --- 動く縦線のベース（白） --- */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: -40px; /* 線の位置調整 */
+    left: 50%;
+    width: 1px;
+    height: 50px;
+    background: #ffffff; /* 線の色を白に */
+    transform: translateX(-50%);
+    /* アニメーションの呼び出し */
+    animation: scroll-line 2.0s cubic-bezier(0.76, 0, 0.3, 1) infinite;
+}
+
+/* --- 線が伸び縮みするアニメーション設定 --- */
+@keyframes scroll-line {
+    0% {
+        transform: scale(1, 0) translateX(-50%);
+        transform-origin: 0 0;
+    }
+    50% {
+        transform: scale(1, 1) translateX(-50%);
+        transform-origin: 0 0;
+    }
+    50.1% {
+        transform: scale(1, 1) translateX(-50%);
+        transform-origin: 0 100%;
+    }
+    100% {
+        transform: scale(1, 0) translateX(-50%);
+        transform-origin: 0 100%;
+    }
+}
