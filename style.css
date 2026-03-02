@@ -3560,3 +3560,22 @@ main {
        一度すべて小文字にしてから先頭を大文字にする指定をセットにします */
     font-variant: normal; 
 }
+
+/* ナビゲーションメニューの文字サイズを一括設定 */
+.nav-menu ul li a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;       /* もしくは 1rem。トップのサイズに合わせる */
+    font-weight: 700;      /* 太さも統一 */
+    letter-spacing: 0.1em; /* 字の間隔 */
+    text-transform: capitalize; /* 先頭のみ大文字 */
+    color: #2d59a4;        /* 紺色 */
+    text-decoration: none;
+    display: block;        /* クリック範囲を広げる */
+}
+
+/* スマホ表示などでサイズを変えたい場合はここ（メディアクエリ） */
+@media screen and (max-width: 768px) {
+    .nav-menu ul li a {
+        font-size: 14px;   /* スマホでは少し小さくするなど */
+    }
+}
