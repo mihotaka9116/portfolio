@@ -234,3 +234,49 @@ body {
   .header-container { height: 60px; }
   .hamburger-menu { display: block; } /* 必要なら追加 */
 }
+
+/* =================================================
+   2. ヘッダー & ナビゲーション (位置の微調整)
+   ================================================== */
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  justify-content: space-between; /* ロゴとナビを両端に */
+  align-items: center;
+  padding: 0 20px; /* ★ここの右側の数値を大きくすると、さらに左へ寄ります */
+}
+
+.nav-menu {
+  /* ナビゲーション全体を右端に寄せる */
+  margin-left: auto; 
+  /* 右側の余白を少し調整して、画面端に寄りすぎないようにする */
+  padding-right: 10px; 
+}
+
+.nav-menu ul {
+  display: flex;
+  gap: 35px; /* メニュー間の距離を少し広げてゆとりを持たせる */
+  list-style: none;
+  align-items: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--c-sky); /* ホバー時にロゴの色の一つに変わる演出 */
+}
+
+/* スマホではナビを隠す設定（ハンバーガーメニュー用） */
+@media screen and (max-width: 767px) {
+  .nav-menu {
+    display: none; /* スマホ時はスクリプトで制御するため一旦非表示 */
+  }
+}
