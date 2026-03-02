@@ -2956,3 +2956,45 @@ section h2 + p,
 #mainvisual .scrolldown::after {
     background-color: var(--main-blue) !important; /* 縦線も青にする */
 }
+
+/* --- メインビジュアル：ロゴを敷き詰めたパターンデザイン --- */
+#mainvisual {
+    position: relative;
+    height: 70vh;
+    /* 背景の設定 */
+    background-color: #ffffff; /* ベースは白 */
+    background-image: url("logo.svg"); /* 敷き詰めたいロゴ画像 */
+    background-repeat: repeat;  /* 上下左右に繰り返す */
+    background-size: 120px;     /* ロゴ1つの大きさ（ここでお好みの密度に調整） */
+    background-position: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+/* 中央に配置するメインロゴのエリア（背景と区別させる） */
+.mv-content {
+    background: rgba(255, 255, 255, 0.9); /* 背景がうるさくならないよう、中央だけ少し白くぼかす */
+    padding: 40px 60px;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 2;
+}
+
+#mainvisual .mv-logo {
+    filter: none !important;
+    width: 180px; 
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#mainvisual p {
+    color: var(--main-blue) !important;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 1.2rem;
+}
