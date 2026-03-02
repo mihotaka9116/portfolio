@@ -2750,3 +2750,75 @@ section h2 + p,
     letter-spacing: 0.1em;
     margin-bottom: 40px;
 }
+
+/* --- セクションタイトルを上下に並べる --- */
+.section-title {
+    display: flex;             /* Flexboxを有効化 */
+    flex-direction: column;    /* 子要素（enとja）を縦に並べる */
+    align-items: center;       /* 中央揃え */
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.section-title .en {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2D59A4;            /* ロイヤルブルー */
+    line-height: 1.2;
+}
+
+.section-title .ja {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 8px;           /* 英語との隙間 */
+    letter-spacing: 0.2em;
+    font-weight: 400;
+}
+
+/* --- ハンバーガーメニューの表示設定 --- */
+.hamburger-menu {
+    display: none;             /* デフォルト（PC）では隠す */
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #2D59A4;
+    transition: 0.3s;
+}
+
+/* 三本線の位置設定 */
+.hamburger-menu span:nth-child(1) { top: 0; }
+.hamburger-menu span:nth-child(2) { top: 11px; }
+.hamburger-menu span:nth-child(3) { top: 22px; }
+
+/* --- スマホ表示 (767px以下) --- */
+@media screen and (max-width: 767px) {
+    .hamburger-menu {
+        display: block;        /* スマホで表示 */
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;          /* 画面の外に隠す */
+        width: 80%;
+        height: 100vh;
+        background: #fff;
+        padding-top: 100px;
+        transition: 0.5s;
+        z-index: 1000;
+    }
+
+    /* JSでactiveクラスが付与されたら表示 */
+    .nav-menu.active {
+        right: 0;
+    }
+}
