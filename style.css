@@ -2860,20 +2860,7 @@ section h2 + p,
     background: var(--main-blue); /* 線を青に */
 }
 
-/* --- メインビジュアル：グレーを抜いて真っ白に --- */
-#mainvisual {
-    position: relative;
-    height: 70vh; /* 少し高さを抑えてスッキリ */
-    background-color: #ffffff; /* 完全な白に固定 */
-    background-image: none;    /* 背景画像やグラデーションを完全に消去 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 70px;
-    overflow: hidden;
-}
+
 
 /* ロゴ：カラーをそのまま活かす */
 .mv-logo {
@@ -2913,36 +2900,6 @@ section h2 + p,
     animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
 }
 
-/* --- メインビジュアル：グレーと紺を完全に除去して白へ --- */
-#mainvisual {
-    position: relative;
-    height: 70vh; /* 高さをスッキリ調整 */
-    background-color: #ffffff !important; /* 完全に真っ白 */
-    background-image: none !important;    /* 背景画像（ロゴの繰り返しなど）を消去 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-top: 70px; /* ヘッダーとの被り防止 */
-}
-
-/* メインビジュアル内のロゴ：カラーに戻す */
-#mainvisual .mv-logo {
-    filter: none !important; /* 白反転(invert)を解除 */
-    width: 150px;           /* お好みのサイズに調整 */
-    height: auto;
-    margin-bottom: 20px;
-}
-
-/* メインビジュアル内のテキスト：青色で見やすく */
-#mainvisual p {
-    color: var(--main-blue) !important; /* 白背景なので青に戻す */
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    font-size: 1.1rem;
-    margin-top: 10px;
-}
 
 /* スクロールダウン：白背景に合わせて青へ */
 #mainvisual .scrolldown {
@@ -2957,24 +2914,7 @@ section h2 + p,
     background-color: var(--main-blue) !important; /* 縦線も青にする */
 }
 
-/* --- メインビジュアル：ロゴを敷き詰めたパターンデザイン --- */
-#mainvisual {
-    position: relative;
-    height: 70vh;
-    /* 背景の設定 */
-    background-color: #ffffff; /* ベースは白 */
-    background-image: url("logo.svg"); /* 敷き詰めたいロゴ画像 */
-    background-repeat: repeat;  /* 上下左右に繰り返す */
-    background-size: 120px;     /* ロゴ1つの大きさ（ここでお好みの密度に調整） */
-    background-position: center;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-top: 70px;
-}
+
 
 /* 中央に配置するメインロゴのエリア（背景と区別させる） */
 .mv-content {
@@ -2985,16 +2925,59 @@ section h2 + p,
     z-index: 2;
 }
 
+/* --- メインビジュアル：ロゴを敷き詰めたパターンデザイン --- */
+#mainvisual {
+    position: relative;
+    height: 65vh; /* 高さは以前の設定を維持 */
+    margin-top: 70px; /* ヘッダーの高さ分 */
+    
+    /* 背景の設定：ロゴをタイル状に並べる */
+    background-color: #f4f7f9; /* ベースの薄いグレー（白でもOK） */
+    background-image: url("logo.svg"); 
+    background-repeat: repeat; 
+    background-size: 120px;     /* ロゴ1つの大きさ。小さくすると密度が上がります */
+    background-position: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 中央のコンテンツエリア（背景がうるさくならないよう白背景を敷く） */
+.mv-content {
+    background: rgba(255, 255, 255, 0.9); /* 90%の不透明度でロゴをうっすら透かす */
+    padding: 50px 80px;
+    border-radius: 12px;
+    text-align: center;
+    z-index: 5;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 軽い影で浮かせる */
+}
+
+/* 中央のメインロゴ */
 #mainvisual .mv-logo {
-    filter: none !important;
-    width: 180px; 
+    filter: none !important; /* 背景とは違い、本来の色で見せる */
+    width: 200px; 
     height: auto;
     margin-bottom: 20px;
 }
 
+/* キャッチコピー */
 #mainvisual p {
     color: var(--main-blue) !important;
     font-weight: 700;
     letter-spacing: 0.2em;
     font-size: 1.2rem;
+    margin-top: 0; /* 余計な余白をリセット */
 }
+
+/* スクロールダウンの線が背景に埋もれないよう調整 */
+.scrolldown {
+    z-index: 10;
+}
+.scrolldown span, .scrolldown::after {
+    background-color: var(--main-blue); /* 背景が白い場合は青い線にする */
+    color: var(--main-blue);
+}
+
+
