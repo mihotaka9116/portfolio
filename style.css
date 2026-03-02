@@ -3616,12 +3616,12 @@ main {
 #mainvisual {
     position: relative;
     height: 65vh;
-    /* フッターと同じ色の上に、薄くロゴを重ねる */
+    /* 背景色をフッターと同じ紺色に。その上にロゴ画像をリピート配置 */
     background: #2d4b69 url("logo.svg") repeat;
-    background-size: 150px;
+    background-size: 150px; /* ロゴの大きさ。お好みで調整してください */
     
-    /* 背景色を活かすために、少しだけ暗めのオーバーレイをかける */
-    background-blend-mode: multiply; 
+    /* 背景の紺色とロゴ画像を馴染ませる設定（画像が明るすぎる場合はここを調整） */
+    background-blend-mode: normal; 
     
     display: flex;
     flex-direction: column;
@@ -3630,9 +3630,9 @@ main {
     overflow: hidden;
 }
 
-/* メインビジュアル中央のロゴを白くして読みやすくする */
+/* メインビジュアル中央に配置するロゴ（もしあれば）を白く際立たせる */
 #mainvisual .mv-logo {
     filter: brightness(0) invert(1);
-    width: 150px; /* お好みのサイズに */
+    width: 150px;
     height: auto;
 }
