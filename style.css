@@ -488,3 +488,58 @@ main { padding-top: 70px; }
   position: relative;
   top: 0px; 
 }
+
+/* =================================================
+   セクションタイトル (英語 + 日本語サブ)
+   ================================================== */
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+/* 英語のメインタイトル (大きく、太く) */
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--main-blue);
+  line-height: 1.2;
+  text-transform: uppercase; /* 大文字に統一 */
+}
+
+/* 日本語のサブタイトル (小さく、少し細めに) */
+.section-title h2::after {
+  /* HTMLを書き換えずに日本語を追加する場合の例 */
+  /* content: "ここに日本語"; ではなく、HTML側の<span>を使うのが柔軟です */
+}
+
+.section-title .subtitle {
+  display: block; /* 改行させる */
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark-blue);
+  letter-spacing: 0.2em;
+  margin-top: 10px; /* 英語との間隔 */
+  position: relative;
+}
+
+/* タイトルの下の装飾線（お好みで） */
+.section-title .subtitle::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--c-mint); /* アクセントカラーのミント */
+  margin: 15px auto 0;
+}
+
+/* 「ロゴマークを形作る6つの色彩」という見出しや文章 */
+.apple-colors h2,
+.apple-colors p,
+.apple-colors .section-title {
+  /* 黒ではなく、サイト共通のメインブルーを適用 */
+  color: var(--main-blue); 
+  font-weight: bold;
+  margin-bottom: 20px;
+}
