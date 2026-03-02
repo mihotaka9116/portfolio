@@ -443,3 +443,48 @@ main { padding-top: 70px; }
   /* transformを上書きしないよう、ここではtranslateXのみ */
 }
 
+/* =================================================
+   2. ヘッダー & ナビゲーション (ロゴ位置の微調整)
+   ================================================== */
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 70px; /* ヘッダー全体の高さ */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 基本は中央揃え */
+  padding: 0 20px;
+}
+
+/* ★ヘッダーのロゴ画像の設定 */
+.site-logo {
+  display: flex;
+  align-items: center;
+  /* position: relative; を使って、今の位置から個別に上にずらす */
+  position: relative; 
+  top: -3px; /* ★ここを -5px, -10px と調整すると上に上がります */
+}
+
+.site-logo img {
+  height: 35px; /* ロゴの大きさを適切に調整 */
+  width: auto;
+  display: block;
+}
+
+/* 右側のナビゲーションメニュー */
+.nav-menu ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  align-items: center; /* メニュー文字の中央揃え */
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 0.9rem;
+  /* メニューの文字も少し上に上げたい場合はここを調整 */
+  position: relative;
+  top: 0px; 
+}
