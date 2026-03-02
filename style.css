@@ -3733,31 +3733,51 @@ main {
     color: #ffffff !important;
 }
 
-/* ロゴの背景部分のみ修正 */
-#mainvisual::before {
-    content: "";
-    position: absolute;
-    top: -20px; /* ぼかしの余白 */
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    
-    background-image: url("logo.svg");
-    background-repeat: repeat;
+/* --- メインビジュアル全体の修正 --- */
+#mainvisual {
+    position: relative;
+    width: 100%;
+    height: 65vh; /* 高さは以前の設定を維持 */
+    /* 背景：ロゴを敷き詰め、上に紺色のオーバーレイを重ねる */
+    background: linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.7)), 
+                url("logo.svg") repeat;
     background-size: 150px;
     
-    /* 1. ぼかしを少し強める（輪郭をぼやかす） */
-    filter: blur(5px); 
-    
-    /* 2. 透明度を下げて、背景の青に馴染ませる（ここがチカチカ防止の鍵！） */
-    /* 0.3 (30%) くらいまで下げると、模様がうっすら見えて目が疲れなくなります */
-    opacity: 0.3; 
-    
-    z-index: -1;
+    /* 中身を中央に寄せるための設定 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
 }
 
-/* 背景自体を少し深みのある色にすると、より落ち着きます */
-#mainvisual {
-    background-color: #4682b4; /* メインブルー */
-    /* 以下、他の設定はそのまま */
+/* 中央のコンテナ（ロゴとテキストを囲う） */
+.mainvisual-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10; /* 背景より上に表示 */
 }
+
+/* 中央に配置する紺色のロゴ（カラー版） */
+.mv-logo-color {
+    width: 150px; /* サイズはお好みで */
+    height: auto;
+    margin-bottom: 20px;
+    /* 背景が濃い色の場合、少し明るく見せるための影 */
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+}
+
+/* その下のテキスト (WEB DESIGN & CODING) */
+.mainvisual-inner p {
+    color: #ffffff; /* 紺色の背景で見やすいよう白、もしくは薄い青に変更 */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-transform: uppercase;
+}
+  
+
