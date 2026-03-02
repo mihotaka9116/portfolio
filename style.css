@@ -5,21 +5,24 @@
   --main-blue: #4682b4;
   --dark-blue: #2d4b69;
   --light-gray: #f4f7f9;
-  --c-rose: #E296B5; --c-green: #99C35F; --c-sky: #6FB2E3;
-  --c-mint: #A7D6CA; --c-orange: #F38450; --c-royal: #2D59A4;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { color: var(--main-blue); font-family: 'Montserrat', sans-serif; line-height: 1.8; overflow-x: hidden; width: 100%; background-color: #fff; }
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+body { 
+  color: var(--main-blue); 
+  font-family: 'Montserrat', sans-serif; 
+  line-height: 1.8; 
+  overflow-x: hidden; 
+  width: 100%; 
+  background-color: #fff; 
+}
 
-/* --- 2. ヘッダー：左ロゴ・右ナビ --- */
+/* --- 2. ヘッダー：固定設定 --- */
 .site-header {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
-  height: 80px; /* 高さを固定 */
+  height: 80px; /* ヘッダーの高さを明示 */
   background: rgba(255, 255, 255, 0.95);
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -33,50 +36,68 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   align-items: center;
   justify-content: space-between;
 }
-.site-logo img { height: 40px; width: auto; }
-.nav-menu-right ul { display: flex; gap: 30px; list-style: none; }
-.nav-menu-right a { font-weight: bold; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--main-blue); text-decoration: none; }
+.site-logo img { height: 40px; width: auto; display: block; }
 
-/* --- 3. メインビジュアル（表示の修正） --- */
+/* --- 3. メインビジュアル（表示されない問題を解決） --- */
 #mainvisual {
-  position: relative;
   width: 100%;
-  height: 80vh; 
-  margin-top: 80px; /* ★重要：ヘッダーの高さ分だけ下に下げる */
-  background-color: var(--light-gray) !important; /* 強制的に背景色を適用 */
+  min-height: 80vh; /* 画面の80%の高さを確保 */
+  padding-top: 80px; /* ★重要：ヘッダーの高さ分だけ中身を下げる */
+  background-color: var(--light-gray); /* 背景色を確実に指定 */
   display: flex;
+  flex-direction: column;
   align-items: center; 
   justify-content: center;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
-.mainvisual-inner { position: relative; z-index: 2; }
-.mv-logo { width: 160px; margin-bottom: 20px; }
-#mainvisual p { color: var(--dark-blue); font-weight: bold; letter-spacing: 0.2em; }
 
-/* スクロールダウン矢印 */
+/* ロゴ画像が表示されない場合の予備設定 */
+.mv-logo {
+  width: 160px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+  /* 画像がない場合でも領域を確保 */
+  min-height: 50px; 
+}
+
+#mainvisual p { 
+  color: var(--dark-blue); 
+  font-weight: bold; 
+  letter-spacing: 0.2em; 
+  margin: 0;
+}
+
+/* スクロールダウン */
 .scrolldown {
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.7rem;
   color: var(--main-blue);
+  font-size: 0.75rem;
+  font-weight: bold;
 }
 
-/* --- 4. セクションタイトル --- */
+/* --- 4. セクション共通設定 --- */
+section {
+  padding: 100px 0;
+  width: 100%;
+}
+
 .section-title {
   position: relative;
-  margin: 0 auto 60px;
+  margin-bottom: 60px;
   text-align: center;
-  padding: 40px 0;
 }
 .section-title .en {
-  display: block;
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   opacity: 0.08;
-  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--dark-blue);
+  line-height: 1;
 }
 .section-title .ja {
   position: absolute;
@@ -89,55 +110,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   color: var(--dark-blue);
 }
 
-/* --- 5. 色彩アイコン --- */
-.color-flex-box { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 40px 0; }
-.swatch-item { text-align: center; }
-.color-ball {
-  width: 65px; height: 65px; border-radius: 50%;
-  margin: 0 auto 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-.swatch-item:hover .color-ball {
-  transform: translateY(-12px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-/* --- 6. 表のデザイン（崩れを修正） --- */
-.color-details-table { margin: 60px auto; border-top: 1px solid #eee; width: 100%; }
-.detail-header, .detail-row {
-  display: flex; 
-  align-items: center; 
-  padding: 20px 0; 
-  border-bottom: 1px solid #eee;
-  text-align: left;
-}
-.detail-header { font-weight: bold; color: var(--dark-blue); }
-.char-col { width: 15%; flex-shrink: 0; }
-.chip-col { width: 10%; flex-shrink: 0; text-align: center; }
-.code-col { width: 20%; flex-shrink: 0; font-family: monospace; }
-.desc-col { width: 55%; font-size: 0.9rem; line-height: 1.6; }
-
-.chip { display: inline-block; width: 20px; height: 20px; border-radius: 4px; }
-.c-rose { background-color: #E296B5; }
-.c-green { background-color: #99C35F; }
-.c-sky { background-color: #6FB2E3; }
-.c-mint { background-color: #A7D6CA; }
-.c-orange { background-color: #F38450; }
-.c-royal { background-color: #2D59A4; }
-
-/* --- 7. WORK & CONTACT --- */
-.goods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 80px; }
-.image-wrap { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-.image-wrap:hover { transform: translateY(-8px); }
-.work-text-content { padding: 20px; }
-
-#contact form { max-width: 600px; margin: 0 auto; padding-bottom: 100px; }
-.form-item { margin-bottom: 25px; }
-.form-item input, .form-item textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
-.submit-btn { width: 100%; padding: 15px; background: #ccc; color: #fff; border: none; border-radius: 50px; cursor: not-allowed; }
-
-/* --- 8. スクロールアニメーション --- */
+/* --- アニメーション用 --- */
 .js-fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -147,6 +120,3 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   opacity: 1;
   transform: translateY(0);
 }
-
-/* --- 9. フッター --- */
-#footer { background: var(--dark-blue); padding: 60px 0; text-align: center; color: #fff; }
