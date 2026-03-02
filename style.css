@@ -3613,5 +3613,18 @@ main {
     margin-bottom: 120px; /* ここを100px〜150pxくらいにするとゆとりが出ます */
 }
 
-
+#mainvisual {
+    position: relative;
+    height: 65vh;
+    /* 背景色をフッター（--dark-blue / #2d4b69）と統一 */
+    background-color: #2d4b69; 
+    /* 以前のグラデーションや画像を打ち消す */
+    background-image: none; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
