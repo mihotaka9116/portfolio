@@ -3636,3 +3636,42 @@ main {
     justify-content: center;
     overflow: hidden;
 }
+
+/* 以前の「リピートロゴ＋深い紺色」の再現 */
+#mainvisual {
+    position: relative;
+    height: 65vh;
+    margin-top: 70px; /* ヘッダーの高さ分下げる */
+    
+    /* フッターと同じ色 (#2d4b69) をベースに設定 */
+    background-color: #2d4b69; 
+    
+    /* 紺色のレイヤーをロゴの上に重ねる（0.8でしっかり暗く） */
+    background-image: 
+        linear-gradient(rgba(45, 75, 105, 0.8), rgba(45, 75, 105, 0.8)), 
+        url("logo.svg");
+    
+    background-repeat: repeat;
+    background-size: 150px; /* ロゴの大きさ */
+    
+    /* 背景色と画像を掛け合わせて暗く沈める設定 */
+    background-blend-mode: multiply; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 以前設定していた「SCROLL」のアニメーション部分の白指定 */
+.scrolldown span {
+    color: #fff !important;
+}
+
+/* 中央のテキストも白くくっきりと表示 */
+.mainvisual-inner p {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
