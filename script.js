@@ -80,13 +80,46 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   }
 });
 
-// script.js
-const hamburger = document.getElementById('js-hamburger');
-const nav = document.querySelector('.nav-menu');
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('js-hamburger');
+    const nav = document.querySelector('.nav-menu');
 
-if(hamburger) {
     hamburger.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        this.classList.toggle('active'); // ボタンを「×」にする場合は必要
+        // hamburgerにactiveクラスを付与（三本線を×にする用）
+        hamburger.classList.toggle('active');
+        // nav-menuにopenクラスを付与（メニューを出す用）
+        nav.classList.toggle('open');
     });
+
+    // メニュー内のリンクをクリックしたらメニューを閉じる
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('open');
+        });
+    });
+});
+
+/* ハンバーガーボタンの三本線の基本スタイル */
+.hamburger-menu span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #4682b4; /* 閉じている時は青 */
+    margin-bottom: 6px;
+    transition: 0.3s;
+}
+
+/* メニューが開いている時（active）のスタイル */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #fff; /* 開いている時は白（背景が濃い想定） */
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: #fff;
 }
