@@ -3608,5 +3608,10 @@ main {
     vertical-align: middle;
 }
 
+/* 色彩の表の下にしっかり余白を作る */
+.color-details-table {
+    margin-bottom: 120px; /* ここを100px〜150pxくらいにするとゆとりが出ます */
+}
+
 
 
