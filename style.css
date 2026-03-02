@@ -3052,3 +3052,16 @@ section h2 + p,
     50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
     100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
 }
+
+/* --- 1. 最初は透明にして、少し下に下げておく --- */
+.js-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* --- 2. JSで 'is-show' クラスがついたら表示する --- */
+.js-fade-up.is-show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
