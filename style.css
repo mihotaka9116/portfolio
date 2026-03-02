@@ -2994,3 +2994,21 @@ section h2 + p,
 .scrolldown::after {
     background-color: #ffffff !important;
 }
+
+/* スクロールの文字を白に */
+.scrolldown span {
+    color: #ffffff !important;
+}
+
+/* スクロールの縦線を「白く細い線」に修正 */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    width: 1px; /* 太さを1pxに固定 */
+    height: 50px;
+    background: #ffffff !important; /* 必ず白(#ffffff)に指定 */
+    transform: translateX(-50%);
+    animation: scroll-line 2.0s infinite;
+}
