@@ -3733,51 +3733,118 @@ main {
     color: #ffffff !important;
 }
 
-/* --- メインビジュアル全体の修正 --- */
+/* =================================================
+   MAIN VISUAL：整理版
+   ================================================== */
 #mainvisual {
     position: relative;
     width: 100%;
-    height: 65vh; /* 高さは以前の設定を維持 */
-    /* 背景：ロゴを敷き詰め、上に紺色のオーバーレイを重ねる */
+    height: 65vh; /* 高さを調整 */
+    /* 背景：ロゴを敷き詰め、上に紺色の薄い膜を重ねる */
     background: linear-gradient(rgba(45, 75, 105, 0.7), rgba(45, 75, 105, 0.7)), 
                 url("logo.svg") repeat;
     background-size: 150px;
     
-    /* 中身を中央に寄せるための設定 */
+    /* 中身を中央に配置する設定 */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     text-align: center;
+    overflow: hidden;
 }
 
-/* 中央のコンテナ（ロゴとテキストを囲う） */
+/* 中央のコンテンツを囲うコンテナ */
 .mainvisual-inner {
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 10; /* 背景より上に表示 */
 }
 
-/* 中央に配置する紺色のロゴ（カラー版） */
-.mv-logo-color {
-    width: 150px; /* サイズはお好みで */
+/* 中央の大きなロゴ */
+#mainvisual .mv-logo {
+    width: 150px; /* サイズ調整 */
     height: auto;
     margin-bottom: 20px;
-    /* 背景が濃い色の場合、少し明るく見せるための影 */
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+    /* 黒いロゴ画像を白く反転させる魔法（紺色背景に映えます） */
+    filter: brightness(0) invert(1);
 }
 
-/* その下のテキスト (WEB DESIGN & CODING) */
-.mainvisual-inner p {
-    color: #ffffff; /* 紺色の背景で見やすいよう白、もしくは薄い青に変更 */
+/* ロゴの下のテキスト */
+#mainvisual p {
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 1.5rem;
     letter-spacing: 0.2em;
-    margin: 0;
     text-transform: uppercase;
+    margin: 0;
+}
+
+/* スマホ用の調整 */
+@media screen and (max-width: 767px) {
+    #mainvisual {
+        height: 50vh;
+    }
+    #mainvisual .mv-logo {
+        width: 100px;
+    }
+    #mainvisual p {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- デザインシステム：テーブルのズレ修正 --- */
+.color-details-table {
+    max-width: 900px;
+    margin: 60px auto 0;
+    border-top: 2px solid var(--main-blue);
+    background: #fff;
+    display: block; /* 一旦ブロックにして安定させる */
+}
+
+/* ヘッダーと各行の列幅をパーセントまたは固定値で厳密に指定 */
+.detail-header, .detail-row {
+    display: grid;
+    /* 1列目:名前(20%) 2列目:チップ(10%) 3列目:コード(20%) 4列目:説明(残り) */
+    grid-template-columns: 20% 10% 25% 1fr; 
+    padding: 15px 20px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.detail-header {
+    background-color: #f8fabb;
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: var(--main-blue);
+}
+
+/* チップ（色の丸）を中央に寄せる */
+.chip-col {
+    display: flex;
+    justify-content: center;
+}
+
+.chip {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* スマホ版（崩れないように維持） */
+@media screen and (max-width: 767px) {
+    .detail-header { display: none; }
+    .detail-row {
+        grid-template-columns: 1fr 1fr; /* スマホは2列 */
+        gap: 8px;
+        padding: 20px;
+    }
+    .desc-col { grid-column: 1 / 3; border-top: 1px dashed #eee; padding-top: 10px; }
 }
   
 
