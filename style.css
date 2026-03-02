@@ -2645,3 +2645,108 @@ section h2 + p,
     .nav-menu a .en { font-size: 20px; }
     .nav-menu a .jp { font-size: 12px; }
 }
+
+/* --- 1. ナビゲーションを2段（英語・日本語）にする --- */
+.nav-menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    align-items: center;    /* 中央揃え */
+    text-decoration: none;
+    color: var(--main-blue);
+    position: relative;
+}
+
+.nav-menu a .en {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.nav-menu a .jp {
+    font-size: 10px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+
+/* --- 2. ハンバーガーメニューの表示（修正） --- */
+.hamburger-menu {
+    display: none; /* 初期状態は非表示 */
+    cursor: pointer;
+    z-index: 9999;
+    width: 30px;
+    height: 24px;
+    position: relative;
+}
+
+.hamburger-menu span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--main-blue);
+    transition: all 0.3s;
+}
+
+.hamburger-menu span:nth-child(1) { top: 0; }
+.hamburger-menu span:nth-child(2) { top: 11px; }
+.hamburger-menu span:nth-child(3) { top: 22px; }
+
+/* スマホ用レスポンシブ (767px以下) */
+@media screen and (max-width: 767px) {
+    .hamburger-menu {
+        display: block; /* スマホで強制表示 */
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 画面外に隠す */
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        z-index: 9998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s ease;
+    }
+
+    .nav-menu.active {
+        right: 0; /* JSでactiveがつくと表示 */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .nav-menu a .en { font-size: 20px; }
+    .nav-menu a .jp { font-size: 12px; }
+}
+
+/* --- 3. セクションタイトルの共通化 --- */
+.section-title {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--main-blue);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* HTML内の <span class="section-title-en"> をこれに統一 */
+.section-title-en {
+    display: block;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+}
