@@ -3433,3 +3433,82 @@ section h2 + p,
 main {
     padding-top: 70px; /* ヘッダーの高さ分だけ下げる */
 }
+
+/* --- メインビジュアル：白背景＋ロゴ敷き詰め --- */
+#mainvisual {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    /* 紺色を消し、白背景にロゴを敷き詰める */
+    background: #ffffff url("logo.svg") repeat;
+    background-size: 120px; /* ロゴの大きさはお好みで調整 */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 中央のロゴと文字のコンテナ */
+.mainvisual-inner {
+    text-align: center;
+    z-index: 2;
+}
+
+/* 中央のカラーロゴのサイズ調整 */
+.mv-logo-color {
+    width: 150px; /* 中央のロゴのサイズ */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* 中央のテキスト（白背景で見えるように紺色へ） */
+#mainvisual p {
+    color: #2d4b69; /* メインの紺色 */
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    background: rgba(255, 255, 255, 0.8); /* ロゴが重なっても読みやすく */
+    padding: 5px 10px;
+}
+
+/* --- スクロールダウン：白背景で見えるように紺色に変更 --- */
+.scrolldown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    text-align: center;
+}
+
+.scrolldown span {
+    display: block;
+    color: #2d4b69; /* 文字色を紺に */
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 45px;
+}
+
+/* 動く縦線 */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 40px;
+    background: #2d4b69; /* 線を紺に */
+    transform: translateX(-50%);
+    animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
+}
+
+/* 線のアニメーション設定 */
+@keyframes scroll-line {
+    0% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 0; }
+    50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
+    50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
+    100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
+}
