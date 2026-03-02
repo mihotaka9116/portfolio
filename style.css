@@ -3114,3 +3114,17 @@ section h2 + p,
     font-family: 'Montserrat', sans-serif, Arial; 
     text-transform: uppercase; /* 小文字で書いても大文字にする設定 */
 }
+
+/* --- スクロールダウンの文字設定 --- */
+.scrolldown span {
+    display: block;
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 5px; /* 線との距離 */
+    
+    /* ↓↓↓ ここから下の3行を追加してください ↓↓↓ */
+    font-family: 'Montserrat', sans-serif; /* フォントを明示的に指定 */
+    text-transform: uppercase;            /* 念のため大文字に固定 */
+    font-weight: 700;                     /* 太さを指定して視認性をアップ */
+}
