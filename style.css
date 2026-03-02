@@ -3908,9 +3908,8 @@ main {
 #mainvisual {
     position: relative;
     height: 65vh;
-    /* グラデーションの透明度を 0.6 → 0.2 くらいまで下げます */
-    background: linear-gradient(rgba(45, 75, 105, 0.2), rgba(45, 75, 105, 0.1)), 
-                #2d4b69 url("logo.svg") repeat;
+    /* 背景色と画像のみにする */
+    background: #2d4b69 url("logo.svg") repeat;
     background-size: 150px;
     display: flex;
     flex-direction: column;
@@ -3918,5 +3917,4 @@ main {
     justify-content: center;
     overflow: hidden;
 }
-  
 
