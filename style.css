@@ -3441,7 +3441,7 @@ main {
     height: 65vh;
     /* 紺色を消し、白背景にロゴを敷き詰める */
     background: #ffffff url("logo.svg") repeat;
-    background-size: 130px; /* ロゴの大きさはお好みで調整 */
+    background-size: 150px; /* ロゴの大きさはお好みで調整 */
     
     display: flex;
     flex-direction: column;
