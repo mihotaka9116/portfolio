@@ -3616,10 +3616,12 @@ main {
 #mainvisual {
     position: relative;
     height: 65vh;
-    /* 背景色をフッター（--dark-blue / #2d4b69）と統一 */
-    background-color: #2d4b69; 
-    /* 以前のグラデーションや画像を打ち消す */
-    background-image: none; 
+    /* フッターと同じ色の上に、薄くロゴを重ねる */
+    background: #2d4b69 url("logo.svg") repeat;
+    background-size: 150px;
+    
+    /* 背景色を活かすために、少しだけ暗めのオーバーレイをかける */
+    background-blend-mode: multiply; 
     
     display: flex;
     flex-direction: column;
@@ -3628,3 +3630,9 @@ main {
     overflow: hidden;
 }
 
+/* メインビジュアル中央のロゴを白くして読みやすくする */
+#mainvisual .mv-logo {
+    filter: brightness(0) invert(1);
+    width: 150px; /* お好みのサイズに */
+    height: auto;
+}
