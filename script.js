@@ -123,3 +123,17 @@ document.addEventListener('DOMContentLoaded', function() {
     transform: translateY(-8px) rotate(-45deg);
     background-color: #fff;
 }
+
+/* --- ハンバーガーボタンのアニメーション --- */
+/* 開いた時（activeクラス時）の三本線の動き */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+    background-color: #ffffff; /* メニュー背景に合わせて白に */
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0; /* 真ん中の線を消す */
+}
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+    background-color: #ffffff; /* メニュー背景に合わせて白に */
+}
