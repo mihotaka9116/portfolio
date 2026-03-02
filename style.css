@@ -341,3 +341,50 @@ main { padding-top: 70px; } /* ヘッダー固定用余白 */
 }
 
 main { padding-top: 70px; }
+
+/* =================================================
+   3. メインビジュアル (ロゴの位置調整)
+   ================================================== */
+#mainvisual {
+  position: relative;
+  height: 80vh;
+  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), 
+              var(--dark-blue) url("logo.svg") repeat;
+  background-size: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; から以下に変更して少し上に重心を置く */
+  justify-content: flex-start; 
+  padding-top: 15vh; /* 上からの距離を指定して、ナビの高さを意識した配置に */
+  
+  overflow: hidden;
+  text-align: center;
+  color: #ffffff;
+}
+
+#mainvisual .mv-logo {
+  filter: brightness(0) invert(1);
+  width: 120px;
+  height: auto;
+  /* ロゴをさらに上に詰めたい場合は、ここでマイナスマージンを調整 */
+  margin-top: -20px; 
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* テキストもロゴに追随して読みやすく */
+#mainvisual h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+/* スマホでの微調整 */
+@media screen and (max-width: 767px) {
+  #mainvisual {
+    padding-top: 20vh; /* スマホでは中央より少し上が綺麗に見えます */
+  }
+}
+
+
