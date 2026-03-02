@@ -3328,3 +3328,108 @@ section h2 + p,
     50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
     100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
 }
+
+/* =================================================
+   最終解決：メインビジュアル・ヘッダー・スクロール
+   ================================================== */
+
+/* 1. ヘッダー：ロゴ左、ナビ右に完全固定 */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* 高さを固定 */
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between; /* ★これで左右に分かれる */
+    align-items: center;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+}
+
+.site-logo img {
+    height: 35px; /* ロゴが消えないよう高さを指定 */
+    width: auto;
+    display: block;
+}
+
+/* 2. メインビジュアル：白背景＋ロゴ敷き詰め */
+#mainvisual {
+    position: relative; /* スクロール線の基準点 */
+    width: 100%;
+    height: 65vh;
+    /* 背景を白ベースのロゴ敷き詰めに変更 */
+    background: #ffffff url("logo.svg") repeat;
+    background-size: 120px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* メインビジュアル内の文字（白背景で見えるように紺色へ） */
+#mainvisual p {
+    color: var(--main-blue);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    background: rgba(255, 255, 255, 0.7); /* 文字の視認性アップ */
+    padding: 5px 15px;
+    z-index: 2;
+}
+
+/* 3. スクロールダウン：白背景で見えるように紺色へ */
+.scrolldown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    text-align: center;
+}
+
+.scrolldown span {
+    display: block;
+    color: var(--main-blue); /* 線に合わせて紺色に */
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 45px;
+}
+
+/* 動き続ける縦線 */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 40px;
+    background: var(--main-blue); /* 紺色に変更 */
+    transform: translateX(-50%);
+    animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
+}
+
+@keyframes scroll-line {
+    0% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 0; }
+    50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
+    50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
+    100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
+}
+
+/* 不要な重複をリセット */
+main {
+    padding-top: 70px; /* ヘッダーの高さ分だけ下げる */
+}
