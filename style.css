@@ -2979,3 +2979,18 @@ section h2 + p,
     background-color: var(--main-blue); /* 背景が白い場合は青い線にする */
     color: var(--main-blue);
 }
+
+/* 2. ロゴを白くする */
+.mv-logo-color {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* 3. スクロールの文字を白くする */
+.scrolldown span {
+    color: #ffffff !important;
+}
+
+/* 4. スクロールの動く縦線を白くする */
+.scrolldown::after {
+    background-color: #ffffff !important;
+}
