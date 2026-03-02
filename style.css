@@ -1,21 +1,22 @@
 @charset "UTF-8";
 
-/* --- 1. 基本設定（変数・リセット） --- */
+/* --- 1. 基本設定 --- */
 :root {
   --main-blue: #4682b4;
   --dark-blue: #2d4b69;
   --light-gray: #f4f7f9;
-  /* 表やチップ用の色定義 */
+  /* 各色彩の定義 */
   --c-rose: #E296B5; --c-green: #99C35F; --c-sky: #6FB2E3;
   --c-mint: #A7D6CA; --c-orange: #F38450; --c-royal: #2D59A4;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { color: var(--main-blue); font-family: 'Montserrat', sans-serif; line-height: 1.8; overflow-x: hidden; width: 100%; }
+body { color: var(--main-blue); font-family: 'Montserrat', sans-serif; line-height: 1.8; overflow-x: hidden; width: 100%; background-color: #fff; }
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+a { text-decoration: none; color: inherit; }
 
-/* --- 2. ヘッダー：左ロゴ・右ナビ（ABOUT共通） --- */
+/* --- 2. ヘッダー：左ロゴ・右ナビ --- */
 .site-header {
   position: fixed;
   top: 0; left: 0;
@@ -24,7 +25,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
-
 .header-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -34,197 +34,118 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   align-items: center;
   justify-content: space-between;
 }
+.site-logo img { height: 40px; width: auto; }
+.nav-menu-right ul { display: flex; gap: 30px; list-style: none; }
+.nav-menu-right a { font-weight: bold; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--main-blue); }
 
-.site-logo img {
-  height: 40px;
-  width: auto;
-  display: block;
-}
-
-.nav-menu-right ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-}
-
-.nav-menu-right a {
-  text-decoration: none;
-  color: var(--main-blue);
-  font-weight: bold;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  transition: opacity 0.3s;
-}
-
-.nav-menu-right a:hover {
-  opacity: 0.6;
-}
-
-/* --- 3. メインビジュアル（ABOUTページ風の明るい配色へ） --- */
+/* --- 3. メインビジュアル（復活・ABOUT共通デザイン） --- */
 #mainvisual {
   position: relative;
-  height: 70vh;
-  /* 暗い背景から明るいグレーに変更 */
-  background: var(--light-gray);
+  height: 80vh; /* 高さを少し確保 */
+  background-color: var(--light-gray);
   display: flex;
   align-items: center; 
   justify-content: center;
   text-align: center;
-  margin-top: 80px; /* ヘッダーの高さ分下げる */
+  padding-top: 80px;
 }
+.mainvisual-inner { position: relative; z-index: 2; }
+.mv-logo { width: 160px; margin-bottom: 20px; }
+#mainvisual p { color: var(--dark-blue); font-weight: bold; letter-spacing: 0.2em; }
 
-#mainvisual .mv-logo {
-  /* 白抜きフィルタを解除してカラーロゴに */
-  filter: none;
-  width: 140px;
-  margin: 0 auto 20px;
-}
-
-#mainvisual p { 
-  color: var(--dark-blue); 
-  font-weight: bold; 
-  letter-spacing: 0.1em; 
-}
-
-/* スクロールダウンの矢印 */
+/* スクロールダウン矢印 */
 .scrolldown {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 0.7rem;
   color: var(--main-blue);
 }
 
-/* --- 4. セクションタイトル（共通・重ねデザイン） --- */
+/* --- 4. セクションタイトル（重ねデザイン） --- */
 .section-title {
   position: relative;
-  display: block;
   margin: 0 auto 60px;
   text-align: center;
-  width: 100%;
+  padding: 40px 0;
 }
-
 .section-title .en {
   display: block;
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  opacity: 0.1;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  opacity: 0.08;
   letter-spacing: 0.15em;
-  line-height: 1;
   text-transform: uppercase;
+  color: var(--dark-blue);
 }
-
 .section-title .ja {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   font-size: 1.1rem;
   font-weight: bold;
   letter-spacing: 0.3em;
+  color: var(--dark-blue);
 }
 
-/* --- 5. 色彩アイコン（ホバーエフェクト再現） --- */
-.color-flex-box {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.swatch-item {
-  text-align: center;
-  cursor: pointer;
-}
-
+/* --- 5. 色彩アイコン & ホバー効果 --- */
+.color-flex-box { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 40px 0; }
+.swatch-item { text-align: center; }
 .color-ball {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 65px; height: 65px; border-radius: 50%;
   margin: 0 auto 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
-
-/* ホバー時に浮き上がる効果 */
 .swatch-item:hover .color-ball {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateY(-12px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.color-code { font-size: 0.85rem; color: #666; }
+
+/* --- 6. 色彩の表（詳細テーブル）の復活 --- */
+.color-details-table { margin: 60px auto; border-top: 1px solid #eee; }
+.detail-header, .detail-row {
+  display: flex; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;
+}
+.detail-header { font-weight: bold; color: var(--dark-blue); font-size: 0.9rem; }
+.char-col { width: 15%; }
+.chip-col { width: 10%; text-align: center; }
+.code-col { width: 20%; font-family: monospace; }
+.desc-col { width: 55%; font-size: 0.9rem; line-height: 1.6; }
+
+.chip { display: inline-block; width: 20px; height: 20px; border-radius: 4px; }
+/* テーブル内のチップ用カラー */
+.c-rose { background-color: var(--c-rose); }
+.c-green { background-color: var(--c-green); }
+.c-sky { background-color: var(--c-sky); }
+.c-mint { background-color: var(--c-mint); }
+.c-orange { background-color: var(--c-orange); }
+.c-royal { background-color: var(--c-royal); }
+
+/* --- 7. WORK & CONTACT --- */
+.goods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 80px; }
+.image-wrap { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+.image-wrap:hover { transform: translateY(-8px); }
+.work-text-content { padding: 20px; }
+
+#contact form { max-width: 600px; margin: 0 auto; padding-bottom: 100px; }
+.form-item { margin-bottom: 25px; }
+.form-item input, .form-item textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background: #fafafa; }
+.submit-btn { width: 100%; padding: 15px; background: #ccc; color: #fff; border: none; cursor: not-allowed; border-radius: 50px; }
+
+/* --- 8. スクロールアニメーション用 (Fade Up) --- */
+.js-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.js-fade-up.is-show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.color-code {
-  font-size: 0.9rem;
-  color: #333;
-}
-
-/* --- 6. WORK（実績） --- */
-.goods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-bottom: 80px;
-}
-
-.image-wrap {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-}
-.image-wrap:hover { transform: translateY(-5px); }
-.image-wrap img { width: 100%; height: 200px; object-fit: cover; }
-.work-text-content { padding: 20px; text-align: left; }
-.work-text-content h3 { font-size: 1.1rem; margin-bottom: 5px; }
-
-/* --- 7. お問い合わせフォーム（幅の制限） --- */
-#contact form {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 20px 100px;
-}
-
-.form-item { margin-bottom: 25px; text-align: left; }
-.form-item label { display: block; margin-bottom: 8px; font-weight: bold; }
-.form-item input, .form-item textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-}
-
-.agreement-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-}
-.agreement-item input { width: auto; }
-
-.submit-btn {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-/* --- 8. フッター --- */
-#footer {
-  background: var(--dark-blue);
-  padding: 50px 0;
-  text-align: center;
-}
-#footer .logo { display: none; } /* フッターロゴは非表示 */
-
-/* --- 9. レスポンシブ --- */
-@media screen and (max-width: 767px) {
-  .header-container { height: 70px; }
-  /* スマホナビ（必要に応じてハンバーガーメニューへ） */
-  .nav-menu-right { display: none; }
-}
+/* --- 9. フッター --- */
+#footer { background: var(--dark-blue); padding: 60px 0; text-align: center; color: #fff; }
+.footer-link a { color: #eee; font-size: 0.8rem; margin: 0 10px; }
