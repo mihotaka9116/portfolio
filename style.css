@@ -120,3 +120,57 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- 3. メインビジュアル（画像と文字を確実に表示） --- */
+#mainvisual {
+  position: relative;
+  width: 100%;
+  height: 80vh; 
+  margin-top: 80px; /* ヘッダーの高さ分 */
+  
+  /* 背景の設定：薄いグレー + ロゴを並べるパターン（ABOUTページ風） */
+  background: #f4f7f9 url("logo.svg") repeat;
+  background-size: 150px; /* パターンの大きさ */
+  
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 中央のロゴとテキストを囲むエリア */
+.mainvisual-inner {
+  position: relative;
+  z-index: 10;
+  background: rgba(244, 247, 249, 0.8); /* 背景パターンがうるさい場合に少し白くぼかす */
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.mv-logo {
+  width: 200px; /* ロゴを少し大きくしました */
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+}
+
+#mainvisual p {
+  color: var(--dark-blue);
+  font-weight: 800; /* 文字を太く */
+  letter-spacing: 0.3em;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* スクロールダウンの文字 */
+.scrolldown {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 0.8rem;
+  z-index: 10;
+}
