@@ -7,29 +7,25 @@
   --main-blue: #4682b4;
   --dark-blue: #2d4b69;
   --light-gray: #f4f7f9;
-  /* デザインシステム（ロゴパレット） */
-  --c-rose: #E597B9;
-  --c-green: #99C361;
-  --c-sky: #6EB1E4;
-  --c-mint: #B7E2D8;
-  --c-orange: #F48451;
-  --c-royal: #2D59A3;
+  /* 6つの色彩 */
+  --c-rose: #E296B5;
+  --c-green: #99C35F;
+  --c-sky: #6FB2E3;
+  --c-mint: #A7D6CA;
+  --c-orange: #F38450;
+  --c-royal: #2D59A4;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { overflow-x: hidden; width: 100%; position: relative; }
-
 body {
   color: var(--main-blue);
   font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
   line-height: 1.8;
+  overflow-x: hidden;
 }
 
-img { max-width: 100%; height: auto; vertical-align: bottom; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
 /* =================================================
-   2. ヘッダー & ナビゲーション
+   2. ヘッダー (ロゴ位置と色の微調整)
    ================================================== */
 .site-header {
   position: fixed;
@@ -49,7 +45,15 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   padding: 0 20px;
 }
 
-.site-logo img { height: 30px; width: auto; }
+/* ヘッダーロゴを少し上に移動 */
+.site-logo {
+  position: relative;
+  top: -3px; 
+}
+.site-logo img {
+  height: 35px;
+  width: auto;
+}
 
 .nav-menu ul { display: flex; gap: 30px; list-style: none; }
 .nav-menu a {
@@ -57,40 +61,16 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   color: var(--main-blue);
   font-weight: bold;
   font-size: 0.9rem;
-  position: relative;
-  padding-bottom: 4px;
+  transition: opacity 0.3s;
 }
-
-/* 下線アニメーション */
-.nav-menu a::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; width: 100%; height: 1px;
-  background: var(--main-blue);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-.nav-menu a:hover::after { transform: scaleX(1); }
-
-/* ハンバーガーメニュー (スマホ用) */
-.hamburger-menu {
-  display: none; cursor: pointer; z-index: 9999;
-  width: 30px; height: 24px; position: relative;
-}
-.hamburger-menu span {
-  display: block; position: absolute; width: 100%;
-  height: 2px; background-color: var(--main-blue); transition: 0.3s;
-}
-.hamburger-menu span:nth-child(1) { top: 0; }
-.hamburger-menu span:nth-child(2) { top: 11px; }
-.hamburger-menu span:nth-child(3) { top: 22px; }
+.nav-menu a:hover { opacity: 0.7; }
 
 /* =================================================
-   3. メインビジュアル
+   3. メインビジュアル (テキスト白 & スクロール棒)
    ================================================== */
 #mainvisual {
   position: relative;
-  height: 65vh;
+  height: 80vh;
   background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), 
               var(--dark-blue) url("logo.svg") repeat;
   background-size: 150px;
@@ -98,448 +78,159 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   text-align: center;
+  color: #fff;
 }
 
-#mainvisual .mv-logo {
-  filter: brightness(0) invert(1);
-  width: 120px;
-  height: auto;
-  margin-bottom: 20px;
+#mainvisual p {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #fff !important; /* 強制的に白 */
 }
 
-main { padding-top: 70px; } /* ヘッダー固定用余白 */
-
-/* =================================================
-   4. ABOUT：STORY (タイムライン)
-   ================================================== */
-.career-timeline .career-item {
-  border-left: 3px solid #eee;
-  padding-left: 70px;
-  margin-bottom: 90px;
-  position: relative;
+/* スクロールアニメーション（白い細い棒） */
+.scrolldown {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
-
-.career-item::before {
+.scrolldown span {
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+.scrolldown::after {
   content: "";
   position: absolute;
-  left: -41.5px; top: -10px;
-  width: 80px; height: 80px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-  z-index: 10;
-  transition: transform 0.3s ease;
+  bottom: -50px;
+  left: 50%;
+  width: 1px;
+  height: 45px;
+  background: #fff;
+  animation: scroll-line 2s cubic-bezier(1, 0, 0, 1) infinite;
 }
-.career-item:hover::before { transform: scale(1.1); }
-
-.career-item:nth-child(1)::before { background-image: url("cupcake.svg"); }
-.career-item:nth-child(2)::before { background-image: url("tyaki.svg"); }
-.career-item:nth-child(3)::before { background-image: url("woman.svg"); }
+@keyframes scroll-line {
+  0% { transform: scale(1, 0); transform-origin: 0 0; }
+  50% { transform: scale(1, 1); transform-origin: 0 0; }
+  50.1% { transform: scale(1, 1); transform-origin: 0 100%; }
+  100% { transform: scale(1, 0); transform-origin: 0 100%; }
+}
 
 /* =================================================
-   5. DESIGN IDENTITY (6色のカラーボール)
+   4. セクションタイトル (英語 + 日本語)
    ================================================== */
-.apple-colors { padding: 80px 0; text-align: center; }
-.color-flex-box {
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 30px 0;
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
 }
+
+/* 英語タイトル */
+.section-title .en {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--main-blue);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* 日本語タイトル (英語の下に小さく) */
+.section-title .ja {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--dark-blue); /* 6つの色彩に近い濃い青 */
+  margin-top: 10px;
+  letter-spacing: 0.2em;
+}
+
+/* 装飾線 */
+.section-title .ja::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--c-mint);
+  margin: 10px auto 0;
+}
+
+/* =================================================
+   5. CONCEPT (6色の色彩)
+   ================================================== */
+.apple-colors .design-description {
+  color: var(--dark-blue) !important; /* 黒から変更 */
+}
+
+.color-flex-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.swatch-item { text-align: center; width: 100px; }
 .color-ball {
-  width: 60px; height: 60px; border-radius: 50%;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
-.color-ball:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-}
-
-.c-rose   { background-color: var(--c-rose); }
-.c-green  { background-color: var(--c-green); }
-.c-sky    { background-color: var(--c-sky); }
-.c-mint   { background-color: var(--c-mint); }
-.c-orange { background-color: var(--c-orange); }
-.c-royal  { background-color: var(--c-royal); }
-
-/* カラー詳細テーブル */
-.color-details-table {
-  max-width: 900px; margin: 40px auto;
-  border-top: 2px solid var(--main-blue); background: #fff;
-}
-.detail-header, .detail-row {
-  display: grid; grid-template-columns: 100px 60px 120px 1fr;
-  padding: 15px 20px; align-items: center; border-bottom: 1px solid #eee; text-align: left;
-}
-.detail-header { background-color: #f8fabb; font-weight: bold; font-size: 0.85rem; }
-.chip { display: inline-block; width: 24px; height: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.color-ball:hover { transform: translateY(-10px); }
+.color-code { font-size: 10px; color: var(--dark-blue); font-family: monospace; }
 
 /* =================================================
-   6. SKILL & WORK (グリッドと浮き上がり)
+   6. WORK (グリッド配置)
    ================================================== */
-.skills-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 50px 0; }
-.skill-item img {
-  width: 100px; filter: none !important; opacity: 1 !important;
-  transition: transform 0.3s ease;
-}
-.skill-item:hover img { transform: scale(1.1); }
-
-/* WORK画像グリッド */
 .goods-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px; margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
 }
 .image-wrap {
-  border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  background: #fff;
 }
-.image-wrap img { width: 100%; height: 220px; object-fit: cover; }
-.work-item:hover .image-wrap {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(70, 130, 180, 0.2);
-}
+.image-wrap:hover { transform: translateY(-10px); }
+.image-wrap img { width: 100%; height: 250px; object-fit: cover; }
+.work-text-content { padding: 20px; text-align: left; }
+.work-text-content h3 { font-size: 1.2rem; color: var(--dark-blue); }
+.work-text-content p { font-size: 0.8rem; color: #888; margin-top: 5px; }
 
 /* =================================================
    7. CONTACT (フォーム)
    ================================================== */
-.contact-form {
-  max-width: 600px; margin: 0 auto; padding: 40px;
-  background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(70, 130, 180, 0.1);
-}
-.form-item { margin-bottom: 25px; text-align: left; }
-.form-item label { display: block; font-weight: 700; margin-bottom: 8px; }
+#contact form { max-width: 600px; margin: 0 auto; padding: 0 20px; }
+.form-item { margin-bottom: 20px; text-align: left; }
+.form-item label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
 .form-item input, .form-item textarea {
-  width: 100%; padding: 12px; border: 2px solid #e0e7ed; border-radius: 6px; outline: none; transition: 0.3s;
+  width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;
 }
-.form-item input:focus, .form-item textarea:focus { border-color: var(--main-blue); box-shadow: 0 0 8px rgba(70,130,180,0.2); }
 .submit-btn {
-  display: block; width: 100%; max-width: 300px; margin: 30px auto 0;
-  padding: 16px; background: var(--main-blue); color: #fff; border: none;
-  border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s;
+  width: 100%; padding: 15px; border: none; border-radius: 50px;
+  background-color: #ccc; color: #fff; font-weight: bold; cursor: not-allowed;
 }
-.submit-btn:hover { background: var(--dark-blue); transform: translateY(-3px); }
 
 /* =================================================
-   8. スマホ用レスポンシブ
+   8. FOOTER
+   ================================================== */
+#footer { background-color: var(--light-gray); padding: 40px 0; text-align: center; }
+.footer-link a:hover { text-decoration: underline !important; }
+
+/* =================================================
+   9. スマホ対応
    ================================================== */
 @media screen and (max-width: 767px) {
-  .hamburger-menu { display: block; }
-  .nav-menu {
-    position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-    background: rgba(45, 75, 105, 0.98); display: flex; flex-direction: column;
-    align-items: center; justify-content: center; transition: 0.5s; z-index: 999;
-  }
-  .nav-menu.active { right: 0; }
-  .nav-menu ul { flex-direction: column; gap: 40px; }
-  .nav-menu a { color: #fff; font-size: 1.5rem; }
-
-  .career-timeline .career-item {
-    border-left: none; padding-left: 0; display: flex; flex-direction: column; align-items: center; text-align: center;
-  }
-  .career-item::before { position: static; margin-bottom: 20px; }
-  
-  .detail-header { display: none; }
-  .detail-row { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .desc-col { grid-column: 1 / 3; border-top: 1px dashed #eee; padding-top: 10px; }
-}
-
-/* =================================================
-   9. フッター
-   ================================================== */
-#footer { background: var(--dark-blue); color: #fff; text-align: center; padding: 50px 0; margin-top: 80px; }
-#footer a { color: #fff; text-decoration: none; opacity: 0.8; }
-
-/* =================================================
-   3. メインビジュアル (テキスト白・スクロールアニメ付)
-   ================================================== */
-#mainvisual {
-  position: relative;
-  height: 80vh; /* 少し高さを出してアニメーションを見えやすく */
-  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), 
-              var(--dark-blue) url("logo.svg") repeat;
-  background-size: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  text-align: center;
-  color: #ffffff; /* ★全体のテキストを白に */
-}
-
-#mainvisual .mv-logo {
-  filter: brightness(0) invert(1);
-  width: 120px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-/* メインビジュアル内の文字設定 */
-#mainvisual h1, 
-#mainvisual p {
-  color: #ffffff; /* ★強制的に白 */
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* 文字を読みやすく */
-}
-
-/* --- スクロールアニメーション（白い細い棒） --- */
-.scrolldown {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding-bottom: 60px; /* 線の長さ分の余白 */
-}
-
-/* 棒の通り道（背景の薄い線） */
-.scrolldown::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* 動く白い棒本体 */
-.scrolldown::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  height: 50px;
-  background: #ffffff;
-  /* アニメーションの呼び出し */
-  animation: scroll-line 2s cubic-bezier(1, 0, 0, 1) infinite;
-}
-
-/* 棒が上から下へ流れる動き */
-@keyframes scroll-line {
-  0% {
-    transform: scale(1, 0);
-    transform-origin: 0 0;
-  }
-  50% {
-    transform: scale(1, 1);
-    transform-origin: 0 0;
-  }
-  50.1% {
-    transform: scale(1, 1);
-    transform-origin: 0 100%;
-  }
-  100% {
-    transform: scale(1, 0);
-    transform-origin: 0 100%;
-  }
-}
-
-main { padding-top: 70px; }
-
-/* =================================================
-   3. メインビジュアル (ロゴの位置調整)
-   ================================================== */
-#mainvisual {
-  position: relative;
-  height: 80vh;
-  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), 
-              var(--dark-blue) url("logo.svg") repeat;
-  background-size: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: center; から以下に変更して少し上に重心を置く */
-  justify-content: flex-start; 
-  padding-top: 15vh; /* 上からの距離を指定して、ナビの高さを意識した配置に */
-  
-  overflow: hidden;
-  text-align: center;
-  color: #ffffff;
-}
-
-#mainvisual .mv-logo {
-  filter: brightness(0) invert(1);
-  width: 120px;
-  height: auto;
-  /* ロゴをさらに上に詰めたい場合は、ここでマイナスマージンを調整 */
-  margin-top: -20px; 
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-/* テキストもロゴに追随して読みやすく */
-#mainvisual h1 {
-  font-size: 2.5rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 10px;
-}
-
-/* スマホでの微調整 */
-@media screen and (max-width: 767px) {
-  #mainvisual {
-    padding-top: 20vh; /* スマホでは中央より少し上が綺麗に見えます */
-  }
-}
-
-/* =================================================
-   3. メインビジュアル (ロゴ位置の修正版)
-   ================================================== */
-#mainvisual {
-  position: relative;
-  height: 80vh;
-  /* 背景のロゴ（リピート）の設定 */
-  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), 
-              var(--dark-blue) url("logo.svg") repeat;
-  background-size: 150px;
-  
-  /* 中央配置に戻す（ここから個別に動かします） */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-  
-  overflow: hidden;
-  text-align: center;
-  color: #ffffff;
-}
-
-/* ★ロゴ画像本体を上に移動 */
-#mainvisual .mv-logo {
-  filter: brightness(0) invert(1);
-  width: 120px;
-  height: auto;
-  margin-bottom: 10px;
-  
-  /* transformを使って、今の位置から上に30px〜50pxほど強制的に持ち上げる */
-  transform: translateY(-40px); 
-}
-
-/* ★テキスト（WEB DESIGN & CODINGなど）の位置調整 */
-#mainvisual h1 {
-  font-size: 2.5rem;
-  letter-spacing: 0.1em;
-  color: #ffffff;
-  /* テキストも少し上に上げたい場合はここを調整 */
-  transform: translateY(-30px);
-}
-
-#mainvisual p {
-  color: #ffffff;
-  transform: translateY(-25px);
-}
-
-/* スクロールアニメは位置を固定（一番下に置く） */
-.scrolldown {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  /* transformを上書きしないよう、ここではtranslateXのみ */
-}
-
-/* =================================================
-   2. ヘッダー & ナビゲーション (ロゴ位置の微調整)
-   ================================================== */
-.header-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  height: 70px; /* ヘッダー全体の高さ */
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* 基本は中央揃え */
-  padding: 0 20px;
-}
-
-/* ★ヘッダーのロゴ画像の設定 */
-.site-logo {
-  display: flex;
-  align-items: center;
-  /* position: relative; を使って、今の位置から個別に上にずらす */
-  position: relative; 
-  top: -3px; /* ★ここを -5px, -10px と調整すると上に上がります */
-}
-
-.site-logo img {
-  height: 35px; /* ロゴの大きさを適切に調整 */
-  width: auto;
-  display: block;
-}
-
-/* 右側のナビゲーションメニュー */
-.nav-menu ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  align-items: center; /* メニュー文字の中央揃え */
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: var(--main-blue);
-  font-weight: bold;
-  font-size: 0.9rem;
-  /* メニューの文字も少し上に上げたい場合はここを調整 */
-  position: relative;
-  top: 0px; 
-}
-
-/* =================================================
-   セクションタイトル (英語 + 日本語サブ)
-   ================================================== */
-.section-title {
-  text-align: center;
-  margin-bottom: 60px;
-  position: relative;
-}
-
-/* 英語のメインタイトル (大きく、太く) */
-.section-title h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--main-blue);
-  line-height: 1.2;
-  text-transform: uppercase; /* 大文字に統一 */
-}
-
-/* 日本語のサブタイトル (小さく、少し細めに) */
-.section-title h2::after {
-  /* HTMLを書き換えずに日本語を追加する場合の例 */
-  /* content: "ここに日本語"; ではなく、HTML側の<span>を使うのが柔軟です */
-}
-
-.section-title .subtitle {
-  display: block; /* 改行させる */
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--dark-blue);
-  letter-spacing: 0.2em;
-  margin-top: 10px; /* 英語との間隔 */
-  position: relative;
-}
-
-/* タイトルの下の装飾線（お好みで） */
-.section-title .subtitle::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--c-mint); /* アクセントカラーのミント */
-  margin: 15px auto 0;
-}
-
-/* 「ロゴマークを形作る6つの色彩」という見出しや文章 */
-.apple-colors h2,
-.apple-colors p,
-.apple-colors .section-title {
-  /* 黒ではなく、サイト共通のメインブルーを適用 */
-  color: var(--main-blue); 
-  font-weight: bold;
-  margin-bottom: 20px;
+  .section-title .en { font-size: 2rem; }
+  .header-container { height: 60px; }
+  .hamburger-menu { display: block; } /* 必要なら追加 */
 }
