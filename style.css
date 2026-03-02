@@ -387,4 +387,59 @@ main { padding-top: 70px; }
   }
 }
 
+/* =================================================
+   3. メインビジュアル (ロゴ位置の修正版)
+   ================================================== */
+#mainvisual {
+  position: relative;
+  height: 80vh;
+  /* 背景のロゴ（リピート）の設定 */
+  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), 
+              var(--dark-blue) url("logo.svg") repeat;
+  background-size: 150px;
+  
+  /* 中央配置に戻す（ここから個別に動かします） */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  
+  overflow: hidden;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* ★ロゴ画像本体を上に移動 */
+#mainvisual .mv-logo {
+  filter: brightness(0) invert(1);
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+  
+  /* transformを使って、今の位置から上に30px〜50pxほど強制的に持ち上げる */
+  transform: translateY(-40px); 
+}
+
+/* ★テキスト（WEB DESIGN & CODINGなど）の位置調整 */
+#mainvisual h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  /* テキストも少し上に上げたい場合はここを調整 */
+  transform: translateY(-30px);
+}
+
+#mainvisual p {
+  color: #ffffff;
+  transform: translateY(-25px);
+}
+
+/* スクロールアニメは位置を固定（一番下に置く） */
+.scrolldown {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* transformを上書きしないよう、ここではtranslateXのみ */
+}
 
