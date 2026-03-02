@@ -2527,3 +2527,121 @@ section h2 + p,
         gap: 25px;
     }
 }
+
+/* --- セクションタイトルの共通デザイン --- */
+.section-title {
+    display: flex;
+    flex-direction: column; /* 上下に並べる */
+    align-items: center;    /* 中央揃え */
+    margin-bottom: 40px;
+}
+
+.section-title .en {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--main-blue);
+    line-height: 1;
+}
+
+.section-title .ja {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 10px;       /* 英語との隙間 */
+    letter-spacing: 0.2em;
+}
+
+/* --- ヘッダー基本設定 --- */
+.site-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* PC用ナビゲーション */
+.nav-menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-menu a {
+    display: flex;
+    flex-direction: column; /* 英語の下に日本語 */
+    align-items: center;
+    text-decoration: none;
+    color: var(--main-blue);
+}
+
+.nav-menu a .en { font-size: 14px; font-weight: 700; }
+.nav-menu a .jp { font-size: 10px; opacity: 0.7; }
+
+/* --- ハンバーガーメニュー本体 --- */
+.hamburger-menu {
+    display: none; /* PCでは隠す */
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001; /* メニューより前面に */
+}
+
+.hamburger-menu span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--main-blue);
+    transition: 0.3s;
+}
+
+/* 三本線の位置 */
+.hamburger-menu span:nth-child(1) { top: 0; }
+.hamburger-menu span:nth-child(2) { top: 11px; }
+.hamburger-menu span:nth-child(3) { top: 22px; }
+
+/* --- スマホ用レスポンシブ (767px以下) --- */
+@media screen and (max-width: 767px) {
+    .hamburger-menu {
+        display: block; /* スマホで表示 */
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 最初は画面の外 */
+        width: 80%;   /* 画面の8割を覆う */
+        height: 100vh;
+        background: #fff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: 0.4s;
+        padding-top: 100px;
+    }
+
+    /* JavaScriptで 'active' クラスがついた時 */
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .nav-menu a .en { font-size: 20px; }
+    .nav-menu a .jp { font-size: 12px; }
+}
