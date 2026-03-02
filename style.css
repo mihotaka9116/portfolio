@@ -3473,37 +3473,6 @@ main {
     padding: 5px 10px;
 }
 
-/* --- スクロールダウン：白背景で見えるように紺色に変更 --- */
-.scrolldown {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-    text-align: center;
-}
-
-.scrolldown span {
-    display: block;
-    color: #2d4b69; /* 文字色を紺に */
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    margin-bottom: 45px;
-}
-
-/* 動く縦線 */
-.scrolldown::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    height: 40px;
-    background: #2d4b69; /* 線を紺に */
-    transform: translateX(-50%);
-    animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
-}
 
 /* 線のアニメーション設定 */
 @keyframes scroll-line {
@@ -3511,4 +3480,45 @@ main {
     50% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 0; }
     50.1% { transform: scale(1, 1) translateX(-50%); transform-origin: 0 100%; }
     100% { transform: scale(1, 0) translateX(-50%); transform-origin: 0 100%; }
+}
+
+/* --- スクロールダウンの「長方形」を消して文字だけにする --- */
+.scrolldown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    text-align: center;
+    
+    /* 余計な背景色やサイズ設定をリセット */
+    background: none !important; 
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+}
+
+.scrolldown span {
+    display: block;
+    color: #2d4b69; /* 文字色を紺に */
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 45px; /* 線との距離 */
+    
+    /* もしここにも背景色がついていたら消す */
+    background: none !important;
+}
+
+/* 縦線の設定（念のため再掲） */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px; /* 線の太さ */
+    height: 40px;
+    background: #2d4b69;
+    transform: translateX(-50%);
+    animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
 }
