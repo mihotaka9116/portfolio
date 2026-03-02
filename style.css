@@ -154,3 +154,41 @@ body {
   
   .nav-menu { display: none; } /* Assuming JS handled hamburger menu elsewhere */
 }
+
+/* スマホ用メニュー：右からスライドインの土台 */
+@media screen and (max-width: 767px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 最初は隠す */
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(45, 75, 105, 0.98); /* 背景色 */
+        z-index: 999;
+        transition: 0.5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* JavaScriptでこのクラスを付け外しする */
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+/* フッターをCSSの背景色に合わせる */
+#footer {
+    background-color: #2d4b69;
+    padding: 40px 0;
+    color: #fff;
+}
+#footer a {
+    color: #fff !important; /* リンクも白に */
+    opacity: 0.7;
+}
