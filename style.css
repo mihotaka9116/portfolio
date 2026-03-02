@@ -5,177 +5,143 @@
   --main-blue: #4682b4;
   --dark-blue: #2d4b69;
   --light-gray: #f4f7f9;
-  /* 色彩の表・タイムライン用 */
-  --c-rose: #E597B9;
-  --c-green: #99C361;
-  --c-sky: #6EB1E4;
-  --c-mint: #B7E2D8;
-  --c-orange: #F48451;
-  --c-royal: #2D59A3;
+  --c-rose: #E597B9; --c-green: #99C361; --c-sky: #6EB1E4;
+  --c-mint: #B7E2D8; --c-orange: #F48451; --c-royal: #2D59A3;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { color: var(--main-blue); font-family: 'Montserrat', sans-serif; line-height: 1.8; overflow-x: hidden; width: 100%; }
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 
-/* --- 2. メインビジュアル & ロゴ中央寄せ --- */
-#mainvisual {
-  position: relative;
-  height: 65vh;
-  background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), var(--dark-blue) url("logo.svg") repeat;
-  background-size: 150px;
+/* --- 2. ヘッダー：ナビを左右に分ける --- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 80px;
   display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-  text-align: center;
+  align-items: center;
+  justify-content: space-between; /* 要素の間隔を均等に */
 }
 
-#mainvisual .mv-logo {
-  filter: brightness(0) invert(1);
-  width: 120px;
-  margin-bottom: 20px;
+/* ナビゲーションのリスト設定 */
+.nav-menu ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  align-items: center;
 }
 
-#mainvisual p { color: #fff; font-weight: bold; letter-spacing: 0.1em; }
+.nav-menu a {
+  text-decoration: none;
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  transition: opacity 0.3s;
+}
 
-/* --- 3. セクションタイトル（重なり設定） --- */
+/* 中央のロゴ設定 */
+.site-logo {
+  order: 2; /* 中央に配置 */
+  flex-shrink: 0;
+}
+
+.site-logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* ナビを左右に振り分けるための設定（HTML構造が1つのulの場合） */
+/* 左側のメニュー（1つ目と2つ目のli） */
+.nav-menu-left { order: 1; flex: 1; display: flex; justify-content: flex-end; padding-right: 40px; }
+/* 右側のメニュー（3つ目と4つ目のli） */
+.nav-menu-right { order: 3; flex: 1; display: flex; justify-content: flex-start; padding-left: 40px; }
+
+/* --- 3. セクションタイトル（全セクション共通・中央揃え） --- */
+/* ABOUT, WORK, CONTACTなどすべてのタイトルを統一 */
 .section-title {
   position: relative;
   display: block;
-  margin-bottom: 60px;
+  margin: 0 auto 80px; /* 下の余白を広めに */
   text-align: center;
+  width: 100%;
 }
 
 .section-title .en {
   display: block;
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 8vw, 4rem); /* 画面幅に合わせて可変 */
   opacity: 0.1;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .section-title .ja {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* 真ん中に配置 */
+  transform: translate(-50%, -50%);
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.3em;
+  color: var(--main-blue);
 }
 
-/* --- 4. WORK（グリッド横並び） --- */
+/* --- 4. メインビジュアル --- */
+#mainvisual {
+  position: relative;
+  height: 70vh;
+  background: linear-gradient(rgba(45, 75, 105, 0.5), rgba(45, 75, 105, 0.3)), var(--dark-blue) url("logo.svg") repeat;
+  background-size: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+}
+
+#mainvisual .mv-logo {
+  filter: brightness(0) invert(1);
+  width: 140px;
+  margin-bottom: 25px;
+}
+
+/* --- 5. WORK & CONTACT のデザイン調整 --- */
 .goods-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 40px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.image-wrap {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* 画像を枠に合わせる */
-}
-
-/* --- 5. 色彩の表 (Color Palette) --- */
-.color-details-table {
-  max-width: 900px;
-  margin: 60px auto 0;
-  border-top: 2px solid var(--main-blue);
-  background: #fff;
-}
-
-.detail-header, .detail-row {
-  display: grid;
-  grid-template-columns: 120px 80px 120px 1fr;
-  padding: 15px 20px;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-}
-
-.detail-header { background: #f8fabb; font-weight: bold; font-size: 0.85rem; }
-
-/* カラーチップ（丸い色）の設定 */
-.chip {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.c-rose   { background-color: var(--c-rose); }
-.c-green  { background-color: var(--c-green); }
-.c-sky    { background-color: var(--c-sky); }
-.c-mint   { background-color: var(--c-mint); }
-.c-orange { background-color: var(--c-orange); }
-.c-royal  { background-color: var(--c-royal); }
-
-/* --- 6. コンタクトフォーム --- */
-#contact { padding: 80px 0; }
-
 .contact-form {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
-  padding: 20px;
   text-align: left;
 }
 
-.form-item { margin-bottom: 25px; }
-.form-item label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; }
+/* --- 6. フッター --- */
+#footer { background: var(--dark-blue); color: #fff; padding: 60px 0; text-align: center; }
+#footer .logo { display: none; } /* フッターロゴ非表示 */
 
-.form-item input[type="text"],
-.form-item input[type="email"],
-.form-item textarea {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #e0e7ed;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 1rem;
-}
-
-.submit-btn {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  margin: 40px auto 0;
-  padding: 16px;
-  background: var(--main-blue);
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.submit-btn:hover { background: var(--dark-blue); }
-
-/* --- 7. フッター（ロゴ非表示） --- */
-#footer { background: var(--dark-blue); color: #fff; padding: 40px 0; text-align: center; }
-#footer .logo { display: none; } /* ロゴ削除 */
-.copyright { font-size: 0.8rem; opacity: 0.7; }
-
-/* --- 8. レスポンシブ --- */
+/* --- 7. レスポンシブ --- */
 @media screen and (max-width: 767px) {
-  .section-title .en { font-size: 2.5rem; }
+  .header-container { height: 70px; }
   
-  .detail-header { display: none; }
-  .detail-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .desc-col { grid-column: 1 / 3; border-top: 1px dashed #eee; padding-top: 10px; }
+  /* スマホではナビを隠す（ハンバーガーメニュー用） */
+  .nav-menu-left, .nav-menu-right { display: none; }
+  
+  .section-title .en { font-size: 2.8rem; }
 }
