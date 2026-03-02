@@ -2325,3 +2325,59 @@ section h2 + p,
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ナビゲーション全体の並び（横並びを強制） */
+.nav-menu ul {
+    display: flex !important; /* 横並び */
+    flex-direction: row !important; 
+    gap: 30px;
+    list-style: none;
+    align-items: center;
+}
+
+/* リンクボタン内の設定 */
+.nav-menu a {
+    display: flex;
+    flex-direction: column; /* 英語と日本語を縦に並べる */
+    align-items: center;    /* 中央寄せ */
+    text-decoration: none;
+    line-height: 1.2;       /* 行間を少し詰める */
+}
+
+/* 英語タイトル（上側） */
+.nav-menu a .en {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: var(--main-blue);
+}
+
+/* 日本語タイトル（下側） */
+.nav-menu a .jp {
+    font-size: 0.65rem;      /* 小さく設定 */
+    font-weight: normal;
+    margin-top: 2px;
+    color: var(--main-blue);
+    opacity: 0.8;           /* 少し薄くして対比を出す */
+}
+
+/* ホバー時の下線アニメーションの対象を調整 */
+.nav-menu a::after {
+    bottom: -5px; /* 日本語の下に来るように調整 */
+}
+
+/* --- スマホ時の設定 --- */
+@media screen and (max-width: 767px) {
+    .nav-menu.active ul {
+        flex-direction: column !important; /* スマホメニュー内では縦並び */
+        gap: 40px;
+    }
+    
+    .nav-menu a .en {
+        font-size: 1.6rem;
+    }
+    
+    .nav-menu a .jp {
+        font-size: 0.9rem;
+    }
+}
