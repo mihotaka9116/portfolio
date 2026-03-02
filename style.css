@@ -2398,3 +2398,38 @@ h1, h2, h3 {
     height: 35px; /* お好みのサイズに */
 }
 
+/* ヘッダー全体の設定 */
+.site-header {
+    width: 100%;
+    position: fixed; /* ページ上部に固定する場合 */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #fff; /* 背景色を白で固定 */
+}
+
+/* 内部コンテナ：ここを共通化するのがポイント */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* ロゴを左、ナビを右へ */
+    align-items: center;
+    padding: 20px 40px; /* 上下20px、左右40pxの余白 */
+    max-width: 100%;    /* 幅を100%にして、1000pxなどの制限を消す */
+    width: 100%;
+    height: 80px;       /* 高さを固定してズレを防ぐ */
+}
+
+/* ナビゲーションのリスト */
+.nav-menu ul {
+    display: flex;
+    gap: 30px;         /* 項目間の距離 */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Aboutページの最初のセクションにだけ適用 */
+body.about-page main {
+    padding-top: 80px; /* ヘッダーの高さ分だけ空ける */
+}
+
