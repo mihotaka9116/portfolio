@@ -3905,16 +3905,78 @@ main {
     }
 }
 
+/* 親要素：背景とレイアウト */
 #mainvisual {
     position: relative;
     height: 65vh;
-    /* 背景色と画像のみにする */
-    background: #2d4b69 url("logo.svg") repeat;
+    /* 修正ポイント：ここがrgba(..., 0.6)などだと灰色に見えます */
+    background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), 
+                #2d4b69 url("logo.svg") repeat;
     background-size: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+}
+
+/* 中央のテキスト */
+#mainvisual p {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-top: 15px;
+}
+
+/* SCROLL：動く線のパーツ */
+.scrolldown::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 50px;
+    background: #fff;
+    transform: translateX(-50%);
+    /* 2秒ごとに伸び縮みするアニメーション */
+    animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
+}
+
+/* 6色の背景色指定（最新カラー） */
+.c-rose   { background-color: #E597B9; }
+.c-green  { background-color: #99C361; }
+.c-sky    { background-color: #6EB1E4; }
+.c-mint   { background-color: #B7E2D8; }
+.c-orange { background-color: #F48451; }
+.c-royal  { background-color: #2D59A3; }
+
+/* 表のレイアウト（PC版） */
+.color-details-table {
+    max-width: 900px;
+    margin: 60px auto 0;
+    border-top: 2px solid var(--main-blue);
+    background: #fff;
+}
+
+.detail-header, .detail-row {
+    display: grid;
+    /* ここが固定値（100pxなど）だと、文字が溢れた時にズレの原因になります */
+    grid-template-columns: 100px 60px 120px 1fr;
+    padding: 15px 20px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+/* スマホ版（表を縦に組み替える） */
+@media screen and (max-width: 767px) {
+    .detail-row {
+        grid-template-columns: 1fr 1fr; /* 2列に変更 */
+        gap: 8px;
+    }
+    .desc-col { 
+        grid-column: 1 / 3; /* 説明文だけ横いっぱいに広げる */
+        border-top: 1px dashed #eee; 
+    }
 }
 
