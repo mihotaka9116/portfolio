@@ -3522,3 +3522,30 @@ main {
     transform: translateX(-50%);
     animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
 }
+
+/* 中央のコンテナを縦並び（Flexbox）にする */
+.mainvisual-inner {
+    display: flex;
+    flex-direction: column; /* 要素を縦に並べる */
+    align-items: center;    /* 左右中央に寄せる */
+    justify-content: center;
+    z-index: 2;
+}
+
+/* 上に配置するロゴの設定 */
+.mv-logo-color {
+    width: 180px;      /* ロゴの大きさ（お好みで調整してください） */
+    height: auto;
+    margin-bottom: 20px; /* ロゴと下の文字との間の余白 */
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); /* 背景と馴染ませる隠し味 */
+}
+
+/* 下のテキストの設定 */
+.mainvisual-inner p {
+    color: #2d59a4;    /* 紺色（Royalの色） */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    margin: 0;         /* 余計な余白をリセット */
+}
