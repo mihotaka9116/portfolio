@@ -219,14 +219,6 @@ main {
 }
 
 
-
-/* --- 1. 基本設定 --- */
-:root {
-  --main-blue: #4682b4;
-  --accent-gray: #708090;
-  --light-gray: #f4f7f9;
-}
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   color: var(--main-blue);
@@ -660,22 +652,6 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   }
 }
 
-/* --- メインビジュアルのテキストを白に --- */
-#mainvisual p {
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-top: 15px;
-}
-
-/* SCROLL部分も白にする場合 */
-.scrolldown span {
-  color: #ffffff;
-}
-.scrolldown::after {
-  background-color: #ffffff; /* 線の色 */
-}
-
 /* --- 隙間対策の強化 --- */
 html, body {
   overflow-x: hidden;
@@ -728,49 +704,6 @@ html, body {
   }
 }
 
-/* --- スクロールダウン：線が伸びるアニメーション --- */
-.scrolldown {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff; /* 文字を白に */
-  padding-bottom: 60px; /* 線の長さを確保 */
-}
-
-/* 縦線のベース */
-.scrolldown::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 1px;       /* 線の太さ */
-  height: 50px;     /* 線の長さ */
-  background: #fff; /* 線の色（白） */
-  transform: translateX(-50%);
-  animation: scroll-line 2s cubic-bezier(0.76, 0, 0.3, 1) infinite;
-}
-
-/* 伸びる動きのアニメーション設定 */
-@keyframes scroll-line {
-  0% {
-    transform: scale(1, 0) translateX(-50%);
-    transform-origin: 0 0;
-  }
-  50% {
-    transform: scale(1, 1) translateX(-50%);
-    transform-origin: 0 0;
-  }
-  50.1% {
-    transform: scale(1, 1) translateX(-50%);
-    transform-origin: 0 100%;
-  }
-  100% {
-    transform: scale(1, 0) translateX(-50%);
-    transform-origin: 0 100%;
-  }
-}
-
 /* 1. 親要素に基準点を作る */
 #mainvisual {
   position: relative; /* ★これがないと、線がフッターまで逃げてしまいます */
@@ -784,22 +717,6 @@ html, body {
   overflow: hidden; /* 線がはみ出して隙間を作るのを防ぐ */
 }
 
-/* 2. 線の位置を微調整 */
-.scrolldown {
-  position: absolute;
-  bottom: 20px; /* #mainvisual の下から20pxの位置に固定 */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;   /* 他の要素より上に表示 */
-}
-
-.scrolldown span {
-  display: block;
-  color: #fff;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  margin-bottom: 5px; /* 線との距離 */
-}
 
 img.logo { /* ロゴのクラス名に合わせて変更してください */
   image-rendering: -webkit-optimize-contrast; /* Safariでのコントラスト調整 */
