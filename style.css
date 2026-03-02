@@ -3103,3 +3103,14 @@ section h2 + p,
         display: flex !important;
     }
 }
+
+.scrolldown span {
+    display: block;
+    color: #ffffff;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 5px;
+    /* フォント指定を確実にする */
+    font-family: 'Montserrat', sans-serif, Arial; 
+    text-transform: uppercase; /* 小文字で書いても大文字にする設定 */
+}
