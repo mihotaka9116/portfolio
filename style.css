@@ -250,3 +250,45 @@ body {
   background-color: var(--c-mint);
   margin: 10px auto 0;
 }
+
+/* =================================================
+   4. セクションタイトル & コンテンツ配置の調整
+   ================================================== */
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* タイトルは中央に */
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.section-title .en {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--main-blue);
+  text-transform: capitalize;
+}
+
+/* ★文章ブロックの設定：全体を中央に寄せ、中身を左揃えにする */
+.intro-content, 
+.brand-story-text, 
+.work-intro {
+  text-align: left;       /* ★テキスト自体は左揃え */
+  max-width: 650px;       /* ★横幅を少し絞る（読みやすさのコツ） */
+  margin: 0 auto 60px;    /* ★左右の余白を auto にしてブロックを中央へ */
+  padding: 0 20px;        /* スマホ時の余白 */
+  line-height: 2;         /* 行間をゆったりさせて読みやすく */
+}
+
+/* もし「はじめに」の段落だけもっと詰めたい場合はここを調整 */
+#introduction p {
+  margin-bottom: 1.5em;
+}
+
+/* 「コンセプト」の短い説明文（ロゴマークを形作る〜）も揃える場合 */
+.design-description {
+  text-align: center;     /* ここだけはタイトルの補足なので中央のままが綺麗です */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
