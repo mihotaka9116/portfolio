@@ -5,7 +5,6 @@
   --main-blue: #4682b4;
   --dark-blue: #2d4b69;
   --light-gray: #f4f7f9;
-  /* 各色彩の定義 */
   --c-rose: #E296B5; --c-green: #99C35F; --c-sky: #6FB2E3;
   --c-mint: #A7D6CA; --c-orange: #F38450; --c-royal: #2D59A4;
 }
@@ -14,13 +13,13 @@
 body { color: var(--main-blue); font-family: 'Montserrat', sans-serif; line-height: 1.8; overflow-x: hidden; width: 100%; background-color: #fff; }
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-a { text-decoration: none; color: inherit; }
 
 /* --- 2. ヘッダー：左ロゴ・右ナビ --- */
 .site-header {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
+  height: 80px; /* 高さを固定 */
   background: rgba(255, 255, 255, 0.95);
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -29,25 +28,26 @@ a { text-decoration: none; color: inherit; }
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
-  height: 80px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .site-logo img { height: 40px; width: auto; }
 .nav-menu-right ul { display: flex; gap: 30px; list-style: none; }
-.nav-menu-right a { font-weight: bold; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--main-blue); }
+.nav-menu-right a { font-weight: bold; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--main-blue); text-decoration: none; }
 
-/* --- 3. メインビジュアル（復活・ABOUT共通デザイン） --- */
+/* --- 3. メインビジュアル（表示の修正） --- */
 #mainvisual {
   position: relative;
-  height: 80vh; /* 高さを少し確保 */
-  background-color: var(--light-gray);
+  width: 100%;
+  height: 80vh; 
+  margin-top: 80px; /* ★重要：ヘッダーの高さ分だけ下に下げる */
+  background-color: var(--light-gray) !important; /* 強制的に背景色を適用 */
   display: flex;
   align-items: center; 
   justify-content: center;
   text-align: center;
-  padding-top: 80px;
 }
 .mainvisual-inner { position: relative; z-index: 2; }
 .mv-logo { width: 160px; margin-bottom: 20px; }
@@ -63,7 +63,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--main-blue);
 }
 
-/* --- 4. セクションタイトル（重ねデザイン） --- */
+/* --- 4. セクションタイトル --- */
 .section-title {
   position: relative;
   margin: 0 auto 60px;
@@ -89,7 +89,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--dark-blue);
 }
 
-/* --- 5. 色彩アイコン & ホバー効果 --- */
+/* --- 5. 色彩アイコン --- */
 .color-flex-box { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 40px 0; }
 .swatch-item { text-align: center; }
 .color-ball {
@@ -102,27 +102,29 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-12px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
-.color-code { font-size: 0.85rem; color: #666; }
 
-/* --- 6. 色彩の表（詳細テーブル）の復活 --- */
-.color-details-table { margin: 60px auto; border-top: 1px solid #eee; }
+/* --- 6. 表のデザイン（崩れを修正） --- */
+.color-details-table { margin: 60px auto; border-top: 1px solid #eee; width: 100%; }
 .detail-header, .detail-row {
-  display: flex; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;
+  display: flex; 
+  align-items: center; 
+  padding: 20px 0; 
+  border-bottom: 1px solid #eee;
+  text-align: left;
 }
-.detail-header { font-weight: bold; color: var(--dark-blue); font-size: 0.9rem; }
-.char-col { width: 15%; }
-.chip-col { width: 10%; text-align: center; }
-.code-col { width: 20%; font-family: monospace; }
+.detail-header { font-weight: bold; color: var(--dark-blue); }
+.char-col { width: 15%; flex-shrink: 0; }
+.chip-col { width: 10%; flex-shrink: 0; text-align: center; }
+.code-col { width: 20%; flex-shrink: 0; font-family: monospace; }
 .desc-col { width: 55%; font-size: 0.9rem; line-height: 1.6; }
 
 .chip { display: inline-block; width: 20px; height: 20px; border-radius: 4px; }
-/* テーブル内のチップ用カラー */
-.c-rose { background-color: var(--c-rose); }
-.c-green { background-color: var(--c-green); }
-.c-sky { background-color: var(--c-sky); }
-.c-mint { background-color: var(--c-mint); }
-.c-orange { background-color: var(--c-orange); }
-.c-royal { background-color: var(--c-royal); }
+.c-rose { background-color: #E296B5; }
+.c-green { background-color: #99C35F; }
+.c-sky { background-color: #6FB2E3; }
+.c-mint { background-color: #A7D6CA; }
+.c-orange { background-color: #F38450; }
+.c-royal { background-color: #2D59A4; }
 
 /* --- 7. WORK & CONTACT --- */
 .goods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 80px; }
@@ -132,10 +134,10 @@ a { text-decoration: none; color: inherit; }
 
 #contact form { max-width: 600px; margin: 0 auto; padding-bottom: 100px; }
 .form-item { margin-bottom: 25px; }
-.form-item input, .form-item textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background: #fafafa; }
-.submit-btn { width: 100%; padding: 15px; background: #ccc; color: #fff; border: none; cursor: not-allowed; border-radius: 50px; }
+.form-item input, .form-item textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+.submit-btn { width: 100%; padding: 15px; background: #ccc; color: #fff; border: none; border-radius: 50px; cursor: not-allowed; }
 
-/* --- 8. スクロールアニメーション用 (Fade Up) --- */
+/* --- 8. スクロールアニメーション --- */
 .js-fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -148,4 +150,3 @@ a { text-decoration: none; color: inherit; }
 
 /* --- 9. フッター --- */
 #footer { background: var(--dark-blue); padding: 60px 0; text-align: center; color: #fff; }
-.footer-link a { color: #eee; font-size: 0.8rem; margin: 0 10px; }
