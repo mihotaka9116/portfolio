@@ -79,3 +79,14 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     }
   }
 });
+
+// script.js
+const hamburger = document.getElementById('js-hamburger');
+const nav = document.querySelector('.nav-menu');
+
+if(hamburger) {
+    hamburger.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        this.classList.toggle('active'); // ボタンを「×」にする場合は必要
+    });
+}
