@@ -393,16 +393,8 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* 影を濃くして浮遊感を出す */
 }
 
-/* すべての section に上下 100px の余白を作る */
+/* すべての section に上下 90px の余白を作る */
 section {
-  padding: 100px 0; 
+  padding: 90px 0; 
 }
 
-/* もし Introduction だけ特に調整したい場合 */
-#introduction {
-  padding-top: 120px; /* ここを好きな数値に調整してください */
-}
-
-#work {
-  padding-top: 120px; /* 数値はお好みで調整してください */
-}
