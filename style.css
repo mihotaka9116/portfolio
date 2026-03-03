@@ -563,31 +563,6 @@ section {
   }
 }
 
-/* style.css のヘッダー設定を上書き・確認 */
-.site-header {
-  position: fixed;
-  top: 0; left: 0; 
-  width: 100%; /* 画面いっぱい */
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 1000;
-}
-
-.header-container {
-  /* ここが重要：AboutページでもIndexと同じ1200pxに固定 */
-  max-width: 1200px; 
-  margin: 0 auto; /* 中央寄せ */
-  height: 70px;
-  display: flex;
-  justify-content: space-between; /* 両端に広げる */
-  align-items: center;
-  padding: 0 40px; /* 左右の余白をIndexと統一 */
-}
-
-/* ナビを右側に寄せる */
-.nav-menu {
-  margin-left: auto; 
-}
-
 /* コンタクトセクションを一時的に非表示にする */
 #contact {
   display: none;
@@ -616,5 +591,43 @@ a[href*="contact"] {
     display: flex;
     margin-bottom: 30px;
     text-align: left; /* 中央揃えを解除 */
+}
+
+/* Aboutページのヘッダー位置をIndexと完全一致させる */
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  z-index: 2000 !important;
+}
+
+.header-container {
+  display: flex !important;
+  justify-content: space-between !important; /* ロゴを左、ナビを右へ */
+  align-items: center !important;
+  max-width: 1200px !important; /* Indexと同じ幅に固定 */
+  margin: 0 auto !important;     /* 1200pxを超えたら中央寄せ */
+  padding: 0 40px !important;    /* 左右の余白を40pxに固定 */
+  height: 70px !important;
+}
+
+.nav-menu {
+  margin-left: auto !important; /* ナビを確実に右へ押し出す */
+}
+
+/* ロゴの微調整も共通化 */
+.site-logo {
+  position: relative !important;
+  top: -3px !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.site-logo img {
+  height: 35px !important;
+  width: auto !important;
 }
 
