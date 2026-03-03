@@ -477,3 +477,22 @@ section {
     }
 }
 
+/* 共通の調整 */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* これで上下中央を固定 */
+    height: 70px;
+}
+
+.site-logo {
+    line-height: 1; /* 余計な上下の隙間を消す */
+    display: flex;
+    align-items: center;
+}
+
+.site-logo img {
+    height: 35px; /* 高さを全ページで固定 */
+    width: auto;
+}
+
