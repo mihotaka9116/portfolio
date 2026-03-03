@@ -393,9 +393,9 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* 影を濃くして浮遊感を出す */
 }
 
-/* すべての section に上下 90px の余白を作る */
+/* すべての section に上下の余白を作る */
 section {
-  padding: 90px 0; 
+  padding: 70px 0; 
 }
 
 /* Aboutページ用のタイトル調整 */
@@ -496,7 +496,6 @@ section {
     width: auto;
 }
 
-/* style.css の該当箇所を修正 */
 
 /* ハンバーガーの「×」アニメーション */
 .hamburger-menu.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
@@ -520,7 +519,6 @@ section {
   }
 }
 
-/* style.css に追加 */
 
 .js-fade-up {
   opacity: 0;
