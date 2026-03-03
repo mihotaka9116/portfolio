@@ -631,3 +631,33 @@ a[href*="contact"] {
   width: auto !important;
 }
 
+/* ナビゲーションのマウスホバー下線を統一 */
+.nav-menu a {
+    position: relative;
+    padding-bottom: 5px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* 下線のベース（初期状態は幅0） */
+.nav-menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--c-mint); /* 変数で定義したミント色（#A7D6CA）を使用 */
+    transition: width 0.3s;
+}
+
+/* マウスを乗せた時に線を伸ばす */
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* ついでに現在のページのリンクを少し強調したい場合（任意） */
+.nav-menu a:hover {
+    color: var(--dark-blue);
+}
+
