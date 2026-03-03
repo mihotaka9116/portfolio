@@ -610,13 +610,6 @@ a[href*="contact"] {
     display: none;
 }
 
-/* スキルカードを横に並べる */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-}
 
 /* タイムライン（歩み）の横並びを防ぐ */
 .career-item {
