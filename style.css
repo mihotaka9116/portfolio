@@ -292,3 +292,103 @@ body {
   margin-bottom: 20px;
   font-weight: bold;
 }
+
+/* ハンバーガーメニューの基本スタイル */
+.hamburger-menu {
+  display: none; /* デスクトップでは隠す */
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  z-index: 1100;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-blue);
+  position: absolute;
+  transition: all 0.3s;
+}
+
+.hamburger-menu span:nth-child(1) { top: 0; }
+.hamburger-menu span:nth-child(2) { top: 11px; }
+.hamburger-menu span:nth-child(3) { bottom: 0; }
+
+/* スマホ表示（767px以下）の設定 */
+@media screen and (max-width: 767px) {
+  .hamburger-menu {
+    display: block; /* スマホで表示 */
+  }
+  
+  /* ナビゲーションを画面全体に広げる設定（JSでクラス制御する前提） */
+  .nav-menu {
+    display: none; /* 初期状態は隠す */
+    /* JSで .open クラスがついた時のスタイルをここに書く */
+  }
+}
+
+.nav-menu a {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--c-mint); /* コンセプトカラーのミントを使用 */
+  transition: width 0.3s;
+}
+
+.nav-menu a:hover::after {
+  width: 100%; /* マウスを乗せると線が伸びる */
+}
+
+.scrolldown {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding-top: 60px; /* 棒線の長さ分の余白 */
+}
+
+/* 縦線のアニメーション */
+.scrolldown::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 50px;
+  background: #fff;
+  animation: scroll-line 2s infinite;
+}
+
+@keyframes scroll-line {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.swatch-item {
+  transition: transform 0.3s ease; /* 動きをなめらかに */
+}
+
+.swatch-item:hover {
+  transform: translateY(-10px); /* 上に10px浮かび上がる */
+}
+
+.color-ball {
+  transition: box-shadow 0.3s ease;
+}
+
+.swatch-item:hover .color-ball {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* 影を濃くして浮遊感を出す */
+}
