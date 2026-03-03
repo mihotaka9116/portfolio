@@ -563,3 +563,39 @@ section {
   }
 }
 
+/* style.css のヘッダー設定を上書き・確認 */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; 
+  width: 100%; /* 画面いっぱい */
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+}
+
+.header-container {
+  /* ここが重要：AboutページでもIndexと同じ1200pxに固定 */
+  max-width: 1200px; 
+  margin: 0 auto; /* 中央寄せ */
+  height: 70px;
+  display: flex;
+  justify-content: space-between; /* 両端に広げる */
+  align-items: center;
+  padding: 0 40px; /* 左右の余白をIndexと統一 */
+}
+
+/* ナビを右側に寄せる */
+.nav-menu {
+  margin-left: auto; 
+}
+
+/* コンタクトセクションを一時的に非表示にする */
+#contact {
+  display: none !important;
+}
+
+/* ナビゲーションメニューからも「Contact」を消したい場合 */
+.nav-menu a[href*="contact"],
+.footer-link a[href*="contact"] {
+  display: none;
+}
+
