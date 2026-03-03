@@ -534,3 +534,34 @@ section {
   transform: translateY(0);
 }
 
+@media screen and (max-width: 767px) {
+  /* メニューが開いた状態の設定 */
+  .nav-menu.active {
+    display: flex !important; /* 横並びを解除するためにFlexを指定 */
+    flex-direction: column;    /* ★重要：中身を縦に並べる */
+    justify-content: center;   /* 上下中央に配置 */
+    align-items: center;       /* 左右中央に配置 */
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 1050;
+  }
+
+  /* メニュー内のリストの隙間を調整 */
+  .nav-menu.active ul {
+    display: flex;
+    flex-direction: column; /* リスト自体も縦並びに */
+    gap: 30px;              /* メニュー間の上下の隙間 */
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-menu.active a {
+    font-size: 1.5rem;      /* スマホで見やすいように少し大きく */
+  }
+}
+
