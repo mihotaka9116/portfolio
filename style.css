@@ -1321,3 +1321,24 @@ a[href*="contact"] {
     color: var(--dark-blue);
 
 }
+
+/* スキルカード内の画像を元のサイズに固定 */
+.skill-item .img img {
+  width: 50px; /* ★ここでサイズを調整（お好みに合わせて60pxなどにしてもOK） */
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+/* スキル名のテキスト調整 */
+.skill-item h4 {
+  font-size: 1.1rem;
+  color: var(--dark-blue);
+  margin-bottom: 10px;
+}
+
+/* スキルの説明文 */
+.skill-item p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
