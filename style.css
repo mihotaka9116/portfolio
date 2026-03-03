@@ -97,9 +97,7 @@ a { text-decoration: none; color: inherit; }
   width: 100%;
 }
 
-.nav-menu a:hover {
-  color: var(--dark-blue);
-}
+
 
 /* =================================================
    3. メインビジュアル
