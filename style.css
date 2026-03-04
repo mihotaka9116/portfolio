@@ -1448,3 +1448,22 @@ html {
     /* スルスルと滑らかに移動させる */
     scroll-behavior: smooth;
 }
+
+/* Aboutページ用の日本語タイトル下線設定 */
+.section-title-en {
+    position: relative;      /* 線の基準位置にする */
+    padding-bottom: 15px;    /* 線との隙間 */
+    margin-bottom: 40px;     /* 次の要素との間隔 */
+}
+
+.section-title-en::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;               /* 下に配置 */
+    left: 50%;               /* 中央へ */
+    transform: translateX(-50%);
+    width: 20px;             /* 線の長さ（Indexと合わせて20px） */
+    height: 1px;             /* 線の太さ（Indexと合わせて1px） */
+    background-color: var(--c-mint); /* ミント色の線 */
+}
