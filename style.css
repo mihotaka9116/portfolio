@@ -1663,57 +1663,8 @@ body a.back-to-top:visited:hover {
     background-color: #ffffff;
 }
 
-/* トップに戻るボタンのスタイル */
-.back-to-top {
-    position: fixed;     /* 画面に対して固定 */
-    right: 20px;         /* 右から20px */
-    bottom: 20px;        /* 下から20px */
-    width: 50px;         /* 幅 */
-    height: 50px;        /* 高さ（幅と同じにして正円にする） */
-    background-color: var(--main-blue); /* サイトのメインカラー */
-    color: #fff;         /* 矢印の色 */
-    border-radius: 50%;  /* これで正円になる */
-    display: flex;       /* 中の矢印を中央に */
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    z-index: 1000;       /* 他の要素より上に */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 軽く影をつけて見やすく */
-    transition: all 0.3s ease;
-}
-
-/* ホバー（マウスを乗せた時）の動き */
-.back-to-top:hover {
-    transform: translateY(-5px); /* 少し上に浮く */
-    background-color: #35668d;   /* 少し濃い色に */
-}
-
-.back-to-top {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
     
-    /* 1. サイズを固定する */
-    width: 60px;
-    height: 60px;
-    aspect-ratio: 1 / 1; /* ★縦横比を強制的に1:1にする */
-    
-    /* 2. 余計な余白や引き伸ばしをリセット */
-    padding: 0; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* 3. 形を整える */
-    border-radius: 50%; /* これで必ず正円になる */
-    background-color: var(--main-blue);
-    color: #fff;
-    text-decoration: none;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* --- 共通ボタン（紺背景 / 白文字） --- */
+    /* --- 共通ボタン（紺背景 / 白文字） --- */
 .btn-common {
     display: inline-block;
     padding: 12px 30px;        /* 上下12px、左右30pxの余白 */
@@ -1751,3 +1702,43 @@ body a.back-to-top:visited:hover {
     background-color: #000080;
     color: #ffffff;
 }
+
+/* ===========================================
+   TOPページ専用：正円の上に戻るボタン
+   =========================================== */
+.back-to-top {
+    /* 1. 配置の固定 */
+    position: fixed;
+    right: 20px;         /* 右から20px */
+    bottom: 20px;        /* 下から20px */
+    z-index: 9999;       /* 一番上に表示 */
+
+    /* 2. サイズを固定（正円にする） */
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1 / 1; /* ★縦横比を1:1に強制固定 */
+    padding: 0;          /* 余計な余白を消す */
+    
+    /* 3. 形と色 */
+    border-radius: 50%;  /* ★これで完全に正円になる */
+    background-color: var(--main-blue); /* サイトのメインブルー */
+    color: #ffffff;      /* 矢印（文字）の色 */
+    
+    /* 4. 文字とアニメーション */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;   /* 矢印を少し大きく */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ホバー（マウスを乗せた時）の動き */
+.back-to-top:hover {
+    transform: translateY(-5px); /* 少し上に浮く */
+    background-color: #35668d;   /* 少し濃い色に */
+}
+
+
