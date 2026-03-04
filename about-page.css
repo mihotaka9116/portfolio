@@ -2598,4 +2598,25 @@ section h2 + p,
     transform: scale(1.05);
 }
 
+/* 日本語タイトルの下に線を引く設定 */
+.section-title-en {
+    display: block;      /* 1行まるごと使う設定に */
+    text-align: center;  /* 中央寄せ */
+    position: relative;  /* 線の位置の基準にする */
+    padding-bottom: 15px; /* 線との隙間を作る */
+    margin-bottom: 30px; /* 次の要素との間隔 */
+}
+
+/* 疑似要素（::after）で線を描画 */
+.section-title-en::after {
+    content: "";         /* 空の要素を作る */
+    position: absolute;  /* 自由な位置に配置 */
+    bottom: 0;           /* 一番下に配置 */
+    left: 50%;           /* 左から50%の位置へ */
+    transform: translateX(-50%); /* 自分の幅の半分だけ左に戻して真ん中へ */
+    width: 60px;         /* 線の長さ（お好みで調整してください） */
+    height: 2px;         /* 線の太さ */
+    background-color: var(--main-blue); /* 線の色（メインの青） */
+}
+
 
