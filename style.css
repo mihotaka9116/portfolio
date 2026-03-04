@@ -1315,3 +1315,21 @@ a[href*="contact"] {
   text-align: center;
   padding: 20px;
 }
+
+.header-container {
+
+  display: flex;
+
+  justify-content: space-between; /* ロゴを左、ナビを右へ */
+
+  align-items: center;
+
+  max-width: 1200px; /* Indexと同じ幅に固定 */
+
+  margin: 0 auto;     /* 1200pxを超えたら中央寄せ */
+
+  padding: 0 40px;    /* 左右の余白を40pxに固定 */
+
+  height: 70px;
+
+}
