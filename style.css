@@ -1814,3 +1814,100 @@ body a.back-to-top:visited:hover {
         margin-top: 80px;
     }
 }
+
+/* =================================================
+   テキスト・コンテンツの完全中央揃え
+   ================================================== */
+
+/* 1. 全ての共通セクション・本文 */
+.intro-content, 
+.brand-story-text, 
+.work-intro, 
+.project-description,
+.detail-text-box,
+.career-timeline {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 2. Work詳細ページのメタ情報 (Role/Duration/Tools) */
+.work-detail-meta {
+    display: flex;
+    justify-content: center; /* 横並びのまま中央に寄せる */
+    gap: 50px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 30px 0;
+    margin-bottom: 50px;
+}
+
+/* 3. 箇条書きリスト (中央に寄せつつ、行頭を揃えて読みやすくする) */
+.project-description ul {
+    display: inline-block;    /* 中身の幅に合わせる */
+    text-align: left;         /* 箇条書きの行頭は揃える */
+    list-style: none;         /* 標準の黒点を消す */
+    padding: 0;
+    margin: 20px auto;
+}
+
+.project-description li {
+    position: relative;
+    padding-left: 1.5em;      /* 独自の点のスペース */
+    margin-bottom: 10px;
+}
+
+/* 箇条書きの先頭に小さなミント色の点を付ける */
+.project-description li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--c-mint);
+    font-weight: bold;
+}
+
+/* 4. 見出しの装飾 (左線を消して、中央配置に合う下線へ) */
+.project-description h3 {
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin: 40px 0 20px;
+    position: relative;
+    display: inline-block;    /* 下線の長さを文字に合わせる */
+}
+
+.project-description h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: var(--c-mint);
+    margin: 10px auto 0;      /* 線の中心を揃える */
+}
+
+/* 5. 経歴 (Career) の中央揃え */
+.career-item {
+    flex-direction: column;   /* 縦に並べる */
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.career-date {
+    flex-basis: auto;         /* 横幅固定を解除 */
+    color: var(--main-blue);
+    font-size: 1.1rem;
+}
+
+/* スマホ対応：さらに余白を調整 */
+@media screen and (max-width: 767px) {
+    .work-detail-meta {
+        flex-direction: column; /* スマホでは縦に並べる */
+        gap: 20px;
+    }
+    
+    .project-description ul {
+        width: 90%;           /* スマホでは少し幅を広げる */
+    }
+}
