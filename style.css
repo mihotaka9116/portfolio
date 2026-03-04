@@ -1362,3 +1362,40 @@ a[href*="contact"] {
         align-items: center;     /* 水平方向中央 */
     }
 }
+
+@media screen and (max-width: 767px) {
+  /* --- 中略（既存の #js-nav の設定などはそのままでOK） --- */
+
+  /* メニュー内のリスト（ul）の設定を修正 */
+  #js-nav ul {
+    display: flex;           /* 追加 */
+    flex-direction: column;  /* 縦並びにする */
+    align-items: center;     /* 子要素を中央に寄せる */
+    justify-content: center; /* 垂直方向も中央に（必要に応じて） */
+    width: 100%;             /* 横幅をいっぱいにする */
+    padding: 0;              /* ★重要：ブラウザ標準の左余白を消す！ */
+    margin: 0;               /* 余計な余白をリセット */
+    list-style: none;
+  }
+
+  /* リスト項目（li）の調整 */
+  #js-nav li {
+    margin: 20px 0;
+    width: 100%;             /* 幅を持たせて中央揃えを確実に */
+    text-align: center;      /* テキストを中央に */
+  }
+}
+
+/* スキル全体のレイアウト */
+.skills-grid {
+    display: flex;
+    justify-content: center; /* 中身を中央に寄せる */
+    gap: 40px; 
+    flex-wrap: wrap; 
+    margin-top: 50px;
+    
+    /* ★ここを追加！ */
+    padding-left: 0; 
+    padding-right: 0;
+    list-style: none; /* もし黒点が出ていたらこれも追加 */
+}
