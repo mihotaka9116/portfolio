@@ -1333,3 +1333,151 @@ a[href*="contact"] {
   height: 70px;
 
 }
+
+.career-timeline {
+    max-width: 800px;
+    margin: 50px auto 0;
+}
+
+/* PC版：タイムラインの構造 */
+.career-item {
+    border-left: 3px solid #eee;
+    padding-left: 70px;
+    margin-bottom: 90px;
+    position: relative;
+    min-height: 100px;
+}
+
+/* 丸いアイコンの設定 */
+.career-item::before {
+    content: "";
+    position: absolute;
+    left: -41.5px; /* 80pxの丸を3pxの線の中央に配置 */
+    top: -10px;
+    width: 80px;
+    height: 80px;
+    background-color: #fff; /* 背景を白にしてアイコンを際立たせる */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    z-index: 10;
+}
+
+/* アイコン個別指定 */
+.career-item:nth-child(1)::before { background-image: url("cupcake.svg"); }
+.career-item:nth-child(2)::before { background-image: url("tyaki.svg"); }
+.career-item:nth-child(3)::before { background-image: url("woman.svg"); }
+
+.career-date {
+    font-weight: bold;
+    color: var(--main-blue);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.career-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* スマホ用：中央寄せに切り替え */
+@media screen and (max-width: 767px) {
+    .career-timeline .career-item {
+        border-left: none;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .career-item::before {
+        position: static;
+        margin-bottom: 20px;
+    }
+    .career-content p {
+        text-align: left; /* 文章は左揃えが読みやすい */
+    }
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.skill-item {
+    width: 280px;
+    text-align: center;
+    padding: 20px;
+}
+
+.skill-item .img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+}
+
+.skill-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* アイコンの色分け（元の色を活かす） */
+.skill-item:nth-child(1) img { filter: saturate(1.5); } /* Design: 鮮やかに */
+.skill-item:nth-child(2) img { filter: hue-rotate(140deg) saturate(1.5); } /* Coding: 緑系 */
+.skill-item:nth-child(3) img { filter: hue-rotate(200deg) saturate(1.5); } /* JS: 青系 */
+
+.skill-item:hover img {
+    transform: scale(1.1);
+}
+
+/* フェードインの基本状態 */
+.js-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* JavaScriptでクラスが付与された時の状態 */
+.js-fade-up.is-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 戻るボタンのホバー */
+.back-home {
+    transition: all 0.3s;
+    display: inline-block;
+}
+.back-home:hover {
+    background-color: var(--main-blue) !important;
+    color: #fff !important;
+}
+
+/* フッター */
+#footer {
+    background-color: var(--main-blue);
+    color: #fff;
+    padding: 60px 0 30px;
+    text-align: center;
+}
+
+#footer .logo img {
+    width: 120px;
+    filter: brightness(0) invert(1); /* ロゴを白く反転 */
+    margin-bottom: 30px;
+}
+
+#footer a {
+    color: rgba(255,255,255,0.7);
+    transition: 0.3s;
+}
+#footer a:hover {
+    color: #fff;
+}
