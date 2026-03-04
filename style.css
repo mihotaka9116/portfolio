@@ -1687,3 +1687,28 @@ body a.back-to-top:visited:hover {
     transform: translateY(-5px); /* 少し上に浮く */
     background-color: #35668d;   /* 少し濃い色に */
 }
+
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    
+    /* 1. サイズを固定する */
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1 / 1; /* ★縦横比を強制的に1:1にする */
+    
+    /* 2. 余計な余白や引き伸ばしをリセット */
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 3. 形を整える */
+    border-radius: 50%; /* これで必ず正円になる */
+    background-color: var(--main-blue);
+    color: #fff;
+    text-decoration: none;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
