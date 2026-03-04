@@ -1662,3 +1662,28 @@ body a.back-to-top:visited:hover {
     color: #2d4b69;
     background-color: #ffffff;
 }
+
+/* トップに戻るボタンのスタイル */
+.back-to-top {
+    position: fixed;     /* 画面に対して固定 */
+    right: 20px;         /* 右から20px */
+    bottom: 20px;        /* 下から20px */
+    width: 50px;         /* 幅 */
+    height: 50px;        /* 高さ（幅と同じにして正円にする） */
+    background-color: var(--main-blue); /* サイトのメインカラー */
+    color: #fff;         /* 矢印の色 */
+    border-radius: 50%;  /* これで正円になる */
+    display: flex;       /* 中の矢印を中央に */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1000;       /* 他の要素より上に */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 軽く影をつけて見やすく */
+    transition: all 0.3s ease;
+}
+
+/* ホバー（マウスを乗せた時）の動き */
+.back-to-top:hover {
+    transform: translateY(-5px); /* 少し上に浮く */
+    background-color: #35668d;   /* 少し濃い色に */
+}
