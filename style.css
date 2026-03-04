@@ -1517,3 +1517,18 @@ html {
     color: #aaa;
     margin-top: 10px;
 }
+
+/* 表の各行（.detail-row）にマウスを乗せた時の設定 */
+.detail-row:hover {
+    background-color: #e0f2f7; /* 薄い水色 */
+    cursor: pointer;           /* マウスカーソルを指の形にする（お好みで） */
+    transition: background-color 0.2s ease; /* 色の変化を少し滑らかに */
+}
+
+/* スマホ版でもホバー（タップ）時に色が変わるように、
+   以前のメディアクエリ内にある .detail-row の設定も補完されます */
+@media screen and (max-width: 767px) {
+    .detail-row:hover {
+        background-color: #e0f2f7;
+    }
+}
