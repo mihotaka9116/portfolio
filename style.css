@@ -1621,44 +1621,65 @@ body a.back-home:visited:hover {
     background-color: #ffffff;
 }
 
-/* --- ページトップへ戻るボタンのエリア --- */
-.pagetop-area {
-    text-align: center;
-    padding: 40px 0;
-    background-color: transparent;
-}
+/* ===========================================
+   右下固定の正円「PAGE TOP」ボタン
+   =========================================== */
 
-/* ボタン本体の設定 */
 body a.back-to-top {
-    display: inline-block;
-    padding: 12px 40px;
+    /* 固定配置の設定 */
+    position: fixed;
+    right: 20px;          /* 右から20px */
+    bottom: 20px;         /* 下から20px */
+    z-index: 9999;        /* 一番手前に表示 */
+    
+    /* 正円のデザイン設定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;          /* 幅と高さを同じにして正円にする */
+    height: 60px;
+    border-radius: 50%;   /* 50%で完全な円 */
+    
+    /* 色とフォントの設定 */
     background-color: #2d4b69; /* 紺色 */
-    color: #ffffff;           /* 白文字 */
-    text-decoration: none;
-    font-size: 0.8rem;
+    color: #ffffff;           /* 白文字(矢印) */
+    font-size: 24px;      /* 矢印の大きさ */
     font-weight: bold;
-    letter-spacing: 0.15em;
+    text-decoration: none;
     border: 2px solid #2d4b69;
-    border-radius: 50px;
+    
+    /* 動きの設定 */
     transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 浮遊感を出すための影 */
 }
 
-/* ホバー時の反転設定（白背景・紺文字） */
+/* ホバー時の反転（背景白・文字紺） */
 body a.back-to-top:hover {
-    background-color: #ffffff; /* 背景を白に */
-    color: #2d4b69;           /* 文字を紺に */
-    border-color: #2d4b69;     /* 枠線は維持 */
-    transform: translateY(-3px); /* 少し浮かせる */
-    box-shadow: 0 5px 0 rgba(45, 75, 105, 0.2); /* ぼかしなしの硬い影 */
+    background-color: #ffffff;
+    color: #2d4b69;
+    border-color: #2d4b69;
+    transform: translateY(-5px); /* 少し上に浮く */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* 影を少し強調 */
 }
 
-/* 訪問済みでも色が変わらないように固定 */
+/* 訪問済みでも白を維持 */
 body a.back-to-top:visited {
     color: #ffffff;
 }
 
-/* 訪問済みかつホバーした時の色 */
+/* 訪問済みでホバーした時 */
 body a.back-to-top:visited:hover {
     color: #2d4b69;
     background-color: #ffffff;
+}
+
+/* スマホでは少し小さくする（邪魔にならないように） */
+@media screen and (max-width: 767px) {
+    body a.back-to-top {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 20px;
+    }
 }
