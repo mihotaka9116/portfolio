@@ -1533,6 +1533,19 @@ html {
     }
 }
 
+/* 戻るボタンの基本設定を強化 */
+.back-home {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 10px 30px;
+    border: 1px solid var(--main-blue);
+    color: var(--main-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color: transparent;
+}
+
 /* ===========================================
    FINAL BUTTON HOVER FIX (!importantなし)
    =========================================== */
