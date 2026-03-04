@@ -1399,3 +1399,46 @@ a[href*="contact"] {
     padding-right: 0;
     list-style: none; /* もし黒点が出ていたらこれも追加 */
 }
+
+/* --- 修正前：そのまま書いてある部分をカットして --- */
+/* .nav-menu { margin-left: auto; }  ←これを消すか、以下のように書き換える */
+
+/* --- 修正後：PCサイズ（768px以上）の時だけ適用する --- */
+@media screen and (min-width: 768px) {
+    .nav-menu {
+        display: block; /* PCでは表示 */
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .nav-menu {
+        display: none; /* ★重要：最初は完全に消しておく（これでボタン横の文字が消えます） */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(45, 75, 105, 0.98);
+        z-index: 9998;
+        
+        /* 中身を中央に寄せる設定 */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ★JSで active クラスがついた時だけ表示する */
+    .nav-menu.active {
+        display: flex; /* 消えていたメニューを表示させる */
+    }
+    
+    /* 念のため、中のulの余白もリセット */
+    .nav-menu ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
