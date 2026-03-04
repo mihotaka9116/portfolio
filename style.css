@@ -1353,3 +1353,12 @@ a[href*="contact"] {
 .nav-menu ul li {
     margin: 20px 0; /* 上下に余白を作るとタップしやすくなります */
 }
+
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: column;  /* 縦並びにする */
+        justify-content: center; /* 垂直方向中央 */
+        align-items: center;     /* 水平方向中央 */
+    }
+}
