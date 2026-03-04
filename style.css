@@ -1584,3 +1584,39 @@ html body .btn-primary:hover,
 a.back-home {
     /* もし戻るボタンも紺背景なら、上記と同じ設定をここに書きます */
 }
+
+/* =================================================
+   ボタンのホバー反転（2重読み込み対策版）
+   ================================================= */
+
+/* 紺背景ボタンを、ホバー時に「白背景・紺文字」にする */
+/* セレクタに「a」や「body」を付けて詳細度を最大まで高めています */
+body a.custom-btn,
+body a.back-home,
+body a.submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d4b69; /* 通常時は紺 */
+    color: #ffffff;           /* 通常時は白文字 */
+    border: 2px solid #2d4b69;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* ホバー時の設定（古い設定を上書き） */
+body a.custom-btn:hover,
+body a.back-home:hover,
+body a.submit-btn:hover {
+    background-color: #ffffff; /* 背景を白に */
+    color: #2d4b69;           /* 文字を紺に（これで消えない） */
+    border-color: #2d4b69;     /* 枠線は紺を維持 */
+    text-decoration: none;
+}
+
+/* 訪問済みリンクになってもホバー時の色を維持する設定 */
+body a.custom-btn:visited:hover,
+body a.back-home:visited:hover {
+    color: #2d4b69;
+    background-color: #ffffff;
+}
