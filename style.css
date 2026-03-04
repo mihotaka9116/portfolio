@@ -1442,3 +1442,9 @@ a[href*="contact"] {
         align-items: center;
     }
 }
+html {
+    /* ヘッダーの高さ（約70px〜80px）分、到着位置を下にずらす */
+    scroll-padding-top: 80px;
+    /* スルスルと滑らかに移動させる */
+    scroll-behavior: smooth;
+}
