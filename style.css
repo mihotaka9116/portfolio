@@ -1011,9 +1011,9 @@ section {
 
     padding-top: 100px;
 
-    /* ナビの中身を中央寄せにするなら追加 */
+    /* ナビの中身を中央寄せに */
 
-    display: flex !important;
+    display: flex;
 
     flex-direction: column;
 
@@ -1057,9 +1057,9 @@ section {
 
   .nav-menu.active {
 
-    display: flex !important; /* 横並びを解除するためにFlexを指定 */
+    display: flex; /* 横並びを解除するためにFlexを指定 */
 
-    flex-direction: column;    /* ★重要：中身を縦に並べる */
+    flex-direction: column;    /* 中身を縦に並べる */
 
     justify-content: center;   /* 上下中央に配置 */
 
@@ -1191,25 +1191,6 @@ a[href*="contact"] {
 
 }
 
-
-
-.header-container {
-
-  display: flex;
-
-  justify-content: space-between; /* ロゴを左、ナビを右へ */
-
-  align-items: center;
-
-  max-width: 1200px; /* Indexと同じ幅に固定 */
-
-  margin: 0 auto;     /* 1200pxを超えたら中央寄せ */
-
-  padding: 0 40px;    /* 左右の余白を40pxに固定 */
-
-  height: 70px;
-
-}
 
 
 
