@@ -1533,28 +1533,41 @@ html {
     }
 }
 
-/* 戻るボタンの基本設定を強化 */
-.back-home {
+/* ===========================================
+   FINAL BUTTON HOVER FIX (!importantなし)
+   =========================================== */
+
+/* 1. 全体共通の「紺色ボタン」：ホバー時に背景白、文字紺にする */
+/* セレクタを長くして詳細度を上げ、確実に上書きします */
+html body .custom-btn,
+html body .btn-primary,
+#contact .form-submit .custom-btn,
+.cta-button-container .custom-btn {
     display: inline-block;
-    margin-top: 50px;
-    padding: 10px 30px;
-    border: 1px solid var(--main-blue);
-    color: var(--main-blue);
-    text-decoration: none;
+    background-color: #2d4b69; /* 紺色（通常時） */
+    color: #ffffff;           /* 白文字（通常時） */
+    padding: 16px 45px;
     border-radius: 50px;
-    transition: 0.3s;
-    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #2d4b69; /* 枠線も紺色 */
+    transition: all 0.3s ease; /* ふんわり動かす */
+    text-align: center;
 }
 
-/* ホバーした時・クリック中・クリックした後、すべてで文字を白く固定 */
-.back-home:hover,
-.back-home:active,
-.back-home:visited:hover {
-    background-color: var(--main-blue);
-    color: #ffffff; /* ここで文字を白に固定 */
+/* 【重要】ホバー時の設定：背景白、文字紺 */
+html body .custom-btn:hover,
+html body .btn-primary:hover,
+#contact .form-submit .custom-btn:hover,
+.cta-button-container .custom-btn:hover {
+    background-color: #ffffff; /* 背景を白に */
+    color: #2d4b69;           /* 文字を紺色に（ここが抜けていました） */
+    border-color: #2d4b69;     /* 枠線は紺色を維持 */
+    text-decoration: none;
+    transform: translateY(-3px); /* 少し上に浮かせる（お好みで） */
 }
 
-/* 万が一、クリックした後に背景が白に戻っても文字が見えるように保険をかける場合 */
-.back-home:visited {
-    color: var(--main-blue); /* 未ホバー時は元の青を維持 */
+/* 2. 戻るボタン（.back-home）がもし「紺背景」なら同じ設定を適用 */
+a.back-home {
+    /* もし戻るボタンも紺背景なら、上記と同じ設定をここに書きます */
 }
