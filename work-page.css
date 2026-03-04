@@ -2393,3 +2393,29 @@ section h2 + p,
     color: #aaa;
     margin-top: 10px;
 }
+
+/* 戻るボタンの基本設定を強化 */
+.back-home {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 10px 30px;
+    border: 1px solid var(--main-blue);
+    color: var(--main-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color: transparent;
+}
+
+/* ホバーした時・クリック中・クリックした後、すべてで文字を白く固定 */
+.back-home:hover,
+.back-home:active,
+.back-home:visited:hover {
+    background-color: var(--main-blue);
+    color: #ffffff; /* ここで文字を白に固定 */
+}
+
+/* 万が一、クリックした後に背景が白に戻っても文字が見えるように保険をかける場合 */
+.back-home:visited {
+    color: var(--main-blue); /* 未ホバー時は元の青を維持 */
+}
