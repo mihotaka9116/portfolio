@@ -1669,42 +1669,61 @@ body a.back-home:visited:hover {
 /* 詳細度を上げるため html body をつけています */
 html body .back-to-top {
     /* 1. 配置の固定 */
-    position: fixed !important;
-    right: 20px !important;
-    bottom: 20px !important;
-    z-index: 9999 !important;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
 
     /* 2. サイズを完全に固定（ここがズレると楕円になります） */
-    width: 60px !important;
-    height: 60px !important;
-    min-width: 60px !important;
-    min-height: 60px !important;
-    padding: 0 !important;          /* 余白があると楕円になるので0にする */
-    aspect-ratio: 1 / 1 !important; /* 縦横比を1:1に固定 */
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    padding: 0;          /* 余白があると楕円になるので0にする */
+    aspect-ratio: 1 / 1; /* 縦横比を1:1に固定 */
     
     /* 3. 形を正円にする */
-    border-radius: 50% !important;  /* 50pxではなく50% */
+    border-radius: 50%;  /* 50pxではなく50% */
     
     /* 4. 見た目 */
-    background-color: var(--main-blue) !important;
-    color: #ffffff !important;
-    border: none !important;        /* 枠線が邪魔をする場合があるので一旦消す */
+    background-color: var(--main-blue);
+    color: #ffffff;
+    border: none;        /* 枠線が邪魔をする場合があるので一旦消す */
     
     /* 5. 中の矢印を中央へ */
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-decoration: none !important;
-    font-size: 1.5rem !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* ホバー時の動き */
 html body .back-to-top:hover {
-    transform: translateY(-5px) !important;
-    background-color: #35668d !important;
-    color: #ffffff !important;
+    transform: translateY(-5px);
+    background-color: #35668d;
+    color: #ffffff;
+}
+
+/* --- About/Work用：角丸カプセル型ボタン --- */
+.btn-common {
+    display: inline-block;
+    padding: 12px 30px;        /* 左右に余白を持たせる */
+    background-color: #000080; /* 紺色 */
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #000080;
+    border-radius: 50px;       /* ★ここが角丸のポイント */
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-common:hover {
+    background-color: #ffffff;
+    color: #000080;
 }
 
 
