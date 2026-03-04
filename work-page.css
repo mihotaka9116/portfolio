@@ -2343,3 +2343,42 @@ section h2 + p,
 .image-wrap:hover img {
     transform: scale(1.05);
 }
+
+/* --- 共通ボタン（紺背景 / 白文字） --- */
+.btn-common {
+    display: inline-block;
+    padding: 12px 30px;        /* 上下12px、左右30pxの余白 */
+    background-color: #000080; /* 紺色（お好みの紺に変更可） */
+    color: #ffffff;            /* 白文字 */
+    text-decoration: none;
+    border: 2px solid #000080; /* 枠線も紺色にする */
+    border-radius: 50px;       /* ★ここを大きくすると角丸になる */
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease; /* アニメーションを滑らかにする */
+    cursor: pointer;
+}
+
+/* --- ホバー時（色が反転） --- */
+.btn-common:hover {
+    background-color: #ffffff; /* 背景が白に */
+    color: #000080;            /* 文字が紺に */
+}
+
+/* --- 逆パターン（白背景 / 紺文字）が必要な場合 --- */
+.btn-reverse {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffffff;
+    color: #000080;
+    border: 2px solid #000080;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-reverse:hover {
+    background-color: #000080;
+    color: #ffffff;
+}
