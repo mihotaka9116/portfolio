@@ -1620,3 +1620,45 @@ body a.back-home:visited:hover {
     color: #2d4b69;
     background-color: #ffffff;
 }
+
+/* --- ページトップへ戻るボタンのエリア --- */
+.pagetop-area {
+    text-align: center;
+    padding: 40px 0;
+    background-color: transparent;
+}
+
+/* ボタン本体の設定 */
+body a.back-to-top {
+    display: inline-block;
+    padding: 12px 40px;
+    background-color: #2d4b69; /* 紺色 */
+    color: #ffffff;           /* 白文字 */
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    border: 2px solid #2d4b69;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+/* ホバー時の反転設定（白背景・紺文字） */
+body a.back-to-top:hover {
+    background-color: #ffffff; /* 背景を白に */
+    color: #2d4b69;           /* 文字を紺に */
+    border-color: #2d4b69;     /* 枠線は維持 */
+    transform: translateY(-3px); /* 少し浮かせる */
+    box-shadow: 0 5px 0 rgba(45, 75, 105, 0.2); /* ぼかしなしの硬い影 */
+}
+
+/* 訪問済みでも色が変わらないように固定 */
+body a.back-to-top:visited {
+    color: #ffffff;
+}
+
+/* 訪問済みかつホバーした時の色 */
+body a.back-to-top:visited:hover {
+    color: #2d4b69;
+    background-color: #ffffff;
+}
