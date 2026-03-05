@@ -30,3 +30,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.js-fade-up, .fade-in').forEach(el => observer.observe(el));
 });
+
+
+// リンクをクリックしたらメニューを閉じて、その場所へ飛ぶ
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // メニューを閉じる
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+
+        // ページ内リンク（#conceptなど）の場合の処理
+        const href = link.getAttribute('href');
+        if (href.startsWith('#') && href !== '#') {
+          e.preventDefault(); // 一旦デフォルトの動きを止める
+          const target = document.querySelector(href);
+          if (target) {
+            // 到着位置の計算（ヘッダー分を引く）
+            const headerHeight = 80; 
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            // スムーズに移動
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
