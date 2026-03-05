@@ -1762,4 +1762,32 @@ section[id] {
     z-index: 1;        /* 他の透明な要素に邪魔されないようにする */
 }
 
+/* グッズ一覧のアイテム（カード全体）の調整 */
+.work-item {
+    display: flex;
+    flex-direction: column; /* 上下に並べる */
+    justify-content: space-between; /* 画像と文字をバランスよく配置 */
+    height: 100%; /* すべてのカードの高さを揃える */
+}
+
+/* 写真を包む枠（image-wrap）の調整 */
+.image-wrap {
+    display: flex;
+    align-items: center;   /* ★垂直方向（上下）の中央寄せ */
+    justify-content: center; /* ★水平方向（左右）の中央寄せ */
+    background-color: #f9f9f9; /* 写真の背景に薄い色を付けると境界が分かりやすくなります */
+    aspect-ratio: 1 / 1;    /* 正方形の枠にする（お好みで） */
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* 写真自体のサイズ調整 */
+.image-wrap img {
+    max-width: 90%;  /* 枠いっぱいにせず少し余裕を持たせると綺麗です */
+    max-height: 90%;
+    width: auto;     /* 横幅を固定しない */
+    height: auto;    /* 縦横比を維持 */
+    object-fit: contain; /* 枠の中に収める */
+}
+
 
