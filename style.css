@@ -1790,4 +1790,31 @@ section[id] {
     object-fit: contain; /* 枠の中に収める */
 }
 
+/* ロゴグッズ一覧のグリッド間隔を調整（写真同士を近づける） */
+.goods-grid {
+    gap: 20px !important; /* 間隔を狭くして写真のスペースを広げる */
+}
+
+/* 写真を包む枠（image-wrap）の調整（大きく正方形に） */
+#work .goods-grid .work-item .image-wrap,
+.goods-grid .image-wrap {
+    width: 100% !important;   /* 親要素いっぱいまで広げる */
+    max-width: none !important; /* 制限を解除 */
+    height: 300px !important;   /* ★PCでの高さを大きく固定（楕円を防ぐ） */
+    aspect-ratio: 1 / 1 !important; /* 正方形にする */
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: transparent !important; /* 背景色を消す（お好みで） */
+}
+
+/* 写真自体のサイズ調整（枠いっぱいまで広げる） */
+#work .goods-grid .work-item .image-wrap img,
+.goods-grid .image-wrap img {
+    width: 100% !important;     /* ★横幅いっぱい */
+    height: 100% !important;    /* ★縦幅いっぱい */
+    object-fit: cover !important; /* ★枠に合わせて切り抜く（歪ませない） */
+    object-position: center !important; /* 中央を基準にする */
+    max-width: none !important; /* 制限を解除 */
+}
+
 
