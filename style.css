@@ -152,53 +152,6 @@ body {
 
 
 
-/* =================================================
-
-   4. セクションタイトル & 文章の中央揃え
-
-   ================================================== */
-
-.section-title {
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  margin-bottom: 50px;
-
-  text-align: center; /* ★文章を中央に寄せる */
-
-}
-
-
-
-.section-title .en {
-
-  font-size: 1.8rem;
-
-  font-weight: 700;
-
-  color: var(--main-blue);
-
-  text-transform: capitalize;
-
-}
-
-
-
-.section-title .ja {
-
-  font-size: 0.8rem;
-
-  color: var(--dark-blue);
-
-  margin-top: 10px;
-
-}
-
-
 
 /* 紹介文やコンセプト文も中央へ */
 
@@ -1547,7 +1500,7 @@ html {
 }
 
 /* ===========================================
-   FINAL BUTTON HOVER FIX (!importantなし)
+   FINAL BUTTON HOVER FIX 
    =========================================== */
 
 /* 1. 全体共通の「紺色ボタン」：ホバー時に背景白、文字紺にする */
@@ -1770,52 +1723,14 @@ section[id] {
     height: 100%; /* すべてのカードの高さを揃える */
 }
 
-/* 写真を包む枠（image-wrap）の調整 */
-.image-wrap {
-    display: flex;
-    align-items: center;   /* ★垂直方向（上下）の中央寄せ */
-    justify-content: center; /* ★水平方向（左右）の中央寄せ */
-    background-color: #f9f9f9; /* 写真の背景に薄い色を付けると境界が分かりやすくなります */
-    aspect-ratio: 1 / 1;    /* 正方形の枠にする（お好みで） */
-    overflow: hidden;
-    margin-bottom: 15px;
-}
 
-/* 写真自体のサイズ調整 */
-.image-wrap img {
-    max-width: 90%;  /* 枠いっぱいにせず少し余裕を持たせると綺麗です */
-    max-height: 90%;
-    width: auto;     /* 横幅を固定しない */
-    height: auto;    /* 縦横比を維持 */
-    object-fit: contain; /* 枠の中に収める */
-}
 
 /* ロゴグッズ一覧のグリッド間隔を調整（写真同士を近づける） */
 .goods-grid {
     gap: 20px !important; /* 間隔を狭くして写真のスペースを広げる */
 }
 
-/* 写真を包む枠（image-wrap）の調整（大きく正方形に） */
-#work .goods-grid .work-item .image-wrap,
-.goods-grid .image-wrap {
-    width: 100% !important;   /* 親要素いっぱいまで広げる */
-    max-width: none !important; /* 制限を解除 */
-    height: 300px !important;   /* ★PCでの高さを大きく固定（楕円を防ぐ） */
-    aspect-ratio: 1 / 1 !important; /* 正方形にする */
-    overflow: hidden;
-    margin-bottom: 20px;
-    background-color: transparent !important; /* 背景色を消す（お好みで） */
-}
 
-/* 写真自体のサイズ調整（枠いっぱいまで広げる） */
-#work .goods-grid .work-item .image-wrap img,
-.goods-grid .image-wrap img {
-    width: 100% !important;     /* ★横幅いっぱい */
-    height: 100% !important;    /* ★縦幅いっぱい */
-    object-fit: cover !important; /* ★枠に合わせて切り抜く（歪ませない） */
-    object-position: center !important; /* 中央を基準にする */
-    max-width: none !important; /* 制限を解除 */
-}
 
 /* =================================================
    全デバイス共通：画像の見切れを完全に解消する設定
