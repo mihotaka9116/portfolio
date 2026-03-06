@@ -1818,29 +1818,36 @@ section[id] {
 }
 
 /* =================================================
-   WORK画像のPC表示修正（両端の見切れを完全に防ぐ）
+   全デバイス共通：画像の見切れを完全に解消する設定
    ================================================== */
-@media screen and (min-width: 768px) {
-    /* 1. 枠の設定：高さを固定せず、中身の画像に合わせる */
-    .goods-grid .image-wrap {
-        height: auto !important;      /* 300pxなどの固定を解除 */
-        max-height: none !important;  /* 制限を解除 */
-        aspect-ratio: auto !important; /* 画像本来の比率を優先（または 16/9 など） */
-        background-color: transparent !important; /* 背景を消す */
-        display: block !important;
-    }
 
-    /* 2. 画像の設定：切り抜かずに全体を表示する */
-    .goods-grid .image-wrap img {
-        width: 100% !important;      /* 横幅を枠に合わせる */
-        height: auto !important;     /* 高さは自動（比率を維持） */
-        object-fit: contain !important; /* ★ここが重要！切り抜きを禁止して全体を収める */
-        object-position: center !important;
-    }
+/* 1. 画像を包む枠の制限をすべて解除する */
+.goods-grid .image-wrap,
+#work .goods-grid .work-item .image-wrap {
+    width: 100% !important;
+    height: auto !important;      /* 高さを固定せず画像に合わせる */
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: auto !important; /* 強制的な正方形を解除 */
+    background-color: transparent !important;
+    display: block !important;
+    overflow: visible !important;  /* はみ出しを隠さない */
 }
 
-/* グリッド自体の余白を調整して見やすくする */
+/* 2. 画像自体の「切り抜き」を禁止する */
+.goods-grid .image-wrap img,
+#work .goods-grid .work-item .image-wrap img {
+    width: 100% !important;        /* 横幅を親要素（グリッド）に合わせる */
+    height: auto !important;       /* 高さは比率を維持して自動計算 */
+    object-fit: contain !important; /* ★全体を収める（絶対に切らない） */
+    object-position: center !important;
+    max-width: 100% !important;
+    display: block !important;
+}
+
+/* 3. グリッドの隙間を調整して見やすくする */
 .goods-grid {
-    gap: 40px 30px !important; /* 上下の隙間を少し広げる */
+    gap: 30px !important;
+    display: grid !important;
 }
 
