@@ -148,7 +148,7 @@ body {
 
 
 
-#mainvisual p { font-size: 1.5rem; font-weight: 800; color: #fff !important; }
+#mainvisual p { font-size: 1.5rem; font-weight: 800; color: #fff; }
 
 
 
@@ -213,17 +213,17 @@ body {
 
 /* ★HTMLのクラス名に合わせて色を割り当て */
 
-.c-rose { background-color: #E296B5 !important; }
+.c-rose { background-color: #E296B5; }
 
-.c-green { background-color: #99C35F !important; }
+.c-green { background-color: #99C35F; }
 
-.c-sky { background-color: #6FB2E3 !important; }
+.c-sky { background-color: #6FB2E3; }
 
-.c-mint { background-color: #A7D6CA !important; }
+.c-mint { background-color: #A7D6CA; }
 
-.c-orange { background-color: #F38450 !important; }
+.c-orange { background-color: #F38450; }
 
-.c-royal { background-color: #2D59A4 !important; }
+.c-royal { background-color: #2D59A4; }
 
 
 
@@ -1727,7 +1727,7 @@ section[id] {
 
 /* ロゴグッズ一覧のグリッド間隔を調整（写真同士を近づける） */
 .goods-grid {
-    gap: 20px !important; /* 間隔を狭くして写真のスペースを広げる */
+    gap: 20px; /* 間隔を狭くして写真のスペースを広げる */
 }
 
 
@@ -1764,5 +1764,24 @@ section[id] {
 .goods-grid {
     gap: 30px;
     display: grid;
+}
+
+/* =================================================
+   WORKセクションの文字（タイトル・説明文）を中央寄せ
+   ================================================== */
+.work-text-content {
+    text-align: center; /* 文字を中央に */
+    margin-top: 15px;   /* 画像との間に少し隙間を作る */
+}
+
+.work-text-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px; /* タイトルと説明文の間の隙間 */
+    color: var(--dark-blue);
+}
+
+.work-text-content p {
+    font-size: 0.9rem;
+    color: var(--main-blue);
 }
 
