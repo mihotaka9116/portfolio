@@ -1817,4 +1817,34 @@ section[id] {
     max-width: none !important; /* 制限を解除 */
 }
 
+/* =================================================
+   WORK画像のPC表示修正（見切れ防止）
+   ================================================== */
+@media screen and (min-width: 768px) {
+  /* 1. PCでの高さ固定(300px)を解除し、枠のバランスを整える */
+  .goods-grid .image-wrap {
+    height: auto !important;     /* 高さを固定せず中身に合わせる */
+    aspect-ratio: 1 / 1;        /* 正方形の比率は維持 */
+    background-color: #f9f9f9;  /* 余白が出た時用の薄い背景色（不要ならtransparentに） */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 2. 画像が見切れないように「収める」設定に変更 */
+  .goods-grid .image-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* ★ここが重要！coverからcontainに変更 */
+    object-position: center !important;
+  }
+}
+
+/* グリッド自体の横幅をPCで少し広げて、1枚あたりのサイズを安定させる */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px !important;
+}
+
 
