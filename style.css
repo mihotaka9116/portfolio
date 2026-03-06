@@ -1739,30 +1739,30 @@ section[id] {
 /* 1. 画像を包む枠の制限をすべて解除する */
 .goods-grid .image-wrap,
 #work .goods-grid .work-item .image-wrap {
-    width: 100% !important;
-    height: auto !important;      /* 高さを固定せず画像に合わせる */
-    max-width: none !important;
-    max-height: none !important;
-    aspect-ratio: auto !important; /* 強制的な正方形を解除 */
-    background-color: transparent !important;
-    display: block !important;
-    overflow: visible !important;  /* はみ出しを隠さない */
+    width: 100%;
+    height: auto;      /* 高さを固定せず画像に合わせる */
+    max-width: none;
+    max-height: none;
+    aspect-ratio: auto; /* 強制的な正方形を解除 */
+    background-color: transparent;
+    display: block;
+    overflow: visible;  /* はみ出しを隠さない */
 }
 
 /* 2. 画像自体の「切り抜き」を禁止する */
 .goods-grid .image-wrap img,
 #work .goods-grid .work-item .image-wrap img {
-    width: 100% !important;        /* 横幅を親要素（グリッド）に合わせる */
-    height: auto !important;       /* 高さは比率を維持して自動計算 */
-    object-fit: contain !important; /* ★全体を収める（絶対に切らない） */
-    object-position: center !important;
-    max-width: 100% !important;
-    display: block !important;
+    width: 100%;        /* 横幅を親要素（グリッド）に合わせる */
+    height: auto;       /* 高さは比率を維持して自動計算 */
+    object-fit: contain; /* ★全体を収める（絶対に切らない） */
+    object-position: center;
+    max-width: 100%;
+    display: block;
 }
 
 /* 3. グリッドの隙間を調整して見やすくする */
 .goods-grid {
-    gap: 30px !important;
-    display: grid !important;
+    gap: 30px;
+    display: grid;
 }
 
