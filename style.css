@@ -1,1787 +1,374 @@
 @charset "UTF-8";
 
 /* =================================================
-
-   1. 基本設定 & デザインシステム
-
+   1. デザインシステム & 基本設定
    ================================================== */
-
 :root {
-
   --main-blue: #4682b4;
-
   --dark-blue: #2d4b69;
-
   --light-gray: #f4f7f9;
-
-  /* 6つの色彩 */
-
+  /* 6つのコンセプトカラー */
   --c-rose: #E296B5;
-
   --c-green: #99C35F;
-
   --c-sky: #6FB2E3;
-
   --c-mint: #A7D6CA;
-
   --c-orange: #F38450;
-
   --c-royal: #2D59A4;
-
 }
-
-
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-
-  color: var(--main-blue);
-
-  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-
-  line-height: 1.8;
-
-  overflow-x: hidden;
-
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* ヘッダーの高さ分、到着位置を調整 */
 }
 
+body {
+  color: var(--main-blue);
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+  background-color: #fff;
+}
 
+section {
+  padding: 100px 0; /* セクション間の余白を統一 */
+  position: relative;
+  z-index: 1;
+}
 
 /* =================================================
-
-   2. ヘッダー (ナビを右寄せ)
-
+   2. ヘッダー (PC・スマホ共通)
    ================================================== */
-
 .site-header {
-
   position: fixed;
-
   top: 0; left: 0; width: 100%;
-
   background: rgba(255, 255, 255, 0.95);
-
-  z-index: 1000;
-
+  z-index: 2000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-
 }
-
-
 
 .header-container {
-
   max-width: 1200px;
-
   margin: 0 auto;
-
   height: 70px;
-
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   padding: 0 40px;
-
 }
 
+.site-logo {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
 
+.site-logo img {
+  height: 35px;
+  width: auto;
+}
 
-.site-logo { position: relative; top: -3px; }
-
-.site-logo img { height: 35px; width: auto; }
-
-
-
+/* ナビゲーション */
 .nav-menu { margin-left: auto; }
-
-.nav-menu ul { display: flex; gap: 35px; list-style: none; }
+.nav-menu ul { display: flex; gap: 35px; list-style: none; padding-left: 0; }
 
 .nav-menu a {
-
   text-decoration: none;
-
   color: var(--main-blue);
-
   font-weight: bold;
-
   font-size: 0.9rem;
-
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
 }
 
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 2px;
+  background: var(--c-mint);
+  transition: width 0.3s;
+}
 
+.nav-menu a:hover { color: var(--dark-blue); }
+.nav-menu a:hover::after { width: 100%; }
 
 /* =================================================
-
    3. メインビジュアル
-
    ================================================== */
-
 #mainvisual {
-
   position: relative;
-
   height: 80vh;
-
   background: linear-gradient(rgba(45, 75, 105, 0.6), rgba(45, 75, 105, 0.4)), 
-
               var(--dark-blue) url("logo.svg") repeat;
-
   background-size: 150px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
-
   text-align: center;
-
   color: #fff;
-
 }
-
-
 
 #mainvisual p { font-size: 1.5rem; font-weight: 800; color: #fff; }
 
-
-
-
-/* 紹介文やコンセプト文も中央へ */
-
-.intro-content, .brand-story-text, .work-intro {
-
-  text-align: center; /* ★左寄りを修正 */
-
-  max-width: 800px;
-
-  margin: 0 auto 40px;
-
-}
-
-
-
-/* =================================================
-
-   5. CONCEPT (6色の丸を復活)
-
-   ================================================== */
-
-.color-flex-box {
-
-  display: flex;
-
-  justify-content: center;
-
-  flex-wrap: wrap;
-
-  gap: 20px;
-
-  margin: 40px 0;
-
-}
-
-
-
-.swatch-item { text-align: center; width: 100px; }
-
-
-
-/* 丸い色のボール */
-
-.color-ball {
-
-  width: 60px;
-
-  height: 60px;
-
-  border-radius: 50%;
-
-  margin: 0 auto 10px;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
-}
-
-
-
-/* ★HTMLのクラス名に合わせて色を割り当て */
-
-.c-rose { background-color: #E296B5; }
-
-.c-green { background-color: #99C35F; }
-
-.c-sky { background-color: #6FB2E3; }
-
-.c-mint { background-color: #A7D6CA; }
-
-.c-orange { background-color: #F38450; }
-
-.c-royal { background-color: #2D59A4; }
-
-
-
-/* =================================================
-
-   5-2. カラー詳細テーブル (表を確実に表示)
-
-   ================================================== */
-
-.color-details-table {
-
-  display: block; /* 消えないように強制 */
-
-  max-width: 900px;
-
-  margin: 40px auto 100px;
-
-  background: #fff;
-
-  border-top: 2px solid var(--main-blue);
-
-  border-left: 1px solid #eee;
-
-  border-right: 1px solid #eee;
-
-}
-
-
-
-.detail-header, .detail-row {
-
-  display: grid;
-
-  grid-template-columns: 120px 60px 120px 1fr;
-
-  padding: 15px 20px;
-
-  align-items: center;
-
-  border-bottom: 1px solid #eee;
-
-  text-align: left;
-
-}
-
-
-
-.detail-header {
-
-  background-color: #f8fabb;
-
-  font-weight: bold;
-
-}
-
-
-
-.chip {
-
-  display: inline-block;
-
-  width: 24px;
-
-  height: 24px;
-
-  border-radius: 4px;
-
-}
-
-
-
-/* =================================================
-
-   6. WORK & その他
-
-   ================================================== */
-
-.container {
-
-  max-width: 1100px;
-
-  margin: 0 auto;
-
-  padding: 0 20px;
-
-}
-
-
-
-.goods-grid {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-  gap: 30px;
-
-}
-
-
-
-.image-wrap {
-
-  display: block;
-
-  border-radius: 12px;
-
-  overflow: hidden;
-
-  margin-bottom: 15px;
-
-}
-
-
-
-.image-wrap img {
-
-  width: 100%;
-
-  height: auto;
-
-  transition: transform 0.3s;
-
-}
-
-
-
-.image-wrap:hover img {
-
-  transform: scale(1.05);
-
-}
-
-
-
-#footer { padding: 40px 0; background: var(--light-gray); text-align: center; }
-
-
-
-/* スマホ対応 */
-
-@media screen and (max-width: 767px) {
-
-  .detail-header { display: none; }
-
-  .detail-row { grid-template-columns: 1fr 1fr; }
-
-  .nav-menu { display: none; }
-
-}
-
-
-
-/* =================================================
-
-   4. セクションタイトル (英語：さらに細く小さく)
-
-   ================================================== */
-
-.section-title {
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  margin-bottom: 50px;
-
-  text-align: center;
-
-}
-
-
-
-.section-title .en {
-
-  /* サイズを 1.8rem → 1.4rem へ、太さを 700 → 500 へ */
-
-  font-size: 1.4rem; 
-
-  font-weight: 500; 
-
-  letter-spacing: 0.15em; /* 文字の間隔を少し広げると細さが際立ちます */
-
-  color: var(--main-blue);
-
-  text-transform: capitalize; /* 先頭のみ大文字 */
-
-  line-height: 1.2;
-
-}
-
-
-
-.section-title .ja {
-
-  font-size: 0.75rem; /* 日本語も合わせてわずかに小さく */
-
-  font-weight: 500;
-
-  color: var(--dark-blue);
-
-  margin-top: 8px;
-
-  letter-spacing: 0.1em;
-
-}
-
-
-
-/* 装飾線も少し短くしてバランスをとる */
-
-.section-title .ja::after {
-
-  content: "";
-
-  display: block;
-
-  width: 20px; /* 30px → 20px */
-
-  height: 1px;  /* 2px → 1px (より繊細に) */
-
-  background-color: var(--c-mint);
-
-  margin: 10px auto 0;
-
-}
-
-
-
-/* =================================================
-
-   4. セクションタイトル & コンテンツ配置の調整
-
-   ================================================== */
-
-.section-title {
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center; /* タイトルは中央に */
-
-  margin-bottom: 50px;
-
-  text-align: center;
-
-}
-
-
-
-.section-title .en {
-
-  font-size: 1.4rem;
-
-  font-weight: 500;
-
-  letter-spacing: 0.15em;
-
-  color: var(--main-blue);
-
-  text-transform: capitalize;
-
-}
-
-
-
-/* ★文章ブロックの設定：全体を中央に寄せ、中身を左揃えにする */
-
-.intro-content, 
-
-.brand-story-text, 
-
-.work-intro {
-
-  text-align: left;       /* ★テキスト自体は左揃え */
-
-  max-width: 650px;       /* ★横幅を少し絞る（読みやすさのコツ） */
-
-  margin: 0 auto 60px;    /* ★左右の余白を auto にしてブロックを中央へ */
-
-  padding: 0 20px;        /* スマホ時の余白 */
-
-  line-height: 2;         /* 行間をゆったりさせて読みやすく */
-
-}
-
-
-
-/* もし「はじめに」の段落だけもっと詰めたい場合はここを調整 */
-
-#introduction p {
-
-  margin-bottom: 1.5em;
-
-}
-
-
-
-/* 「コンセプト」の短い説明文（ロゴマークを形作る〜）も揃える場合 */
-
-.design-description {
-
-  text-align: center;     /* ここだけはタイトルの補足なので中央のままが綺麗です */
-
-  margin-bottom: 20px;
-
-  font-weight: bold;
-
-}
-
-
-
-/* ハンバーガーメニューの基本スタイル */
-
-.hamburger-menu {
-
-  display: none; /* デスクトップでは隠す */
-
-  cursor: pointer;
-
-  width: 30px;
-
-  height: 25px;
-
-  position: relative;
-
-  z-index: 1100;
-
-}
-
-
-
-.hamburger-menu span {
-
-  display: block;
-
-  width: 100%;
-
-  height: 2px;
-
-  background-color: var(--main-blue);
-
-  position: absolute;
-
-  transition: all 0.3s;
-
-}
-
-
-
-.hamburger-menu span:nth-child(1) { top: 0; }
-
-.hamburger-menu span:nth-child(2) { top: 11px; }
-
-.hamburger-menu span:nth-child(3) { bottom: 0; }
-
-
-
-/* スマホ表示（767px以下）の設定 */
-
-@media screen and (max-width: 767px) {
-
-  .hamburger-menu {
-
-    display: block; /* スマホで表示 */
-
-  }
-
-  
-
-  /* ナビゲーションを画面全体に広げる設定（JSでクラス制御する前提） */
-
-  .nav-menu {
-
-    display: none; /* 初期状態は隠す */
-
-    /* JSで .open クラスがついた時のスタイルをここに書く */
-
-  }
-
-}
-
-
-
-.nav-menu a {
-
-  position: relative;
-
-  padding-bottom: 5px;
-
-}
-
-
-
-.nav-menu a::after {
-
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-
-  bottom: 0;
-
-  width: 0;
-
-  height: 2px;
-
-  background: var(--c-mint); /* コンセプトカラーのミントを使用 */
-
-  transition: width 0.3s;
-
-}
-
-
-
-.nav-menu a:hover::after {
-
-  width: 100%; /* マウスを乗せると線が伸びる */
-
-}
-
-
-
 .scrolldown {
-
   position: absolute;
-
   bottom: 20px;
-
   left: 50%;
-
   transform: translateX(-50%);
-
   color: #fff;
-
-  padding-top: 60px; /* 棒線の長さ分の余白 */
-
+  padding-top: 60px;
 }
-
-
-
-/* 縦線のアニメーション */
 
 .scrolldown::after {
-
   content: "";
-
   position: absolute;
-
-  top: 0;
-
-  left: 50%;
-
-  width: 1px;
-
-  height: 50px;
-
+  top: 0; left: 50%;
+  width: 1px; height: 50px;
   background: #fff;
-
   animation: scroll-line 2s infinite;
-
 }
-
-
 
 @keyframes scroll-line {
-
   0% { transform: scaleY(0); transform-origin: top; }
-
   50% { transform: scaleY(1); transform-origin: top; }
-
   50.1% { transform: scaleY(1); transform-origin: bottom; }
-
   100% { transform: scaleY(0); transform-origin: bottom; }
-
 }
 
-
-
-.swatch-item {
-
-  transition: transform 0.3s ease; /* 動きをなめらかに */
-
+/* =================================================
+   4. セクションタイトル & 共通テキスト
+   ================================================== */
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-
-
-.swatch-item:hover {
-
-  transform: translateY(-10px); /* 上に10px浮かび上がる */
-
+.section-title .en {
+  font-size: 1.4rem; font-weight: 500;
+  letter-spacing: 0.15em; color: var(--main-blue);
+  text-transform: capitalize;
 }
 
+.section-title .ja {
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--dark-blue); margin-top: 8px;
+  letter-spacing: 0.1em;
+  position: relative;
+  padding-bottom: 15px;
+}
 
+.section-title .ja::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 1px;
+  background-color: var(--c-mint);
+}
+
+/* 文章ブロック */
+.intro-content, .brand-story-text, .work-intro {
+  text-align: left;
+  max-width: 650px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+  line-height: 2;
+}
+
+.design-description { text-align: center; font-weight: bold; margin-bottom: 20px; }
+
+/* =================================================
+   5. CONCEPT (色の丸とテーブル)
+   ================================================== */
+.color-flex-box {
+  display: flex; justify-content: center;
+  flex-wrap: wrap; gap: 20px; margin: 40px 0;
+}
+
+.swatch-item { text-align: center; width: 100px; transition: transform 0.3s; }
+.swatch-item:hover { transform: translateY(-10px); }
 
 .color-ball {
+  width: 60px; height: 60px; border-radius: 50%;
+  margin: 0 auto 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s;
+}
+.swatch-item:hover .color-ball { box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-  transition: box-shadow 0.3s ease;
+.c-rose { background-color: var(--c-rose); }
+.c-green { background-color: var(--c-green); }
+.c-sky { background-color: var(--c-sky); }
+.c-mint { background-color: var(--c-mint); }
+.c-orange { background-color: var(--c-orange); }
+.c-royal { background-color: var(--c-royal); }
 
+/* テーブル */
+.color-details-table {
+  max-width: 900px; margin: 40px auto 100px;
+  background: #fff; border-top: 2px solid var(--main-blue);
+  border-left: 1px solid #eee; border-right: 1px solid #eee;
 }
 
-
-
-.swatch-item:hover .color-ball {
-
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* 影を濃くして浮遊感を出す */
-
+.detail-header, .detail-row {
+  display: grid; grid-template-columns: 120px 60px 120px 1fr;
+  padding: 15px 20px; align-items: center;
+  border-bottom: 1px solid #eee; text-align: left;
 }
-
-
-
-/* すべての section に上下の余白を作る */
-
-section {
-
-  padding: 50px 0; 
-
-}
-
-
-
-/* Aboutページ用のタイトル調整 */
-
-.profile-intro .section-title,
-
-#story .section-title,
-
-#skill .section-title {
-
-    font-size: 1.4rem;
-
-    font-weight: 500;
-
-    letter-spacing: 0.15em;
-
-    color: var(--main-blue);
-
-    text-align: center;
-
-    margin-bottom: 5px; /* 下の和文との距離 */
-
-}
-
-
-
-.section-title-en {
-
-    display: block;
-
-    text-align: center;
-
-    font-size: 0.75rem;
-
-    color: var(--dark-blue);
-
-    margin-bottom: 40px;
-
-}
-
-
-
-.skills-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-    gap: 30px;
-
-    max-width: 1000px;
-
-    margin: 0 auto;
-
-    padding: 0 20px;
-
-}
-
-
-
-.skill-item {
-
-    text-align: center;
-
-    padding: 30px;
-
-    background: #fff;
-
-    border-radius: 10px;
-
-    transition: transform 0.3s;
-
-}
-
-
-
-.skill-item:hover {
-
-    transform: translateY(-5px);
-
-}
-
-
-.career-timeline {
-
-    max-width: 800px;
-
-    margin: 50px auto;
-
-    padding: 0 20px;
-
-}
-
-
-
-.career-item {
-
-    display: flex;
-
-    margin-bottom: 40px;
-
-    gap: 20px;
-
-}
-
-
-
-.career-date {
-
-    flex-basis: 120px;
-
-    font-weight: bold;
-
-    color: var(--main-blue);
-
-    flex-shrink: 0;
-
-}
-
-
-
-.career-content h4 {
-
-    margin-bottom: 10px;
-
-    font-size: 1.1rem;
-
-    color: var(--dark-blue);
-
-}
-
-
-
-@media screen and (max-width: 767px) {
-
-    .career-item {
-
-        flex-direction: column;
-
-        gap: 5px;
-
-    }
-
-}
-
-
-
-/* 共通の調整 */
-
-.header-container {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center; /* これで上下中央を固定 */
-
-    height: 70px;
-
-}
-
-
-
-.site-logo {
-
-    line-height: 1; /* 余計な上下の隙間を消す */
-
-    display: flex;
-
-    align-items: center;
-
-}
-
-
-
-.site-logo img {
-
-    height: 35px; /* 高さを全ページで固定 */
-
-    width: auto;
-
-}
-
-
-
-
-
-/* ハンバーガーの「×」アニメーション */
-
-.hamburger-menu.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-
-.hamburger-menu.active span:nth-child(2) { opacity: 0; }
-
-.hamburger-menu.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
-
-
-
-/* スマホ用ナビの表示 */
-
-@media screen and (max-width: 767px) {
-
-  .nav-menu.active {
-
-    display: block !important;
-
-    position: fixed;
-
-    top: 0; left: 0;
-
-    width: 100%; height: 100vh;
-
-    background: rgba(255, 255, 255, 0.98);
-
-    z-index: 1050;
-
-    padding-top: 100px;
-
-    /* ナビの中身を中央寄せに */
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-  }
-
-}
-
-
-
-
-
-.js-fade-up {
-
-  opacity: 0;
-
-  transform: translateY(30px);
-
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-
-}
-
-
-
-/* JSで付与されるクラス名に合わせる */
-
-.js-fade-up.is-show {
-
-  opacity: 1;
-
-  transform: translateY(0);
-
-}
-
-
-
-@media screen and (max-width: 767px) {
-
-  /* メニューが開いた状態の設定 */
-
-  .nav-menu.active {
-
-    display: flex; /* 横並びを解除するためにFlexを指定 */
-
-    flex-direction: column;    /* 中身を縦に並べる */
-
-    justify-content: center;   /* 上下中央に配置 */
-
-    align-items: center;       /* 左右中央に配置 */
-
-    
-
-    position: fixed;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 100vh;
-
-    background: rgba(255, 255, 255, 0.98);
-
-    z-index: 1050;
-
-  }
-
-
-
-  /* メニュー内のリストの隙間を調整 */
-
-  .nav-menu.active ul {
-
-    display: flex;
-
-    flex-direction: column; /* リスト自体も縦並びに */
-
-    gap: 30px;              /* メニュー間の上下の隙間 */
-
-    padding: 0;
-
-    list-style: none;
-
-  }
-
-
-
-  .nav-menu.active a {
-
-    font-size: 1.5rem;      /* スマホで見やすいように少し大きく */
-
-  }
-
-}
-
-
-
-/* コンタクトセクションを一時的に非表示にする */
-
-#contact {
-
-  display: none;
-
-}
-
-
-
-/* ナビゲーションメニューからも「Contact」を消したい場合 */
-
-.nav-menu a[href*="contact"],
-
-.footer-link a[href*="contact"] {
-
-  display: none;
-
-}
-
-
-
-/* コンタクトセクションを非表示にする */
-
-#contact, 
-
-.contact-section {
-
-    display: none;
-
-}
-
-
-
-/* フッターなどのリンクからも消したい場合 */
-
-a[href*="contact"] {
-
-    display: none;
-
-}
-
-
-
-
-
-/* タイムライン（歩み）の横並びを防ぐ */
-
-.career-item {
-
-    display: flex;
-
-    margin-bottom: 30px;
-
-    text-align: left; /* 中央揃えを解除 */
-
-}
-
-
-
-/* Aboutページのヘッダー位置をIndexと完全一致させる */
-
-.site-header {
-
-  position: fixed;
-
-  top: 0;
-
-  left: 0;
-
-  width: 100%;
-
-  background-color: rgba(255, 255, 255, 0.95);
-
-  z-index: 2000;
-
-}
-
-
-
-
-.nav-menu {
-
-  margin-left: auto; /* ナビを確実に右へ押し出す */
-
-}
-
-
-
-/* ロゴの微調整も共通化 */
-
-.site-logo {
-
-  position: relative;
-
-  top: -3px;
-
-  line-height: 1;
-
-  display: flex;
-
-  align-items: center;
-
-}
-
-
-
-.site-logo img {
-
-  height: 35px;
-
-  width: auto;
-
-}
-
-
-
-/* ナビゲーションのマウスホバー下線を統一 */
-
-.nav-menu a {
-
-    position: relative;
-
-    padding-bottom: 5px;
-
-    text-decoration: none;
-
-    transition: color 0.3s;
-
-}
-
-
-
-/* 下線のベース（初期状態は幅0） */
-
-.nav-menu a::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    bottom: 0;
-
-    width: 0;
-
-    height: 2px;
-
-    background: var(--c-mint); /* 変数で定義したミント色（#A7D6CA）を使用 */
-
-    transition: width 0.3s;
-
-}
-
-
-
-/* マウスを乗せた時に線を伸ばす */
-
-.nav-menu a:hover::after {
-
-    width: 100%;
-
-}
-
-
-
-/* ついでに現在のページのリンクを少し強調したい場合（任意） */
-
-.nav-menu a:hover {
-
-    color: var(--dark-blue);
-
-}
-
-
-/* スキルカード自体の余白を確保 */
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* --- スキルセクションの画像サイズ固定 --- */
-#skill .skill-item .img img,
-.skill-item img {
-  width: 80px;         /* 50pxから80pxに大きくしました。適宜調整してください */
-  height: 80px;        /* 正方形を維持 */
-  object-fit: contain; /* 画像が歪まないように */
-  margin: 0 auto 15px; /* 中央寄せと下の余白 */
-  display: block;
-}
-
-/* スキル項目の枠組み */
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.header-container {
-
-  display: flex;
-
-  justify-content: space-between; /* ロゴを左、ナビを右へ */
-
-  align-items: center;
-
-  max-width: 1200px; /* Indexと同じ幅に固定 */
-
-  margin: 0 auto;     /* 1200pxを超えたら中央寄せ */
-
-  padding: 0 40px;    /* 左右の余白を40pxに固定 */
-
-  height: 70px;
-
-}
-
-/* ナビゲーションメニュー全体のスタイル */
-.nav-menu ul {
-    /* 1. デフォルトの左余白を0にする（これが一番重要です！） */
-    padding-left: 0;
-    
-    /* 2. テキストを中央揃えにする */
-    text-align: center;
-    
-    /* 3. 親要素の幅をいっぱいにする（もしなっていなければ） */
-    width: 100%;
-
-    /* リストの黒点を消す設定もここにあるか確認 */
-    list-style: none;
-}
-
-/* 各メニュー項目の間隔を調整したい場合 */
-.nav-menu ul li {
-    margin: 20px 0; /* 上下に余白を作るとタップしやすくなります */
-}
-
-@media screen and (max-width: 768px) {
-    .nav-menu {
-        display: flex;
-        flex-direction: column;  /* 縦並びにする */
-        justify-content: center; /* 垂直方向中央 */
-        align-items: center;     /* 水平方向中央 */
-    }
-}
-
-@media screen and (max-width: 767px) {
-  /* --- 中略（既存の #js-nav の設定などはそのままでOK） --- */
-
-  /* メニュー内のリスト（ul）の設定を修正 */
-  #js-nav ul {
-    display: flex;           /* 追加 */
-    flex-direction: column;  /* 縦並びにする */
-    align-items: center;     /* 子要素を中央に寄せる */
-    justify-content: center; /* 垂直方向も中央に（必要に応じて） */
-    width: 100%;             /* 横幅をいっぱいにする */
-    padding: 0;              /* ★重要：ブラウザ標準の左余白を消す！ */
-    margin: 0;               /* 余計な余白をリセット */
-    list-style: none;
-  }
-
-  /* リスト項目（li）の調整 */
-  #js-nav li {
-    margin: 20px 0;
-    width: 100%;             /* 幅を持たせて中央揃えを確実に */
-    text-align: center;      /* テキストを中央に */
-  }
-}
-
-/* スキル全体のレイアウト */
-.skills-grid {
-    display: flex;
-    justify-content: center; /* 中身を中央に寄せる */
-    gap: 40px; 
-    flex-wrap: wrap; 
-    margin-top: 50px;
-    
-    /* ★ここを追加！ */
-    padding-left: 0; 
-    padding-right: 0;
-    list-style: none; /* もし黒点が出ていたらこれも追加 */
-}
-
-/* --- 修正前：そのまま書いてある部分をカットして --- */
-/* .nav-menu { margin-left: auto; }  ←これを消すか、以下のように書き換える */
-
-/* --- 修正後：PCサイズ（768px以上）の時だけ適用する --- */
-@media screen and (min-width: 768px) {
-    .nav-menu {
-        display: block; /* PCでは表示 */
-        margin-left: auto;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .nav-menu {
-        display: none; /* ★重要：最初は完全に消しておく（これでボタン横の文字が消えます） */
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(45, 75, 105, 0.98);
-        z-index: 9998;
-        
-        /* 中身を中央に寄せる設定 */
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* ★JSで active クラスがついた時だけ表示する */
-    .nav-menu.active {
-        display: flex; /* 消えていたメニューを表示させる */
-    }
-    
-    /* 念のため、中のulの余白もリセット */
-    .nav-menu ul {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-html {
-    /* ヘッダーの高さ（約70px〜80px）分、到着位置を下にずらす */
-    scroll-padding-top: 80px;
-    /* スルスルと滑らかに移動させる */
-    scroll-behavior: smooth;
-}
-
-/* Aboutページ用の日本語タイトル下線設定 */
-.section-title-en {
-    position: relative;      /* 線の基準位置にする */
-    padding-bottom: 15px;    /* 線との隙間 */
-    margin-bottom: 40px;     /* 次の要素との間隔 */
-}
-
-.section-title-en::after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0;               /* 下に配置 */
-    left: 50%;               /* 中央へ */
-    transform: translateX(-50%);
-    width: 20px;             /* 線の長さ（Indexと合わせて20px） */
-    height: 1px;             /* 線の太さ（Indexと合わせて1px） */
-    background-color: var(--c-mint); /* ミント色の線 */
-}
+.detail-header { background-color: #f8fabb; font-weight: bold; }
+.detail-row:hover { background-color: #e0f2f7; transition: background-color 0.2s; }
 
 /* =================================================
-   フッターの統一スタイル
+   6. WORK (実績)
+   ================================================== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.work-item { display: flex; flex-direction: column; height: 100%; }
+
+.image-wrap {
+  display: block; border-radius: 12px; overflow: hidden;
+  margin-bottom: 15px; width: 100%; height: auto;
+}
+
+.image-wrap img {
+  width: 100%; height: auto; object-fit: contain;
+  transition: transform 0.3s; display: block;
+}
+
+.work-item:hover img { transform: scale(1.05); }
+
+.work-text-content { text-align: center; margin-top: 15px; }
+.work-text-content h3 { font-size: 1.2rem; margin-bottom: 5px; color: var(--dark-blue); }
+.work-text-content p { font-size: 0.9rem; color: var(--main-blue); }
+
+/* =================================================
+   7. SKILL & CAREER (About用)
+   ================================================== */
+.skills-grid {
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 40px; margin-top: 50px; list-style: none;
+}
+
+.skill-item {
+  text-align: center; padding: 30px; background: #fff;
+  border-radius: 10px; transition: transform 0.3s;
+  flex: 0 1 280px; display: flex; flex-direction: column; align-items: center;
+}
+.skill-item:hover { transform: translateY(-5px); }
+
+.skill-item img {
+  width: 80px; height: 80px; object-fit: contain;
+  margin-bottom: 15px; display: block;
+}
+
+.career-timeline { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+.career-item { display: flex; margin-bottom: 30px; gap: 20px; text-align: left; }
+.career-date { flex-basis: 120px; font-weight: bold; color: var(--main-blue); flex-shrink: 0; }
+.career-content h4 { margin-bottom: 10px; font-size: 1.1rem; color: var(--dark-blue); }
+
+/* =================================================
+   8. 共通ボタン
+   ================================================== */
+.btn-common {
+  display: inline-block;
+  padding: 12px 35px;
+  background-color: var(--dark-blue);
+  color: #ffffff;
+  border: 2px solid var(--dark-blue);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-common:hover {
+  background-color: #ffffff;
+  color: var(--dark-blue);
+}
+
+/* ページトップ (正円) */
+.back-to-top {
+  position: fixed; right: 20px; bottom: 20px;
+  width: 60px; height: 60px; z-index: 9999;
+  border-radius: 50%; background-color: var(--main-blue);
+  color: #fff; display: flex; justify-content: center;
+  align-items: center; text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;
+}
+.back-to-top:hover { transform: translateY(-5px); background-color: var(--dark-blue); }
+
+/* =================================================
+   9. フッター
    ================================================== */
 #footer {
-    background-color: var(--light-gray);
-    padding: 60px 0; /* ★上下の余白を少し広めに統一（お好みで 40px に変更可） */
-    text-align: center;
+  background-color: var(--light-gray);
+  padding: 60px 0; text-align: center;
 }
 
-#footer .inner {
-    max-width: 1200px; /* ヘッダーの container と同じ幅に */
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.footer-link { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+.footer-link a { font-size: 11px; color: #888; text-decoration: none; }
+.copyright { font-size: 10px; color: #aaa; margin-top: 10px; }
 
-#footer .logo {
-    margin-bottom: 30px; /* ロゴの下の隙間 */
+/* =================================================
+   10. アニメーション & 非表示設定
+   ================================================== */
+.js-fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+.js-fade-up.is-show { opacity: 1; transform: translateY(0); }
 
-#footer .logo img {
-    height: 30px; /* ロゴのサイズを固定 */
-    width: auto;
+#contact, .contact-section, a[href*="contact"] { display: none; }
+
+/* =================================================
+   11. レスポンシブ (スマホ対応)
+   ================================================== */
+.hamburger-menu {
+  display: none; cursor: pointer; width: 30px; height: 25px;
+  position: relative; z-index: 2100;
 }
-
-/* フッター内のリンク（プライバシーポリシー等） */
-.footer-link {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
+.hamburger-menu span {
+  display: block; width: 100%; height: 2px;
+  background-color: var(--main-blue); position: absolute; transition: 0.3s;
 }
+.hamburger-menu span:nth-child(1) { top: 0; }
+.hamburger-menu span:nth-child(2) { top: 11px; }
+.hamburger-menu span:nth-child(3) { bottom: 0; }
 
-.footer-link a {
-    font-size: 11px;
-    color: #888;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+/* ハンバーガー変形 */
+.hamburger-menu.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+.hamburger-menu.active span:nth-child(2) { opacity: 0; }
+.hamburger-menu.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 
-.footer-link a:hover {
-    color: var(--main-blue);
-}
-
-.copyright {
-    font-size: 10px;
-    color: #aaa;
-    margin-top: 10px;
-}
-
-/* 表の各行（.detail-row）にマウスを乗せた時の設定 */
-.detail-row:hover {
-    background-color: #e0f2f7; /* 薄い水色 */
-    cursor: pointer;           /* マウスカーソルを指の形にする（お好みで） */
-    transition: background-color 0.2s ease; /* 色の変化を少し滑らかに */
-}
-
-/* スマホ版でもホバー（タップ）時に色が変わるように、
-   以前のメディアクエリ内にある .detail-row の設定も補完されます */
 @media screen and (max-width: 767px) {
-    .detail-row:hover {
-        background-color: #e0f2f7;
-    }
+  .header-container { padding: 0 20px; }
+  .nav-menu {
+    display: none; position: fixed; top: 0; right: 0;
+    width: 100%; height: 100vh; background: rgba(255, 255, 255, 0.98);
+    z-index: 2050; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .nav-menu.active { display: flex; }
+  .nav-menu ul { flex-direction: column; align-items: center; gap: 30px; }
+  .nav-menu a { font-size: 1.5rem; }
+
+  .hamburger-menu { display: block; }
+  
+  .detail-header { display: none; }
+  .detail-row { grid-template-columns: 1fr 1fr; }
+  
+  .career-item { flex-direction: column; gap: 5px; }
 }
-
-/* 戻るボタンの基本設定を強化 */
-.back-home {
-    display: inline-block;
-    margin-top: 50px;
-    padding: 10px 30px;
-    border: 1px solid var(--main-blue);
-    color: var(--main-blue);
-    text-decoration: none;
-    border-radius: 50px;
-    transition: 0.3s;
-    background-color: transparent;
-}
-
-/* ===========================================
-   FINAL BUTTON HOVER FIX 
-   =========================================== */
-
-/* 1. 全体共通の「紺色ボタン」：ホバー時に背景白、文字紺にする */
-/* セレクタを長くして詳細度を上げ、確実に上書きします */
-html body .custom-btn,
-html body .btn-primary,
-#contact .form-submit .custom-btn,
-.cta-button-container .custom-btn {
-    display: inline-block;
-    background-color: #2d4b69; /* 紺色（通常時） */
-    color: #ffffff;           /* 白文字（通常時） */
-    padding: 16px 45px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #2d4b69; /* 枠線も紺色 */
-    transition: all 0.3s ease; /* ふんわり動かす */
-    text-align: center;
-}
-
-/* 【重要】ホバー時の設定：背景白、文字紺 */
-html body .custom-btn:hover,
-html body .btn-primary:hover,
-#contact .form-submit .custom-btn:hover,
-.cta-button-container .custom-btn:hover {
-    background-color: #ffffff; /* 背景を白に */
-    color: #2d4b69;           /* 文字を紺色に（ここが抜けていました） */
-    border-color: #2d4b69;     /* 枠線は紺色を維持 */
-    text-decoration: none;
-    transform: translateY(-3px); /* 少し上に浮かせる（お好みで） */
-}
-
-
-/* =================================================
-   ボタンのホバー反転（2重読み込み対策版）
-   ================================================= */
-
-/* 紺背景ボタンを、ホバー時に「白背景・紺文字」にする */
-/* セレクタに「a」や「body」を付けて詳細度を最大まで高めています */
-body a.custom-btn,
-body a.back-home,
-body a.submit-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #2d4b69; /* 通常時は紺 */
-    color: #ffffff;           /* 通常時は白文字 */
-    border: 2px solid #2d4b69;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-/* ホバー時の設定（古い設定を上書き） */
-body a.custom-btn:hover,
-body a.back-home:hover,
-body a.submit-btn:hover {
-    background-color: #ffffff; /* 背景を白に */
-    color: #2d4b69;           /* 文字を紺に（これで消えない） */
-    border-color: #2d4b69;     /* 枠線は紺を維持 */
-    text-decoration: none;
-}
-
-/* 訪問済みリンクになってもホバー時の色を維持する設定 */
-body a.custom-btn:visited:hover,
-body a.back-home:visited:hover {
-    color: #2d4b69;
-    background-color: #ffffff;
-}
-
-/* --- ページトップへ戻るボタンのエリア --- */
-.pagetop-area {
-    text-align: center;
-    padding: 40px 0;
-    background-color: transparent;
-}
-
-    /* --- 共通ボタン（紺背景 / 白文字） --- */
-.btn-common {
-    display: inline-block;
-    padding: 12px 30px;        /* 上下12px、左右30pxの余白 */
-    background-color: #000080; /* 紺色（お好みの紺に変更可） */
-    color: #ffffff;            /* 白文字 */
-    text-decoration: none;
-    border: 2px solid #000080; /* 枠線も紺色にする */
-    border-radius: 50px;       /* ★ここを大きくすると角丸になる */
-    font-weight: bold;
-    text-align: center;
-    transition: all 0.3s ease; /* アニメーションを滑らかにする */
-    cursor: pointer;
-}
-
-/* --- ホバー時（色が反転） --- */
-.btn-common:hover {
-    background-color: #ffffff; /* 背景が白に */
-    color: #000080;            /* 文字が紺に */
-}
-
-/* --- 逆パターン（白背景 / 紺文字）が必要な場合 --- */
-.btn-reverse {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #ffffff;
-    color: #000080;
-    border: 2px solid #000080;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-reverse:hover {
-    background-color: #000080;
-    color: #ffffff;
-}
-
-/* ===========================================
-   TOPページ専用：強制的に正円にする設定
-   =========================================== */
-/* 詳細度を上げるため html body をつけています */
-html body .back-to-top {
-    /* 1. 配置の固定 */
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 9999;
-
-    /* 2. サイズを完全に固定（ここがズレると楕円になります） */
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-    min-height: 60px;
-    padding: 0;          /* 余白があると楕円になるので0にする */
-    aspect-ratio: 1 / 1; /* 縦横比を1:1に固定 */
-    
-    /* 3. 形を正円にする */
-    border-radius: 50%;  /* 50pxではなく50% */
-    
-    /* 4. 見た目 */
-    background-color: var(--main-blue);
-    color: #ffffff;
-    border: none;        /* 枠線が邪魔をする場合があるので一旦消す */
-    
-    /* 5. 中の矢印を中央へ */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* ホバー時の動き */
-html body .back-to-top:hover {
-    transform: translateY(-5px);
-    background-color: #35668d;
-    color: #ffffff;
-}
-
-/* --- About/Work用：角丸カプセル型ボタン --- */
-.btn-common {
-    display: inline-block;
-    padding: 12px 30px;        /* 左右に余白を持たせる */
-    background-color: #000080; /* 紺色 */
-    color: #ffffff;
-    text-decoration: none;
-    border: 2px solid #000080;
-    border-radius: 50px;       /* ★ここが角丸のポイント */
-    font-weight: bold;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.btn-common:hover {
-    background-color: #ffffff;
-    color: #000080;
-}
-
-/* ===========================================
-   全ページ共通：ボタンの色を紺色に統一
-   =========================================== */
-/* html body をつけることで他のCSSファイルの設定より優先させます */
-html body .btn-common {
-    display: inline-block;
-    padding: 12px 35px;
-    background-color: #2d4b69; /* 紺色（メインカラー） */
-    color: #ffffff;           /* 文字は白 */
-    border: 2px solid #2d4b69;
-    border-radius: 50px;      /* カプセル型 */
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-/* ホバー時の設定：白背景に紺文字 */
-html body .btn-common:hover {
-    background-color: #ffffff;
-    color: #2d4b69;
-    border-color: #2d4b69;
-}
-
-/* スムーズスクロールを有効にし、到着位置を調整 */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* ヘッダーの高さ＋余白 */
-}
-
-/* 各セクションがクリックを確実に受け取れるようにする */
-section[id] {
-    position: relative; /* 重なり順の基準にする */
-    z-index: 1;        /* 他の透明な要素に邪魔されないようにする */
-}
-
-/* グッズ一覧のアイテム（カード全体）の調整 */
-.work-item {
-    display: flex;
-    flex-direction: column; /* 上下に並べる */
-    justify-content: space-between; /* 画像と文字をバランスよく配置 */
-    height: 100%; /* すべてのカードの高さを揃える */
-}
-
-
-
-/* ロゴグッズ一覧のグリッド間隔を調整（写真同士を近づける） */
-.goods-grid {
-    gap: 20px; /* 間隔を狭くして写真のスペースを広げる */
-}
-
-
-
-/* =================================================
-   全デバイス共通：画像の見切れを完全に解消する設定
-   ================================================== */
-
-/* 1. 画像を包む枠の制限をすべて解除する */
-.goods-grid .image-wrap,
-#work .goods-grid .work-item .image-wrap {
-    width: 100%;
-    height: auto;      /* 高さを固定せず画像に合わせる */
-    max-width: none;
-    max-height: none;
-    aspect-ratio: auto; /* 強制的な正方形を解除 */
-    background-color: transparent;
-    display: block;
-    overflow: visible;  /* はみ出しを隠さない */
-}
-
-/* 2. 画像自体の「切り抜き」を禁止する */
-.goods-grid .image-wrap img,
-#work .goods-grid .work-item .image-wrap img {
-    width: 100%;        /* 横幅を親要素（グリッド）に合わせる */
-    height: auto;       /* 高さは比率を維持して自動計算 */
-    object-fit: contain; /* ★全体を収める（絶対に切らない） */
-    object-position: center;
-    max-width: 100%;
-    display: block;
-}
-
-/* 3. グリッドの隙間を調整して見やすくする */
-.goods-grid {
-    gap: 30px;
-    display: grid;
-}
-
-/* =================================================
-   WORKセクションの文字（タイトル・説明文）を中央寄せ
-   ================================================== */
-.work-text-content {
-    text-align: center; /* 文字を中央に */
-    margin-top: 15px;   /* 画像との間に少し隙間を作る */
-}
-
-.work-text-content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px; /* タイトルと説明文の間の隙間 */
-    color: var(--dark-blue);
-}
-
-.work-text-content p {
-    font-size: 0.9rem;
-    color: var(--main-blue);
-}
-
