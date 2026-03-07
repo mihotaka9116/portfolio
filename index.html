@@ -1,203 +1,263 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Miho Takahashi Portfolio | 想いを色鮮やかにカタチにする</title>
-  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO | miho takahashi</title>
+    <meta name="description" content="制作したサイトを紹介するポートフォリオサイトです。">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-<header class="header">
-  <div class="header-inner">
-    <p class="logo">
-      <a href="index.html" style="text-decoration: none; color: inherit;">
-        <span class="logo-text">Miho Takahashi</span>
-      </a>
-    </p>
+    <header class="site-header">
+        <div class="header-container">
+            <h1 class="site-logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="Logo">
+                </a>
+            </h1>
+            <nav class="nav-menu" id="js-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#concept">Concept</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-    <div class="hamburger-menu" id="js-hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div id="mainvisual">
+        <div class="mainvisual-inner">
+            <p class="mv-text">WEB DESIGN & CODING</p>
+        </div>
+        <div class="scrolldown"><span>SCROLL</span></div>
     </div>
 
-    <nav class="nav" id="js-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#concept">Concept</a></li>
-        <li><a href="#detail">Detail</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <main>
+        <section id="introduction" class="js-fade-up">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="en">Introduction</span>
+                    <span class="ja">はじめに</span>
+                </h2>
+                <div class="intro-content">
+                    <p>
+                        はじめまして、髙橋と申します。このサイトをご覧いただき、ありがとうございます。<br>
+                        私は、2025年の10月から遠野職業訓練校でWebデザインについて学びはじめました。<br>
+                        これまでデザインとは全く縁のない生活を送っていましたが、半年間でデザインやコーディングを学び、サイトとして形にすることができました。<br>これからは、「使いやすさ」と「想いが伝わるデザイン」の両立を大切に、制作に取り組んでいきます。
+                    </p>
+                </div>
+            </div>
+        </section>
 
-<main>
-  <section id="home" class="hero">
-    <div class="hero-svg-wrapper">
-      <svg xmlns="http://www.w3.org/2000/svg" id="_レイヤー_1" data-name="レイヤー_1" viewBox="0 0 1920 1079" width="1920" height="1079">
-        <defs>
-          <style>
-            .st0 { fill: #ffdff9; } .st1, .st2 { fill: #fe8d1c; } .st3 { stroke: #000; }
-            .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11 { fill: none; }
-            .st12, .st13 { fill: #25399c; } .st4, .st13, .st14, .st2, .st9 { stroke: #f5f5f5; }
-            .st4, .st13, .st14, .st15 { stroke-width: 5px; } .st16 { fill: #e2393c; }
-            .st17 { fill: #fff; } .st14 { fill: #3657ff; } .st18 { fill: #baf0f6; }
-            .st5, .st15, .st7, .st10, .st11 { stroke: #25399c; } .st19 { fill: #5fced2; }
-            .st15 { fill: #ffd89a; } .st20 { fill: #ea99eb; } .st7 { stroke-width: .4px; }
-            .st7, .st10, .st11 { stroke-linecap: round; } .st8 { stroke: #fff; }
-            .st21 { fill: #f5f5f5; } .st10 { stroke-width: .1px; }
-            .st22 { clip-path: url(#clippath); }
-          </style>
-          <clipPath id="clippath"><rect class="st6" y="0" width="1920" height="1078.6"/></clipPath>
-        </defs>
-        <g class="st22">
-          <rect class="st0" y="0" width="1920" height="1078.7"/>
-          <rect id="window-base" class="st14" x="773.5" y="284.5" width="373" height="471"/>
-          <path class="st4" d="M960,282v474M774,528h374"/>
-          <ellipse class="st18" cx="1699" cy="1030" rx="433" ry="211"/>
-          <path class="st4" d="M1667,859.5s3-34.5,10.5-55c8.3-22.8,31.5-53.5,31.5-53.5M1648,856s-12.2-50.2-16-83c-3.5-30.5-3.5-78.5-3.5-78.5M1621.5,860s-6-86.4-35-130.5c-14.2-21.6-44.5-49-44.5-49M1604,882.5s-13.6-47.4-28.5-75c-6.2-11.5-17.5-28.5-17.5-28.5"/>
-          <path class="st1" d="M1636.7,650.8l6.3,11.6-6.3,9.4-15.2.3-5.5-9.7,5.5-11.6h15.2Z"/>
-          <path class="st12" d="M1592.5,651l5.5,10h17l5-10-5.5-9.5h-15.5l-6.5,9.5Z"/>
-          <path class="st3" d="M1592.5,651l5.5,10h17l5-10-5.5-9.5h-15.5l-6.5,9.5Z"/>
-          <path class="st1" d="M1726.7,721.7l5.7,11.9-6.7,9.1-15.2-.5-5-9.9,6.1-11.3,15.2.7Z"/>
-          <path class="st16" d="M1687.8,949.8c0,83.3-45.5,71.9-67.5,71.9s-59.5,11.4-59.5-71.9,33-111.4,59.5-108.4c41.5,0,67.5,25.1,67.5,108.4Z"/>
-        </g>
-      </svg>
-    </div>
-    <div class="hero-content">
-      <h1 class="copy js-split-text">Creative & Colorful</h1>
-      <p class="sub-copy js-reveal">
-        <span>想いを色鮮やかに、カタチにする。</span>
-      </p>
-    </div>
-  </section>
+        <section id="concept" class="apple-colors js-fade-up">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="en">Concept</span>
+                    <span class="ja">コンセプト</span>
+                </h2>
+                <p class="design-description">ロゴマークを形作る6つの色彩</p>
 
-  <section id="concept" class="js-reveal">
+                <div class="brand-story-text">
+                    <p>
+                        ロゴマークに使用している6つの色は、制作の過程で直感的に心が動いたものを選択しました。<br>
+                        ローズピンクを多めに使用することで、温かみのある雰囲気に仕上げています。
+                    </p>
+                </div>
+
+                <div class="color-flex-box">
+                    <div class="swatch-item">
+                        <div class="color-ball c-rose"></div>
+                        <span class="color-code">#E296B5</span>
+                    </div>
+                    <div class="swatch-item">
+                        <div class="color-ball c-green"></div>
+                        <span class="color-code">#99C35F</span>
+                    </div>
+                    <div class="swatch-item">
+                        <div class="color-ball c-sky"></div>
+                        <span class="color-code">#6FB2E3</span>
+                    </div>
+                    <div class="swatch-item">
+                        <div class="color-ball c-mint"></div>
+                        <span class="color-code">#A7D6CA</span>
+                    </div>
+                    <div class="swatch-item">
+                        <div class="color-ball c-orange"></div>
+                        <span class="color-code">#F38450</span>
+                    </div>
+                    <div class="swatch-item">
+                        <div class="color-ball c-royal"></div>
+                        <span class="color-code">#2D59A4</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="color-details-table container">
+            <div class="detail-header">
+                <div class="char-col">名称</div>
+                <div class="chip-col">色</div>
+                <div class="code-col">コード</div>
+                <div class="desc-col">デザインにおける意味</div>
+            </div>
+            <div class="detail-row">
+                <div class="char-col">Rose</div>
+                <div class="chip-col"><span class="chip c-rose"></span></div>
+                <div class="code-col">#E597B9</div>
+                <div class="desc-col">温かみと親しみやすさ。優しい雰囲気を演出。</div>
+            </div>
+            <div class="detail-row">
+                <div class="char-col">Green</div>
+                <div class="chip-col"><span class="chip c-green"></span></div>
+                <div class="code-col">#99C361</div>
+                <div class="desc-col">自然と成長。新しい技術を吸収し続けるフレッシュな姿勢を象徴。</div>
+            </div>
+            <div class="detail-row">
+                <div class="char-col">Sky</div>
+                <div class="chip-col"><span class="chip c-sky"></span></div>
+                <div class="code-col">#6FB2E3</div>
+                <div class="desc-col">自由と広がり。枠にとらわれない柔軟な発想と誠実さを表現。</div>
+            </div>
+            <div class="detail-row">
+                <div class="char-col">Mint</div>
+                <div class="chip-col"><span class="chip c-mint"></span></div>
+                <div class="code-col">#B7E2D8</div>
+                <div class="desc-col">清潔感と安心。情報を整理して伝える役割。</div>
+            </div>
+            <div class="detail-row">
+                <div class="char-col">Orange</div>
+                <div class="chip-col"><span class="chip c-orange"></span></div>
+                <div class="code-col">#F48451</div>
+                <div class="desc-col">活力とポジティブ。制作に対する熱意と遊び心。</div>
+            </div>
+            <div class="detail-row">
+                <div class="char-col">Royal</div>
+                <div class="chip-col"><span class="chip c-royal"></span></div>
+                <div class="code-col">#2D59A3</div>
+                <div class="desc-col">信頼と知性、誠実さを表す。</div>
+            </div>
+        </div>
+
+    <section id="work">
     <div class="container">
-      <h2 class="section-title">Concept</h2>
-      <p class="story-text">
-        Figmaで制作したSVGアニメーションを主役にした、ブランドサイトを制作しました。<br>
-        JavaScriptのIntersection Observerを使用し、ユーザーの視線に合わせてコンテンツが展開するよう意識しました。
-      </p>
+        <h2 class="section-title">
+            <span class="en">Work</span>
+            <span class="ja">実績</span>
+        </h2>
+        
+        <div class="goods-grid">
+            <div class="work-item">
+                <a href="work.html" class="image-wrap" target="_blank" rel="noopener noreferrer">
+                    <img src="3-devices-goods.png" alt="LOGO GOODS">
+                </a>
+                <div class="work-text-content">
+                    <h3>Logo Goods</h3>
+                    <p>ロゴ展開・グッズ制作 / デザイン</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <a href="https://mihotaka9116.github.io/creative/" class="image-wrap" target="_blank" rel="noopener noreferrer">
+                    <img src="3-devices-creative.png" alt="Creative & Colorful">
+                </a>
+                <div class="work-text-content">
+                    <h3>Creative & Colorful</h3>
+                    <p>Webサイト制作 / 自主制作</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <a href="https://mihotaka9116.github.io/yamabudouami/" class="image-wrap" target="_blank" rel="noopener noreferrer">
+                    <img src="3-devices-yamabudou.png" alt="山葡萄のかごバッグ 遠野">
+                </a>
+                <div class="work-text-content">
+                    <h3>山葡萄のかごバッグ 遠野</h3>
+                    <p>Webサイト制作 / 自主制作</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <a href="https://mihotaka9116.github.io/moderncording/" class="image-wrap" target="_blank" rel="noopener noreferrer">
+                    <img src="3-devices-retreat.png" alt="Modern Coding">
+                </a>
+                <div class="work-text-content">
+                    <h3>Toho Modern Retreat</h3>
+                    <p>Webサイト制作 / 自主制作（架空）</p>
+                </div> 
+            </div>
+
+            <div class="work-item">
+                <a href="https://mihotaka9116.github.io/mtshop/" class="image-wrap" target="_blank" rel="noopener noreferrer">
+                    <img src="3-devices-ai.png" alt="Creative & Colorful AI">
+                </a>
+                <div class="work-text-content">
+                    <h3>Creative & Colorful</h3>
+                    <p>Webサイト制作 / Google AI Studioにて制作</p>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</section>
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="en">Contact</span>
+                    <span class="ja">お問い合わせ</span>
+                </h2>
+                <div class="contact-form">
+                    <form action="https://ssgform.com/s/rI0UaMqc0NXO" method="post">
+                        <div class="form-item">
+                            <label for="name">お名前</label>
+                            <input type="text" id="name" name="your-name" required>
+                        </div>
+                        <div class="form-item">
+                            <label for="email">メールアドレス</label>
+                            <input type="email" id="email" name="your-email" required>
+                        </div>
+                        <div class="form-item">
+                            <label for="message">メッセージ</label>
+                            <textarea id="message" name="your-message" placeholder="メッセージを入力してください" required></textarea>
+                        </div>
+                        <div class="form-item agreement-item">
+                            <input type="checkbox" id="agreement" name="agreement" required>
+                            <label for="agreement">
+                                <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する
+                            </label>
+                        </div>
+                        <button type="submit" class="submit-btn" disabled>現在受付停止中です</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+      <footer id="footer">
+        <div class="inner wrapper">
+            <div class="logo">
+                <img src="logo.svg" alt="miho takahashi">
+            </div>
+            <div class="footer-link" style="margin-bottom: 10px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+            <a href="privacy.html" target="_blank" rel="noopener noreferrer" style="font-size: 11px; color: #888; text-decoration: none;">個人情報保護方針</a>
+            <a href="tokusho.html" target="_blank" rel="noopener noreferrer" style="font-size: 11px; color: #888; text-decoration: none;">特定商取引法に基づく表記</a>
+            <a href="kiyaku.html" target="_blank" rel="noopener noreferrer" style="font-size: 11px; color: #888; text-decoration: none;">利用規約</a>
+        </div>
+            </div>
+            <p class="copyright" style="font-size: 10px; color: #aaa;">©2026 Miho Takahashi</p>
+        </div>
+           <div class="pagetop-area">
+  <a href="#" class="back-to-top">↑</a>
+    </footer>
     </div>
-  </section>
-
-  <section id="detail" class="works js-reveal">
-    <div class="container">
-      <h2 class="section-title">Detail</h2>
-      <div class="works-grid">
-        <article class="work-item">
-          <h3>01 Material</h3>
-          <p>毎日手に触れるものだからこそ、心地よく時の流れとともに愛着が増す素材を厳選しています。<br>マグカップには温もりを感じる陶器を、アパレル商品にはコットンを採用。<br>長く使い続けられる「品質」と「質感」を大切にしています。</p>
-        </article>
-        <article class="work-item">
-          <h3>02 Craftsmanship</h3>
-          <p>「窓の青」をアクセントに、背景には「ピンク」を配置。カラフルでありながら、落ち着きと信頼感を感じさせる配色を追求しました。</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="shop" class="js-reveal">
-    <div class="container">
-      <h2 class="section-title">Shop</h2>
-      <div class="goods-grid">
-        <div class="goods-item">
-          <div class="image-wrap"><img src="mag.png" alt="オリジナルマグカップ - 陶器製"></div>
-          <div class="item-info">
-            <h3 class="item-name">01 Mag Cup</h3>
-            <p class="item-price">¥2,500</p>
-            <button class="custom-btn add-to-cart-btn" data-name="Mag Cup" data-price="2500" data-image="mag.png">カートに入れる</button>
-          </div>
-        </div>
-        <div class="goods-item">
-          <div class="image-wrap"><img src="shirt.png" alt="オリジナルTシャツ - コットン素材"></div>
-          <div class="item-info">
-            <h3 class="item-name">02 T-Shirt</h3>
-            <p class="item-price">¥4,800</p>
-            <button class="custom-btn add-to-cart-btn" data-name="T-Shirt" data-price="4800" data-image="shirt.png">カートに入れる</button>
-          </div>
-        </div>
-        <div class="goods-item">
-          <div class="image-wrap"><img src="kaiga.png" alt="彩り豊かなアートパネル"></div>
-          <div class="item-info">
-            <h3 class="item-name">03 Picture</h3>
-            <p class="item-price">¥3,200</p>
-            <button class="custom-btn add-to-cart-btn" data-name="Picture" data-price="3200" data-image="kaiga.png">カートに入れる</button>
-          </div>
-        </div>
-        <div class="goods-item">
-          <div class="image-wrap"><img src="cushion.png" alt="インテリアクッション"></div>
-          <div class="item-info">
-            <h3 class="item-name">04 Cushion</h3>
-            <p class="item-price">¥2,500</p>
-            <button class="custom-btn add-to-cart-btn" data-name="Cushion" data-price="2500" data-image="kussyon.png">カートに入れる</button>
-          </div>
-        </div>
-      </div>
-      
-      <a href="cart.html" class="cart-floating-icon" id="js-cart-icon">
-        <div class="cart-icon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="21" r="1"></circle>
-            <circle cx="20" cy="21" r="1"></circle>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-          </svg>
-          <span id="cart-count">0</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrapper">
-      <h2 class="section-title js-reveal">Contact</h2>
-      <p class="contact-lead js-reveal">
-        制作に関するご相談、グッズへのお問い合わせは下記フォームよりお願いいたします。<br>
-        <span class="caution-text">※現在、本サイトは制作課題として公開しているため、メッセージの送信機能は停止しております。</span>
-      </p>
-
-      <div class="contact-form-wrapper js-reveal">
-        <form>
-          <div class="form-group">
-            <label for="name">Name <span>必須</span></label>
-            <input type="text" id="name" name="name" placeholder="高橋 美穂" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email <span>必須</span></label>
-            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message <span>必須</span></label>
-            <textarea id="message" name="message" rows="5" placeholder="お問い合わせ内容をご記入ください" required></textarea>
-          </div>
-          <div class="form-submit">
-            <button type="button" class="custom-btn">Send Message</button>
-            <p class="form-note">※送信ボタンを押してもデータは送信されません。</p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <ul class="footer-links">
-      <li><a href="privacy.html">個人情報保護方針</a></li>
-      <li><a href="tokusho.html">特定商取引法に基づく表記</a></li>
-      <li><a href="kiyaku.html">利用規約</a></li>
-    </ul>
-    <p class="copyright">©2026 Miho Takahashi</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
