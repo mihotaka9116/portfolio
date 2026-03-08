@@ -2388,21 +2388,21 @@ section h2 + p,
    =========================================== */
 /* html body をつけることで他のCSSファイルの設定より優先させます */
 html body .btn-common {
-    display: inline-block !important;
-    padding: 12px 35px !important;
-    background-color: #2d4b69 !important; /* 紺色（メインカラー） */
-    color: #ffffff !important;           /* 文字は白 */
-    border: 2px solid #2d4b69 !important;
-    border-radius: 50px !important;      /* カプセル型 */
-    text-decoration: none !important;
-    font-weight: bold !important;
-    transition: all 0.3s ease !important;
-    text-align: center !important;
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #2d4b69; /* 紺色（メインカラー） */
+    color: #ffffff;           /* 文字は白 */
+    border: 2px solid #2d4b69;
+    border-radius: 50px;      /* カプセル型 */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
 /* ホバー時の設定：白背景に紺文字 */
 html body .btn-common:hover {
-    background-color: #ffffff !important;
-    color: #2d4b69 !important;
-    border-color: #2d4b69 !important;
+    background-color: #ffffff;
+    color: #2d4b69;
+    border-color: #2d4b69;
 }
