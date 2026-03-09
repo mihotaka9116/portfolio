@@ -1159,9 +1159,9 @@ main {
         padding-left: 70px;
     }
     .career-item::before {
-        left: -31px !important;
-        width: 55px !important;
-        height: 55px !important;
+        left: -31;
+        width: 55px;
+        height: 55px;
     }
 }
 
@@ -1169,9 +1169,9 @@ main {
 @media screen and (max-width: 767px) {
     /* 1. 左側の縦線を消してスッキリさせる */
     .career-timeline .career-item {
-        border-left: none !important;
-        padding-left: 0 !important;
-        margin-bottom: 60px !important;
+        border-left: none;
+        padding-left: 0;
+        margin-bottom: 60px;
         display: flex;
         flex-direction: column; /* 縦並びに変更 */
         align-items: center;    /* 中央寄せ */
@@ -1180,32 +1180,32 @@ main {
 
     /* 2. アイコンを文章の上に配置 */
     .career-item::before {
-        position: static !important; /* 固定位置を解除 */
-        margin-bottom: 20px !important; /* アイコン下の余白 */
-        width: 80px !important;  /* スマホで見栄えがするように少し大きく */
-        height: 80px !important;
+        position: static; /* 固定位置を解除 */
+        margin-bottom: 20px; /* アイコン下の余白 */
+        width: 80px;  /* スマホで見栄えがするように少し大きく */
+        height: 80px;
         display: block;
     }
 
     /* 3. 日付とタイトルの調整 */
     .career-date {
         display: block;
-        font-size: 0.9rem !important;
-        margin-bottom: 10px !important;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
         color: var(--main-blue);
     }
 
     .career-content h4 {
-        font-size: 1.2rem !important;
-        margin-bottom: 15px !important;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
         padding: 0 10px;
     }
 
     /* 4. 本文の調整 */
     .career-content p {
         text-align: left; /* 文章だけは左揃えが読みやすいです */
-        font-size: 0.9rem !important;
-        line-height: 1.8 !important;
+        font-size: 0.9rem;
+        line-height: 1.8;
         padding: 0 15px;
     }
 }
@@ -1213,9 +1213,9 @@ main {
 /* --- STORYセクション：PC/スマホ出し分け調整 --- */
 
 /* 1. 全体共通のアイコン画像割り当て */
-.career-item:nth-child(1)::before { background-image: url("cupcake.svg") !important; }
-.career-item:nth-child(2)::before { background-image: url("tyaki.svg") !important; }
-.career-item:nth-child(3)::before { background-image: url("woman.svg") !important; }
+.career-item:nth-child(1)::before { background-image: url("cupcake.svg"); }
+.career-item:nth-child(2)::before { background-image: url("tyaki.svg"); }
+.career-item:nth-child(3)::before { background-image: url("woman.svg"); }
 
 /* 2. PC版：今のレイアウトとサイズを維持 */
 @media screen and (min-width: 768px) {
@@ -1226,9 +1226,9 @@ main {
   }
 
   .career-timeline .career-item {
-    border-left: 3px solid #eee !important;
-    padding-left: 70px !important;
-    margin-bottom: 90px !important;
+    border-left: 3px solid #eee;
+    padding-left: 70px;
+    margin-bottom: 90px;
     position: relative;
     min-height: 100px;
   }
@@ -1236,18 +1236,18 @@ main {
   .career-item::before {
     content: "";
     position: absolute;
-    left: -41.5px !important; /* 80pxのアイコンを中央に配置 */
-    top: -10px !important;
-    width: 80px !important;
-    height: 80px !important;
-    background-color: transparent !important;
-    background-size: contain !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    border-radius: 50% !important;
-    overflow: hidden !important;
+    left: -41.5px; /* 80pxのアイコンを中央に配置 */
+    top: -10px;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    overflow: hidden;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-    z-index: 10 !important;
+    z-index: 10;
     transition: transform 0.3s ease;
   }
 
@@ -1259,9 +1259,9 @@ main {
 /* 3. スマホ版：アイコンサイズ維持＋線なし中央寄せ */
 @media screen and (max-width: 767px) {
   .career-timeline .career-item {
-    border-left: none !important; /* ★スマホでは縦線を消す */
-    padding-left: 0 !important;
-    margin-bottom: 60px !important;
+    border-left: none; /* ★スマホでは縦線を消す */
+    padding-left: 0;
+    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1270,15 +1270,15 @@ main {
 
   .career-item::before {
     content: "";
-    position: static !important; /* ★浮遊を解除して中央に配置 */
-    margin-bottom: 20px !important;
-    width: 80px !important; /* サイズはそのまま */
-    height: 80px !important;
-    background-color: transparent !important;
-    background-size: contain !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    border-radius: 50% !important;
+    position: static; /* ★浮遊を解除して中央に配置 */
+    margin-bottom: 20px;
+    width: 80px; /* サイズはそのまま */
+    height: 80px;
+    background-color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
     display: block;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
   }
@@ -1297,15 +1297,15 @@ main {
     height: auto;
     transition: all 0.3s ease;
     /* フィルターと透明度をリセットして、元の色を出す */
-    filter: none !important; 
-    opacity: 1 !important;
+    filter: none; 
+    opacity: 1;
 }
 
 /* アイコンごとの個別のフィルター設定（もしあれば）を無効化 */
 .skill-item:nth-child(1) img,
 .skill-item:nth-child(2) img,
 .skill-item:nth-child(3) img {
-    filter: none !important;
+    filter: none;
 }
 
 /* マウスを乗せた時の演出：少し大きくし、影をつけて強調する */
@@ -1354,29 +1354,29 @@ main {
     width: 100%;
     height: auto;
     transition: all 0.3s ease;
-    opacity: 1 !important; /* 不透明度を100%にしてくすみを解消 */
+    opacity: 1; /* 不透明度を100%にしてくすみを解消 */
     /* ここでは filter: none を指定しない（後の個別設定を活かすため） */
 }
 
 /* 1つ目：Design (元の色を活かす、または微調整) */
 .skill-item:nth-child(1) img {
-    filter: saturate(1.5) !important; 
+    filter: saturate(1.5); 
 }
 
 /* 2つ目：Coding (オレンジを緑〜ブルー系へ) */
 .skill-item:nth-child(2) img {
-    filter: hue-rotate(140deg) saturate(1.5) !important; 
+    filter: hue-rotate(140deg) saturate(1.5); 
 }
 
 /* 3つ目：JavaScript (オレンジを青〜紫系へ) */
 .skill-item:nth-child(3) img {
-    filter: hue-rotate(200deg) saturate(1.5) !important;
+    filter: hue-rotate(200deg) saturate(1.5);
 }
 
 /* ホバー時の演出：少し大きくして影を強調 */
 .skill-item:hover img {
     transform: scale(1.1);
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)) !important;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
 }
 
 /* --- 5. SKILL アイコン：色を固定して影だけ追加 --- */
@@ -1385,24 +1385,24 @@ main {
     width: 100%;
     height: auto;
     transition: all 0.3s ease;
-    opacity: 1 !important;
+    opacity: 1;
 }
 
 /* 各アイコンの色設定（ホバー時もこの色を維持します） */
 
 /* 1つ目：Design */
 .skill-item:nth-child(1) img {
-    filter: saturate(1.5) !important; 
+    filter: saturate(1.5); 
 }
 
 /* 2つ目：Coding */
 .skill-item:nth-child(2) img {
-    filter: hue-rotate(140deg) saturate(1.5) !important; 
+    filter: hue-rotate(140deg) saturate(1.5); 
 }
 
 /* 3つ目：JavaScript */
 .skill-item:nth-child(3) img {
-    filter: hue-rotate(200deg) saturate(1.5) !important;
+    filter: hue-rotate(200deg) saturate(1.5);
 }
 
 /* --- ホバー設定：色（filter）はそのまま、変形と影だけ加える --- */
@@ -1412,15 +1412,15 @@ main {
 
 /* ホバーした時も、各アイコンに設定した filter を消さないように個別に影を追加 */
 .skill-item:nth-child(1):hover img {
-    filter: saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
+    filter: saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2));
 }
 
 .skill-item:nth-child(2):hover img {
-    filter: hue-rotate(140deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
+    filter: hue-rotate(140deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2));
 }
 
 .skill-item:nth-child(3):hover img {
-    filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2)) !important;
+    filter: hue-rotate(200deg) saturate(1.5) drop-shadow(0 5px 8px rgba(0,0,0,0.2));
 }
 
 /* --- セクションタイトルをすべて中央寄せ --- */
@@ -1433,16 +1433,16 @@ section h2,
 #work h2, 
 #contact h2,
 .about-section h2 {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
 }
 
 /* タイトルの下にある日本語のサブタイトル（もしあれば） */
 section h2 + p,
 .section-title + p {
-    text-align: center !important;
+    text-align: center;
     margin-bottom: 40px;
 }
 
@@ -1456,24 +1456,24 @@ section h2,
 #skill h2, 
 #work h2, 
 #contact h2 {
-    text-align: center !important;
+    text-align: center;
     width: 100%;
 }
 
 /* 2. セクション内のリード文（「私について」などの日本語部分） */
 section h2 + p,
 .profile-intro p {
-    text-align: center !important;
+    text-align: center;
     max-width: 700px; /* 読みやすい幅に制限 */
-    margin: 0 auto 40px !important; /* 中央に配置し、下に余白を作る */
+    margin: 0 auto 40px; /* 中央に配置し、下に余白を作る */
 }
 
 /* 3. CONCEPTセクションのメインテキスト */
 #concept .concept-text, 
 #concept p {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 4. SKILLセクションの導入文 */
@@ -1522,17 +1522,17 @@ section h2 + p,
 
 /* 1. はじめに（Introduction）の文章 */
 #introduction div p {
-  text-align: left !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 700px; /* 文章の横幅を制限して読みやすく */
 }
 
 /* 2. スキル（SKILL）の説明文 */
 .skill-item p {
-  text-align: left !important;
-  display: block !important;
+  text-align: left;
+  display: block;
   padding: 0 10px; /* 枠の端に文字がくっつかないように */
 }
 
@@ -1941,7 +1941,7 @@ section h2 + p,
 }
 .back-nav a:hover {
     background-color: var(--main-blue);
-    color: #fff !important;
+    color: #fff;
 }
 
 /* 3. メインロゴ（センター配置） */
