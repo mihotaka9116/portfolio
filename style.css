@@ -2485,3 +2485,88 @@ html {
     transform: translateY(-5px);
 }
 
+/* --- セクションタイトル共通設定 --- */
+/* 横並びを防ぎ、日本語サイズを適切にします */
+.section-title-area {
+  text-align: center;
+  margin-bottom: 60px;
+  display: block; /* 強制的にブロック要素にして横並びを防止 */
+  width: 100%;
+}
+
+/* 英語タイトル（メイン） */
+.section-title-area h2 {
+  display: block; /* 縦に並べる */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: var(--main-blue);
+  margin: 0 auto 5px;
+  text-transform: uppercase;
+}
+
+/* 日本語タイトル（サブ） */
+.section-title-area .subtitle {
+  display: block; /* 縦に並べる */
+  font-size: 1.1rem; /* 0.9remから少し大きくして読みやすく */
+  font-weight: bold;
+  color: var(--accent-gray);
+  letter-spacing: 0.2em;
+  margin-top: 5px;
+}
+
+/* --- フッター：コンセプトセクションと同じ色にする --- */
+#footer {
+    background-color: var(--light-gray); /* 背景色をコンセプトに合わせる */
+    color: var(--main-blue);             /* 文字は紺色に */
+    padding: 60px 0;
+    text-align: center;
+}
+
+#footer a, #footer p {
+    color: var(--main-blue);
+    text-decoration: none;
+}
+
+/* --- 上に戻るボタン：矢印の重複を解消 --- */
+/* クラス名 .back-to-top と ID名 #js-pagetop の両方に対応 */
+.back-to-top, 
+#js-pagetop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #4682b4; /* メインブルー */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color: #ffffff; /* 矢印の色 */
+}
+
+/* 疑似要素 ::before を使い、HTML側に「↑」が書いてあってもなくても1本にする */
+.back-to-top::before,
+#js-pagetop::before {
+    content: "↑";
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* もしHTML側に直接「↑」が書いてある場合は、そちらを非表示にする */
+.back-to-top span, 
+#js-pagetop a {
+    display: none; 
+}
+
+.back-to-top:hover,
+#js-pagetop:hover {
+    background-color: #2d4b69;
+    transform: translateY(-5px);
+}
+
