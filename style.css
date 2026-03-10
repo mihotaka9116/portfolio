@@ -2408,15 +2408,6 @@ html {
     text-decoration: none;
 }
 
-
-/* --- フッターの背景色をコンセプトと同じにする --- */
-#footer {
-    background-color: var(--light-gray); /* コンセプトセクションと同じ色 */
-    color: var(--main-blue); /* 文字色をメインブルーにして視認性を確保 */
-    padding: 60px 0;
-    text-align: center;
-}
-
 /* =================================================
    最終調整：フッターと上に戻るボタン
    ================================================== */
@@ -2556,9 +2547,3 @@ html {
     transform: translateY(-5px);
 }
 
-/* タイトルの下にある日本語のサブタイトル（もしあれば） */
-section h2 + p,
-.section-title + p {
-    text-align: center;
-    margin-bottom: 40px;
-}
