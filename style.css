@@ -2430,3 +2430,9 @@ html body .btn-common:hover {
 .image-wrap {
     background-color: #ffffff; 
 }
+
+html {
+    scroll-behavior: smooth;
+    /* ★重要：ヘッダーに隠れないように、到着位置を調整する */
+    scroll-padding-top: 70px; 
+}
