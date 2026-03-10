@@ -2407,12 +2407,6 @@ html body .btn-common:hover {
     border-color: #2d4b69;
 }
 
-/* 10. フッター の中にあるロゴ設定 */
-#footer .footer-logo img {
-    height: 15px; /* さらに小さく調整しました */
-    filter: brightness(0) invert(1);
-    margin-bottom: 20px;
-}
 
 /* 7. ABOUT の中にある skill-item:hover */
 .skill-item:hover {
@@ -2421,15 +2415,7 @@ html body .btn-common:hover {
     box-shadow: 0 10px 15px rgba(0,0,0,0.08); 
 }
 
-/* 8. WORK (実績) の section に背景色を追加 */
-#work {
-    background-color: #ffffff; /* 背景を白に */
-}
 
-/* もし画像自体の背景が透過していて黒く見える場合は、ここも追加 */
-.image-wrap {
-    background-color: #ffffff; 
-}
 
 html {
     scroll-behavior: smooth;
