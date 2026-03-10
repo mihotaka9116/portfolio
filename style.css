@@ -2484,3 +2484,53 @@ html {
     background-color: #222; /* フッター背景を暗くする場合 */
     padding: 60px 0 20px;
 }
+
+/* --- フッターの背景色をコンセプトと同じにする --- */
+#footer {
+    background-color: var(--light-gray); /* コンセプトセクションと同じ色 */
+    color: var(--main-blue); /* 文字色をメインブルーにして視認性を確保 */
+    padding: 60px 0;
+    text-align: center;
+}
+
+/* フッターのロゴサイズを再調整 */
+#footer .footer-logo img {
+    height: 35px; /* 小さすぎたので適度なサイズに */
+    filter: none; /* 背景が明るいので反転を解除 */
+    margin-bottom: 20px;
+}
+
+/* --- 上に戻るボタンのデザインと配置を完全に修正 --- */
+.back-to-top {
+    position: fixed;     /* 画面に対して固定 */
+    right: 30px;         /* 右から30px */
+    bottom: 30px;        /* 下から30px */
+    width: 60px;         /* ボタンの幅 */
+    height: 60px;        /* ボタンの高さ */
+    z-index: 9999;       /* 一番上に表示 */
+    
+    background-color: var(--main-blue); /* ボタンの色 */
+    color: #ffffff;      /* 矢印の色 */
+    border-radius: 50%;  /* 完全な円形 */
+    
+    display: flex;       /* 中の矢印を中央に寄せる */
+    justify-content: center;
+    align-items: center;
+    
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* 矢印（↑）の大きさ調整 */
+.back-to-top span, 
+.back-to-top::before {
+    content: "↑";        /* マークが消えている場合はここでも指定可能 */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.back-to-top:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-5px); /* ホバーで少し浮く */
+}
