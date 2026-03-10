@@ -2530,3 +2530,83 @@ html {
     background-color: #2d4b69;
     transform: translateY(-5px);
 }
+
+/* --- 上に戻るボタン：真ん中に配置 --- */
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #4682b4;
+    color: #ffffff !important;
+    border-radius: 50%;
+    
+    /* 真ん中に寄せるための設定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1; /* 行の高さを1にしてズレを防ぐ */
+    padding: 0;     /* 余計な隙間を消す */
+    
+    z-index: 9999;
+    text-decoration: none;
+    font-size: 24px; /* 矢印を少し大きく */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #2d4b69;
+    transform: translateY(-5px);
+}
+
+/* --- 上に戻るボタン：真ん中に配置 --- */
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #4682b4;
+    color: #ffffff !important;
+    border-radius: 50%;
+    
+    /* 真ん中に寄せるための設定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1; /* 行の高さを1にしてズレを防ぐ */
+    padding: 0;     /* 余計な隙間を消す */
+    
+    z-index: 9999;
+    text-decoration: none;
+    font-size: 24px; /* 矢印を少し大きく */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #2d4b69;
+    transform: translateY(-5px);
+}
+
+/* --- フッターロゴのサイズ調整 --- */
+#footer .footer-logo img {
+    width: 150px;  /* ここでお好みのサイズに調整してください */
+    height: auto;
+    margin: 0 auto 30px;
+    display: block;
+}
+
+/* フッター全体の配色（コンセプトと同じ） */
+#footer {
+    background-color: var(--light-gray);
+    color: var(--main-blue);
+    padding: 60px 0;
+    text-align: center;
+}
