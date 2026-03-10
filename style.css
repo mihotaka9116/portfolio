@@ -390,7 +390,4 @@ section {
   .career-item { flex-direction: column; gap: 5px; }
 }
 
-/* 全ページ共通：最初のコンテンツにだけヘッダー分の余白を作る */
-.first-content {
-    padding-top: 70px; /* ヘッダーの高さ(header-container)と同じにする */
-}
+
