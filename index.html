@@ -12,29 +12,28 @@
 </head>
 
 <body>
-   <header class="site-header">
-    <div class="header-container">
-        <h1 class="site-logo">
-            <a href="index.html">
-                <img src="logo.svg" alt="miho takahashi">
-            </a>
-        </h1>
-        <nav class="nav-menu" id="js-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#concept">Concept</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="index.html#work">Work</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger-menu" id="js-hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <header class="site-header">
+        <div class="header-container">
+            <h1 class="site-logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="miho takahashi">
+                </a>
+            </h1>
+            <nav class="nav-menu" id="js-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#concept">Concept</a></li>
+                    <li><a href="#about">About</a></li> <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu" id="js-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <div id="mainvisual">
         <div class="mainvisual-inner">
@@ -77,74 +76,92 @@
                 </div>
 
                 <div class="color-flex-box">
-                    <div class="swatch-item">
-                        <div class="color-ball c-rose"></div>
-                        <span class="color-code">#E296B5</span>
+                    <div class="swatch-item"><div class="color-ball c-rose"></div><span class="color-code">#E296B5</span></div>
+                    <div class="swatch-item"><div class="color-ball c-green"></div><span class="color-code">#99C35F</span></div>
+                    <div class="swatch-item"><div class="color-ball c-sky"></div><span class="color-code">#6FB2E3</span></div>
+                    <div class="swatch-item"><div class="color-ball c-mint"></div><span class="color-code">#A7D6CA</span></div>
+                    <div class="swatch-item"><div class="color-ball c-orange"></div><span class="color-code">#F38450</span></div>
+                    <div class="swatch-item"><div class="color-ball c-royal"></div><span class="color-code">#2D59A4</span></div>
+                </div>
+                <div class="color-details-table">
+                    <div class="detail-header">
+                        <div class="char-col">名称</div><div class="chip-col">色</div><div class="code-col">コード</div><div class="desc-col">デザインにおける意味</div>
                     </div>
-                    <div class="swatch-item">
-                        <div class="color-ball c-green"></div>
-                        <span class="color-code">#99C35F</span>
-                    </div>
-                    <div class="swatch-item">
-                        <div class="color-ball c-sky"></div>
-                        <span class="color-code">#6FB2E3</span>
-                    </div>
-                    <div class="swatch-item">
-                        <div class="color-ball c-mint"></div>
-                        <span class="color-code">#A7D6CA</span>
-                    </div>
-                    <div class="swatch-item">
-                        <div class="color-ball c-orange"></div>
-                        <span class="color-code">#F38450</span>
-                    </div>
-                    <div class="swatch-item">
-                        <div class="color-ball c-royal"></div>
-                        <span class="color-code">#2D59A4</span>
+                    <div class="detail-row"><div class="char-col">Rose</div><div class="chip-col"><span class="chip c-rose"></span></div><div class="code-col">#E296B5</div><div class="desc-col">温かみと親しみやすさ。優しい雰囲気を演出。</div></div>
+                    <div class="detail-row"><div class="char-col">Green</div><div class="chip-col"><span class="chip c-green"></span></div><div class="code-col">#99C35F</div><div class="desc-col">成長やフレッシュな印象。</div></div>
+                    <div class="detail-row"><div class="char-col">Sky</div><div class="chip-col"><span class="chip c-sky"></span></div><div class="code-col">#6FB2E3</div><div class="desc-col">誠実さと開放感。</div></div>
+                    <div class="detail-row"><div class="char-col">Mint</div><div class="chip-col"><span class="chip c-mint"></span></div><div class="code-col">#A7D6CA</div><div class="desc-col">清潔感とモダンな雰囲気。</div></div>
+                    <div class="detail-row"><div class="char-col">Orange</div><div class="chip-col"><span class="chip c-orange"></span></div><div class="code-col">#F38450</div><div class="desc-col">明るさとポジティブなエネルギー。</div></div>
+                    <div class="detail-row"><div class="char-col">Royal</div><div class="chip-col"><span class="chip c-royal"></span></div><div class="code-col">#2D59A4</div><div class="desc-col">知性とプロフェッショナルな信頼感。</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="js-fade-up" style="padding: 100px 0;">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="en">About</span>
+                    <span class="ja">私について</span>
+                </h2>
+                
+                <div style="max-width: 700px; margin: 40px auto; text-align: center; line-height: 2; padding: 0 20px;">
+                    <p style="font-size: 1.1rem; font-weight: bold; color: #2D59A4; text-align: center; margin-bottom: 20px;">
+                        「わかった！」という発見の喜びを、Web制作の力に。
+                    </p>
+                    <p>
+                        高校卒業後に遠野を離れ、多くの経験を積んできました。2025年6月に帰郷し、現在は遠野職業訓練校でWeb制作を学んでいます。<br>
+                        幼い頃に夢中で読んだ物語の世界観や、これまでの多様な経験から得た視点を大切にしながら、制作を行っています。
+                    </p>
+                </div>
+
+                <div id="story" style="margin-top: 80px;">
+                    <h3 class="section-title" style="font-size: 1.5rem;">Story</h3>
+                    <div class="career-timeline" style="margin-top: 40px;">
+                        <div class="career-item">
+                            <div class="career-date">物語の原点</div>
+                            <div class="career-content">
+                                <h4>「つくる」楽しさを教えてくれた絵本</h4>
+                                <p>沖縄で生まれ、岩手県遠野市の自然の中で育ちました。大好きだったのは『わかったさんのお菓子』シリーズ。ひょんなことから迷い込む不思議な世界、手順を追って魔法のように出来上がるお菓子たち。「レシピ通りに形にする楽しさ」への憧れは、この頃から始まりました。</p>
+                            </div>
+                        </div>
+                        <div class="career-item">
+                            <div class="career-date">学生時代</div>
+                            <div class="career-content">
+                                <h4>「動」のバレーボールと「静」の茶道</h4>
+                                <p>中学時代はバレーボールに打ち込み、粘り強く取り組む力を。高校では一転して茶道部に入り、細部まで気を配る「美意識」を学びました。「根気」と「丁寧さ」、この二つの経験がWeb制作の支えになっています。</p>
+                            </div>
+                        </div>
+                        <div class="career-item">
+                            <div class="career-date">2017 - 2025</div>
+                            <div class="career-content">
+                                <h4>対話から想いを汲み取る力</h4>
+                                <p>コールセンターでの実務を通じて、相手の「言葉にできないニーズ」を形にする大切さを学びました。現在は訓練校で、かつてのわかったさんのように「わかった！」という喜びを積み重ねながら、誰かの想いを可視化できるようなWeb制作を目指しています。</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="color-details-table">
-                    <div class="detail-header">
-                        <div class="char-col">名称</div>
-                        <div class="chip-col">色</div>
-                        <div class="code-col">コード</div>
-                        <div class="desc-col">デザインにおける意味</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="char-col">Rose</div>
-                        <div class="chip-col"><span class="chip c-rose"></span></div>
-                        <div class="code-col">#E296B5</div>
-                        <div class="desc-col">温かみと親しみやすさ。優しい雰囲気を演出。</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="char-col">Green</div>
-                        <div class="chip-col"><span class="chip c-green"></span></div>
-                        <div class="code-col">#99C35F</div>
-                        <div class="desc-col">成長やフレッシュな印象。</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="char-col">Sky</div>
-                        <div class="chip-col"><span class="chip c-sky"></span></div>
-                        <div class="code-col">#6FB2E3</div>
-                        <div class="desc-col">誠実さと開放感。</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="char-col">Mint</div>
-                        <div class="chip-col"><span class="chip c-mint"></span></div>
-                        <div class="code-col">#A7D6CA</div>
-                        <div class="desc-col">清潔感とモダンな雰囲気。</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="char-col">Orange</div>
-                        <div class="chip-col"><span class="chip c-orange"></span></div>
-                        <div class="code-col">#F38450</div>
-                        <div class="desc-col">明るさとポジティブなエネルギー。</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="char-col">Royal</div>
-                        <div class="chip-col"><span class="chip c-royal"></span></div>
-                        <div class="code-col">#2D59A4</div>
-                        <div class="desc-col">知性とプロフェッショナルな信頼感。</div>
+                <div id="skill" style="margin-top: 100px;">
+                    <h3 class="section-title" style="font-size: 1.5rem;">Skill</h3>
+                    <div class="skills-grid" style="margin-top: 40px;">
+                        <div class="skill-item">
+                            <div class="img"><img src="pen.svg" alt="Design"></div>
+                            <h3>Design</h3>
+                            <p>Illustrator / Figma</p>
+                            <p>IllustratorやFigmaを使用したWebデザインが可能です。</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="img"><img src="site.svg" alt="Coding"></div>
+                            <h3>Coding</h3>
+                            <p>HTML / CSS</p>
+                            <p>HTMLとCSSの基礎を学び終えました。レスポンシブなサイトを制作いたします。</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="img"><img src="file.svg" alt="JavaScript"></div>
+                            <h3>JavaScript</h3>
+                            <p>jQuery / JS</p>
+                            <p>JavaScriptを実装し、動きのあるサイトを制作いたします。</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,59 +173,29 @@
                     <span class="en">Work</span>
                     <span class="ja">実績</span>
                 </h2>
-                
                 <div class="goods-grid">
                     <div class="work-item">
-                        <a href="work.html" class="image-wrap">
-                            <img src="3-devices-goods.jpg" alt="LOGO GOODS">
-                        </a>
-                        <div class="work-text-content">
-                            <h3>Logo Goods</h3>
-                            <p>ロゴ展開・グッズ制作 / デザイン</p>
-                        </div>
+                        <a href="work.html" class="image-wrap"><img src="3-devices-goods.jpg" alt="LOGO GOODS"></a>
+                        <div class="work-text-content"><h3>Logo Goods</h3><p>ロゴ展開・グッズ制作 / デザイン</p></div>
                     </div>
-
                     <div class="work-item">
-                        <a href="https://mihotaka9116.github.io/creative/" class="image-wrap" target="_blank" rel="noopener noreferrer">
-                            <img src="3-devices-creative.jpg" alt="Creative & Colorful">
-                        </a>
-                        <div class="work-text-content">
-                            <h3>Creative & Colorful</h3>
-                            <p>Webサイト制作 / 自主制作</p>
-                        </div>
+                        <a href="https://mihotaka9116.github.io/creative/" class="image-wrap" target="_blank" rel="noopener noreferrer"><img src="3-devices-creative.jpg" alt="Creative & Colorful"></a>
+                        <div class="work-text-content"><h3>Creative & Colorful</h3><p>Webサイト制作 / 自主制作</p></div>
                     </div>
-
                     <div class="work-item">
-                        <a href="https://mihotaka9116.github.io/yamabudouami/" class="image-wrap" target="_blank" rel="noopener noreferrer">
-                            <img src="3-devices-yamabudou.jpg" alt="山葡萄のかごバッグ 遠野">
-                        </a>
-                        <div class="work-text-content">
-                            <h3>山葡萄のかごバッグ 遠野</h3>
-                            <p>Webサイト制作 / 自主制作</p>
-                        </div>
+                        <a href="https://mihotaka9116.github.io/yamabudouami/" class="image-wrap" target="_blank" rel="noopener noreferrer"><img src="3-devices-yamabudou.jpg" alt="山葡萄のかごバッグ 遠野"></a>
+                        <div class="work-text-content"><h3>山葡萄のかごバッグ 遠野</h3><p>Webサイト制作 / 自主制作</p></div>
                     </div>
-
                     <div class="work-item">
-                        <a href="https://mihotaka9116.github.io/moderncording/" class="image-wrap" target="_blank" rel="noopener noreferrer">
-                            <img src="3-devices-retreat.jpg" alt="Toho Modern Retreat">
-                        </a>
-                        <div class="work-text-content">
-                            <h3>Toho Modern Retreat</h3>
-                            <p>Webサイト制作 / 自主制作（架空）</p>
-                        </div> 
+                        <a href="https://mihotaka9116.github.io/moderncording/" class="image-wrap" target="_blank" rel="noopener noreferrer"><img src="3-devices-retreat.jpg" alt="Toho Modern Retreat"></a>
+                        <div class="work-text-content"><h3>Toho Modern Retreat</h3><p>Webサイト制作 / 自主制作（架空）</p></div>
                     </div>
-
                     <div class="work-item">
-                        <a href="https://mihotaka9116.github.io/mtshop/" class="image-wrap" target="_blank" rel="noopener noreferrer">
-                            <img src="3-devices-black studio.jpg" alt="Creative & Colorful AI">
-                        </a>
-                        <div class="work-text-content">
-                            <h3>Creative & Colorful (AI)</h3>
-                            <p>Webサイト制作 / 自主制作</p>
-                        </div>
+                        <a href="https://mihotaka9116.github.io/mtshop/" class="image-wrap" target="_blank" rel="noopener noreferrer"><img src="3-devices-black studio.jpg" alt="Creative & Colorful AI"></a>
+                        <div class="work-text-content"><h3>Creative & Colorful (AI)</h3><p>Webサイト制作 / 自主制作</p></div>
                     </div>
-                </div> 
-            </div> 
+                </div>
+            </div>
         </section>
 
         <section id="contact" class="js-fade-up">
@@ -219,23 +206,12 @@
                 </h2>
                 <div class="contact-form">
                     <form action="https://ssgform.com/s/rI0UaMqc0NXO" method="post">
-                        <div class="form-item">
-                            <label for="name">お名前</label>
-                            <input type="text" id="name" name="your-name" required>
-                        </div>
-                        <div class="form-item">
-                            <label for="email">メールアドレス</label>
-                            <input type="email" id="email" name="your-email" required>
-                        </div>
-                        <div class="form-item">
-                            <label for="message">メッセージ</label>
-                            <textarea id="message" name="your-message" placeholder="メッセージを入力してください" required></textarea>
-                        </div>
+                        <div class="form-item"><label for="name">お名前</label><input type="text" id="name" name="your-name" required></div>
+                        <div class="form-item"><label for="email">メールアドレス</label><input type="email" id="email" name="your-email" required></div>
+                        <div class="form-item"><label for="message">メッセージ</label><textarea id="message" name="your-message" placeholder="メッセージを入力してください" required></textarea></div>
                         <div class="form-item agreement-item">
                             <input type="checkbox" id="agreement" name="agreement" required>
-                            <label for="agreement">
-                                <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する
-                            </label>
+                            <label for="agreement"><a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する</label>
                         </div>
                         <button type="submit" class="submit-btn">送信する</button>
                     </form>
@@ -246,9 +222,7 @@
 
     <footer id="footer">
         <div class="inner wrapper">
-            <div class="footer-logo">
-                <img src="logo.svg" alt="miho takahashi">
-            </div>
+            <div class="footer-logo"><img src="logo.svg" alt="miho takahashi"></div>
             <div class="footer-link">
                 <a href="privacy.html" target="_blank" rel="noopener noreferrer">個人情報保護方針</a>
                 <a href="tokusho.html" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
@@ -256,9 +230,9 @@
             </div>
             <p class="copyright">©2026 Miho Takahashi</p>
         </div>
-        <div class="pagetop-area">
-            <a href="#" class="back-to-top">↑</a>
-        </div>
+        <div class="pagetop-area"><a href="#" class="back-to-top">↑</a></div>
     </footer>
-</body>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </body>
 </html>
