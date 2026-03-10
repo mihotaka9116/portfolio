@@ -803,7 +803,7 @@ main {
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* これでロゴは左、ナビは右に固定されます */
+    justify-content: space-between; /* ロゴは左、ナビは右 */
     align-items: center;
     height: 70px;
     padding: 0 20px;
@@ -2408,68 +2408,6 @@ html {
     text-decoration: none;
 }
 
-/* =================================================
-   最終調整：フッターと上に戻るボタン
-   ================================================== */
-
-/* --- フッターの文字を読みやすくする --- */
-#footer {
-    background-color: #2d4b69; /* 深い紺色 */
-    color: #ffffff;           /* 文字を真っ白に固定 */
-    padding: 60px 0;
-    text-align: center;
-}
-
-/* フッター内のすべての文字・リンク・コピーライトを白く強制 */
-#footer p, 
-#footer a, 
-#footer .copyright,
-#footer .footer-logo {
-    color: #ffffff;
-    opacity: 1;
-}
-
-/* --- 上に戻るボタン（↑）の重複と色の修正 --- */
-/* 2つある原因：::beforeとcontentの両方で↑を指定しているため、片方を消します */
-.back-to-top, 
-#js-pagetop {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: #4682b4; /* メインブルー */
-    color: #ffffff;           /* 矢印を白に */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* 矢印が白くなるように設定（真っ白になるのを防ぐ） */
-.back-to-top::before,
-#js-pagetop::before {
-    content: "↑";
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* aタグの中に直接「↑」が入っている場合は、before側を消して重複を防ぐ */
-.back-to-top span, 
-.back-to-top {
-    font-size: 20px;
-}
-
-/* ホバー時に真っ白にならないようにする */
-.back-to-top:hover,
-#js-pagetop:hover {
-    background-color: #333333; /* ホバー時は少し暗い色にする */
-    color: #ffffff;
-}
 
 /* --- セクションタイトル共通設定 --- */
 .section-title-area {
