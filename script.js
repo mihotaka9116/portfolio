@@ -58,3 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+$(function(){
+  // ページ内リンクをクリックした時の処理
+  $('a[href^="#"]').click(function(){
+    // クリックした要素のhref属性（#about など）を取得
+    var href= $(this).attr("href");
+    // 移動先を取得（# のみの場合は top、それ以外は対象要素）
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    // 移動先を数値（高さ）で取得
+    var position = target.offset().top - 70; // ヘッダーの高さ分（70px）引く
+    
+    // スムーズスクロール（速度 500ミリ秒）
+    $("html, body").animate({scrollTop:position}, 500, "swing");
+    
+    // スマホ用メニューが開いている場合は閉じる
+    $('#js-nav').removeClass('active');
+    $('#js-hamburger').removeClass('active');
+    
+    return false;
+  });
+});
