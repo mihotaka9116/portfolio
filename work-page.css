@@ -7,7 +7,6 @@
   --light-gray: #f4f7f9;
 }
 
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   color: var(--main-blue);
@@ -19,63 +18,65 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* =================================================
-   2. ヘッダー (PC・スマホ共通)
-   ================================================== */
+/* --- 統合ヘッダー設定 --- */
 .site-header {
-  position: fixed;
-  top: 0; left: 0; width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 2000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95); /* 少し濃くして文字を読みやすく */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 70px; /* ヘッダーの高さを固定 */
+    display: flex;
+    justify-content: space-between; /* ロゴを左、ナビを右 */
+    align-items: center;           /* ★上下中央をぴったり合わせる */
 }
 
+/* ロゴのサイズ調整（ここが重要！） */
 .site-logo {
-  display: flex;
-  align-items: center;
-  line-height: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.site-logo a {
+    display: block;
+    line-height: 0; /* 画像の周りの余計な隙間を消す */
 }
 
 .site-logo img {
-  height: 35px;
-  width: auto;
+    height: 35px; /* ★ここでロゴの大きさを自由に調整してください */
+    width: auto;
+    transition: opacity 0.3s;
 }
 
-/* ナビゲーション */
-.nav-menu { margin-left: auto; }
-.nav-menu ul { display: flex; gap: 35px; list-style: none; padding-left: 0; }
+.site-logo img:hover {
+    opacity: 0.7;
+}
+
+/* デスクトップ用ナビゲーション */
+.nav-menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
 .nav-menu a {
-  text-decoration: none;
-  color: var(--main-blue);
-  font-weight: bold;
-  font-size: 0.9rem;
-  position: relative;
-  padding-bottom: 5px;
-  transition: color 0.3s;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.3s;
 }
-
-.nav-menu a::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: 0;
-  width: 0; height: 2px;
-  background: var(--c-mint);
-  transition: width 0.3s;
-}
-
-.nav-menu a:hover { color: var(--dark-blue); }
-.nav-menu a:hover::after { width: 100%; }
 
 /* --- ハンバーガーメニュー（スマホ用） --- */
 .hamburger-menu {
@@ -178,34 +179,23 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 #concept .img img { border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
 /* --- 5. SKILL（アイコンの色と浮き上がり） --- */
-.skills-grid { 
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 40px; 
-    padding: 40px 0; 
-}
-
+.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 0; }
 .skill-item {
-    flex: 1; 
-    min-width: 200px; 
-    max-width: 250px; 
-    text-align: center;
-    padding: 30px 20px; /* 少し上下の余白を広げると影が綺麗に見えます */
-    border-radius: 15px; /* 角丸を少し強めると柔らかい印象に */
-    border: 1px solid #f0f0f0;
-    background-color: #fff; /* 背景白を明示 */
-    transition: all 0.4s ease; /* アニメーションを少しゆったりに */
-    
-    /* 初期状態の影：ごく薄く */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  flex: 1; min-width: 200px; max-width: 250px; text-align: center;
+  padding: 20px; border-radius: 10px; border: 1px solid #eee;
+  transition: all 0.3s ease;
 }
-
-/* ホバー時にふんわり浮かび上がる設定 */
+/* ホバー時に要素を10px浮かせて、パキッとした硬い影をつける */
 .skill-item:hover {
     transform: translateY(-10px);
-    /* 3番目の数値を 20px〜30px くらいにすると綺麗にぼけます */
-    box-shadow: 0 15px 30px rgba(70, 130, 180, 0.15); 
+    /* 3番目の数値を 0 にしてぼかしをなくす */
+    box-shadow: 0 10px 0 rgba(0,0,0,0.1); 
+}
+
+.skill-item img {
+  width: 40px; margin-bottom: 15px;
+  /* アイコンを文字色の青にする魔法のフィルタ */
+  filter: invert(49%) sepia(16%) saturate(1484%) hue-rotate(167deg) brightness(89%) contrast(85%);
 }
 
 /* --- 6. WORK --- */
@@ -746,7 +736,7 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.9);
-    z-index: 1200;
+    z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 少し影をつけて境界を出す */
 }
 
@@ -2416,23 +2406,3 @@ html body .btn-common:hover {
     color: #2d4b69;
     border-color: #2d4b69;
 }
-
-/* 12行目付近を以下に上書き */
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-    vertical-align: baseline; /* 画像や要素の微細な隙間を防ぐ */
-}
-
-body {
-    margin: 0; /* 念のため明示 */
-    padding: 0;
-    color: var(--main-blue);
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.8;
-    overflow-x: hidden;
-    -webkit-text-size-adjust: 100%; /* iPhoneでの文字サイズ勝手変更防止 */
-}
-
-
