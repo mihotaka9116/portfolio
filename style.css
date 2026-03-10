@@ -2436,3 +2436,51 @@ html {
     /* ★重要：ヘッダーに隠れないように、到着位置を調整する */
     scroll-padding-top: 70px; 
 }
+
+/* 10. フッター のロゴ設定 */
+#footer .footer-logo img {
+    height: 25px; /* 15pxから25pxに大きくしました */
+    margin-bottom: 20px;
+}
+
+/* ハンバーガーメニューが active の時の形 */
+#js-hamburger.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+#js-hamburger.active span:nth-child(2) {
+    opacity: 0; /* 真ん中の線を消す */
+}
+#js-hamburger.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+#js-pagetop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 100;
+}
+
+#js-pagetop a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333; /* ボタンの色 */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* フッターのSNSアイコンなどの色 */
+.footer-icon {
+    color: #ffffff; /* アイコンを白に */
+    font-size: 24px;
+}
+
+/* フッター自体の背景色が明るい場合は、アイコンを濃い色にしてください */
+#footer {
+    background-color: #222; /* フッター背景を暗くする場合 */
+    padding: 60px 0 20px;
+}
