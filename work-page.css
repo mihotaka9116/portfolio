@@ -179,23 +179,34 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
 #concept .img img { border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
 /* --- 5. SKILL（アイコンの色と浮き上がり） --- */
-.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 0; }
-.skill-item {
-  flex: 1; min-width: 200px; max-width: 250px; text-align: center;
-  padding: 20px; border-radius: 10px; border: 1px solid #eee;
-  transition: all 0.3s ease;
-}
-/* ホバー時に要素を10px浮かせて、パキッとした硬い影をつける */
-.skill-item:hover {
-    transform: translateY(-10px);
-    /* 3番目の数値を 0 にしてぼかしをなくす */
-    box-shadow: 0 10px 0 rgba(0,0,0,0.1); 
+.skills-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px; 
+    padding: 40px 0; 
 }
 
-.skill-item img {
-  width: 40px; margin-bottom: 15px;
-  /* アイコンを文字色の青にする魔法のフィルタ */
-  filter: invert(49%) sepia(16%) saturate(1484%) hue-rotate(167deg) brightness(89%) contrast(85%);
+.skill-item {
+    flex: 1; 
+    min-width: 200px; 
+    max-width: 250px; 
+    text-align: center;
+    padding: 30px 20px; /* 少し上下の余白を広げると影が綺麗に見えます */
+    border-radius: 15px; /* 角丸を少し強めると柔らかい印象に */
+    border: 1px solid #f0f0f0;
+    background-color: #fff; /* 背景白を明示 */
+    transition: all 0.4s ease; /* アニメーションを少しゆったりに */
+    
+    /* 初期状態の影：ごく薄く */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* ホバー時にふんわり浮かび上がる設定 */
+.skill-item:hover {
+    transform: translateY(-10px);
+    /* 3番目の数値を 20px〜30px くらいにすると綺麗にぼけます */
+    box-shadow: 0 15px 30px rgba(70, 130, 180, 0.15); 
 }
 
 /* --- 6. WORK --- */
