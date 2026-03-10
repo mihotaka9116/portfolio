@@ -2441,4 +2441,14 @@ body {
     margin-top: 0;
 }
 
+/* どのページでも、最初のセクションがヘッダーの裏に潜り込まないように調整 */
+#mainvisual, 
+.about-section { /* Aboutページの最初のセクションクラス名に合わせてください */
+    margin-top: 0;
+}
+
+/* 全ページ共通：最初のコンテンツにだけヘッダー分の余白を作る */
+.first-content {
+    padding-top: 70px; /* ヘッダーの高さ(header-container)と同じにする */
+}
 
