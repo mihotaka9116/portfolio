@@ -2406,3 +2406,21 @@ html body .btn-common:hover {
     color: #2d4b69;
     border-color: #2d4b69;
 }
+
+/* 12行目付近を以下に上書き */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    vertical-align: baseline; /* 画像や要素の微細な隙間を防ぐ */
+}
+
+body {
+    margin: 0; /* 念のため明示 */
+    padding: 0;
+    color: var(--main-blue);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%; /* iPhoneでの文字サイズ勝手変更防止 */
+}
