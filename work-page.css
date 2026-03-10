@@ -2436,3 +2436,59 @@ body {
 }
 
 
+.site-header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 2000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.site-logo img {
+  height: 35px;
+  width: auto;
+}
+
+/* ナビゲーション */
+.nav-menu { margin-left: auto; }
+.nav-menu ul { display: flex; gap: 35px; list-style: none; padding-left: 0; }
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 0.9rem;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 2px;
+  background: var(--c-mint);
+  transition: width 0.3s;
+}
+
+.nav-menu a:hover { color: var(--dark-blue); }
+.nav-menu a:hover::after { width: 100%; }
+
+
