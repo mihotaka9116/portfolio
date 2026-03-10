@@ -18,65 +18,63 @@ body {
 img { max-width: 100%; height: auto; vertical-align: bottom; }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-/* --- 統合ヘッダー設定 --- */
+/* =================================================
+   2. ヘッダー (PC・スマホ共通)
+   ================================================== */
 .site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95); /* 少し濃くして文字を読みやすく */
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 2000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .header-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 70px; /* ヘッダーの高さを固定 */
-    display: flex;
-    justify-content: space-between; /* ロゴを左、ナビを右 */
-    align-items: center;           /* ★上下中央をぴったり合わせる */
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
 }
 
-/* ロゴのサイズ調整（ここが重要！） */
 .site-logo {
-    display: flex;
-    align-items: center;
-    margin: 0;
-}
-
-.site-logo a {
-    display: block;
-    line-height: 0; /* 画像の周りの余計な隙間を消す */
+  display: flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .site-logo img {
-    height: 35px; /* ★ここでロゴの大きさを自由に調整してください */
-    width: auto;
-    transition: opacity 0.3s;
+  height: 35px;
+  width: auto;
 }
 
-.site-logo img:hover {
-    opacity: 0.7;
-}
-
-/* デスクトップ用ナビゲーション */
-.nav-menu ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+/* ナビゲーション */
+.nav-menu { margin-left: auto; }
+.nav-menu ul { display: flex; gap: 35px; list-style: none; padding-left: 0; }
 
 .nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: color 0.3s;
+  text-decoration: none;
+  color: var(--main-blue);
+  font-weight: bold;
+  font-size: 0.9rem;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
 }
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 2px;
+  background: var(--c-mint);
+  transition: width 0.3s;
+}
+
+.nav-menu a:hover { color: var(--dark-blue); }
+.nav-menu a:hover::after { width: 100%; }
 
 /* --- ハンバーガーメニュー（スマホ用） --- */
 .hamburger-menu {
