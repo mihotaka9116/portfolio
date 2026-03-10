@@ -2583,3 +2583,36 @@ html {
     background-color: #333333; /* ホバー時は少し暗い色にする */
     color: #ffffff;
 }
+
+/* --- セクションタイトル共通設定 --- */
+.section-title-area {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* 英語タイトル（メイン） */
+.section-title-area h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: var(--main-blue);
+  margin-bottom: 5px; /* 日本語との距離 */
+  text-transform: uppercase; /* 強制的に大文字にする場合 */
+}
+
+/* 日本語タイトル（サブ） */
+.section-title-area .subtitle {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--accent-gray);
+  letter-spacing: 0.2em;
+}
+
+/* --- WORKセクションのテキスト中央寄せ --- */
+#work .work-content,
+#work .image-wrap + p,
+.goods-grid p {
+  text-align: center;
+  margin-top: 15px;
+}
