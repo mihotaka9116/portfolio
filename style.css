@@ -215,31 +215,7 @@ img { max-width: 100%; height: auto; vertical-align: bottom; }
   margin-top: 80px;
 }
 
-/* フッター内のリンク（プライバシーポリシーなど）も白くする */
-#footer a {
-  color: #ffffff;
-  text-decoration: none;
-  opacity: 0.8;
-  transition: 0.3s;
-}
 
-#footer a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-/* フッターのロゴ（tlogo.svg）を白く反転させる場合 */
-#footer .logo img {
-  filter: brightness(0) invert(1);
-  width: 100px;
-  margin-bottom: 20px;
-}
-
-/* コピーライトの文字色調整 */
-.copyright {
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 20px;
-}
 /* --- CONTACTセクション全体 --- */
 #contact {
   padding: 80px 0;
@@ -816,11 +792,6 @@ img.logo { /* ロゴのクラス名に合わせて変更してください */
     opacity: 0.6; /* マウスを乗せた時にふわっとさせる */
 }
 
-/* 今見ているページの強調（about.htmlではABOUTに class="current" を付与） */
-.nav-menu a.current {
-    border-bottom: 2px solid var(--main-blue); /* 下線をつけて強調 */
-    padding-bottom: 4px;
-}
 
 /* メインコンテンツがヘッダーに隠れないようにする */
 main {
@@ -1518,8 +1489,6 @@ section h2 + p,
   padding: 0 10px; /* スマホで端がくっつかないように */
 }
 
-/* --- 強制的に左寄せにする設定 --- */
-
 /* 1. はじめに（Introduction）の文章 */
 #introduction div p {
   text-align: left;
@@ -1535,9 +1504,6 @@ section h2 + p,
   display: block;
   padding: 0 10px; /* 枠の端に文字がくっつかないように */
 }
-
-/* スキルのタイトルも左にする場合は以下を追加（中央のままなら不要です） */
-/* .skill-item h3 { text-align: left !important; padding-left: 10px; } */
 
 /* =================================================
    WORK詳細ページ (Goods) 専用スタイル
