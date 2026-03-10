@@ -2434,33 +2434,4 @@ body {
     -webkit-text-size-adjust: 100%; /* iPhoneでの文字サイズ勝手変更防止 */
 }
 
-.header-container {
-    display: flex; /* 横並びにする */
-    justify-content: space-between; /* ロゴを左、ナビを右に */
-    align-items: center; /* ★重要：これがないと上下がズレます */
-    height: 70px; /* ヘッダーの高さ */
-    padding: 0 40px; /* 左右の余白 */
-}
 
-/* ロゴの余白リセット */
-.site-logo {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center; /* ロゴ画像を中央に */
-}
-
-/* ナビゲーションの余白リセット */
-.nav-menu ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    align-items: center; /* ナビの文字を中央に */
-}
-
-.site-logo img {
-    height: 30px; /* ロゴの高さをお好みに調整 */
-    width: auto;
-    vertical-align: middle; /* ★重要：画像の下の隙間を消す */
-}
