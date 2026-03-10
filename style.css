@@ -2610,3 +2610,69 @@ html {
     padding: 60px 0;
     text-align: center;
 }
+
+/* ===========================================
+   6. WORKセクション（実績リスト）テキスト中央寄せ
+   =========================================== */
+#work .goods-grid {
+    display: grid;
+    /* 画面幅に合わせて自動調整。1行に3枚並ぶ設定 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.work-item {
+    text-align: center; /* ★アイテム全体の中身（テキスト）を中央寄せに */
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* 画像の枠 */
+.work-item .image-wrap {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: #f8f8f8;
+    margin-bottom: 15px; /* 画像とテキストの距離 */
+    display: block; /* リンク全体をブロック要素に */
+}
+
+.work-item .image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 比率を維持してトリミング */
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* テキスト部分（h3 と p を囲むdiv） */
+.work-text-content {
+    display: block;
+    width: 100%;
+    padding: 0 10px; /* スマホで端がくっつかないように */
+}
+
+/* 作品タイトル（Logo Goods など） */
+.work-text-content h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--main-blue);
+    margin-bottom: 5px;
+    text-align: center; /* ★h3単体でも中央寄せを保証 */
+}
+
+/* 作品の説明（ロゴ展開・グッズ制作 など） */
+.work-text-content p {
+    font-size: 0.9rem;
+    color: var(--accent-gray);
+    margin: 0;
+    text-align: center; /* ★p単体でも中央寄せを保証 */
+}
+
+/* ホバー演出 */
+.work-item:hover .image-wrap img {
+    transform: scale(1.05);
+}
