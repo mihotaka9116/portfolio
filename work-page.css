@@ -2406,3 +2406,34 @@ html body .btn-common:hover {
     color: #2d4b69;
     border-color: #2d4b69;
 }
+
+/* --- セクションタイトルの装飾（棒線） --- */
+section h2, 
+#concept h2, 
+#story h2, 
+#skill h2, 
+#work h2, 
+#contact h2 {
+    text-align: center;
+    position: relative;      /* 棒線の位置の基準にする */
+    padding-bottom: 15px;    /* 文字と線の間の余白 */
+    margin-bottom: 30px;     /* 線と下のコンテンツの間の余白 */
+}
+
+/* 棒線本体の設定 */
+section h2::after,
+#concept h2::after,
+#story h2::after,
+#skill h2::after,
+#work h2::after,
+#contact h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;               /* 一番下に配置 */
+    left: 50%;               /* 左から50%の位置へ */
+    transform: translateX(-50%); /* 自分の幅の半分だけ左に戻して中央寄せ */
+    width: 50px;             /* 線の長さ（お好みで調整） */
+    height: 3px;             /* 線の太さ */
+    background-color: var(--main-blue); /* 線の色（メインの青） */
+    border-radius: 2px;      /* 角を少し丸く */
+}
