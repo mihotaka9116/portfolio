@@ -2854,13 +2854,12 @@ body {
   font-weight: 700;
   font-size: 1.2rem;
   margin-bottom: 20px;
-  border-left: 4px solid #D87299; /* 左側に縦線を入れてアクセントに */
   padding-left: 15px;
 }
 
 /* Aboutセクションのキャッチコピー */
 .catchphrase {
-  font-size: 1.6rem; /* 元より一回り大きく */
+  font-size: 1.4rem; /* 元より一回り大きく */
   font-weight: 700;
   line-height: 1.5;
   color: #2b2b2b;   /* 読みやすい濃いグレー */
