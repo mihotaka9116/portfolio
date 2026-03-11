@@ -2848,3 +2848,28 @@ body {
     margin-top: 10px;
     letter-spacing: 0.05em;
 }
+
+.design-description {
+  color: #D87299; /* 落ち着いたローズピンク */
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  border-left: 4px solid #D87299; /* 左側に縦線を入れてアクセントに */
+  padding-left: 15px;
+}
+
+/* Aboutセクションのキャッチコピー */
+.catchphrase {
+  font-size: 1.6rem; /* 元より一回り大きく */
+  font-weight: 700;
+  line-height: 1.5;
+  color: #2b2b2b;   /* 読みやすい濃いグレー */
+  margin-bottom: 30px;
+  display: block;   /* 一行でしっかり見せる */
+}
+
+@media (max-width: 768px) {
+  .catchphrase {
+    font-size: 1.3rem; /* スマホでは少し調整 */
+  }
+}
