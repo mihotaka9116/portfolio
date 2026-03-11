@@ -2859,7 +2859,7 @@ body {
 
 /* Aboutセクションのキャッチコピー */
 .catchphrase {
-  font-size: 1.4rem; /* 元より一回り大きく */
+  font-size: 1.2rem; /* 元より一回り大きく */
   font-weight: 500;
   line-height: 1.5;
   color: #D87299;   /* 読みやすい濃いグレー */
