@@ -2811,3 +2811,23 @@ section {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15); /* メインブルー系の影で統一感 */
 }
+
+/* bodyをFlexboxにして、中身を縦に並べる */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 画面の高さ分を最低限確保する */
+  margin: 0;
+}
+
+/* メインコンテンツを自動で伸ばして、フッターを押し下げる */
+main {
+  flex: 1;
+}
+
+/* フッター自体の設定（再確認） */
+#footer {
+  width: 100%;
+  background-color: #2d4b69;
+  /* margin-top: 80px; はそのままでも、mainのflex:1が優先されます */
+}
