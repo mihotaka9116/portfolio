@@ -2676,3 +2676,42 @@ html {
 .work-item:hover .image-wrap img {
     transform: scale(1.05);
 }
+
+/* --- セクションタイトル共通 (En / Ja) --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title .en {
+    display: block;
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--main-blue);
+    text-transform: uppercase; /* 大文字に強制 */
+    line-height: 1;
+}
+
+.section-title .ja {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent-gray); /* 日本語は少し控えめな色に */
+    letter-spacing: 0.2em;
+}
+
+/* タイトルの下に短い線を引く場合（お好みで） */
+.section-title::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: var(--main-blue);
+    margin-top: 15px;
+}
