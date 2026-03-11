@@ -2437,3 +2437,23 @@ section h2::after,
     background-color: var(--main-blue); /* 線の色（メインの青） */
     border-radius: 2px;      /* 角を少し丸く */
 }
+
+/* bodyをFlexboxにして、中身を縦に並べる */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 画面の高さ分を最低限確保する */
+  margin: 0;
+}
+
+/* メインコンテンツを自動で伸ばして、フッターを押し下げる */
+main {
+  flex: 1;
+}
+
+/* フッター自体の設定（再確認） */
+#footer {
+  width: 100%;
+  background-color: #2d4b69;
+  /* margin-top: 80px; はそのままでも、mainのflex:1が優先されます */
+}
