@@ -2766,3 +2766,48 @@ section {
 #skill, #story {
     padding: 120px 0;
 }
+
+/* --- リード文（キャッチコピー）のセンター配置 --- */
+.lead-message {
+    text-align: center; /* テキストを中央寄せ */
+    max-width: 800px;   /* 読みやすい幅 */
+    margin: 0 auto 60px; /* ブロック自体を中央に寄せ、下に余白を作る */
+}
+
+.highlight-text {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--main-blue);
+    margin-bottom: 20px;
+    /* 「わかった！」を際立たせる */
+    letter-spacing: 0.05em;
+}
+
+/* --- SKILLセクション全体の背景（白ボックスを際立たせるため少しグレーに） --- */
+#skill {
+    background-color: #f8fabb; /* 既存の表の見出し色などに合わせるか、#f4f7f9 などがおすすめ */
+    padding: 120px 0;
+}
+
+/* --- スキルカードのデザイン修正 --- */
+.skill-item {
+    background-color: #ffffff; /* ボックスを白にする */
+    border: none;             /* 枠線を消す */
+    border-radius: 15px;      /* 角を丸くして柔らかい印象に */
+    padding: 40px 20px;
+    
+    /* 柔らかい影（ふわっと浮いた感じ） */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+/* ホバー時にさらに浮かせる演出 */
+.skill-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15); /* メインブルー系の影で統一感 */
+}
