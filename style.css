@@ -2732,3 +2732,37 @@ html {
 .skills-grid {
     margin-top: 20px; /* タイトルとの間隔を調整 */
 }
+
+/* --- セクションタイトル共通の修正 --- */
+.section-title .en {
+    display: block;
+    font-size: 2rem; /* 2.5remから一回り小さく調整 */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--main-blue);
+    
+    /* 最初だけ大文字、後は小文字にする魔法の指定 */
+    text-transform: capitalize; 
+    
+    line-height: 1.2;
+}
+
+.section-title .ja {
+    display: block;
+    font-size: 0.8rem; /* 日本語も少し小さくしてバランスを調整 */
+    font-weight: bold;
+    color: var(--accent-gray);
+    letter-spacing: 0.15em;
+    margin-top: 5px;
+}
+
+/* --- セクションごとの余白設定 --- */
+section {
+    padding: 120px 0; /* 上下の余白を80pxから120pxに広げました */
+}
+
+/* もし特定のセクション（背景色がある場所など）だけ調整したい場合 */
+#skill, #story {
+    padding: 120px 0;
+}
