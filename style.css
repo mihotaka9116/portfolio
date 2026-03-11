@@ -2860,9 +2860,9 @@ body {
 /* Aboutセクションのキャッチコピー */
 .catchphrase {
   font-size: 1.4rem; /* 元より一回り大きく */
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.5;
-  color: #2b2b2b;   /* 読みやすい濃いグレー */
+  color: #D87299;   /* 読みやすい濃いグレー */
   margin-bottom: 30px;
   display: block;   /* 一行でしっかり見せる */
 }
