@@ -2715,3 +2715,20 @@ html {
     background-color: var(--main-blue);
     margin-top: 15px;
 }
+
+/* Storyセクションのタイトル周り */
+#story {
+    padding: 100px 0;
+    background-color: #fff; /* 背景を白にして清潔感を */
+}
+
+/* Skillセクションのタイトル周り */
+#skill {
+    padding: 100px 0;
+    background-color: var(--light-gray); /* スキルは少し色をつけて区切りを出す */
+}
+
+/* すでにある .skills-grid などの余白を調整 */
+.skills-grid {
+    margin-top: 20px; /* タイトルとの間隔を調整 */
+}
