@@ -2873,22 +2873,3 @@ body {
   }
 }
 
-/* --- CONCEPT（コンセプト）セクションの文章 --- */
-#concept p, 
-#concept .concept-text {
-    text-align: left;       /* 文字は左揃え */
-    max-width: 650px;      /* 読みやすい幅に制限 */
-    margin-left: auto;     /* 左右中央寄せ */
-    margin-right: auto;
-    padding: 0 20px;       /* スマホ時の余白 */
-    display: block;        /* 幅の指定を有効にする */
-}
-
-/* --- ABOUTページ：冒頭の紹介文 --- */
-.profile-intro p {
-    text-align: left;       /* 文字は左揃え */
-    max-width: 600px;      /* コンセプトより少し絞ると特別感が出ます */
-    margin-left: auto;     /* 左右中央寄せ */
-    margin-right: auto;
-    padding: 0 20px;
-}
