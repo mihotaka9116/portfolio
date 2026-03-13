@@ -2457,3 +2457,20 @@ main {
   background-color: #2d4b69;
   /* margin-top: 80px; はそのままでも、mainのflex:1が優先されます */
 }
+
+/* ボタンの基本設定（例） */
+.btn-common {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid #333; /* 枠線の色 */
+    background-color: transparent;
+    color: #333; /* 通常時の文字色 */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* ホバー時の設定を修正 */
+.btn-common:hover {
+    background-color: #333; /* 背景を黒（またはブランドカラー）にする */
+    color: #fff;            /* 文字色を白にする（これで消えない！） */
+}
