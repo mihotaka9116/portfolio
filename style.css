@@ -2873,3 +2873,23 @@ body {
   }
 }
 
+/* 戻るボタン（通常時） */
+.back-home {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 10px 30px;
+    border: 2px solid var(--main-blue); /* 枠線を少し太くすると見やすいです */
+    color: var(--main-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    background-color: transparent; /* 背景は透明 */
+    transition: 0.3s;
+}
+
+/* 戻るボタン（ホバー時）★ここを修正 */
+.back-home:hover {
+    background-color: var(--main-blue); /* 背景を青くする */
+    color: #ffffff;                    /* 文字を「白」にする（これで消えません！） */
+    transform: translateY(-3px);       /* 少し上に浮かせるとボタンらしくなります */
+    box-shadow: 0 4px 10px rgba(70, 130, 180, 0.3); /* 軽い影を追加 */
+}
