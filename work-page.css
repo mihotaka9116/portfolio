@@ -2462,19 +2462,28 @@ main {
   /* margin-top: 80px; はそのままでも、mainのflex:1が優先されます */
 }
 
-/* ボタンの基本設定（例） */
-.btn-common {
+/* --- 戻るボタンの修正：真っ白になるのを防ぐ --- */
+
+/* 1. 通常時のスタイル */
+.btn-common, .back-home, .back-nav a {
     display: inline-block;
-    padding: 10px 25px;
-    border: 1px solid #333; /* 枠線の色 */
-    background-color: transparent;
-    color: #333; /* 通常時の文字色 */
+    padding: 12px 35px;
+    border: 2px solid var(--main-blue); /* 枠線：紺色 */
+    color: var(--main-blue);             /* 文字色：紺色 */
     text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color: transparent;      /* 背景：透明 */
     transition: all 0.3s ease;
+    text-align: center;
 }
 
-/* ホバー時の設定を修正 */
-.btn-common:hover {
-    background-color: #333; /* 背景を黒（またはブランドカラー）にする */
-    color: #fff;            /* 文字色を白にする（これで消えない！） */
+/* 2. ホバー（マウスを乗せた時）のスタイル */
+.btn-common:hover, .back-home:hover, .back-nav a:hover {
+    background-color: var(--main-blue) !important; /* 背景：紺色（!importantで強制適用） */
+    color: #ffffff !important;                   /* 文字色：白色（!importantで白を維持） */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(45, 75, 105, 0.2);
+    text-decoration: none;
 }
