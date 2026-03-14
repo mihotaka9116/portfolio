@@ -1145,8 +1145,8 @@ main {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 3px solid #fff;
-    box-shadow: 0 0 0 3px var(--main-blue);
+    outline: 3px solid #fff;
+    outline-offset: 3px;
   }
 
   .career-content p {
@@ -1205,7 +1205,8 @@ main {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 3px solid #fff;
+    outline: 3px solid #fff;
+    outline-offset: 3px;
     z-index: 10;
     transition: transform 0.3s ease;
   }
