@@ -481,10 +481,29 @@ main {
   padding: 60px 20px;
 }
 
-/* 各アイコン画像の割り当て */
-.career-item:nth-child(1)::before { background-image: url("cupcake.svg"); }
-.career-item:nth-child(2)::before { background-image: url("tyaki.svg"); }
-.career-item:nth-child(3)::before { background-image: url("woman.svg"); }
+/* 各アイコン：背景色・画像・日付カラーをセットで指定 */
+/* アイコン画像の割り当て & 背景色 */
+.career-item:nth-child(1)::before {
+  background-image: url("cupcake.svg");
+  background-color: #d8f0d8; /* グリーン系 */
+}
+.career-item:nth-child(2)::before {
+  background-image: url("tyaki.svg");
+  background-color: #fde8d8; /* オレンジ系 */
+}
+.career-item:nth-child(3)::before {
+  background-image: url("woman.svg");
+  background-color: #f5ead8; /* ベージュ系 */
+}
+
+/* アイコン画像をhue-rotateで色変換（元色がオレンジ系のため） */
+/* ※ SVGをimgタグで使う場合はこちらは不要。背景画像への filter は効かないため
+     アイコン色の変更はSVGファイル側、またはimgタグのfilterで対応ください */
+
+/* 日付カラー */
+.career-item:nth-child(1) .career-date { color: var(--green); }
+.career-item:nth-child(2) .career-date { color: var(--orange); }
+.career-item:nth-child(3) .career-date { color: #c8a97a; }
 
 /* 日付ラベル */
 .career-date {
@@ -1134,10 +1153,12 @@ main {
     width: 100px;
     height: 100px;
     margin-bottom: 20px;
-    background-size: contain;
+    border-radius: 50%;
+    background-size: 65%;
     background-position: center;
     background-repeat: no-repeat;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    border: 3px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
 
   .career-content p {
@@ -1191,11 +1212,13 @@ main {
     top: -10px;
     width: 80px;
     height: 80px;
-    background-color: transparent;
-    background-size: contain;
+    border-radius: 50%;
+    background-color: #fff;
+    background-size: 65%;
     background-position: center;
     background-repeat: no-repeat;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border: 3px solid #fff;
     z-index: 10;
     transition: transform 0.3s ease;
   }
