@@ -1247,3 +1247,10 @@ main {
   width: 22px;
   height: 22px;
 }
+
+.github-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;        /* 追加：縮まないよう固定 */
+  display: inline-block; /* 追加 */
+}
