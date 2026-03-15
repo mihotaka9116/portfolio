@@ -1214,3 +1214,36 @@ main {
     transform: scale(1.1);
   }
 }
+
+/* GitHub リンク */
+.github-link-wrap {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 40px;
+  border: 2px solid var(--main-blue);
+  border-radius: 50px;
+  color: var(--main-blue);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.github-btn:hover {
+  background-color: var(--main-blue);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(70, 130, 180, 0.3);
+}
+
+.github-icon {
+  width: 22px;
+  height: 22px;
+}
