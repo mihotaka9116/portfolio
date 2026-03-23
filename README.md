@@ -2,11 +2,11 @@
 職業訓練校での制作物をまとめたポートフォリオサイトです。
 
 ## 🔗 URL
-[サイトのURLをここに貼る]
+[https://mihotaka9116.github.io/portfolio/]
 
 ## 🛠 使用技術
 - **言語:** HTML, CSS, JavaScript
-- **ツール:** Figma (デザイン)Illustrator
+- **ツール:** Figma、Illustrator
 - **公開環境:** GitHub Pages
 
 ## 📂 掲載している主な作品
