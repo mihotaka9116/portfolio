@@ -210,13 +210,28 @@
                       <div class="work-item">
     
     <div class="work-item">
-    <div class="image-wrap cursor-pointer" onclick="openWorkModal('3-devices-blancrecipe.png', 'Blanc\'s Recipe', 'Webサイト制作 / 自主制作')">
+    <div class="image-wrap cursor-pointer" onclick="openWorkModal('3-devices-blancrecipe.png', 'Blanc\'s Recipe', 'Webサイト制作 / 自主制作', 'https://mihotaka9116.github.io/blancrecipe/')">
         <img src="blancpc.png" alt="Blanc's Recipe"> 
         <div class="hover-mask">Click to View Details</div>
     </div>
     <div class="work-text-content">
         <h3>Blanc's Recipe</h3>
         <p>Webサイト制作 / 自主制作</p>
+    </div>
+</div>
+
+<div id="work-detail-modal" class="work-modal" style="display: none;">
+    <div class="modal-overlay" onclick="closeWorkModal()"></div>
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeWorkModal()">×</button>
+        <div class="modal-body">
+            <img id="modal-img" src="" alt="詳細画像">
+            <div class="modal-text">
+                <h3 id="modal-title"></h3>
+                <p id="modal-desc"></p>
+                <a id="modal-link" href="" target="_blank" rel="noopener noreferrer" class="view-site-btn">Visit Site</a>
+            </div>
+        </div>
     </div>
 </div>
            
