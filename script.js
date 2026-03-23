@@ -79,3 +79,21 @@ $(function(){
     return false;
   });
 });
+
+function openWorkModal(imgSrc, title, desc) {
+    $('#modal-img').attr('src', imgSrc);
+    $('#modal-title').text(title);
+    $('#modal-desc').text(desc);
+    $('#work-detail-modal').css('display', 'flex');
+    $('body').css('overflow', 'hidden'); // 背後のスクロールを止める
+}
+
+function closeWorkModal() {
+    $('#work-detail-modal').hide();
+    $('body').css('overflow', 'auto');
+}
+
+// エスケープキーでも閉じられるようにする（親切設計）
+$(document).keydown(function(e) {
+    if (e.keyCode == 27) closeWorkModal();
+});
