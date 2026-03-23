@@ -1349,3 +1349,26 @@ main {
     height: auto;
     margin-bottom: 20px;
 }
+
+/* サイトへ飛ぶボタンのデザイン */
+.view-site-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #E296B5; /* ローズピンク */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 25px; 
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.view-site-btn:hover {
+    background-color: #2D59A4;
+    transform: translateY(-2px); /* 少し浮き上がる演出 */
+}
+
+.modal-link-area {
+    text-align: center; 
+    margin-top: 15px;
+}
