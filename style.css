@@ -469,7 +469,7 @@ main {
 
 
 /* =================================================
-  10. Story（タイムライン）セクション
+  10. Storyセクション
    ================================================== */
 #story {
   background-color: #fff;
@@ -1246,11 +1246,6 @@ main {
 .github-icon {
   width: 22px;
   height: 22px;
-}
-
-.github-icon {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;        /* 追加：縮まないよう固定 */
-  display: inline-block; /* 追加 */
+  flex-shrink: 0;        /* 縮まないよう固定 */
+  display: inline-block; 
 }
