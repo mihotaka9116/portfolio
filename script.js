@@ -93,7 +93,24 @@ function closeWorkModal() {
     $('body').css('overflow', 'auto');
 }
 
-// エスケープキーでも閉じられるようにする（親切設計）
+// エスケープキーでも閉じられるようにする
 $(document).keydown(function(e) {
     if (e.keyCode == 27) closeWorkModal();
 });
+
+function openWorkModal(imgSrc, title, desc, siteUrl) {
+    // 各要素に中身をセット
+    $('#modal-img').attr('src', imgSrc);
+    $('#modal-title').text(title);
+    $('#modal-desc').text(desc);
+    $('#modal-link').attr('href', siteUrl); // リンク先をセット
+
+    // モーダルを表示
+    $('#work-detail-modal').fadeIn(300).css('display', 'flex');
+    $('body').css('overflow', 'hidden'); // 
+}
+
+function closeWorkModal() {
+    $('#work-detail-modal').fadeOut(300);
+    $('body').css('overflow', ''); // 
+}
