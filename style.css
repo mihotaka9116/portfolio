@@ -1326,3 +1326,26 @@ main {
 .image-wrap:hover .hover-mask {
     opacity: 1;
 }
+
+.view-site-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #E296B5; 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.view-site-btn:hover {
+    opacity: 0.8;
+}
+
+/* モーダル内の画像サイズ調整 */
+#modal-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
