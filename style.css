@@ -453,10 +453,15 @@ main {
    9. About セクション
    ================================================== */
 .lead-message {
-  text-align: center;
   max-width: 800px;
   margin: 0 auto 60px;
+  margin: 30px auto;
+  text-align: left;
+  line-height: 2;
+  padding: 0 10px;
 }
+
+
 
 .catchphrase {
   font-size: 1.2rem;
