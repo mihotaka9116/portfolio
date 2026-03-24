@@ -1341,4 +1341,32 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* コンセプト下のグッズ紹介エリア */
+.concept-work-intro {
+    margin-top: 60px; /* テーブルとの間隔 */
+    text-align: center;
+}
+
+.goods-lead {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* 単体で置く時のサイズ調整 */
+.concept-goods-item {
+    max-width: 600px; /* 横に広がりすぎないように制限 */
+    margin: 0 auto;   /* 中央寄せ */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* スマホでは横幅いっぱいにする */
+@media (max-width: 768px) {
+    .concept-goods-item {
+        max-width: 100%;
+    }
+}
+
 
