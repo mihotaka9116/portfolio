@@ -1250,5 +1250,88 @@ main {
   display: inline-block; 
 }
 
+/* =================================================
+   Workセクション（実績）
+================================================= */
+
+/* 1. グリッド全体の設定 */
+.goods-grid {
+    display: grid;
+    /* PCでは4列、または5列にする（3列から変更） */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* 余白を広く取る (上下 左右) */
+    gap: 40px 30px;
+    margin-top: 60px;
+}
+
+/* 2. 各作品アイテムの調整 */
+.work-item {
+    /* 全体を少し小ぶりに見せるための調整 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* マウスホバー時に少し浮くアニメーションで「軽さ」を出す */
+.work-item:hover {
+    transform: translateY(-5px);
+}
+
+/* 3. 画像を囲むaタグ（.image-wrap）の装飾 */
+.work-item .image-wrap {
+    display: block;
+    border-radius: 8px; /* 角丸にして柔らかく */
+    overflow: hidden; /* 角丸からはみ出た画像を隠す */
+    /* 薄い影をつけて、ベタっとした印象をなくす */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* 1:1の正方形に統一する（画像の比率がバラバラでも綺麗に見せる） */
+    aspect-ratio: 1 / 1;
+}
+
+/* 4. 画像自体の設定 */
+.work-item .image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 正方形枠に収まるようにトリミング */
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時に画像だけ少し拡大 */
+.work-item:hover .image-wrap img {
+    transform: scale(1.05);
+}
+
+/* 5. テキスト部分の調整（小さく、薄く） */
+.work-text-content {
+    margin-top: 15px;
+    text-align: center; /* 中央揃えに */
+}
+
+.work-text-content h3 {
+    font-size: 1.4rem; /* フォントサイズを小さく */
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.work-text-content p {
+    font-size: 1.2rem; /* さらに小さく */
+    color: #777; /* 色を薄くして存在感を下げる */
+    margin: 0;
+}
+
+/* 6. スマートフォン用の調整（SPでは2列にする） */
+@media screen and (max-width: 767px) {
+    .goods-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2列 */
+        gap: 20px 15px; /* 余白を狭く */
+    }
+
+    .work-text-content h3 {
+        font-size: 1.3rem;
+    }
+    .work-text-content p {
+        font-size: 1.1rem;
+    }
+}
+
 
 
