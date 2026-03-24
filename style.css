@@ -771,39 +771,39 @@ main {
   display: block;
 }
 
-/* ページトップボタン */
+/* ページトップボタン本体 */
 .back-to-top {
   position: fixed;
   right: 20px;
   bottom: 20px;
   width: 50px;
   height: 50px;
-  background-color: var(--main-blue);
-  color: #ffffff;
+  background-color: var(--main-blue); /* 最初から色をつける */
+  color: #ffffff; /* 文字色を白に固定 */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  line-height: 1;
-  padding: 0;
   z-index: 9999;
   text-decoration: none;
   font-size: 24px;
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  transition: all 0.3s ease; /* 変化を滑らかに */
 }
 
+/* 矢印（↑）の表示設定 */
 .back-to-top::before {
-  content: none; /* CSS側の矢印を無効化 */
+  content: "↑"; /* noneから「↑」に変更、またはHTML側の文字を使うならここは空でもOK */
+  display: block;
 }
 
+/* マウスを重ねた時（ホバー） */
 .back-to-top:hover {
   background-color: var(--dark-blue);
   transform: translateY(-5px);
+  color: #ffffff; /* ホバー時も白を維持 */
 }
-
 /* 戻るボタン（一覧ページ等） */
 .back-home {
   display: inline-block;
