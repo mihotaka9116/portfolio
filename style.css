@@ -1369,4 +1369,46 @@ main {
     }
 }
 
+/* コンセプト下のグッズ紹介エリア全体 */
+.concept-work-intro {
+    margin-top: 100px; /* 前の要素（テーブル）との間隔を広く（80px〜120pxでお好みで） */
+    margin-bottom: 100px; /* 下方向にも余白を確保 */
+    text-align: center;
+}
+
+/* リード文のスタイル */
+.goods-lead {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 背景の白い帯（枠・影）を消す設定 */
+.concept-goods-item {
+    background: transparent; /* 背景を透明に */
+    box-shadow: none;      /* 影を消す */
+    border-radius: 0;      /* 角丸を解除 */
+    max-width: 800px;                 /* 画像が見えやすいよう少し広めに設定 */
+    margin: 0 auto;
+}
+
+/* 画像の下の余白調整 */
+.concept-goods-item .image-wrap {
+    margin-bottom: 20px;
+}
+
+/* テキストエリアの調整（左寄せをやめて中央寄せに） */
+.concept-goods-item .work-text-content {
+    padding: 20px 0;
+    text-align: center; 
+}
+
+/* 説明文のボーダーを消す（お好みで） */
+.concept-goods-item .work-description {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 10px;
+}
+
 
