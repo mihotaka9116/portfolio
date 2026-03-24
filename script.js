@@ -1,137 +1,107 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.getElementById('js-hamburger');
-  const nav = document.getElementById('js-nav'); // HTML側のIDを確認してください
+    /* =================================================
+       1. ハンバーガーメニュー & スムーズスクロール
+    ================================================= */
+    const hamburger = document.getElementById('js-hamburger');
+    const nav = document.getElementById('js-nav');
 
-  if (hamburger && nav) {
-    // クリックで開閉を切り替え
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      nav.classList.toggle('active');
-    });
+    if (hamburger && nav) {
+        // メニュー開閉
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
 
-    // リンクをクリックしたらメニューを閉じる
-    const links = nav.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        nav.classList.remove('active');
-      });
-    });
-  }
+        // リンクをクリックしたらメニューを閉じてスムーズ移動
+        const links = nav.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
 
-  // スクロールふわっと表示（IntersectionObserver）
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-show');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('.js-fade-up, .fade-in').forEach(el => observer.observe(el));
-});
-
-
-// リンクをクリックしたらメニューを閉じて、その場所へ飛ぶ
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        // メニューを閉じる
-        hamburger.classList.remove('active');
-        nav.classList.remove('active');
-
-        // ページ内リンク（#conceptなど）の場合の処理
-        const href = link.getAttribute('href');
-        if (href.startsWith('#') && href !== '#') {
-          e.preventDefault(); // 一旦デフォルトの動きを止める
-          const target = document.querySelector(href);
-          if (target) {
-            // 到着位置の計算（ヘッダー分を引く）
-            const headerHeight = 80; 
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-            
-            // スムーズに移動
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
+                const href = link.getAttribute('href');
+                // ページ内リンク（#から始まる）かつ別ページへの遷移でない場合
+                if (href.startsWith('#') && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerHeight = 80; // ヘッダーの高さに合わせて調整
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
             });
-          }
-        }
-      });
-    });
+        });
+    }
 
-$(function(){
-  // ページ内リンクをクリックした時の処理
-  $('a[href^="#"]').click(function(){
-    // クリックした要素のhref属性（#about など）を取得
-    var href= $(this).attr("href");
-    // 移動先を取得（# のみの場合は top、それ以外は対象要素）
-    var target = $(href == "#" || href == "" ? 'html' : href);
-    // 移動先を数値（高さ）で取得
-    var position = target.offset().top - 70; // ヘッダーの高さ分（70px）引く
-    
-    // スムーズスクロール（速度 500ミリ秒）
-    $("html, body").animate({scrollTop:position}, 500, "swing");
-    
-    // スマホ用メニューが開いている場合は閉じる
-    $('#js-nav').removeClass('active');
-    $('#js-hamburger').removeClass('active');
-    
-    return false;
-  });
+    /* =================================================
+       2. スクロールふわっと表示 (IntersectionObserver)
+    ================================================= */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-show');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.js-fade-up, .fade-in').forEach(el => observer.observe(el));
+
+    /* =================================================
+       3. Splide.js (実績カルーセル)
+    ================================================= */
+    if (document.querySelector('#work-carousel')) {
+        new Splide('#work-carousel', {
+            type   : 'loop',
+            padding: '5%',
+            gap    : '20px',
+            perPage: 3,
+            autoplay: true,
+            interval: 3000,
+            speed: 800,
+            breakpoints: {
+                1024: { perPage: 2 },
+                640: {
+                    perPage: 1,
+                    padding: '10%',
+                },
+            },
+        }).mount();
+    }
 });
 
-function openWorkModal(imgSrc, title, desc) {
-    $('#modal-img').attr('src', imgSrc);
-    $('#modal-title').text(title);
-    $('#modal-desc').text(desc);
-    $('#work-detail-modal').css('display', 'flex');
-    $('body').css('overflow', 'hidden'); // 背後のスクロールを止める
-}
-
-function closeWorkModal() {
-    $('#work-detail-modal').hide();
-    $('body').css('overflow', 'auto');
-}
-
-// エスケープキーでも閉じられるようにする
-$(document).keydown(function(e) {
-    if (e.keyCode == 27) closeWorkModal();
-});
+/* =================================================
+   4. モーダル制御 (jQuery)
+================================================= */
+// HTMLから `onclick="openWorkModal(...)"` で呼び出すため、
+// document.readyの外側に定義します。
 
 function openWorkModal(imgSrc, title, desc, siteUrl) {
-    // 各要素に中身をセット
     $('#modal-img').attr('src', imgSrc);
     $('#modal-title').text(title);
     $('#modal-desc').text(desc);
-    $('#modal-link').attr('href', siteUrl); // リンク先をセット
+    
+    // サイトURLがある場合はリンクを表示、ない場合は非表示にする
+    if (siteUrl) {
+        $('#modal-link').attr('href', siteUrl).show();
+    } else {
+        $('#modal-link').hide();
+    }
 
-    // モーダルを表示
     $('#work-detail-modal').fadeIn(300).css('display', 'flex');
-    $('body').css('overflow', 'hidden'); // 
+    $('body').css('overflow', 'hidden'); 
 }
 
 function closeWorkModal() {
     $('#work-detail-modal').fadeOut(300);
-    $('body').css('overflow', ''); // 
+    $('body').css('overflow', ''); 
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    new Splide('#work-carousel', {
-        type   : 'loop',        // 無限ループ
-        padding: '5%',         // 両端に次のスライドを少し見せる（「まだある」感を出す）
-        gap    : '20px',       // スライド間の余白
-        perPage: 3,            // PCで表示する枚数
-        autoplay: true,        // 自動再生
-        interval: 3000,        // 再生間隔
-        speed: 800,            // スライドの速度
-        breakpoints: {
-            1024: {
-                perPage: 2,    // タブレットでは2枚
-            },
-            640: {
-                perPage: 1,    // スマホでは1枚
-                padding: '10%',
-            },
-        },
-    }).mount();
+// エスケープキーで閉じる
+$(document).keydown(function(e) {
+    if (e.keyCode == 27) closeWorkModal();
 });
