@@ -1265,7 +1265,7 @@ main {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    aspect-ratio: 16 / 10; /* 少し横長にするとさらに威圧感が減ります */
+    aspect-ratio: 16 / 10;
 }
 
 .work-item img {
@@ -1278,6 +1278,37 @@ main {
 /* 矢印（ナビゲーション）の色をブランドカラーに合わせる例 */
 .splide__arrow svg {
     fill: #E296B5; /* Roseカラー */
+}
+
+/* カルーセル内の画像を表示させるための修正 */
+.splide__slide {
+    height: auto !important;
+}
+
+.work-item {
+    width: 100%;
+    padding: 10px; /* スライド同士の隙間 */
+}
+
+.work-item .image-wrap {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10; /* 画像の比率を固定して枠を作る */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f0f0f0; /* 画像読み込み前のダミー色 */
+}
+
+.work-item .image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 枠いっぱいに隙間なく表示 */
+    display: block;
+}
+
+/* スライダーの矢印やドットの位置調整（お好みで） */
+.splide__arrows {
+    margin-top: 20px;
 }
 
 
