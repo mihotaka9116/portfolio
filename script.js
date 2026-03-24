@@ -114,3 +114,24 @@ function closeWorkModal() {
     $('#work-detail-modal').fadeOut(300);
     $('body').css('overflow', ''); // 
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#work-carousel', {
+        type   : 'loop',        // 無限ループ
+        padding: '5%',         // 両端に次のスライドを少し見せる（「まだある」感を出す）
+        gap    : '20px',       // スライド間の余白
+        perPage: 3,            // PCで表示する枚数
+        autoplay: true,        // 自動再生
+        interval: 3000,        // 再生間隔
+        speed: 800,            // スライドの速度
+        breakpoints: {
+            1024: {
+                perPage: 2,    // タブレットでは2枚
+            },
+            640: {
+                perPage: 1,    // スマホでは1枚
+                padding: '10%',
+            },
+        },
+    }).mount();
+});
