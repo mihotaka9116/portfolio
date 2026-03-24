@@ -771,6 +771,8 @@ main {
   display: block;
 }
 
+/* 14. フッター & ページトップボタン */
+
 /* ページトップボタン本体 */
 .back-to-top {
   position: fixed;
@@ -778,8 +780,8 @@ main {
   bottom: 20px;
   width: 50px;
   height: 50px;
-  background-color: var(--main-blue); /* 最初から色をつける */
-  color: #ffffff; /* 文字色を白に固定 */
+  background-color: var(--main-blue);
+  color: #ffffff !important; /* 強制的に白にする */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -789,21 +791,21 @@ main {
   font-size: 24px;
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease; /* 変化を滑らかに */
+  transition: all 0.3s ease;
 }
 
-/* 矢印（↑）の表示設定 */
+/* 擬似要素の矢印を消す（HTML側の↑を使うため） */
 .back-to-top::before {
-  content: "↑"; /* noneから「↑」に変更、またはHTML側の文字を使うならここは空でもOK */
-  display: block;
+  content: none; 
 }
 
-/* マウスを重ねた時（ホバー） */
+/* ホバー時 */
 .back-to-top:hover {
   background-color: var(--dark-blue);
   transform: translateY(-5px);
-  color: #ffffff; /* ホバー時も白を維持 */
+  color: #ffffff;
 }
+
 /* 戻るボタン（一覧ページ等） */
 .back-home {
   display: inline-block;
