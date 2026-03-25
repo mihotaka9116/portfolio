@@ -771,38 +771,41 @@ main {
   display: block;
 }
 
-/* ページトップボタン本体 */
+/* 14. フッター & ページトップボタン */
+.pagetop-area {
+  position: relative;
+}
+
 .back-to-top {
   position: fixed;
   right: 20px;
   bottom: 20px;
   width: 50px;
   height: 50px;
-  background-color: var(--main-blue); /* 最初から色をつける */
-  color: #ffffff; /* 文字色を白に固定 */
+  background-color: var(--main-blue);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
   text-decoration: none;
-  font-size: 24px;
+  /* 矢印を白く、太く、1つにする設定 */
+  color: #ffffff; 
+  font-size: 28px;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease; /* 変化を滑らかに */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
-/* 矢印（↑）の表示設定 */
+/* 疑似要素での矢印指定を解除（二重表示の防止） */
 .back-to-top::before {
-  content: "↑"; /* noneから「↑」に変更、またはHTML側の文字を使うならここは空でもOK */
-  display: block;
+  content: none; 
 }
 
-/* マウスを重ねた時（ホバー） */
 .back-to-top:hover {
   background-color: var(--dark-blue);
   transform: translateY(-5px);
-  color: #ffffff; /* ホバー時も白を維持 */
+  color: #ffffff;
 }
 /* 戻るボタン（一覧ページ等） */
 .back-home {
