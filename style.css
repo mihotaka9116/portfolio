@@ -776,36 +776,42 @@ main {
   position: relative;
 }
 
+/* 14. フッター & ページトップボタン */
 .back-to-top {
   position: fixed;
   right: 20px;
   bottom: 20px;
   width: 50px;
   height: 50px;
-  background-color: var(--main-blue);
+  background-color: var(--main-blue); /* ボタンの背景色 */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
   text-decoration: none;
-  /* 矢印を白く、太く、1つにする設定 */
-  color: #ffffff; 
-  font-size: 28px;
+  
+  /* 最初から矢印を白く表示するための設定 */
+  color: #ffffff; /* 優先的に白にする */
+  font-size: 24px;
   font-weight: bold;
+  line-height: 1;
+  
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
-/* 疑似要素での矢印指定を解除（二重表示の防止） */
-.back-to-top::before {
-  content: none; 
+/* 疑似要素（::beforeなど）で出していた余計な矢印を完全に消去 */
+.back-to-top::before,
+.back-to-top::after {
+  content: none;
 }
 
+/* マウスを重ねた時の動作 */
 .back-to-top:hover {
   background-color: var(--dark-blue);
   transform: translateY(-5px);
-  color: #ffffff;
+  color: #ffffff; /* ホバー時も白を維持 */
 }
 /* 戻るボタン（一覧ページ等） */
 .back-home {
