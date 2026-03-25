@@ -778,7 +778,7 @@ main {
   bottom: 20px;
   width: 50px;
   height: 50px;
-  background-color: var(--main-blue); /* ボタンの背景色（紺色） */
+  background-color: var(--main-blue);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -786,29 +786,29 @@ main {
   z-index: 9999;
   text-decoration: none;
   
-  /* --- ここが重要：最初から矢印を白く見せる設定 --- */
-  color: #ffffff;   /* 強制的に白に指定 */
-  font-size: 24px;             /* 矢印の大きさ */
-  font-weight: bold;           /* 矢印を太くして視認性アップ */
-  line-height: 1;              /* 高さを固定して中央配置を安定させる */
-  /* ------------------------------------------ */
   
+  color: #ffffff !important; 
+  /* ↑↑↑ これで body の紺色指定を打ち消して「白」を強制する ↑↑↑ */
+
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
-/* 以前のコードで矢印を消していた疑似要素を念のため完全に無効化 */
+/* 疑似要素を完全に無効化 */
 .back-to-top::before,
 .back-to-top::after {
-  display: none;
-  content: none;
+  display: none !important;
+  content: none !important;
 }
 
 /* マウスを重ねた時の動作 */
 .back-to-top:hover {
-  background-color: var(--dark-blue); /* ホバーで少し暗い紺色に */
-  transform: translateY(-5px);        /* 少し上に浮くアニメーション */
-  color: #ffffff;          /* ホバー中も白を維持 */
+  background-color: var(--dark-blue);
+  transform: translateY(-5px);
+  color: #ffffff !important; /* ホバー時も念のため白を強制 */
 }
 /* 戻るボタン（一覧ページ等） */
 .back-home {
