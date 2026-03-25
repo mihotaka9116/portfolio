@@ -1344,3 +1344,37 @@ main {
   margin-bottom: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* ボタンの親要素の整列 */
+.shop-link-container {
+  text-align: center;
+  margin: 40px 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+}
+
+.shop-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* ボタン本体のデザイン */
+.btn-mercari {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #002366; /* ロイヤルブルー
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px; 
+  transition: all 0.3s ease; /* 動きを滑らかにする */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影で立体感を出す */
+}
+
+/* マウスを乗せた時の動き
+.btn-mercari:hover {
+  background-color: #003aab; /* 少し明るいブルー
+  transform: translateY(-3px); /* 少し上に浮き上がる */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 影を強く
+  opacity: 0.9;
+}
